@@ -1,15 +1,22 @@
 #!/usr/bin/env python3
 """
-PÁGINA 7: INSTRUMENTOS AVALIATIVOS
-Trilhas, avaliações, simulados - quem usou, quando, onde
+PAGINA 7: INSTRUMENTOS AVALIATIVOS
+Trilhas, avaliacoes, simulados, tarefas - com filtro de periodo e rankings
 """
 
 import streamlit as st
 import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
 from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import carregar_fato_aulas, filtrar_ate_hoje
+from utils import (
+    carregar_fato_aulas, filtrar_ate_hoje, filtrar_por_periodo,
+    calcular_semana_letiva, calcular_trimestre, _hoje,
+    PERIODOS_OPCOES, SERIES_FUND_II, SERIES_EM,
+)
+from config_cores import CORES_UNIDADES, CORES_SERIES, ORDEM_SERIES
 
 st.set_page_config(page_title="Instrumentos Avaliativos", page_icon="📝", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -17,249 +24,396 @@ if not check_password():
     st.stop()
 logout_button()
 
-st.markdown("""
-<style>
-    .info-box {
-        background: #e3f2fd;
-        border-left: 4px solid #2196f3;
-        padding: 15px;
-        margin: 10px 0;
-        border-radius: 4px;
-    }
-    .instrumento-card {
-        background: #f5f5f5;
-        border-left: 4px solid #4caf50;
-        padding: 15px;
-        margin: 10px 0;
-        border-radius: 4px;
-    }
-</style>
-""", unsafe_allow_html=True)
+
+def busca_instrumento(texto, palavras):
+    if pd.isna(texto):
+        return False
+    texto_lower = str(texto).lower()
+    return any(p in texto_lower for p in palavras)
 
 
 def main():
-    st.title("📝 Instrumentos Avaliativos SAE")
-    st.markdown("**Trilhas, avaliações, simulados - acompanhamento de uso**")
-
-    # ========== EXPLICAÇÃO ==========
-    st.markdown("---")
-    st.header("📚 O que são Instrumentos Avaliativos?")
-
-    st.markdown("""
-    <div class="info-box">
-        Instrumentos avaliativos são as diferentes formas de verificar e acompanhar
-        o aprendizado dos alunos. O SAE oferece diversos instrumentos que devem ser
-        utilizados de forma complementar.
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Lista de instrumentos
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.markdown("""
-        <div class="instrumento-card">
-            <h3>🖥️ Trilhas Digitais</h3>
-            <p><strong>O que é:</strong> Atividades interativas no portal SAE Digital</p>
-            <p><strong>Frequência:</strong> Ao final de cada capítulo</p>
-            <p><strong>Como aplicar:</strong> Aluno acessa portal, faz atividades, sistema registra</p>
-            <p><strong>Onde verificar:</strong> Portal SAE ou registro do professor</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="instrumento-card">
-            <h3>📋 Avaliações Escritas</h3>
-            <p><strong>O que é:</strong> Provas tradicionais por componente</p>
-            <p><strong>Frequência:</strong> 2 rodadas por trimestre (A1 e A2)</p>
-            <p><strong>Como aplicar:</strong> Em sala, com questões do banco SAE ou próprias</p>
-            <p><strong>Onde verificar:</strong> SIGA - registro de avaliação</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="instrumento-card">
-            <h3>📝 Simulados</h3>
-            <p><strong>O que é:</strong> Avaliação no formato ENEM/vestibular</p>
-            <p><strong>Frequência:</strong> 1 por trimestre (mensal no EM)</p>
-            <p><strong>Como aplicar:</strong> Dia específico, todas as disciplinas</p>
-            <p><strong>Onde verificar:</strong> Calendário escolar</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with col2:
-        st.markdown("""
-        <div class="instrumento-card">
-            <h3>📖 Tarefas de Casa</h3>
-            <p><strong>O que é:</strong> Exercícios do livro para fazer em casa</p>
-            <p><strong>Frequência:</strong> Diárias ou após cada aula</p>
-            <p><strong>Como aplicar:</strong> Professor indica página/exercícios</p>
-            <p><strong>Onde verificar:</strong> SIGA - campo "tarefa"</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="instrumento-card">
-            <h3>🙋 Participação</h3>
-            <p><strong>O que é:</strong> Engajamento do aluno nas aulas</p>
-            <p><strong>Frequência:</strong> Contínua</p>
-            <p><strong>Como avaliar:</strong> Observação, perguntas, trabalhos em grupo</p>
-            <p><strong>Onde registrar:</strong> Observações do professor</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("""
-        <div class="instrumento-card">
-            <h3>🎨 Projetos</h3>
-            <p><strong>O que é:</strong> Trabalhos sobre temas específicos</p>
-            <p><strong>Frequência:</strong> Por unidade temática ou trimestre</p>
-            <p><strong>Como aplicar:</strong> Individual ou em grupo</p>
-            <p><strong>Onde verificar:</strong> SIGA - menção a projeto no conteúdo</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    # ========== TABELA DE PESO ==========
-    st.markdown("---")
-    st.header("⚖️ Peso Sugerido dos Instrumentos")
-
-    pesos = pd.DataFrame({
-        'Instrumento': ['Avaliações Escritas', 'Trilhas Digitais', 'Simulados',
-                       'Tarefas de Casa', 'Participação', 'Projetos'],
-        'Peso Sugerido': ['40%', '15%', '15%', '10%', '10%', '10%'],
-        'Justificativa': [
-            'Principal forma de verificação formal',
-            'Feedback imediato e acompanhamento digital',
-            'Preparação para vestibular',
-            'Reforço e prática contínua',
-            'Engajamento e habilidades socioemocionais',
-            'Aplicação prática e interdisciplinaridade'
-        ]
-    })
-
-    st.dataframe(pesos, use_container_width=True, hide_index=True)
-
-    # ========== VERIFICAÇÃO NOS DADOS ==========
-    st.markdown("---")
-    st.header("🔍 Verificação nos Registros do SIGA")
+    st.title("📝 Instrumentos Avaliativos")
+    st.markdown("**Rankings, tarefas, avaliacoes e projetos - com filtro de periodo**")
 
     df = carregar_fato_aulas()
+    if df.empty:
+        st.error("Dados nao carregados.")
+        return
+
     df = filtrar_ate_hoje(df)
+    hoje = _hoje()
+    semana_atual = calcular_semana_letiva(hoje)
+    trimestre = calcular_trimestre(semana_atual)
 
-    if not df.empty:
+    # ========== FILTROS GLOBAIS ==========
+    col_f1, col_f2, col_f3, col_f4 = st.columns(4)
 
-        st.markdown("""
-        <div class="info-box">
-            Análise dos registros buscando menções aos instrumentos avaliativos.
-        </div>
-        """, unsafe_allow_html=True)
+    with col_f1:
+        periodo_sel = st.selectbox("Periodo:", PERIODOS_OPCOES, key='periodo_instr')
 
-        # Filtros
-        col_f1, col_f2 = st.columns(2)
-        with col_f1:
-            unidades = ['TODAS'] + sorted(df['unidade'].unique().tolist())
-            user_unit = get_user_unit()
-            default_un = unidades.index(user_unit) if user_unit and user_unit in unidades else 0
-            un_sel = st.selectbox("Unidade:", unidades, index=default_un)
-        with col_f2:
-            disciplinas = ['TODAS'] + sorted(df['disciplina'].dropna().unique().tolist())
-            disc_sel = st.selectbox("Disciplina:", disciplinas)
+    with col_f2:
+        opcoes_un = ['TODAS'] + sorted(df['unidade'].dropna().unique().tolist())
+        user_unit = get_user_unit()
+        default_un = opcoes_un.index(user_unit) if user_unit and user_unit in opcoes_un else 0
+        un_sel = st.selectbox("Unidade:", opcoes_un, index=default_un)
 
-        # Aplica filtros
-        df_filtrado = df.copy()
-        if un_sel != 'TODAS':
-            df_filtrado = df_filtrado[df_filtrado['unidade'] == un_sel]
-        if disc_sel != 'TODAS':
-            df_filtrado = df_filtrado[df_filtrado['disciplina'] == disc_sel]
+    with col_f3:
+        segmento = st.radio("Segmento:", ['Todos', 'Fund II', 'EM'], horizontal=True)
 
-        # Busca menções
-        def busca_instrumento(texto, palavras):
-            if pd.isna(texto):
-                return False
-            texto_lower = str(texto).lower()
-            return any(p in texto_lower for p in palavras)
+    with col_f4:
+        disciplinas = ['TODAS'] + sorted(df['disciplina'].dropna().unique().tolist())
+        disc_sel = st.selectbox("Disciplina:", disciplinas)
 
-        # Conta menções
-        trilhas = df_filtrado[df_filtrado['conteudo'].apply(
-            lambda x: busca_instrumento(x, ['trilha', 'digital', 'portal sae']))
-        ]
-        avaliacoes = df_filtrado[df_filtrado['conteudo'].apply(
-            lambda x: busca_instrumento(x, ['avaliação', 'prova', 'teste', 'a1', 'a2']))
-        ]
-        simulados = df_filtrado[df_filtrado['conteudo'].apply(
-            lambda x: busca_instrumento(x, ['simulado', 'enem']))
-        ]
-        tarefas = df_filtrado[df_filtrado['tarefa'].notna() & (df_filtrado['tarefa'] != '')]
-        projetos = df_filtrado[df_filtrado['conteudo'].apply(
-            lambda x: busca_instrumento(x, ['projeto', 'trabalho']))
-        ]
+    # Aplica filtros
+    df_f = filtrar_por_periodo(df, periodo_sel)
+    if un_sel != 'TODAS':
+        df_f = df_f[df_f['unidade'] == un_sel]
+    if segmento == 'Fund II':
+        df_f = df_f[df_f['serie'].isin(SERIES_FUND_II)]
+    elif segmento == 'EM':
+        df_f = df_f[df_f['serie'].isin(SERIES_EM)]
+    if disc_sel != 'TODAS':
+        df_f = df_f[df_f['disciplina'] == disc_sel]
 
-        # Mostra resultados
-        col_r1, col_r2, col_r3, col_r4, col_r5 = st.columns(5)
+    # Indica periodo ativo
+    st.caption(f"Mostrando: **{periodo_sel}** | {len(df_f):,} registros")
 
-        with col_r1:
-            st.metric("🖥️ Trilhas", len(trilhas))
-        with col_r2:
-            st.metric("📋 Avaliações", len(avaliacoes))
-        with col_r3:
-            st.metric("📝 Simulados", len(simulados))
-        with col_r4:
-            st.metric("📖 Tarefas", len(tarefas))
-        with col_r5:
-            st.metric("🎨 Projetos", len(projetos))
+    # ========== DETECCAO DE INSTRUMENTOS ==========
+    df_f['tem_tarefa'] = df_f['tarefa'].notna() & ~df_f['tarefa'].isin(['.', ',', '-', ''])
+    df_f['tipo_instrumento'] = 'Aula Regular'
 
-        # Detalhamento
-        st.subheader("📊 Detalhamento por Instrumento")
+    mask_trilha = df_f['conteudo'].apply(lambda x: busca_instrumento(x, ['trilha', 'digital', 'portal sae', 'oda']))
+    mask_avaliacao = df_f['conteudo'].apply(lambda x: busca_instrumento(x, ['avaliação', 'avaliaç', 'prova', 'teste']))
+    mask_simulado = df_f['conteudo'].apply(lambda x: busca_instrumento(x, ['simulado', 'enem']))
+    mask_projeto = df_f['conteudo'].apply(lambda x: busca_instrumento(x, ['projeto', 'trabalho', 'seminário', 'apresentação']))
+    mask_correcao = df_f['conteudo'].apply(lambda x: busca_instrumento(x, ['correção', 'correcao', 'gabarito', 'revisão']))
 
-        instrumento_sel = st.selectbox("Selecione o instrumento para ver detalhes:",
-                                       ['Trilhas', 'Avaliações', 'Simulados', 'Tarefas', 'Projetos'])
+    df_f.loc[mask_trilha, 'tipo_instrumento'] = 'Trilha Digital'
+    df_f.loc[mask_avaliacao, 'tipo_instrumento'] = 'Avaliacao'
+    df_f.loc[mask_simulado, 'tipo_instrumento'] = 'Simulado'
+    df_f.loc[mask_projeto, 'tipo_instrumento'] = 'Projeto/Trabalho'
+    df_f.loc[mask_correcao, 'tipo_instrumento'] = 'Correcao/Revisao'
 
-        if instrumento_sel == 'Trilhas' and len(trilhas) > 0:
-            st.dataframe(trilhas[['data', 'unidade', 'disciplina', 'professor', 'conteudo']].head(50),
-                        use_container_width=True, hide_index=True)
-        elif instrumento_sel == 'Avaliações' and len(avaliacoes) > 0:
-            st.dataframe(avaliacoes[['data', 'unidade', 'disciplina', 'professor', 'conteudo']].head(50),
-                        use_container_width=True, hide_index=True)
-        elif instrumento_sel == 'Simulados' and len(simulados) > 0:
-            st.dataframe(simulados[['data', 'unidade', 'disciplina', 'professor', 'conteudo']].head(50),
-                        use_container_width=True, hide_index=True)
-        elif instrumento_sel == 'Tarefas' and len(tarefas) > 0:
-            st.dataframe(tarefas[['data', 'unidade', 'disciplina', 'professor', 'tarefa']].head(50),
-                        use_container_width=True, hide_index=True)
-        elif instrumento_sel == 'Projetos' and len(projetos) > 0:
-            st.dataframe(projetos[['data', 'unidade', 'disciplina', 'professor', 'conteudo']].head(50),
-                        use_container_width=True, hide_index=True)
-        else:
-            st.info(f"Nenhum registro de {instrumento_sel} encontrado com os filtros selecionados.")
-
-        # Quem mais usa
-        st.subheader("🏆 Professores que Mais Registram Tarefas")
-        if len(tarefas) > 0:
-            ranking = tarefas.groupby(['professor', 'unidade']).size().reset_index(name='tarefas')
-            if not ranking.empty:
-                ranking = ranking.sort_values('tarefas', ascending=False).head(10)
-            st.dataframe(ranking, use_container_width=True, hide_index=True)
-
-    else:
-        st.warning("Dados do SIGA não carregados.")
-
-    # ========== CALENDÁRIO DE AVALIAÇÕES ==========
+    # ========== METRICAS PRINCIPAIS ==========
     st.markdown("---")
-    st.header("📅 Calendário de Avaliações 2026")
 
-    calendario = pd.DataFrame({
-        'Trimestre': ['1º', '1º', '1º', '1º', '2º', '2º', '2º', '3º', '3º', '3º', '3º'],
-        'Avaliação': ['A1.1-A1.2', 'A1.3-A1.4', 'A1.5-A2', 'Simulado + Rec', 'A1', 'A2', 'Simulado + Rec',
-                     'A1', 'A2', 'Final', 'Simulado'],
-        'Semana': ['7', '8', '11-12', '13-14', '19-20', '24-25', '27-28', '32-33', '37-38', '40', '41'],
-        'Período Aproximado': ['09-13/Mar', '16-20/Mar', '06-17/Abr', '20/Abr-08/Mai',
-                              '15-26/Jun', '03-14/Ago', '24-28/Ago',
-                              '28/Set-09/Out', '02-13/Nov', '30/Nov-04/Dez', '07-11/Dez'],
-        'Conteúdo': ['Caps 1-2', 'Cap 3', 'Caps 4-6', '1º Tri completo',
-                    'Caps 7-8', 'Cap 9', '2º Tri completo',
-                    'Caps 10-11', 'Cap 12', 'Ano completo', 'Ano completo']
-    })
+    total = len(df_f)
+    com_tarefa = df_f['tem_tarefa'].sum()
+    pct_tarefa = (com_tarefa / total * 100) if total > 0 else 0
 
-    st.dataframe(calendario, use_container_width=True, hide_index=True)
+    col1, col2, col3, col4, col5, col6 = st.columns(6)
+    with col1:
+        st.metric("Total Aulas", f"{total:,}")
+    with col2:
+        st.metric("Com Tarefa", f"{com_tarefa:,}", delta=f"{pct_tarefa:.0f}%")
+    with col3:
+        st.metric("Trilhas", mask_trilha.sum())
+    with col4:
+        st.metric("Avaliacoes", mask_avaliacao.sum())
+    with col5:
+        st.metric("Simulados", mask_simulado.sum())
+    with col6:
+        st.metric("Projetos", mask_projeto.sum())
+
+    # ========== TABS ==========
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+        "🏆 Rankings",
+        "📊 Distribuicao",
+        "📅 Calendario de Avaliacoes",
+        "📋 Detalhamento",
+        "📈 Evolucao"
+    ])
+
+    # ========== TAB 1: RANKINGS ==========
+    with tab1:
+        st.header("🏆 Rankings de Professores")
+
+        visao = st.radio("Visao do Ranking:", ['Tarefas', 'Avaliacoes', 'Trilhas', 'Projetos', 'Score Geral'],
+                         horizontal=True)
+
+        if visao == 'Tarefas':
+            st.subheader("Professores que Mais Registram Tarefas")
+            df_tarefa = df_f[df_f['tem_tarefa']]
+            if len(df_tarefa) > 0:
+                ranking = df_tarefa.groupby(['professor', 'unidade']).agg(
+                    tarefas=('tarefa', 'count'),
+                    disciplinas=('disciplina', 'nunique'),
+                    turmas=('turma', 'nunique'),
+                ).reset_index().sort_values('tarefas', ascending=False)
+
+                # Top 15
+                top = ranking.head(15)
+                st.dataframe(top.rename(columns={
+                    'professor': 'Professor', 'unidade': 'Unidade',
+                    'tarefas': 'Tarefas', 'disciplinas': 'Disciplinas', 'turmas': 'Turmas',
+                }), use_container_width=True, hide_index=True)
+
+                fig = px.bar(top, x='professor', y='tarefas', color='unidade',
+                            color_discrete_map=CORES_UNIDADES,
+                            title=f'Top 15 - Tarefas Registradas ({periodo_sel})')
+                fig.update_xaxes(tickangle=45)
+                st.plotly_chart(fig, use_container_width=True)
+
+                # Bottom 10 (quem menos registra)
+                st.subheader("⚠️ Professores com Menos Tarefas")
+                bottom = ranking.tail(10).sort_values('tarefas')
+                st.dataframe(bottom.rename(columns={
+                    'professor': 'Professor', 'unidade': 'Unidade',
+                    'tarefas': 'Tarefas', 'disciplinas': 'Disciplinas', 'turmas': 'Turmas',
+                }), use_container_width=True, hide_index=True)
+            else:
+                st.info("Nenhuma tarefa registrada no periodo selecionado.")
+
+        elif visao == 'Avaliacoes':
+            st.subheader("Mencoes a Avaliacoes por Professor")
+            df_aval = df_f[mask_avaliacao]
+            if len(df_aval) > 0:
+                ranking = df_aval.groupby(['professor', 'unidade']).size().reset_index(name='mencoes')
+                ranking = ranking.sort_values('mencoes', ascending=False)
+                st.dataframe(ranking.head(15).rename(columns={
+                    'professor': 'Professor', 'unidade': 'Unidade', 'mencoes': 'Mencoes a Avaliacao',
+                }), use_container_width=True, hide_index=True)
+            else:
+                st.info("Nenhuma mencao a avaliacao no periodo.")
+
+        elif visao == 'Trilhas':
+            st.subheader("Uso de Trilhas Digitais SAE")
+            df_trilha = df_f[mask_trilha]
+            if len(df_trilha) > 0:
+                ranking = df_trilha.groupby(['professor', 'unidade', 'disciplina']).size().reset_index(name='mencoes')
+                ranking = ranking.sort_values('mencoes', ascending=False)
+                st.dataframe(ranking.head(15).rename(columns={
+                    'professor': 'Professor', 'unidade': 'Unidade',
+                    'disciplina': 'Disciplina', 'mencoes': 'Mencoes a Trilhas',
+                }), use_container_width=True, hide_index=True)
+            else:
+                st.info("Nenhuma mencao a trilhas no periodo.")
+
+        elif visao == 'Projetos':
+            st.subheader("Projetos e Trabalhos")
+            df_proj = df_f[mask_projeto]
+            if len(df_proj) > 0:
+                ranking = df_proj.groupby(['professor', 'unidade']).size().reset_index(name='projetos')
+                ranking = ranking.sort_values('projetos', ascending=False)
+                st.dataframe(ranking.head(15).rename(columns={
+                    'professor': 'Professor', 'unidade': 'Unidade', 'projetos': 'Projetos',
+                }), use_container_width=True, hide_index=True)
+            else:
+                st.info("Nenhuma mencao a projetos no periodo.")
+
+        else:  # Score Geral
+            st.subheader("Score Geral de Instrumentos Avaliativos")
+            st.markdown("Score = Tarefas (40pts) + Avaliacoes (25pts) + Trilhas (20pts) + Projetos (15pts)")
+
+            scores = []
+            for prof in df_f['professor'].dropna().unique():
+                df_p = df_f[df_f['professor'] == prof]
+                un = df_p['unidade'].iloc[0]
+                total_p = len(df_p)
+                if total_p == 0:
+                    continue
+
+                n_tarefa = df_p['tem_tarefa'].sum()
+                n_aval = df_p['conteudo'].apply(lambda x: busca_instrumento(x, ['avaliação', 'avaliaç', 'prova', 'teste'])).sum()
+                n_trilha = df_p['conteudo'].apply(lambda x: busca_instrumento(x, ['trilha', 'digital', 'portal sae'])).sum()
+                n_proj = df_p['conteudo'].apply(lambda x: busca_instrumento(x, ['projeto', 'trabalho', 'seminário'])).sum()
+
+                # Score normalizado
+                score_tarefa = min(40, (n_tarefa / total_p) * 40)
+                score_aval = min(25, (n_aval / total_p) * 100)
+                score_trilha = min(20, (n_trilha / total_p) * 100)
+                score_proj = min(15, (n_proj / total_p) * 60)
+
+                scores.append({
+                    'Professor': prof,
+                    'Unidade': un,
+                    'Aulas': total_p,
+                    'Tarefas': n_tarefa,
+                    'Avaliacoes': n_aval,
+                    'Trilhas': n_trilha,
+                    'Projetos': n_proj,
+                    'Score': round(score_tarefa + score_aval + score_trilha + score_proj),
+                })
+
+            df_scores = pd.DataFrame(scores).sort_values('Score', ascending=False)
+            st.dataframe(df_scores.head(20), use_container_width=True, hide_index=True)
+
+    # ========== TAB 2: DISTRIBUICAO ==========
+    with tab2:
+        st.header("📊 Distribuicao de Instrumentos")
+
+        # Por tipo
+        tipo_counts = df_f['tipo_instrumento'].value_counts().reset_index()
+        tipo_counts.columns = ['Tipo', 'Quantidade']
+
+        col1, col2 = st.columns(2)
+        with col1:
+            fig = px.pie(tipo_counts, values='Quantidade', names='Tipo',
+                        title=f'Tipos de Atividade ({periodo_sel})')
+            st.plotly_chart(fig, use_container_width=True)
+
+        with col2:
+            # Taxa de tarefa por unidade
+            tarefa_un = df_f.groupby('unidade').agg(
+                total=('conteudo', 'count'),
+                com_tarefa=('tem_tarefa', 'sum'),
+            ).reset_index()
+            tarefa_un['pct'] = (tarefa_un['com_tarefa'] / tarefa_un['total'] * 100).round(1)
+
+            fig = px.bar(tarefa_un, x='unidade', y='pct', color='unidade',
+                        color_discrete_map=CORES_UNIDADES,
+                        title='% de Aulas com Tarefa por Unidade')
+            fig.add_hline(y=50, line_dash="dash", line_color="green", annotation_text="Meta 50%")
+            st.plotly_chart(fig, use_container_width=True)
+
+        # Por serie
+        st.subheader("Taxa de Tarefa por Serie")
+        tarefa_serie = df_f.groupby('serie').agg(
+            total=('conteudo', 'count'),
+            com_tarefa=('tem_tarefa', 'sum'),
+        ).reset_index()
+        tarefa_serie['pct'] = (tarefa_serie['com_tarefa'] / tarefa_serie['total'] * 100).round(1)
+        tarefa_serie['ordem'] = tarefa_serie['serie'].apply(
+            lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99)
+        tarefa_serie = tarefa_serie.sort_values('ordem')
+
+        fig = px.bar(tarefa_serie, x='serie', y='pct', color='serie',
+                    color_discrete_map=CORES_SERIES,
+                    title='% de Aulas com Tarefa por Serie')
+        fig.add_hline(y=50, line_dash="dash", line_color="green")
+        fig.update_layout(showlegend=False)
+        st.plotly_chart(fig, use_container_width=True)
+
+        # Por disciplina
+        st.subheader("Taxa de Tarefa por Disciplina")
+        tarefa_disc = df_f.groupby('disciplina').agg(
+            total=('conteudo', 'count'),
+            com_tarefa=('tem_tarefa', 'sum'),
+        ).reset_index()
+        tarefa_disc['pct'] = (tarefa_disc['com_tarefa'] / tarefa_disc['total'] * 100).round(1)
+        tarefa_disc = tarefa_disc.sort_values('pct', ascending=False)
+
+        fig = px.bar(tarefa_disc, x='disciplina', y='pct',
+                    title='% de Aulas com Tarefa por Disciplina',
+                    color_discrete_sequence=['#1976D2'])
+        fig.add_hline(y=50, line_dash="dash", line_color="green")
+        fig.update_xaxes(tickangle=45)
+        st.plotly_chart(fig, use_container_width=True)
+
+    # ========== TAB 3: CALENDARIO ==========
+    with tab3:
+        st.header("📅 Calendario de Avaliacoes 2026")
+
+        calendario = pd.DataFrame({
+            'Trimestre': ['1o', '1o', '1o', '1o', '2o', '2o', '2o', '3o', '3o', '3o', '3o'],
+            'Avaliacao': ['A1.1-A1.2', 'A1.3-A1.4', 'A1.5-A2', 'Simulado + Rec',
+                         'A1', 'A2', 'Simulado + Rec',
+                         'A1', 'A2', 'Final', 'Simulado'],
+            'Semanas': ['7-8', '8', '11-12', '13-14', '19-20', '24-25', '27-28', '32-33', '37-38', '40', '41'],
+            'Periodo': ['09-13/Mar', '16-20/Mar', '06-17/Abr', '20/Abr-08/Mai',
+                       '15-26/Jun', '03-14/Ago', '24-28/Ago',
+                       '28/Set-09/Out', '02-13/Nov', '30/Nov-04/Dez', '07-11/Dez'],
+            'Conteudo SAE': ['Caps 1-2', 'Cap 3', 'Caps 4-6', '1o Tri completo',
+                            'Caps 7-8', 'Cap 9', '2o Tri completo',
+                            'Caps 10-11', 'Cap 12', 'Ano completo', 'Ano completo']
+        })
+
+        # Destaca a avaliacao atual
+        st.dataframe(calendario, use_container_width=True, hide_index=True)
+
+        # Proxima avaliacao
+        avaliacoes_semanas = [(7, 'A1.1-A1.2'), (8, 'A1.3-A1.4'), (11, 'A1.5-A2'), (13, 'Simulado + Rec'),
+                              (19, 'A1'), (24, 'A2'), (27, 'Simulado + Rec'),
+                              (32, 'A1'), (37, 'A2'), (40, 'Final'), (41, 'Simulado')]
+
+        prox = None
+        for sem, nome in avaliacoes_semanas:
+            if sem > semana_atual:
+                prox = (sem, nome)
+                break
+
+        if prox:
+            dias_ate = (prox[0] - semana_atual) * 7
+            st.info(f"Proxima avaliacao: **{prox[1]}** (Semana {prox[0]}, ~{dias_ate} dias)")
+
+    # ========== TAB 4: DETALHAMENTO ==========
+    with tab4:
+        st.header("📋 Detalhamento de Registros")
+
+        tipo_det = st.selectbox("Tipo de instrumento:", [
+            'Todos', 'Aula Regular', 'Trilha Digital', 'Avaliacao',
+            'Simulado', 'Projeto/Trabalho', 'Correcao/Revisao', 'Com Tarefa'
+        ])
+
+        df_det = df_f.copy()
+        if tipo_det == 'Com Tarefa':
+            df_det = df_det[df_det['tem_tarefa']]
+        elif tipo_det != 'Todos':
+            df_det = df_det[df_det['tipo_instrumento'] == tipo_det]
+
+        df_det = df_det.sort_values('data', ascending=False)
+
+        colunas = ['data', 'unidade', 'serie', 'disciplina', 'professor', 'conteudo', 'tarefa']
+        df_show = df_det[colunas].copy()
+        df_show['data'] = df_show['data'].dt.strftime('%d/%m/%Y')
+
+        st.caption(f"{len(df_det):,} registros encontrados")
+        st.dataframe(df_show.head(100), use_container_width=True, hide_index=True, height=500)
+
+    # ========== TAB 5: EVOLUCAO ==========
+    with tab5:
+        st.header("📈 Evolucao Semanal")
+
+        evolucao = df.copy()
+        evolucao = filtrar_ate_hoje(evolucao)
+        evolucao['tem_tarefa'] = evolucao['tarefa'].notna() & ~evolucao['tarefa'].isin(['.', ',', '-', ''])
+
+        semanal = evolucao.groupby('semana_letiva').agg(
+            total=('conteudo', 'count'),
+            com_tarefa=('tem_tarefa', 'sum'),
+        ).reset_index()
+        semanal['pct_tarefa'] = (semanal['com_tarefa'] / semanal['total'] * 100).round(1)
+
+        fig = go.Figure()
+        fig.add_trace(go.Bar(
+            x=semanal['semana_letiva'], y=semanal['total'],
+            name='Total Aulas', marker_color='#90CAF9',
+        ))
+        fig.add_trace(go.Bar(
+            x=semanal['semana_letiva'], y=semanal['com_tarefa'],
+            name='Com Tarefa', marker_color='#1976D2',
+        ))
+        fig.add_trace(go.Scatter(
+            x=semanal['semana_letiva'], y=semanal['pct_tarefa'],
+            name='% Tarefa', yaxis='y2',
+            line=dict(color='#E53935', width=3),
+            mode='lines+markers',
+        ))
+        fig.update_layout(
+            title='Aulas e Tarefas por Semana Letiva',
+            xaxis_title='Semana', yaxis_title='Quantidade',
+            yaxis2=dict(title='% com Tarefa', overlaying='y', side='right', range=[0, 100]),
+            barmode='overlay', height=450,
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+        # Evolucao por unidade
+        if un_sel == 'TODAS':
+            st.subheader("Evolucao por Unidade")
+            sem_un = evolucao.groupby(['semana_letiva', 'unidade']).agg(
+                com_tarefa=('tem_tarefa', 'sum'),
+                total=('conteudo', 'count'),
+            ).reset_index()
+            sem_un['pct'] = (sem_un['com_tarefa'] / sem_un['total'] * 100).round(1)
+
+            fig = px.line(sem_un, x='semana_letiva', y='pct', color='unidade',
+                         color_discrete_map=CORES_UNIDADES,
+                         title='% de Aulas com Tarefa por Unidade/Semana',
+                         labels={'semana_letiva': 'Semana', 'pct': '% Tarefa'})
+            fig.add_hline(y=50, line_dash="dash", line_color="green")
+            st.plotly_chart(fig, use_container_width=True)
+
 
 if __name__ == "__main__":
     main()

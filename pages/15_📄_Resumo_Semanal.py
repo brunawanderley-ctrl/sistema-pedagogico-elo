@@ -14,7 +14,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import (
     calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre,
     carregar_fato_aulas, carregar_horario_esperado, carregar_progressao_sae,
-    filtrar_ate_hoje, _hoje, DATA_DIR, UNIDADES_NOMES, ORDEM_SERIES,
+    filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES,
+    _hoje, DATA_DIR, UNIDADES_NOMES, ORDEM_SERIES,
     SERIES_FUND_II, SERIES_EM, INICIO_ANO_LETIVO
 )
 from auth import check_password, logout_button, get_user_unit
@@ -258,7 +259,7 @@ def main():
 
     df_aulas = filtrar_ate_hoje(df_aulas)
 
-    # Filtro de unidade (pre-seleciona baseado no usuario logado)
+    # Filtro de unidade e periodo
     user_unit = get_user_unit()
     unidades = sorted(df_aulas['unidade'].unique())
     opcoes = ['Toda a Rede'] + unidades
@@ -267,11 +268,15 @@ def main():
     if user_unit and user_unit in unidades:
         default_idx = opcoes.index(user_unit)
 
-    col_cfg1, col_cfg2 = st.columns([2, 1])
+    col_cfg1, col_cfg2, col_cfg3 = st.columns([2, 1, 1])
     with col_cfg1:
         un_sel = st.selectbox("Unidade:", opcoes, index=default_idx)
     with col_cfg2:
         semana_sel = st.number_input("Semana:", min_value=1, max_value=42, value=semana_atual)
+    with col_cfg3:
+        periodo_sel = st.selectbox("Periodo:", PERIODOS_OPCOES, key='periodo_15')
+
+    df_aulas = filtrar_por_periodo(df_aulas, periodo_sel)
 
     # Filtra por unidade
     df_f = df_aulas.copy()

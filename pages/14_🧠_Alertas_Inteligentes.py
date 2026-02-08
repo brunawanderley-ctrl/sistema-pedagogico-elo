@@ -17,7 +17,8 @@ from config_cores import CORES_UNIDADES, ORDEM_SERIES
 from utils import (
     calcular_semana_letiva, calcular_capitulo_esperado,
     carregar_fato_aulas, carregar_horario_esperado, carregar_progressao_sae,
-    filtrar_ate_hoje, _hoje, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM
+    filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES,
+    _hoje, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM
 )
 
 st.set_page_config(page_title="Alertas Inteligentes", page_icon="🧠", layout="wide")
@@ -314,7 +315,7 @@ def main():
     capitulo = calcular_capitulo_esperado(semana)
 
     # ========== FILTROS ==========
-    col_f1, col_f2 = st.columns(2)
+    col_f1, col_f2, col_f3 = st.columns(3)
 
     with col_f1:
         un_opts = ['TODAS'] + sorted(df_horario['unidade'].unique().tolist())
@@ -325,6 +326,12 @@ def main():
     with col_f2:
         seg_opts = ['TODOS', 'Anos Finais', 'Ensino Medio']
         filtro_seg = st.selectbox("📚 Segmento", seg_opts)
+
+    with col_f3:
+        periodo_sel = st.selectbox("📅 Periodo", PERIODOS_OPCOES, key='periodo_14')
+
+    # Aplica filtro de periodo
+    df_aulas = filtrar_por_periodo(df_aulas, periodo_sel)
 
     # Aplica filtros
     df_hor_f = df_horario.copy()

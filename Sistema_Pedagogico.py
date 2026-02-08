@@ -45,6 +45,11 @@ with st.sidebar:
     if not is_cloud():
         if st.button("Atualizar Diario de Classe", type="primary", key="btn_atualizar_home"):
             _script_path = Path(__file__).parent / "atualizar_siga.py"
+            _env = os.environ.copy()
+            try:
+                _env["SIGA_SENHA"] = st.secrets["siga"]["senha"]
+            except (KeyError, FileNotFoundError):
+                pass
             with st.spinner("Atualizando dados do SIGA..."):
                 _result = subprocess.run(
                     ["python3", str(_script_path)],
@@ -52,6 +57,7 @@ with st.sidebar:
                     text=True,
                     timeout=300,
                     cwd=str(Path(__file__).parent),
+                    env=_env,
                 )
             if _result.returncode == 0:
                 st.success("Dados atualizados com sucesso!")

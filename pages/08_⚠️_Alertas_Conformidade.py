@@ -11,7 +11,7 @@ from pathlib import Path
 from datetime import datetime
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje, _hoje, SERIES_FUND_II, SERIES_EM
+from utils import calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES, _hoje, SERIES_FUND_II, SERIES_EM
 
 st.set_page_config(page_title="Alertas e Conformidade", page_icon="⚠️", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -105,7 +105,7 @@ def main():
             semana = 1
 
         # Seletores
-        col_f1, col_f2 = st.columns(2)
+        col_f1, col_f2, col_f3 = st.columns(3)
 
         with col_f1:
             unidades = ['TODAS'] + sorted(df_aulas['unidade'].unique().tolist())
@@ -116,6 +116,11 @@ def main():
         with col_f2:
             segmentos = ['TODOS', 'Anos Finais (6º-9º)', 'Ensino Médio (1ª-3ª)']
             seg_sel = st.selectbox("Filtrar por segmento:", segmentos)
+
+        with col_f3:
+            periodo_sel = st.selectbox("Período:", PERIODOS_OPCOES, key='periodo_08')
+
+        df_aulas = filtrar_por_periodo(df_aulas, periodo_sel)
 
         # Aplica filtros
         df_aulas_filt = df_aulas.copy()
@@ -443,7 +448,7 @@ def main():
                         aulas_prof = df_un_aulas[df_un_aulas['professor'] == prof]
                         sem_cont = aulas_prof[aulas_prof['conteudo'].isna() | (aulas_prof['conteudo'] == '')]
                         if len(sem_cont) > 0:
-                            pct = len(sem_cont) / len(aulas_prof) * 100
+                            pct = len(sem_cont) / max(1, len(aulas_prof)) * 100
                             if pct > 30:  # Mais de 30% sem conteúdo
                                 divergencias_un.append({
                                     'tipo': 'AULAS SEM CONTEÚDO',

@@ -13,7 +13,7 @@ from datetime import datetime
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
-from utils import calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje, _hoje, SERIES_FUND_II, SERIES_EM
+from utils import calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES, _hoje, SERIES_FUND_II, SERIES_EM
 
 st.set_page_config(page_title="Comparativos", page_icon="🔄", layout="wide")
 from auth import check_password, logout_button
@@ -33,6 +33,9 @@ def main():
         return
 
     df_aulas = filtrar_ate_hoje(df_aulas)
+
+    periodo_sel = st.selectbox("Período:", PERIODOS_OPCOES, key='periodo_09')
+    df_aulas = filtrar_por_periodo(df_aulas, periodo_sel)
 
     # Calcula semana baseada na ultima data de registro
     if df_aulas['data'].notna().any():

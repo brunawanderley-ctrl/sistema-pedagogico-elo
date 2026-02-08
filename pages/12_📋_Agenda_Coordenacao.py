@@ -11,6 +11,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 import json
 import subprocess
+import os
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import DATA_DIR, is_cloud, ultima_atualizacao, calcular_semana_letiva, calcular_capitulo_esperado, carregar_fato_aulas, filtrar_ate_hoje, _hoje
@@ -31,11 +32,17 @@ with st.sidebar:
         if st.button("Atualizar Diario de Classe", type="primary", key="btn_atualizar_agenda"):
             _script_dir = Path(__file__).parent.parent
             _script_path = _script_dir / "atualizar_siga.py"
+            _env = os.environ.copy()
+            try:
+                _env["SIGA_SENHA"] = st.secrets["siga"]["senha"]
+            except (KeyError, FileNotFoundError):
+                pass
             with st.spinner("Atualizando dados do SIGA..."):
                 _result = subprocess.run(
                     ["python3", str(_script_path)],
                     capture_output=True, text=True, timeout=300,
                     cwd=str(_script_dir),
+                    env=_env,
                 )
             if _result.returncode == 0:
                 st.success("Dados atualizados com sucesso!")

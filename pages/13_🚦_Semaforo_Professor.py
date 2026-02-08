@@ -16,7 +16,8 @@ from config_cores import CORES_UNIDADES, CORES_SERIES, ORDEM_SERIES
 from utils import (
     calcular_semana_letiva, calcular_capitulo_esperado,
     carregar_fato_aulas, carregar_horario_esperado,
-    filtrar_ate_hoje, _hoje, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM
+    filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES,
+    _hoje, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM
 )
 
 st.set_page_config(page_title="Semaforo do Professor", page_icon="🚦", layout="wide")
@@ -155,7 +156,7 @@ def main():
     capitulo = calcular_capitulo_esperado(semana)
 
     # ========== FILTROS ==========
-    col_f1, col_f2, col_f3 = st.columns(3)
+    col_f1, col_f2, col_f3, col_f4 = st.columns(4)
 
     with col_f1:
         un_opts = ['TODAS'] + sorted(df_horario['unidade'].unique().tolist())
@@ -168,8 +169,14 @@ def main():
         filtro_seg = st.selectbox("📚 Segmento", seg_opts)
 
     with col_f3:
+        periodo_sel = st.selectbox("📅 Periodo", PERIODOS_OPCOES, key='periodo_13')
+
+    with col_f4:
         cor_opts = ['TODOS', '🔴 Critico', '🟡 Atencao', '🟢 OK', '⚪ Sem dados']
         filtro_cor = st.selectbox("🚦 Status", cor_opts)
+
+    # Aplica filtro de periodo
+    df_aulas = filtrar_por_periodo(df_aulas, periodo_sel)
 
     # Filtra dados
     df_hor_f = df_horario.copy()

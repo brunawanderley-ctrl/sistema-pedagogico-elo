@@ -16,8 +16,8 @@ from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
 from utils import (
     calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre,
     status_conformidade, carregar_fato_aulas, carregar_horario_esperado,
-    carregar_calendario, filtrar_ate_hoje, _hoje, DATA_DIR, UNIDADES_NOMES,
-    SERIES_FUND_II, SERIES_EM
+    carregar_calendario, filtrar_ate_hoje, filtrar_por_periodo, _hoje,
+    DATA_DIR, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM, PERIODOS_OPCOES
 )
 
 st.set_page_config(page_title="Quadro de Gestao", page_icon="📊", layout="wide")
@@ -106,8 +106,7 @@ def main():
         filtro_serie = st.selectbox("🎓 Série", series_disp)
 
     with col_f4:
-        trimestres = ['TODOS', '1º Trimestre', '2º Trimestre', '3º Trimestre']
-        filtro_tri = st.selectbox("📅 Trimestre", trimestres)
+        filtro_periodo = st.selectbox("📅 Periodo", PERIODOS_OPCOES)
 
     # Aplica filtros
     df = df_aulas.copy()
@@ -119,11 +118,7 @@ def main():
         df = df[df['serie'].isin(SERIES_EM)]
     if filtro_serie != 'TODAS':
         df = df[df['serie'] == filtro_serie]
-    # Aplica filtro de trimestre (por semana letiva)
-    if filtro_tri != 'TODOS' and 'semana_letiva' in df.columns:
-        tri_map = {'1º Trimestre': (1, 14), '2º Trimestre': (15, 28), '3º Trimestre': (29, 42)}
-        sem_min, sem_max = tri_map[filtro_tri]
-        df = df[(df['semana_letiva'] >= sem_min) & (df['semana_letiva'] <= sem_max)]
+    df = filtrar_por_periodo(df, filtro_periodo)
 
     # ========== MÉTRICAS PRINCIPAIS ==========
     st.markdown("---")

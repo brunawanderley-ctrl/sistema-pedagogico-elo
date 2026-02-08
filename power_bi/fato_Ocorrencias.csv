@@ -1,0 +1,51 @@
+ocorrencia_id,aluno_id,aluno_nome,data,unidade,serie,turma,tipo,gravidade,descricao,responsavel,providencia,registrado_por,data_registro
+2,20727,Mateus Cesar de Andrade Monteiro,2026-02-03,BV,8º Ano,8º Ano - Turma A Manhã - Boa Viagem,Agressao Verbal,Leve,Ocorrencia de teste #2,Bruna Vitoria,Contato com responsavel,seed_data,2026-02-08 11:00
+3,20727,Mateus Cesar de Andrade Monteiro,2026-02-08,BV,8º Ano,8º Ano - Turma A Manhã - Boa Viagem,Agressao Verbal,Grave,Ocorrencia de teste #3,Bruna Vitoria,,seed_data,2026-02-08 11:00
+4,31710,Lara Letícia Alves Ferreira,2026-02-03,BV,8º Ano,8º Ano - Turma B Manhã - Boa Viagem,Indisciplina,Leve,Ocorrencia de teste #4,Prof. Silva,Advertencia verbal,seed_data,2026-02-08 11:00
+5,36637,Alexandre da Rocha Guaraná Filho,2026-02-04,BV,7º Ano,7º Ano - Turma B Manhã - Boa Viagem,Agressao Verbal,Media,Ocorrencia de teste #5,Prof. Silva,,seed_data,2026-02-08 11:00
+6,20368,Maria Izabel Arruda Lins,2026-02-06,BV,1ª Série,1ª Série - Médio - Turma B Manhã - Boa Viagem,Evasao de Aula,Leve,Ocorrencia de teste #6,Bruna Vitoria,Contato com responsavel,seed_data,2026-02-08 11:00
+7,21808,Ruan Pabllo de França Rodrigues,2026-02-05,BV,7º Ano,7º Ano - Turma A Tarde - Boa Viagem,Uso de Celular,Leve,Ocorrencia de teste #7,Gilberto Santos,Advertencia verbal,seed_data,2026-02-08 11:00
+8,16792,Clarice Cavalcante Guedes,2026-02-06,BV,1ª Série,1ª Série - Médio - Turma B Manhã - Boa Viagem,Indisciplina,Leve,Ocorrencia de teste #8,Gilberto Santos,Registro no diario,seed_data,2026-02-08 11:00
+9,31710,Lara Letícia Alves Ferreira,2026-02-08,BV,8º Ano,8º Ano - Turma B Manhã - Boa Viagem,Falta de Material,Media,Ocorrencia de teste #9,Gilberto Santos,Advertencia verbal,seed_data,2026-02-08 11:00
+10,36637,Alexandre da Rocha Guaraná Filho,2026-02-05,BV,7º Ano,7º Ano - Turma B Manhã - Boa Viagem,Desobediencia,Media,Ocorrencia de teste #10,Gilberto Santos,Contato com responsavel,seed_data,2026-02-08 11:00
+11,16792,Clarice Cavalcante Guedes,2026-02-03,BV,1ª Série,1ª Série - Médio - Turma B Manhã - Boa Viagem,Agressao Verbal,Leve,Ocorrencia de teste #11,Gilberto Santos,Advertencia verbal,seed_data,2026-02-08 11:00
+12,20368,Maria Izabel Arruda Lins,2026-02-03,BV,1ª Série,1ª Série - Médio - Turma B Manhã - Boa Viagem,Falta de Material,Leve,Ocorrencia de teste #12,Prof. Silva,Registro no diario,seed_data,2026-02-08 11:00
+13,30373,Beatriz Vitória Reis de Freitas,2026-02-05,BV,9º Ano,9º Ano - Turma B Manhã - Boa Viagem,Uso de Celular,Leve,Ocorrencia de teste #13,Gilberto Santos,Advertencia verbal,seed_data,2026-02-08 11:00
+14,30979,Julia Vitória Santos da Silva,2026-02-08,BV,7º Ano,7º Ano - Turma A Tarde - Boa Viagem,Atraso,Media,Ocorrencia de teste #14,Bruna Vitoria,Contato com responsavel,seed_data,2026-02-08 11:00
+15,16919,Davi Carvalho de Pontes,2026-02-06,BV,8º Ano,8º Ano - Turma A Manhã - Boa Viagem,Uso de Celular,Grave,Ocorrencia de teste #15,Prof. Silva,Contato com responsavel,seed_data,2026-02-08 11:00
+16,31572,Maria Clara Martins do Nascimento,2026-02-03,BV,6º Ano,6º Ano - Turma A Tarde - Boa Viagem,Atraso,Media,Ocorrencia de teste #16,Gilberto Santos,,seed_data,2026-02-08 11:00
+17,18666,João Victor Seve de Sant'ana Gregório,2026-02-03,BV,3ª Série,3ª Série - Médio -Turma B Manhã - Boa Viagem,Atraso,Grave,Ocorrencia de teste #17,Prof. Silva,Registro no diario,seed_data,2026-02-08 11:00
+18,19364,Leticia Salvi Ribeiro Moura,2026-02-08,BV,3ª Série,3ª Série - Médio Turma A Manhã - Boa Viagem,Falta de Material,Leve,Ocorrencia de teste #18,Prof. Silva,,seed_data,2026-02-08 11:00
+19,31456,Maria Paula Xavier,2026-02-05,BV,1ª Série,1ª Série - Médio - Turma B Manhã - Boa Viagem,Atraso,Leve,Ocorrencia de teste #19,Prof. Silva,Registro no diario,seed_data,2026-02-08 11:00
+20,31134,Davi Negromonte Gonçalves,2026-02-06,BV,8º Ano,8º Ano - Turma A Manhã - Boa Viagem,Evasao de Aula,Leve,Ocorrencia de teste #20,Bruna Vitoria,Contato com responsavel,seed_data,2026-02-08 11:00
+21,21865,Samuel Silva Varjão,2026-02-06,BV,6º Ano,6º Ano - Turma  A Manhã - Boa Viagem,Indisciplina,Media,Ocorrencia de teste #21,Bruna Vitoria,Contato com responsavel,seed_data,2026-02-08 11:00
+22,30373,Beatriz Vitória Reis de Freitas,2026-02-08,BV,9º Ano,9º Ano - Turma B Manhã - Boa Viagem,Falta de Material,Media,Ocorrencia de teste #22,Gilberto Santos,,seed_data,2026-02-08 11:00
+23,30979,Julia Vitória Santos da Silva,2026-02-06,BV,7º Ano,7º Ano - Turma A Tarde - Boa Viagem,Evasao de Aula,Leve,Ocorrencia de teste #23,Prof. Silva,Advertencia verbal,seed_data,2026-02-08 11:00
+24,20727,Mateus Cesar de Andrade Monteiro,2026-02-08,BV,8º Ano,8º Ano - Turma A Manhã - Boa Viagem,Evasao de Aula,Media,Ocorrencia de teste #24,Prof. Silva,Registro no diario,seed_data,2026-02-08 11:00
+25,20727,Mateus Cesar de Andrade Monteiro,2026-02-05,BV,8º Ano,8º Ano - Turma A Manhã - Boa Viagem,Falta de Material,Leve,Ocorrencia de teste #25,Bruna Vitoria,Registro no diario,seed_data,2026-02-08 11:00
+26,21865,Samuel Silva Varjão,2026-02-04,BV,6º Ano,6º Ano - Turma  A Manhã - Boa Viagem,Evasao de Aula,Grave,Ocorrencia de teste #26,Prof. Silva,Registro no diario,seed_data,2026-02-08 11:00
+27,21865,Samuel Silva Varjão,2026-02-07,BV,6º Ano,6º Ano - Turma  A Manhã - Boa Viagem,Atraso,Leve,Ocorrencia de teste #27,Bruna Vitoria,Advertencia verbal,seed_data,2026-02-08 11:00
+28,30979,Julia Vitória Santos da Silva,2026-02-05,BV,7º Ano,7º Ano - Turma A Tarde - Boa Viagem,Falta de Material,Leve,Ocorrencia de teste #28,Gilberto Santos,Registro no diario,seed_data,2026-02-08 11:00
+29,20368,Maria Izabel Arruda Lins,2026-02-03,BV,1ª Série,1ª Série - Médio - Turma B Manhã - Boa Viagem,Atraso,Grave,Ocorrencia de teste #29,Bruna Vitoria,Advertencia verbal,seed_data,2026-02-08 11:00
+30,16113,Arthur Andrade da Silva,2026-02-03,BV,6º Ano,6º Ano - Turma A Tarde - Boa Viagem,Desobediencia,Media,Ocorrencia de teste #30,Bruna Vitoria,Contato com responsavel,seed_data,2026-02-08 11:00
+31,16113,Arthur Andrade da Silva,2026-02-07,BV,6º Ano,6º Ano - Turma A Tarde - Boa Viagem,Atraso,Leve,Ocorrencia de teste #31,Prof. Silva,,seed_data,2026-02-08 11:00
+32,19364,Leticia Salvi Ribeiro Moura,2026-02-07,BV,3ª Série,3ª Série - Médio Turma A Manhã - Boa Viagem,Desobediencia,Media,Ocorrencia de teste #32,Bruna Vitoria,Registro no diario,seed_data,2026-02-08 11:00
+33,22171,Théo Aroeira Carneiro Correia de Brito,2026-02-08,BV,9º Ano,9º Ano - Turma A Tarde - Boa Viagem,Agressao Verbal,Leve,Ocorrencia de teste #33,Prof. Silva,,seed_data,2026-02-08 11:00
+34,20727,Mateus Cesar de Andrade Monteiro,2026-02-04,BV,8º Ano,8º Ano - Turma A Manhã - Boa Viagem,Atraso,Leve,Ocorrencia de teste #34,Bruna Vitoria,Contato com responsavel,seed_data,2026-02-08 11:00
+35,31134,Davi Negromonte Gonçalves,2026-02-04,BV,8º Ano,8º Ano - Turma A Manhã - Boa Viagem,Indisciplina,Leve,Ocorrencia de teste #35,Prof. Silva,Advertencia verbal,seed_data,2026-02-08 11:00
+36,20368,Maria Izabel Arruda Lins,2026-02-03,BV,1ª Série,1ª Série - Médio - Turma B Manhã - Boa Viagem,Indisciplina,Grave,Ocorrencia de teste #36,Bruna Vitoria,Contato com responsavel,seed_data,2026-02-08 11:00
+37,18666,João Victor Seve de Sant'ana Gregório,2026-02-08,BV,3ª Série,3ª Série - Médio -Turma B Manhã - Boa Viagem,Falta de Material,Leve,Ocorrencia de teste #37,Bruna Vitoria,,seed_data,2026-02-08 11:00
+38,20368,Maria Izabel Arruda Lins,2026-02-06,BV,1ª Série,1ª Série - Médio - Turma B Manhã - Boa Viagem,Desobediencia,Leve,Ocorrencia de teste #38,Bruna Vitoria,Advertencia verbal,seed_data,2026-02-08 11:00
+39,21808,Ruan Pabllo de França Rodrigues,2026-02-05,BV,7º Ano,7º Ano - Turma A Tarde - Boa Viagem,Falta de Material,Leve,Ocorrencia de teste #39,Prof. Silva,Advertencia verbal,seed_data,2026-02-08 11:00
+40,20727,Mateus Cesar de Andrade Monteiro,2026-02-03,BV,8º Ano,8º Ano - Turma A Manhã - Boa Viagem,Falta de Material,Media,Ocorrencia de teste #40,Bruna Vitoria,Contato com responsavel,seed_data,2026-02-08 11:00
+41,19364,Leticia Salvi Ribeiro Moura,2026-02-04,BV,3ª Série,3ª Série - Médio Turma A Manhã - Boa Viagem,Evasao de Aula,Leve,Ocorrencia de teste #41,Gilberto Santos,Contato com responsavel,seed_data,2026-02-08 11:00
+42,18666,João Victor Seve de Sant'ana Gregório,2026-02-06,BV,3ª Série,3ª Série - Médio -Turma B Manhã - Boa Viagem,Atraso,Grave,Ocorrencia de teste #42,Bruna Vitoria,,seed_data,2026-02-08 11:00
+43,36637,Alexandre da Rocha Guaraná Filho,2026-02-03,BV,7º Ano,7º Ano - Turma B Manhã - Boa Viagem,Indisciplina,Media,Ocorrencia de teste #43,Prof. Silva,Advertencia verbal,seed_data,2026-02-08 11:00
+44,16792,Clarice Cavalcante Guedes,2026-02-04,BV,1ª Série,1ª Série - Médio - Turma B Manhã - Boa Viagem,Atraso,Leve,Ocorrencia de teste #44,Gilberto Santos,Contato com responsavel,seed_data,2026-02-08 11:00
+45,22171,Théo Aroeira Carneiro Correia de Brito,2026-02-03,BV,9º Ano,9º Ano - Turma A Tarde - Boa Viagem,Atraso,Leve,Ocorrencia de teste #45,Gilberto Santos,Registro no diario,seed_data,2026-02-08 11:00
+46,16919,Davi Carvalho de Pontes,2026-02-05,BV,8º Ano,8º Ano - Turma A Manhã - Boa Viagem,Falta de Material,Media,Ocorrencia de teste #46,Prof. Silva,,seed_data,2026-02-08 11:00
+47,31456,Maria Paula Xavier,2026-02-04,BV,1ª Série,1ª Série - Médio - Turma B Manhã - Boa Viagem,Uso de Celular,Leve,Ocorrencia de teste #47,Bruna Vitoria,Advertencia verbal,seed_data,2026-02-08 11:00
+48,31572,Maria Clara Martins do Nascimento,2026-02-03,BV,6º Ano,6º Ano - Turma A Tarde - Boa Viagem,Indisciplina,Media,Ocorrencia de teste #48,Prof. Silva,Contato com responsavel,seed_data,2026-02-08 11:00
+49,31710,Lara Letícia Alves Ferreira,2026-02-07,BV,8º Ano,8º Ano - Turma B Manhã - Boa Viagem,Indisciplina,Grave,Ocorrencia de teste #49,Bruna Vitoria,Advertencia verbal,seed_data,2026-02-08 11:00
+50,20368,Maria Izabel Arruda Lins,2026-02-06,BV,1ª Série,1ª Série - Médio - Turma B Manhã - Boa Viagem,Indisciplina,Grave,Ocorrencia de teste #50,Prof. Silva,Contato com responsavel,seed_data,2026-02-08 11:00
+51,31134,Davi Negromonte Gonçalves,2026-02-07,BV,8º Ano,8º Ano - Turma A Manhã - Boa Viagem,Indisciplina,Media,Ocorrencia de teste #51,Gilberto Santos,Registro no diario,seed_data,2026-02-08 11:00

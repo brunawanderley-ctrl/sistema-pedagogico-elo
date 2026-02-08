@@ -223,6 +223,185 @@ def carregar_unidades():
     return pd.read_csv(path)
 
 
+@st.cache_data(ttl=300)
+def carregar_alunos():
+    """Carrega dim_Alunos.csv com cache."""
+    path = DATA_DIR / "dim_Alunos.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(path)
+
+
+@st.cache_data(ttl=300)
+def carregar_notas():
+    """Carrega notas com cache. Tenta fato_Notas.csv (trimestral) ou fato_Notas_Historico.csv (anual)."""
+    # Primeiro: notas 2026 trimestrais (quando disponivel)
+    path = DATA_DIR / "fato_Notas.csv"
+    if path.exists():
+        df = pd.read_csv(path)
+        if 'data_avaliacao' in df.columns:
+            df['data_avaliacao'] = pd.to_datetime(df['data_avaliacao'], errors='coerce')
+        return df
+    # Fallback: historico de notas anuais (todas as unidades)
+    path_hist = DATA_DIR / "fato_Notas_Historico.csv"
+    if path_hist.exists():
+        df = pd.read_csv(path_hist)
+        # Compatibilidade: mapear colunas para schema esperado pelas paginas
+        # nota pode existir mas estar vazia - usar nota_final como fallback
+        if 'nota_final' in df.columns:
+            if 'nota' not in df.columns or df['nota'].isna().all():
+                df['nota'] = df['nota_final']
+        if 'serie_atual' in df.columns and 'serie' not in df.columns:
+            df['serie'] = df['serie_atual']
+        # Enriquecer com turma do dim_Alunos (necessario para Boletim por Turma)
+        if 'turma' not in df.columns:
+            path_alunos = DATA_DIR / "dim_Alunos.csv"
+            if path_alunos.exists():
+                df_al = pd.read_csv(path_alunos, usecols=['aluno_id', 'turma'])
+                df = df.merge(df_al, on='aluno_id', how='left')
+        return df
+    return pd.DataFrame()
+
+
+@st.cache_data(ttl=300)
+def carregar_frequencia_alunos():
+    """Carrega fato_Frequencia_Aluno.csv com cache. Fallback: derive from historico."""
+    path = DATA_DIR / "fato_Frequencia_Aluno.csv"
+    if path.exists():
+        df = pd.read_csv(path)
+        if 'data' in df.columns:
+            df['data'] = pd.to_datetime(df['data'], errors='coerce')
+        return df
+    # Fallback: derivar frequencia do historico (faltas + carga_horaria)
+    return carregar_frequencia_historico()
+
+
+@st.cache_data(ttl=300)
+def carregar_frequencia_historico():
+    """Deriva frequencia por aluno/disciplina/ano a partir de fato_Notas_Historico (faltas + carga_horaria)."""
+    path = DATA_DIR / "fato_Notas_Historico.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    df = pd.read_csv(path)
+    # Precisa de faltas e carga_horaria validos
+    required = ['aluno_id', 'aluno_nome', 'faltas', 'carga_horaria']
+    if not all(c in df.columns for c in required):
+        return pd.DataFrame()
+    df = df[df['faltas'].notna() & df['carga_horaria'].notna() & (df['carga_horaria'] > 0)]
+    # Filtrar outlier de carga_horaria (ex: 240200)
+    df = df[df['carga_horaria'] <= 1000]
+    if df.empty:
+        return pd.DataFrame()
+    # Calcular frequencia
+    df['pct_frequencia'] = ((df['carga_horaria'] - df['faltas']) / df['carga_horaria'] * 100).round(1)
+    df['pct_frequencia'] = df['pct_frequencia'].clip(0, 100)
+    df['total_aulas'] = df['carga_horaria'].astype(int)
+    df['presencas'] = (df['carga_horaria'] - df['faltas']).astype(int)
+    # Normalizar serie
+    if 'serie_atual' in df.columns and 'serie' not in df.columns:
+        df['serie'] = df['serie_atual']
+    # Enriquecer com turma
+    if 'turma' not in df.columns:
+        path_al = DATA_DIR / "dim_Alunos.csv"
+        if path_al.exists():
+            df_al = pd.read_csv(path_al, usecols=['aluno_id', 'turma'])
+            df = df.merge(df_al, on='aluno_id', how='left')
+    # Colunas de saida
+    cols_out = ['aluno_id', 'aluno_nome', 'unidade', 'serie', 'disciplina',
+                'ano', 'faltas', 'carga_horaria', 'total_aulas', 'presencas',
+                'pct_frequencia']
+    if 'turma' in df.columns:
+        cols_out.append('turma')
+    if 'resultado' in df.columns:
+        cols_out.append('resultado')
+    cols_out = [c for c in cols_out if c in df.columns]
+    # Marcar como dados derivados do historico
+    df['fonte'] = 'historico'
+    cols_out.append('fonte')
+    return df[cols_out]
+
+
+@st.cache_data(ttl=60)
+def carregar_ocorrencias():
+    """Carrega fato_Ocorrencias.csv com cache curto (permite refresh apos novo registro)."""
+    path = DATA_DIR / "fato_Ocorrencias.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    df = pd.read_csv(path)
+    if 'data' in df.columns:
+        df['data'] = pd.to_datetime(df['data'], errors='coerce')
+    return df
+
+
+def salvar_ocorrencia(registro: dict):
+    """Salva nova ocorrencia em fato_Ocorrencias.csv. Retorna True se sucesso."""
+    path = DATA_DIR / "fato_Ocorrencias.csv"
+    colunas = ['ocorrencia_id', 'aluno_id', 'aluno_nome', 'data', 'unidade', 'serie',
+               'turma', 'tipo', 'gravidade', 'descricao', 'responsavel', 'providencia',
+               'registrado_por', 'data_registro']
+    if path.exists():
+        df = pd.read_csv(path)
+        next_id = df['ocorrencia_id'].max() + 1 if 'ocorrencia_id' in df.columns and not df.empty else 1
+    else:
+        df = pd.DataFrame(columns=colunas)
+        next_id = 1
+    registro['ocorrencia_id'] = int(next_id)
+    registro['data_registro'] = pd.Timestamp.now().strftime('%Y-%m-%d %H:%M')
+    new_row = pd.DataFrame([registro])
+    df = pd.concat([df, new_row], ignore_index=True)
+    df.to_csv(path, index=False)
+    # Limpar cache para carregar dados atualizados
+    carregar_ocorrencias.clear()
+    return True
+
+
+# Threshold de frequencia (LDB art. 24, VI)
+THRESHOLD_FREQUENCIA_LDB = 75
+
+
+def calcular_media_trimestral(notas_df, trimestre=None):
+    """Calcula media trimestral por aluno/disciplina."""
+    if notas_df.empty:
+        return pd.DataFrame()
+    df = notas_df.copy()
+    if trimestre and 'trimestre' in df.columns:
+        df = df[df['trimestre'] == trimestre]
+    if 'nota' not in df.columns:
+        return pd.DataFrame()
+    cols_group = [c for c in ['aluno_id', 'aluno_nome', 'disciplina', 'serie', 'unidade'] if c in df.columns]
+    if not cols_group:
+        return pd.DataFrame()
+    return df.groupby(cols_group)['nota'].mean().reset_index().rename(columns={'nota': 'media'})
+
+
+def calcular_frequencia_aluno(freq_df, aluno_id=None):
+    """Calcula percentual de frequencia por aluno/disciplina."""
+    if freq_df.empty:
+        return pd.DataFrame()
+    df = freq_df.copy()
+    if aluno_id is not None and 'aluno_id' in df.columns:
+        df = df[df['aluno_id'] == aluno_id]
+    cols_group = [c for c in ['aluno_id', 'aluno_nome', 'disciplina', 'serie', 'unidade'] if c in df.columns]
+    if not cols_group or 'presente' not in df.columns:
+        return pd.DataFrame()
+    agg = df.groupby(cols_group).agg(
+        total_aulas=('presente', 'count'),
+        presencas=('presente', 'sum'),
+    ).reset_index()
+    agg['pct_frequencia'] = (agg['presencas'] / agg['total_aulas'] * 100).round(1)
+    return agg
+
+
+def status_frequencia(pct):
+    """Retorna (emoji, label) baseado no percentual de frequencia."""
+    if pct >= 90:
+        return '✅', 'Excelente'
+    elif pct >= THRESHOLD_FREQUENCIA_LDB:
+        return '⚠️', 'Regular'
+    else:
+        return '🔴', 'Risco Reprovacao'
+
+
 def carregar_todos_dados():
     """Carrega todos os dados do sistema de uma vez. Retorna dict."""
     dados = {}
@@ -241,6 +420,18 @@ def carregar_todos_dados():
     df_profs = carregar_professores()
     if not df_profs.empty:
         dados['professores'] = df_profs
+    df_alunos = carregar_alunos()
+    if not df_alunos.empty:
+        dados['alunos'] = df_alunos
+    df_notas = carregar_notas()
+    if not df_notas.empty:
+        dados['notas'] = df_notas
+    df_freq = carregar_frequencia_alunos()
+    if not df_freq.empty:
+        dados['frequencia_alunos'] = df_freq
+    df_ocorr = carregar_ocorrencias()
+    if not df_ocorr.empty:
+        dados['ocorrencias'] = df_ocorr
     return dados
 
 
@@ -261,6 +452,60 @@ def filtrar_ate_hoje(df, col_data='data'):
     if col_data in df.columns:
         return df[df[col_data] <= hoje]
     return df
+
+
+def filtrar_por_periodo(df, periodo, col_data='data', col_semana='semana_letiva'):
+    """
+    Filtra DataFrame por periodo selecionado.
+    Opcoes: 'Esta Semana', 'Ultimos 7 dias', 'Ultimos 15 dias',
+            'Este Mes', '1o Trimestre', '2o Trimestre', '3o Trimestre', 'Ano Completo'.
+    """
+    if periodo == 'Ano Completo':
+        return df
+
+    hoje = _hoje()
+
+    if col_data not in df.columns:
+        return df
+
+    if periodo == 'Esta Semana':
+        semana_atual = calcular_semana_letiva(hoje)
+        if col_semana in df.columns:
+            return df[df[col_semana] == semana_atual]
+        inicio_semana = hoje - pd.Timedelta(days=hoje.weekday())
+        return df[(df[col_data] >= inicio_semana) & (df[col_data] <= hoje)]
+
+    elif periodo == 'Ultimos 7 dias':
+        return df[df[col_data] >= (hoje - pd.Timedelta(days=7))]
+
+    elif periodo == 'Ultimos 15 dias':
+        return df[df[col_data] >= (hoje - pd.Timedelta(days=15))]
+
+    elif periodo == 'Este Mes':
+        return df[(df[col_data].dt.month == hoje.month) & (df[col_data].dt.year == hoje.year)]
+
+    elif periodo == '1o Trimestre':
+        if col_semana in df.columns:
+            return df[df[col_semana] <= 14]
+        return df[df[col_data] < datetime(2026, 5, 9)]
+
+    elif periodo == '2o Trimestre':
+        if col_semana in df.columns:
+            return df[(df[col_semana] >= 15) & (df[col_semana] <= 28)]
+        return df[(df[col_data] >= datetime(2026, 5, 9)) & (df[col_data] < datetime(2026, 8, 29))]
+
+    elif periodo == '3o Trimestre':
+        if col_semana in df.columns:
+            return df[df[col_semana] >= 29]
+        return df[df[col_data] >= datetime(2026, 8, 29)]
+
+    return df
+
+
+PERIODOS_OPCOES = [
+    'Ano Completo', 'Esta Semana', 'Ultimos 7 dias', 'Ultimos 15 dias',
+    'Este Mes', '1o Trimestre', '2o Trimestre', '3o Trimestre',
+]
 
 
 # ========== AMBIENTE ==========

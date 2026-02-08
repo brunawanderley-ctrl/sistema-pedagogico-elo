@@ -17,7 +17,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import (
     calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre,
     carregar_fato_aulas, carregar_progressao_sae, carregar_horario_esperado,
-    filtrar_ate_hoje, _hoje, DATA_DIR, UNIDADES_NOMES, ORDEM_SERIES,
+    filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES,
+    _hoje, DATA_DIR, UNIDADES_NOMES, ORDEM_SERIES,
     SERIES_FUND_II, SERIES_EM
 )
 
@@ -204,7 +205,7 @@ def main():
     df_aulas_filtrado = filtrar_ate_hoje(df_aulas)
 
     # Filtros
-    col_f1, col_f2, col_f3 = st.columns(3)
+    col_f1, col_f2, col_f3, col_f4 = st.columns(4)
     with col_f1:
         unidades = sorted(df_aulas_filtrado['unidade'].unique())
         un_opts = ['Todas'] + unidades
@@ -219,6 +220,10 @@ def main():
             key=lambda s: ORDEM_SERIES.index(s) if s in ORDEM_SERIES else 99
         )
         serie_sel = st.selectbox("Série:", ['Todas'] + series_disp)
+    with col_f4:
+        periodo_sel = st.selectbox("Período:", PERIODOS_OPCOES, key='periodo_05')
+
+    df_aulas_filtrado = filtrar_por_periodo(df_aulas_filtrado, periodo_sel)
 
     # Aplica filtros
     df_f = df_aulas_filtrado.copy()

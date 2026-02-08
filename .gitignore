@@ -80,7 +80,19 @@ extracao_todas_unidades.py
 extracao_web_completa.py
 extracao_web_todas_unidades.py
 
+# Scripts de exploracao de API (locais, one-time)
+explorar_api_alunos.py
+explorar_dados_alunos_v2.py
+extrair_dados_alunos.py
+interceptar_api_siga.py
+interceptar_api_siga_v2.py
+testar_endpoints_descobertos.py
+
 # Resultados de exploracao/diagnostico (locais)
+dados_alunos_explorados*.json
+endpoints_descobertos*.json
+explorar_api_alunos_resultados*.json
+interceptar_api_resultados*.json
 apis_descobertas.json
 diag_*.json
 diagnostico_*.txt
