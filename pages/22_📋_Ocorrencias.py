@@ -128,6 +128,11 @@ def main():
 
             grav_sel = st.selectbox("Gravidade:", ['Todas'] + GRAVIDADES, key='ocorr_grav')
 
+            categorias_disp = sorted(df_ocorr['categoria'].unique().tolist()) if 'categoria' in df_ocorr.columns else []
+            cat_sel = st.selectbox("Categoria:", ['Todas'] + categorias_disp,
+                index=(['Todas'] + categorias_disp).index('Disciplinar') if 'Disciplinar' in categorias_disp else 0,
+                key='ocorr_cat')
+
         # Aplicar filtros
         df = df_ocorr.copy()
         if 'data' in df.columns and isinstance(periodo_range, tuple) and len(periodo_range) == 2:
@@ -142,6 +147,8 @@ def main():
             df = df[df['tipo'] == tipo_sel]
         if grav_sel != 'Todas' and 'gravidade' in df.columns:
             df = df[df['gravidade'] == grav_sel]
+        if cat_sel != 'Todas' and 'categoria' in df.columns:
+            df = df[df['categoria'] == cat_sel]
 
         if df.empty:
             with tab_risco:
@@ -275,7 +282,7 @@ def _tab_novo_registro(df_alunos, tem_alunos):
     if not df_recentes.empty:
         st.markdown("---")
         st.subheader("Últimos Registros")
-        cols_show = [c for c in ['data', 'aluno_nome', 'serie', 'tipo', 'gravidade', 'descricao', 'responsavel']
+        cols_show = [c for c in ['data', 'aluno_nome', 'serie', 'tipo', 'categoria', 'gravidade', 'descricao', 'responsavel']
                      if c in df_recentes.columns]
         if 'data' in df_recentes.columns:
             df_recentes = df_recentes.sort_values('data', ascending=False)
@@ -531,7 +538,7 @@ def _tab_detalhamento(df):
         df_show = df_show[mask]
 
     cols_show = [c for c in ['data', 'aluno_nome', 'serie', 'turma', 'unidade', 'tipo',
-                              'gravidade', 'descricao', 'providencia', 'responsavel']
+                              'categoria', 'gravidade', 'descricao', 'providencia', 'responsavel']
                  if c in df_show.columns]
 
     if 'data' in df_show.columns:

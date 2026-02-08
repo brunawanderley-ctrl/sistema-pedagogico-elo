@@ -184,13 +184,16 @@ def main():
     # Ocorrencias
     if tem_ocorr and aluno_id is not None:
         ocorr_aluno = df_ocorr[df_ocorr['aluno_id'] == aluno_id] if 'aluno_id' in df_ocorr.columns else pd.DataFrame()
-        total_ocorr = len(ocorr_aluno)
+        if 'categoria' in ocorr_aluno.columns:
+            total_ocorr = len(ocorr_aluno[ocorr_aluno['categoria'] == 'Disciplinar'])
+        else:
+            total_ocorr = len(ocorr_aluno)
     else:
         ocorr_aluno = pd.DataFrame()
         total_ocorr = 0
 
     with col3:
-        st.metric("Ocorrências", total_ocorr)
+        st.metric("Ocorrências Disciplinares", total_ocorr)
 
     with col4:
         st.metric("Semana Letiva", f"{semana}a", delta=f"{trimestre}o Trimestre")
@@ -301,7 +304,7 @@ def main():
 
         if not ocorr_aluno.empty:
             # Timeline
-            cols_show = [c for c in ['data', 'tipo', 'descricao', 'responsavel', 'providencia'] if c in ocorr_aluno.columns]
+            cols_show = [c for c in ['data', 'tipo', 'categoria', 'gravidade', 'descricao', 'responsavel', 'providencia'] if c in ocorr_aluno.columns]
             st.dataframe(
                 ocorr_aluno[cols_show].sort_values('data', ascending=False) if 'data' in ocorr_aluno.columns else ocorr_aluno,
                 use_container_width=True, hide_index=True
