@@ -145,14 +145,16 @@ def main():
     st.markdown("---")
     st.header("🔧 Configuração")
 
-    col1, col2, col3 = st.columns(3)
-
-    # Carrega dados se disponiveis
+    # Carrega dados
     df_horario = carregar_horario_esperado()
+    df_aulas = carregar_fato_aulas()
+
     if not df_horario.empty:
         professores = sorted(df_horario['professor'].unique())
     else:
         professores = []
+
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         if professores:
@@ -160,37 +162,56 @@ def main():
         else:
             professor = st.text_input("👤 Nome do Professor:")
 
+    # Auto-preencher disciplina, turmas e aulas/semana do horário
+    prof_disciplinas = []
+    prof_turmas = []
+    prof_aulas_sem = 3
+    if professor and professor != 'Selecione...' and not df_horario.empty:
+        df_prof = df_horario[df_horario['professor'] == professor]
+        if not df_prof.empty:
+            prof_disciplinas = sorted(df_prof['disciplina'].unique())
+            prof_turmas = sorted(df_prof['turma'].unique()) if 'turma' in df_prof.columns else []
+            if 'serie' in df_prof.columns:
+                prof_series = sorted(df_prof['serie'].unique())
+
     with col2:
-        disciplinas = ['Língua Portuguesa', 'Matemática', 'Ciências', 'História', 'Geografia',
-                      'Inglês', 'Arte', 'Filosofia', 'Educação Física', 'Redação',
-                      'Física', 'Química', 'Biologia']
-        disciplina = st.selectbox("📚 Disciplina:", disciplinas)
+        if prof_disciplinas:
+            disciplina = st.selectbox("📚 Disciplina:", prof_disciplinas)
+        else:
+            disciplinas = ['Língua Portuguesa', 'Matemática', 'Ciências', 'História', 'Geografia',
+                          'Inglês', 'Arte', 'Filosofia', 'Educação Física', 'Redação',
+                          'Física', 'Química', 'Biologia']
+            disciplina = st.selectbox("📚 Disciplina:", disciplinas)
+
+    # Calcular aulas/semana real do horário
+    if professor and professor != 'Selecione...' and not df_horario.empty:
+        df_disc = df_horario[(df_horario['professor'] == professor) & (df_horario['disciplina'] == disciplina)]
+        if not df_disc.empty and 'aulas_semana' in df_disc.columns:
+            prof_aulas_sem = int(df_disc['aulas_semana'].iloc[0])
+        elif not df_disc.empty:
+            # Conta número de slots/semana como estimativa
+            prof_aulas_sem = len(df_disc)
 
     with col3:
-        aulas_semana_map = {
-            'Língua Portuguesa': 5, 'Matemática': 5, 'Ciências': 3, 'História': 3,
-            'Geografia': 3, 'Inglês': 2, 'Arte': 1, 'Filosofia': 1,
-            'Educação Física': 2, 'Redação': 2, 'Física': 3, 'Química': 3, 'Biologia': 3
-        }
-        aulas_semana = st.number_input("📊 Aulas/Semana:",
-                                       value=aulas_semana_map.get(disciplina, 3),
-                                       min_value=1, max_value=10)
+        aulas_semana = st.number_input("📊 Aulas/Semana:", value=prof_aulas_sem, min_value=1, max_value=10)
 
-    # Turmas
-    st.subheader("🎓 Turmas")
-    col_t1, col_t2 = st.columns(2)
-
-    with col_t1:
-        turmas_fund = st.multiselect("Anos Finais:",
-                                     ['6º AM', '6º BM', '6º AT', '7º AM', '7º BM', '7º AT',
-                                      '8º AM', '8º BM', '8º AT', '9º AM', '9º BM', '9º AT'])
-    with col_t2:
-        turmas_em = st.multiselect("Ensino Médio:",
-                                   ['1ª A EM', '1ª B EM', '1ª C EM',
-                                    '2ª A EM', '2ª B EM', '2ª C EM',
-                                    '3ª A EM', '3ª B EM'])
-
-    turmas = turmas_fund + turmas_em
+    # Turmas - auto-selecionadas do horário
+    if prof_turmas:
+        st.markdown(f"**🎓 Turmas** (do horário): {', '.join(prof_turmas)}")
+        turmas = prof_turmas
+    else:
+        st.subheader("🎓 Turmas")
+        col_t1, col_t2 = st.columns(2)
+        with col_t1:
+            turmas_fund = st.multiselect("Anos Finais:",
+                                         ['6º AM', '6º BM', '6º AT', '7º AM', '7º BM', '7º AT',
+                                          '8º AM', '8º BM', '8º AT', '9º AM', '9º BM', '9º AT'])
+        with col_t2:
+            turmas_em = st.multiselect("Ensino Médio:",
+                                       ['1ª A EM', '1ª B EM', '1ª C EM',
+                                        '2ª A EM', '2ª B EM', '2ª C EM',
+                                        '3ª A EM', '3ª B EM'])
+        turmas = turmas_fund + turmas_em
 
     if not professor or professor == 'Selecione...':
         st.warning("Selecione um professor para gerar o material.")
@@ -224,6 +245,38 @@ def main():
         </div>
     </div>
     """, unsafe_allow_html=True)
+
+    # ========== PROGRESSO REAL (do SIGA) ==========
+    if not df_aulas.empty:
+        # Buscar aulas reais deste professor (por nome completo ou parcial)
+        nome_prof_upper = professor.split(' - ')[0].strip().upper()
+        df_prof_aulas = df_aulas[df_aulas['professor'].str.upper().str.startswith(nome_prof_upper[:20])]
+
+        if not df_prof_aulas.empty:
+            st.markdown("---")
+            st.header("📊 Progresso Real (dados do SIGA)")
+
+            semana = calcular_semana_letiva()
+            cap_esp = calcular_capitulo_esperado()
+
+            total_aulas = len(df_prof_aulas)
+            aulas_com_conteudo = len(df_prof_aulas[df_prof_aulas['conteudo'].notna() & (df_prof_aulas['conteudo'] != '')])
+            aulas_com_tarefa = len(df_prof_aulas[df_prof_aulas['tarefa'].notna() & (df_prof_aulas['tarefa'] != '')])
+
+            p1, p2, p3, p4 = st.columns(4)
+            p1.metric("Aulas Registradas", total_aulas)
+            p2.metric("Com Conteúdo", f"{aulas_com_conteudo} ({round(aulas_com_conteudo/max(1,total_aulas)*100)}%)")
+            p3.metric("Com Tarefa", f"{aulas_com_tarefa} ({round(aulas_com_tarefa/max(1,total_aulas)*100)}%)")
+            p4.metric("Semana Atual / Cap Esperado", f"Sem {semana} / Cap {cap_esp}")
+
+            # Últimas aulas
+            with st.expander("📋 Últimas 10 aulas registradas"):
+                cols_show = ['data', 'disciplina', 'serie', 'turma', 'conteudo', 'tarefa']
+                cols_avail = [c for c in cols_show if c in df_prof_aulas.columns]
+                st.dataframe(
+                    df_prof_aulas.sort_values('data', ascending=False).head(10)[cols_avail],
+                    use_container_width=True, hide_index=True
+                )
 
     # ========== METAS POR TRIMESTRE ==========
     st.markdown("---")
