@@ -11,6 +11,7 @@ from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import carregar_calendario
+from config_cores import CORES_SERIES, ORDEM_SERIES
 
 st.set_page_config(page_title="Calendario Escolar", page_icon="📅", layout="wide")
 from auth import check_password, logout_button
@@ -38,12 +39,51 @@ st.markdown("""
     .feriado-nacional { background-color: #ffcdd2; }
     .feriado-regional { background-color: #ffe0b2; }
     .ferias { background-color: #c8e6c9; }
+    .legenda-serie {
+        display: inline-block; padding: 4px 12px; border-radius: 16px;
+        margin: 3px 4px; font-size: 0.85em; font-weight: 600; color: white;
+    }
+    .legenda-grupo {
+        border: 2px solid #E0E0E0; border-radius: 8px; padding: 10px 15px;
+        margin: 5px 0; background: #FAFAFA;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 def main():
     st.title("📅 Calendário Escolar 2026")
     st.markdown("**Estrutura completa do ano letivo com todos os marcos importantes**")
+
+    # ========== LEGENDA DE CORES POR SÉRIE ==========
+    st.markdown("""
+    <div class="legenda-grupo">
+        <strong>🎨 Legenda de Cores por Série</strong><br>
+        <div style="margin-top: 8px;">
+            <span style="font-weight:600; margin-right: 10px;">📘 Anos Finais:</span>
+            <span class="legenda-serie" style="background:{azul6}">6º Ano</span>
+            <span class="legenda-serie" style="background:{azul7}">7º Ano</span>
+            <span class="legenda-serie" style="background:{azul8}">8º Ano</span>
+        </div>
+        <div style="margin-top: 6px;">
+            <span style="font-weight:600; margin-right: 10px;">📙 Transição:</span>
+            <span class="legenda-serie" style="background:{laranja9}">9º Ano</span>
+        </div>
+        <div style="margin-top: 6px;">
+            <span style="font-weight:600; margin-right: 10px;">📗 Ensino Médio:</span>
+            <span class="legenda-serie" style="background:{verde1}">1ª Série</span>
+            <span class="legenda-serie" style="background:{verde2}">2ª Série</span>
+        </div>
+        <div style="margin-top: 6px;">
+            <span style="font-weight:600; margin-right: 10px;">📕 Pré-vestibular:</span>
+            <span class="legenda-serie" style="background:{verm3}">3ª Série</span>
+        </div>
+    </div>
+    """.format(
+        azul6=CORES_SERIES['6º Ano'], azul7=CORES_SERIES['7º Ano'], azul8=CORES_SERIES['8º Ano'],
+        laranja9=CORES_SERIES['9º Ano'],
+        verde1=CORES_SERIES['1ª Série'], verde2=CORES_SERIES['2ª Série'],
+        verm3=CORES_SERIES['3ª Série'],
+    ), unsafe_allow_html=True)
 
     # ========== ORGANIZAÇÃO ANUAL ==========
     st.markdown("---")
@@ -94,6 +134,39 @@ def main():
 
         *Fórmula: Capítulo = Semana ÷ 3,5*
         """)
+
+    # Agrupamento por turma TEEN
+    st.markdown("""
+    <div class="legenda-grupo">
+        <strong>👥 Agrupamento por Turma TEEN (Material SAE)</strong>
+        <table style="width: 100%; margin-top: 8px; border-collapse: collapse;">
+            <tr>
+                <td style="padding: 8px; border: 1px solid #E0E0E0; width: 15%;"><strong>TEEN 1</strong></td>
+                <td style="padding: 8px; border: 1px solid #E0E0E0;">
+                    <span class="legenda-serie" style="background:{azul6}">6º Ano</span>
+                    <span class="legenda-serie" style="background:{azul7}">7º Ano</span>
+                    <span class="legenda-serie" style="background:{azul8}">8º Ano</span>
+                    <span style="margin-left: 10px; color: #666;">Livro Integrado: 4 volumes (3 caps/vol)</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #E0E0E0;"><strong>TEEN 2</strong></td>
+                <td style="padding: 8px; border: 1px solid #E0E0E0;">
+                    <span class="legenda-serie" style="background:{laranja9}">9º Ano</span>
+                    <span class="legenda-serie" style="background:{verde1}">1ª Série</span>
+                    <span class="legenda-serie" style="background:{verde2}">2ª Série</span>
+                    <span class="legenda-serie" style="background:{verm3}">3ª Série</span>
+                    <span style="margin-left: 10px; color: #666;">Livro Integrado: 4 volumes (3 caps/vol)</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    """.format(
+        azul6=CORES_SERIES['6º Ano'], azul7=CORES_SERIES['7º Ano'], azul8=CORES_SERIES['8º Ano'],
+        laranja9=CORES_SERIES['9º Ano'],
+        verde1=CORES_SERIES['1ª Série'], verde2=CORES_SERIES['2ª Série'],
+        verm3=CORES_SERIES['3ª Série'],
+    ), unsafe_allow_html=True)
 
     # ========== FERIADOS E RECESSOS ==========
     st.markdown("---")
@@ -282,6 +355,32 @@ def main():
 
     if not df_cal.empty:
 
+        # --- Referência: Capítulo esperado por semana ---
+        import math
+        hoje = datetime.now().date()
+        inicio_letivo = datetime(2026, 1, 26).date()
+        semana_atual = max(1, (hoje - inicio_letivo).days // 7 + 1)
+        cap_esperado = min(12, math.ceil(semana_atual / 3.5))
+        trimestre_atual = 1 if semana_atual <= 14 else (2 if semana_atual <= 28 else 3)
+
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("Semana Letiva", f"{semana_atual}ª")
+        c2.metric("Trimestre", f"{trimestre_atual}º")
+        c3.metric("Capítulo Esperado", f"Cap {cap_esperado}")
+        c4.metric("Semanas Restantes", f"{max(0, 42 - semana_atual)}")
+
+        # Barra de progressão visual do ano
+        progresso_pct = min(100, round(semana_atual / 42 * 100))
+        st.markdown(f"""
+        <div style="background: #E0E0E0; border-radius: 10px; height: 24px; margin: 10px 0 20px 0; position: relative;">
+            <div style="background: linear-gradient(90deg, {CORES_SERIES['6º Ano']}, {CORES_SERIES['1ª Série']});
+                        width: {progresso_pct}%; height: 100%; border-radius: 10px; transition: width 0.3s;"></div>
+            <span style="position: absolute; top: 2px; left: 50%; transform: translateX(-50%); font-size: 0.8em; font-weight: 600;">
+                {progresso_pct}% do ano letivo
+            </span>
+        </div>
+        """, unsafe_allow_html=True)
+
         # Filtra por mês
         meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
                  'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
@@ -297,15 +396,49 @@ def main():
             df_mes['Tipo'] = df_mes['eh_letivo'].apply(lambda x: '✅ Letivo' if x == 1 else '❌ Não Letivo')
             df_mes['Evento'] = df_mes['evento'].fillna('')
 
+            # Adicionar coluna de capítulo esperado por semana
+            def cap_da_semana(sem):
+                try:
+                    s = int(sem)
+                    return f"Cap {min(12, math.ceil(s / 3.5))}" if s > 0 else ""
+                except (ValueError, TypeError):
+                    return ""
+
+            df_mes['Cap Esperado'] = df_mes['Semana Letiva'].apply(cap_da_semana)
+
+            # Adicionar trimestre
+            def tri_da_semana(sem):
+                try:
+                    s = int(sem)
+                    if s <= 14: return "1º Tri"
+                    elif s <= 28: return "2º Tri"
+                    else: return "3º Tri"
+                except (ValueError, TypeError):
+                    return ""
+
+            df_mes['Trimestre'] = df_mes['Semana Letiva'].apply(tri_da_semana)
+
             # Mostra tabela do mês
-            cols_show = ['Dia', 'Dia Semana', 'Tipo', 'Semana Letiva', 'Evento']
+            cols_show = ['Dia', 'Dia Semana', 'Tipo', 'Semana Letiva', 'Trimestre', 'Cap Esperado', 'Evento']
 
             st.dataframe(df_mes[cols_show], use_container_width=True, hide_index=True)
 
             # Resumo do mês
+            col_r1, col_r2, col_r3 = st.columns(3)
             letivos = len(df_mes[df_mes['eh_letivo'] == 1])
             nao_letivos = len(df_mes[df_mes['eh_letivo'] != 1])
-            st.metric(f"Dias Letivos em {mes_sel}", letivos, delta=f"{nao_letivos} não letivos")
+            semanas_mes = sorted(df_mes['semana_letiva'].dropna().unique())
+            col_r1.metric(f"Dias Letivos em {mes_sel}", letivos)
+            col_r2.metric("Dias Não Letivos", nao_letivos)
+            caps_mes = set()
+            for s in semanas_mes:
+                try:
+                    caps_mes.add(min(12, math.ceil(int(s) / 3.5)))
+                except (ValueError, TypeError):
+                    pass
+            if caps_mes:
+                cap_range = f"Cap {min(caps_mes)} a {max(caps_mes)}" if len(caps_mes) > 1 else f"Cap {min(caps_mes)}"
+                col_r3.metric("Capítulos do Mês", cap_range)
     else:
         st.warning("Arquivo de calendário não encontrado. Execute a geração do dim_Calendario.csv")
 
