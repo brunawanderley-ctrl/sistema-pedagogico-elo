@@ -84,6 +84,29 @@ def status_conformidade(pct):
         return '🔴', 'Critico'
 
 
+# ========== NORMALIZACAO DE DISCIPLINAS ==========
+# Corrige nomes de disciplinas do SIGA que nao batem com a progressao SAE
+DISCIPLINA_NORM = {
+    'Física 2': 'Física',
+}
+
+
+def _normalizar_disciplina_fato(df):
+    """Aplica normalizacao de disciplinas e recalcula progressao_key."""
+    if 'disciplina' not in df.columns:
+        return df
+    mask = df['disciplina'].isin(DISCIPLINA_NORM)
+    if mask.any():
+        df.loc[mask, 'disciplina'] = df.loc[mask, 'disciplina'].map(DISCIPLINA_NORM)
+        if 'progressao_key' in df.columns and 'serie' in df.columns and 'semana_letiva' in df.columns:
+            df.loc[mask, 'progressao_key'] = (
+                df.loc[mask, 'disciplina'] + '|' +
+                df.loc[mask, 'serie'] + '|' +
+                df.loc[mask, 'semana_letiva'].astype(str)
+            )
+    return df
+
+
 # ========== CARREGAMENTO DE DADOS COM CACHE ==========
 
 @st.cache_data(ttl=300)
@@ -94,6 +117,7 @@ def carregar_fato_aulas():
         return pd.DataFrame()
     df = pd.read_csv(path)
     df['data'] = pd.to_datetime(df['data'], errors='coerce')
+    df = _normalizar_disciplina_fato(df)
     return df
 
 

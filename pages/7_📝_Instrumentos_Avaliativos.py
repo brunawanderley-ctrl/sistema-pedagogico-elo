@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import carregar_fato_aulas
 
 st.set_page_config(page_title="Instrumentos Avaliativos", page_icon="📝", layout="wide")
-from auth import check_password, logout_button
+from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
 logout_button()
@@ -156,7 +156,9 @@ def main():
         col_f1, col_f2 = st.columns(2)
         with col_f1:
             unidades = ['TODAS'] + sorted(df['unidade'].unique().tolist())
-            un_sel = st.selectbox("Unidade:", unidades)
+            user_unit = get_user_unit()
+            default_un = unidades.index(user_unit) if user_unit and user_unit in unidades else 0
+            un_sel = st.selectbox("Unidade:", unidades, index=default_un)
         with col_f2:
             disciplinas = ['TODAS'] + sorted(df['disciplina'].dropna().unique().tolist())
             disc_sel = st.selectbox("Disciplina:", disciplinas)

@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje, _hoje
 
 st.set_page_config(page_title="Alertas e Conformidade", page_icon="⚠️", layout="wide")
-from auth import check_password, logout_button
+from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
 logout_button()
@@ -109,7 +109,9 @@ def main():
 
         with col_f1:
             unidades = ['TODAS'] + sorted(df_aulas['unidade'].unique().tolist())
-            un_sel = st.selectbox("Filtrar por unidade:", unidades)
+            user_unit = get_user_unit()
+            default_un = unidades.index(user_unit) if user_unit and user_unit in unidades else 0
+            un_sel = st.selectbox("Filtrar por unidade:", unidades, index=default_un)
 
         with col_f2:
             segmentos = ['TODOS', 'Anos Finais (6º-9º)', 'Ensino Médio (1ª-3ª)']

@@ -17,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import DATA_DIR, is_cloud, ultima_atualizacao, calcular_semana_letiva, calcular_capitulo_esperado, carregar_fato_aulas
 
 st.set_page_config(page_title="Agenda Coordenacao", page_icon="📋", layout="wide")
-from auth import check_password, logout_button
+from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
 logout_button()
@@ -269,7 +269,9 @@ def main():
     with col_sel1:
         unidades = sorted(df_aulas['unidade'].dropna().unique())
         opcoes_unidade = ["TODAS"] + unidades
-        unidade_sel = st.selectbox("🏫 Unidade:", opcoes_unidade, key='un_principal')
+        user_unit = get_user_unit()
+        default_un = opcoes_unidade.index(user_unit) if user_unit and user_unit in opcoes_unidade else 0
+        unidade_sel = st.selectbox("🏫 Unidade:", opcoes_unidade, index=default_un, key='un_principal')
 
     # Filtra coordenadores da unidade (ou todos)
     if unidade_sel == "TODAS":

@@ -22,7 +22,7 @@ from utils import (
 )
 
 st.set_page_config(page_title="Progressao SAE", page_icon="📈", layout="wide")
-from auth import check_password, logout_button
+from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
 logout_button()
@@ -207,7 +207,10 @@ def main():
     col_f1, col_f2, col_f3 = st.columns(3)
     with col_f1:
         unidades = sorted(df_aulas_filtrado['unidade'].unique())
-        un_sel = st.selectbox("Unidade:", ['Todas'] + unidades)
+        un_opts = ['Todas'] + unidades
+        user_unit = get_user_unit()
+        default_un = un_opts.index(user_unit) if user_unit and user_unit in un_opts else 0
+        un_sel = st.selectbox("Unidade:", un_opts, index=default_un)
     with col_f2:
         segmento = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Médio'])
     with col_f3:

@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_fato_aulas, carregar_horario_esperado, DATA_DIR
 
 st.set_page_config(page_title="Material do Professor", page_icon="🖨️", layout="wide")
-from auth import check_password, logout_button
+from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
 logout_button()
@@ -478,7 +478,9 @@ def main():
     with col1:
         # Usa unidades que têm aulas registradas
         unidades = sorted(df_aulas['unidade'].dropna().unique())
-        unidade_sel = st.selectbox("🏫 Unidade:", unidades)
+        user_unit = get_user_unit()
+        default_un = unidades.index(user_unit) if user_unit and user_unit in unidades else 0
+        unidade_sel = st.selectbox("🏫 Unidade:", unidades, index=default_un)
 
     with col2:
         segmentos = ['Todos', 'Anos Finais (6º-9º)', 'Ensino Médio (1ª-3ª)']
