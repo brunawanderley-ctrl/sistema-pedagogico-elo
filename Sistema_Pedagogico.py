@@ -15,7 +15,11 @@ import os
 from datetime import datetime
 from pathlib import Path
 from auth import check_password, logout_button
-from utils import DATA_DIR, is_cloud, ultima_atualizacao, carregar_fato_aulas, carregar_horario_esperado, carregar_calendario, carregar_progressao_sae
+from utils import (
+    DATA_DIR, is_cloud, ultima_atualizacao,
+    carregar_fato_aulas, carregar_horario_esperado, carregar_calendario, carregar_progressao_sae,
+    calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, UNIDADES_NOMES
+)
 
 # Configuração da página (DEVE ser a primeira chamada Streamlit)
 st.set_page_config(
@@ -105,6 +109,13 @@ st.markdown("""
     .page-link:hover {
         background: #e8eaf6;
     }
+    .saude-card {
+        padding: 20px; border-radius: 12px; text-align: center; margin: 5px 0;
+        color: white; min-height: 120px;
+    }
+    .saude-verde { background: linear-gradient(135deg, #43A047, #66BB6A); }
+    .saude-amarelo { background: linear-gradient(135deg, #F9A825, #FDD835); color: #333; }
+    .saude-vermelho { background: linear-gradient(135deg, #E53935, #EF5350); }
 </style>
 """, unsafe_allow_html=True)
 
@@ -204,6 +215,39 @@ def main():
         </div>
         """, unsafe_allow_html=True)
 
+    # Terceira linha de paginas
+    col3a, col3b = st.columns(2)
+
+    with col3a:
+        st.markdown("""
+        <div class="page-link">
+            <h3>🖨️ 11. Material do Professor</h3>
+            <p>Relatorios individuais por professor para impressao em lote.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="page-link">
+            <h3>🚦 13. Semaforo do Professor</h3>
+            <p>Visao matricial rapida: quem precisa de atencao HOJE. <strong>NOVO!</strong></p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col3b:
+        st.markdown("""
+        <div class="page-link">
+            <h3>📋 12. Agenda da Coordenacao</h3>
+            <p>Observacao de aulas, feedback, acompanhamento de professores.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="page-link">
+            <h3>🧠 14. Alertas Inteligentes</h3>
+            <p>5 tipos de alerta + Score de Risco do Professor. <strong>NOVO!</strong></p>
+        </div>
+        """, unsafe_allow_html=True)
+
     st.markdown("---")
 
     # Instruções
@@ -222,39 +266,76 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
-    # Status atual
-    st.header("📊 Status Atual do Sistema")
-
-    col_s1, col_s2, col_s3, col_s4 = st.columns(4)
+    # Saude da Rede
+    st.header("🏥 Saude da Rede")
 
     df_aulas = carregar_fato_aulas()
     df_horario = carregar_horario_esperado()
     df_cal = carregar_calendario()
     df_prog = carregar_progressao_sae()
 
-    with col_s1:
-        if not df_aulas.empty:
-            st.metric("✅ Aulas no SIGA", f"{len(df_aulas):,}")
-        else:
-            st.metric("❌ Aulas no SIGA", "Nao carregado")
+    if not df_aulas.empty and not df_horario.empty:
+        semana = calcular_semana_letiva()
+        capitulo = calcular_capitulo_esperado(semana)
+        trimestre = calcular_trimestre(semana)
 
-    with col_s2:
-        if not df_horario.empty:
-            st.metric("✅ Grade Horaria", f"{len(df_horario):,}/semana")
-        else:
-            st.metric("❌ Grade Horaria", "Nao carregado")
+        # Context bar
+        st.markdown(f"**Semana {semana}** | Capitulo esperado: {capitulo}/12 | {trimestre}o Trimestre")
 
-    with col_s3:
-        if not df_cal.empty:
-            st.metric("✅ Calendario", f"{len(df_cal)} dias")
-        else:
-            st.metric("❌ Calendario", "Nao carregado")
+        # Health cards per unit
+        unidades = sorted(df_horario['unidade'].unique())
+        cols_un = st.columns(len(unidades))
 
-    with col_s4:
-        if not df_prog.empty:
-            st.metric("✅ Progressao SAE", f"{len(df_prog):,} registros")
-        else:
-            st.metric("❌ Progressao SAE", "Nao carregado")
+        for i, un in enumerate(unidades):
+            df_un = df_aulas[df_aulas['unidade'] == un]
+            df_hor_un = df_horario[df_horario['unidade'] == un]
+            if df_un['data'].notna().any():
+                semana_un = calcular_semana_letiva(df_un['data'].max())
+            else:
+                semana_un = 1
+            esperado = len(df_hor_un) * semana_un
+            real = len(df_un)
+            conf = (real / esperado * 100) if esperado > 0 else 0
+            profs = df_un['professor'].nunique()
+
+            if conf >= 85:
+                css = 'saude-verde'
+            elif conf >= 70:
+                css = 'saude-amarelo'
+            else:
+                css = 'saude-vermelho'
+
+            nome_un = UNIDADES_NOMES.get(un, un)
+
+            with cols_un[i]:
+                st.markdown(f"""
+                <div class="saude-card {css}">
+                    <h2 style="margin:0; border:none; color:inherit;">{conf:.0f}%</h2>
+                    <p style="margin:0; font-size:1.1em; font-weight:bold;">{nome_un}</p>
+                    <small>{real} aulas | {profs} profs</small>
+                </div>
+                """, unsafe_allow_html=True)
+
+        # Data status row
+        st.markdown("")
+        col_s1, col_s2, col_s3, col_s4 = st.columns(4)
+        with col_s1:
+            st.metric("Aulas Registradas", f"{len(df_aulas):,}")
+        with col_s2:
+            st.metric("Grade Horaria", f"{len(df_horario):,}/sem")
+        with col_s3:
+            if not df_cal.empty:
+                letivos = len(df_cal[df_cal['eh_letivo'] == 1])
+                st.metric("Dias Letivos", f"{letivos}")
+            else:
+                st.metric("Calendario", "N/A")
+        with col_s4:
+            if not df_prog.empty:
+                st.metric("Progressao SAE", f"{len(df_prog):,}")
+            else:
+                st.metric("Progressao SAE", "N/A")
+    else:
+        st.warning("Dados nao carregados. Execute a extracao do SIGA para ver a saude da rede.")
 
     # Rodapé
     st.markdown("---")

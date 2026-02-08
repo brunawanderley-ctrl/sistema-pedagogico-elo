@@ -376,5 +376,49 @@ def main():
     df_resumo = pd.DataFrame(resumo)
     st.dataframe(df_resumo, use_container_width=True, hide_index=True)
 
+    # ========== RANKING DE PROFESSORES ==========
+    if not df_horario.empty:
+        st.markdown("---")
+        st.header("🏆 Ranking de Professores")
+
+        prof_ranking = []
+        for prof in df_horario['professor'].unique():
+            df_prof_hor = df_horario[df_horario['professor'] == prof]
+            df_prof_aulas = df_aulas[df_aulas['professor'] == prof]
+            un = df_prof_hor['unidade'].iloc[0]
+            discs = ', '.join(sorted(df_prof_hor['disciplina'].unique())[:2])
+            esp = len(df_prof_hor) * semana
+            real_p = len(df_prof_aulas)
+            conf_p = (real_p / esp * 100) if esp > 0 else 0
+            nome = prof.split(' - ')[0] if ' - ' in prof else prof
+            prof_ranking.append({
+                'Professor': nome,
+                'Unidade': un,
+                'Disciplinas': discs,
+                'Registrado': real_p,
+                'Esperado': esp,
+                'Conformidade': conf_p,
+            })
+
+        df_rank = pd.DataFrame(prof_ranking)
+        df_rank = df_rank[df_rank['Esperado'] > 0]
+
+        col_r1, col_r2 = st.columns(2)
+
+        with col_r1:
+            st.subheader("🟢 Top 5 - Mais em Dia")
+            top5 = df_rank.nlargest(5, 'Conformidade')
+            for _, row in top5.iterrows():
+                pct = row['Conformidade']
+                st.markdown(f"**{row['Professor']}** ({row['Unidade']}) - {row['Disciplinas']} | **{pct:.0f}%**")
+
+        with col_r2:
+            st.subheader("🔴 5 que Precisam de Atencao")
+            bottom5 = df_rank[df_rank['Conformidade'] < 100].nsmallest(5, 'Conformidade')
+            for _, row in bottom5.iterrows():
+                pct = row['Conformidade']
+                icon = '🔴' if pct < 60 else '🟡'
+                st.markdown(f"{icon} **{row['Professor']}** ({row['Unidade']}) - {row['Disciplinas']} | **{pct:.0f}%**")
+
 if __name__ == "__main__":
     main()
