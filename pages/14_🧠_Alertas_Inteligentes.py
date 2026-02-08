@@ -78,24 +78,24 @@ TIPOS_ALERTA = {
         'prioridade': 2,
     },
     'LARANJA': {
-        'nome': 'Curriculo Atrasado',
+        'nome': 'Currículo Atrasado',
         'emoji': '🟠',
-        'descricao': 'Conteudo >1 capitulo atras do esperado SAE',
-        'acao': 'Reuniao com professor para plano de recuperacao',
+        'descricao': 'Conteúdo >1 capítulo atrás do esperado SAE',
+        'acao': 'Reunião com professor para plano de recuperação',
         'prioridade': 3,
     },
     'AZUL': {
-        'nome': 'Frequencia Pendente',
+        'nome': 'Frequência Pendente',
         'emoji': '🔵',
-        'descricao': '>5 dias sem lancar frequencia',
-        'acao': 'Lembrar professor de lancar frequencia',
+        'descricao': '>5 dias sem lançar frequência',
+        'acao': 'Lembrar professor de lançar frequência',
         'prioridade': 4,
     },
     'ROSA': {
-        'nome': 'Disciplina Orfã',
+        'nome': 'Disciplina Órfã',
         'emoji': '🩷',
         'descricao': 'Disciplina sem nenhum registro >1 semana',
-        'acao': 'Verificar se ha professor alocado',
+        'acao': 'Verificar se há professor alocado',
         'prioridade': 5,
     },
 }
@@ -178,7 +178,7 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
                     'professor_raw': prof,
                     'unidade': unidade,
                     'disciplinas': disciplinas,
-                    'detalhe': f'{dias_sem} dias sem registro (ultimo: {ultimo_registro.strftime("%d/%m")})',
+                    'detalhe': f'{dias_sem} dias sem registro (último: {ultimo_registro.strftime("%d/%m")})',
                     'valor': dias_sem,
                 })
 
@@ -205,7 +205,7 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
                 'professor_raw': '',
                 'unidade': un,
                 'disciplinas': f'{disc} ({serie})',
-                'detalhe': f'{taxa:.0f}% das aulas ({aulas_real}/{aulas_esp_total}) - possivel atraso curricular',
+                'detalhe': f'{taxa:.0f}% das aulas ({aulas_real}/{aulas_esp_total}) - possível atraso curricular',
                 'valor': round(100 - taxa, 1),
             })
 
@@ -224,7 +224,7 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
                 'professor_raw': '',
                 'unidade': un,
                 'disciplinas': f'{disc} ({serie})',
-                'detalhe': f'Zero registros desde o inicio do ano',
+                'detalhe': f'Zero registros desde o início do ano',
                 'valor': semana_atual,
             })
 
@@ -305,13 +305,13 @@ def calcular_score_risco(df_aulas, df_horario, semana_atual):
 
 def main():
     st.title("🧠 Alertas Inteligentes")
-    st.markdown("**Detecta problemas ANTES que se tornem criticos**")
+    st.markdown("**Detecta problemas ANTES que se tornem críticos**")
 
     df_aulas = carregar_fato_aulas()
     df_horario = carregar_horario_esperado()
 
     if df_aulas.empty or df_horario.empty:
-        st.error("Dados nao carregados. Execute a extracao do SIGA primeiro.")
+        st.error("Dados não carregados. Execute a extração do SIGA primeiro.")
         return
 
     df_aulas = filtrar_ate_hoje(df_aulas)
@@ -328,11 +328,11 @@ def main():
         filtro_un = st.selectbox("🏫 Unidade", un_opts, index=default_un)
 
     with col_f2:
-        seg_opts = ['TODOS', 'Anos Finais', 'Ensino Medio']
+        seg_opts = ['TODOS', 'Anos Finais', 'Ensino Médio']
         filtro_seg = st.selectbox("📚 Segmento", seg_opts)
 
     with col_f3:
-        periodo_sel = st.selectbox("📅 Periodo", PERIODOS_OPCOES, key='periodo_14')
+        periodo_sel = st.selectbox("📅 Período", PERIODOS_OPCOES, key='periodo_14')
 
     # Aplica filtro de periodo
     df_aulas = filtrar_por_periodo(df_aulas, periodo_sel)
@@ -348,7 +348,7 @@ def main():
     if filtro_seg == 'Anos Finais':
         df_hor_f = df_hor_f[df_hor_f['serie'].isin(SERIES_FUND_II)]
         df_aulas_f = df_aulas_f[df_aulas_f['serie'].isin(SERIES_FUND_II)]
-    elif filtro_seg == 'Ensino Medio':
+    elif filtro_seg == 'Ensino Médio':
         df_hor_f = df_hor_f[df_hor_f['serie'].isin(SERIES_EM)]
         df_aulas_f = df_aulas_f[df_aulas_f['serie'].isin(SERIES_EM)]
 
@@ -363,9 +363,9 @@ def main():
         <strong>Tipos de Alerta:</strong><br>
         🔴 <strong>Professor Silencioso</strong> - 0 registros na semana |
         🟡 <strong>Registro em Queda</strong> - Queda >30% vs semana anterior |
-        🟠 <strong>Curriculo Atrasado</strong> - >1 capitulo atras |
-        🔵 <strong>Frequencia Pendente</strong> - >5 dias sem lancar |
-        🩷 <strong>Disciplina Orfa</strong> - Sem registro >1 semana
+        🟠 <strong>Currículo Atrasado</strong> - >1 capítulo atrás |
+        🔵 <strong>Frequência Pendente</strong> - >5 dias sem lançar |
+        🩷 <strong>Disciplina Órfã</strong> - Sem registro >1 semana
     </div>
     """, unsafe_allow_html=True)
 
@@ -398,7 +398,7 @@ def main():
     st.header("🚨 Alertas Ativos")
 
     if df_alertas.empty:
-        st.success("🎉 Nenhum alerta ativo! Todos os indicadores estao dentro do esperado.")
+        st.success("🎉 Nenhum alerta ativo! Todos os indicadores estão dentro do esperado.")
     else:
         # Filtro de tipo de alerta
         tipos_sel = st.multiselect(
@@ -437,7 +437,7 @@ def main():
             <div class="{css_class}">
                 <strong>{info['emoji']} {info['nome']}</strong> | <strong>{alerta['professor']}</strong> ({alerta['unidade']}) - {alerta['disciplinas']}<br>
                 <small>{alerta['detalhe']}</small><br>
-                <em>Acao: {info['acao']}</em>
+                <em>Ação: {info['acao']}</em>
             </div>
             """, unsafe_allow_html=True)
 
@@ -454,10 +454,10 @@ def main():
     st.markdown("---")
     st.header("📊 Score de Risco do Professor")
 
-    st.markdown("""
+    st.markdown(f"""
     <div class="legenda-box">
-        <strong>Formula:</strong> Score = 0.35 x Taxa Registro + 0.25 x Taxa Conteudo + 0.15 x Taxa Tarefa + 0.25 x Recencia<br>
-        <small>Quanto MAIOR o score, MELHOR o professor esta. Score < {CONFORMIDADE_CRITICO} = critico | {CONFORMIDADE_CRITICO}-{CONFORMIDADE_BAIXO} = atencao | > {CONFORMIDADE_BAIXO} = em dia</small>
+        <strong>Fórmula:</strong> Score = 0.35 x Taxa Registro + 0.25 x Taxa Conteúdo + 0.15 x Taxa Tarefa + 0.25 x Recência<br>
+        <small>Quanto MAIOR o score, MELHOR o professor está. Score < {CONFORMIDADE_CRITICO} = crítico | {CONFORMIDADE_CRITICO}-{CONFORMIDADE_BAIXO} = atenção | > {CONFORMIDADE_BAIXO} = em dia</small>
     </div>
     """, unsafe_allow_html=True)
 
@@ -468,7 +468,7 @@ def main():
 
         # Categoriza
         df_scores['Nivel'] = df_scores['Score'].apply(
-            lambda s: '🔴 Critico' if s < CONFORMIDADE_CRITICO else ('🟡 Atencao' if s < CONFORMIDADE_BAIXO else '🟢 Em Dia')
+            lambda s: '🔴 Crítico' if s < CONFORMIDADE_CRITICO else ('🟡 Atenção' if s < CONFORMIDADE_BAIXO else '🟢 Em Dia')
         )
 
         # Contadores
@@ -479,22 +479,22 @@ def main():
         media = df_scores['Score'].mean()
 
         with col_s1:
-            st.metric(f"🔴 Critico (<{CONFORMIDADE_CRITICO})", n_critico)
+            st.metric(f"🔴 Crítico (<{CONFORMIDADE_CRITICO})", n_critico)
         with col_s2:
-            st.metric(f"🟡 Atencao ({CONFORMIDADE_CRITICO}-{CONFORMIDADE_BAIXO})", n_atencao)
+            st.metric(f"🟡 Atenção ({CONFORMIDADE_CRITICO}-{CONFORMIDADE_BAIXO})", n_atencao)
         with col_s3:
             st.metric(f"🟢 Em Dia (>{CONFORMIDADE_BAIXO})", n_ok)
         with col_s4:
-            st.metric("Score Medio", f"{media:.0f}")
+            st.metric("Score Médio", f"{media:.0f}")
 
         # Grafico de distribuicao
         fig_dist = px.histogram(
             df_scores, x='Score', nbins=20,
-            title='Distribuicao de Scores',
+            title='Distribuição de Scores',
             color_discrete_sequence=['#5C6BC0'],
             labels={'Score': 'Score de Risco', 'count': 'Professores'}
         )
-        fig_dist.add_vline(x=CONFORMIDADE_CRITICO, line_dash="dash", line_color="red", annotation_text="Critico")
+        fig_dist.add_vline(x=CONFORMIDADE_CRITICO, line_dash="dash", line_color="red", annotation_text="Crítico")
         fig_dist.add_vline(x=CONFORMIDADE_BAIXO, line_dash="dash", line_color="green", annotation_text="Em Dia")
         st.plotly_chart(fig_dist, use_container_width=True)
 
@@ -504,7 +504,7 @@ def main():
             color='Nivel', hover_name='Professor',
             hover_data=['Unidade', 'Disciplinas', 'Taxa Conteudo', 'Recencia'],
             title='Score de Risco vs Taxa de Registro',
-            color_discrete_map={'🔴 Critico': '#F44336', '🟡 Atencao': '#FFC107', '🟢 Em Dia': '#4CAF50'}
+            color_discrete_map={'🔴 Crítico': '#F44336', '🟡 Atenção': '#FFC107', '🟢 Em Dia': '#4CAF50'}
         )
         fig_scatter.update_traces(marker_size=10)
         st.plotly_chart(fig_scatter, use_container_width=True)
@@ -525,7 +525,7 @@ def main():
 
     # ========== EVOLUCAO SEMANAL DE ALERTAS ==========
     st.markdown("---")
-    st.header("📈 Evolucao Semanal")
+    st.header("📈 Evolução Semanal")
 
     if 'semana_letiva' in df_aulas.columns and semana > 1:
         evolucao = []
@@ -565,7 +565,7 @@ def main():
         ))
         fig_evol.add_hline(y=80, line_dash="dash", line_color="orange", annotation_text="Meta 80%")
         fig_evol.update_layout(
-            title='Evolucao Semanal de Atividade',
+            title='Evolução Semanal de Atividade',
             xaxis_title='Semana Letiva',
             yaxis_title='Percentual (%)',
             yaxis_range=[0, 110],
@@ -605,10 +605,10 @@ def main():
         # Relatorio TXT
         relatorio = []
         relatorio.append("=" * 80)
-        relatorio.append("     ALERTAS INTELIGENTES - COLEGIO ELO 2026")
+        relatorio.append("     ALERTAS INTELIGENTES - COLÉGIO ELO 2026")
         relatorio.append("=" * 80)
         relatorio.append(f"Gerado em: {_hoje().strftime('%d/%m/%Y %H:%M')}")
-        relatorio.append(f"Semana letiva: {semana}a | Capitulo esperado: {capitulo}")
+        relatorio.append(f"Semana letiva: {semana}a | Capítulo esperado: {capitulo}")
         relatorio.append(f"Filtro: {filtro_un} | {filtro_seg}")
         relatorio.append("")
 
@@ -617,7 +617,7 @@ def main():
                 grupo = df_alertas[df_alertas['tipo'] == tipo]
                 if not grupo.empty:
                     relatorio.append(f"{info['emoji']} {info['nome'].upper()} ({len(grupo)})")
-                    relatorio.append(f"   Acao: {info['acao']}")
+                    relatorio.append(f"   Ação: {info['acao']}")
                     relatorio.append("-" * 40)
                     for _, a in grupo.iterrows():
                         relatorio.append(f"  {a['professor']:<30} {a['unidade']:<5} {a['detalhe']}")
@@ -634,7 +634,7 @@ def main():
 
         relatorio.append("")
         relatorio.append("=" * 80)
-        relatorio.append("                 Coordenacao Pedagogica - Colegio ELO")
+        relatorio.append("                 Coordenação Pedagógica - Colégio ELO")
         relatorio.append("=" * 80)
 
         txt = "\n".join(relatorio)

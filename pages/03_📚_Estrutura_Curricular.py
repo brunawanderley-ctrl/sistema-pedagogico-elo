@@ -141,7 +141,8 @@ def main():
     pivot_serie['Status'] = pivot_serie.apply(check_divergencia, axis=1)
 
     # Adiciona total
-    pivot_serie['Aulas/Semana'] = pivot_serie[['BV', 'CD', 'CDR', 'JG']].max(axis=1).astype(int)
+    unit_cols = [c for c in pivot_serie.columns if c in ['BV', 'CD', 'CDR', 'JG']]
+    pivot_serie['Aulas/Semana'] = pivot_serie[unit_cols].max(axis=1).astype(int) if unit_cols else 0
 
     # Ordena por aulas
     pivot_serie = pivot_serie.sort_values('Aulas/Semana', ascending=False)

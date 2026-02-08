@@ -208,9 +208,9 @@ def main():
         aulas_semana = len(df_hor)
         # Ajusta semana para trimestre filtrado (não ultrapassar o fim do trimestre)
         semana_calc = semana
-        if filtro_tri != 'TODOS':
-            tri_map_calc = {'1º Trimestre': (1, 14), '2º Trimestre': (15, 28), '3º Trimestre': (29, 42)}
-            sem_min_tri, sem_max_tri = tri_map_calc[filtro_tri]
+        tri_map_calc = {'1o Trimestre': (1, 14), '2o Trimestre': (15, 28), '3o Trimestre': (29, 42)}
+        if filtro_periodo in tri_map_calc:
+            sem_min_tri, sem_max_tri = tri_map_calc[filtro_periodo]
             semana_calc = min(semana, sem_max_tri) - sem_min_tri + 1
             semana_calc = max(0, semana_calc)
         aulas_esperadas = aulas_semana * semana_calc

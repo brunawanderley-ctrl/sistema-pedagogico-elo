@@ -276,7 +276,7 @@ def main():
                 'Professor': prof,
                 'Esperado': esperado,
                 'Registrado': realizado,
-                'Conformidade': f'{min(conf, 200):.0f}%',
+                'Conformidade': min(conf, 200),
                 'Status': '✅' if conf >= CONFORMIDADE_META else ('⚠️' if conf >= CONFORMIDADE_BAIXO else '🔴')
             })
 
@@ -294,7 +294,12 @@ def main():
 
         df_prof_filtered = df_prof[df_prof['Status'].isin(status_sel)]
 
-        st.dataframe(df_prof_filtered, use_container_width=True, hide_index=True)
+        st.dataframe(
+            df_prof_filtered,
+            use_container_width=True,
+            hide_index=True,
+            column_config={"Conformidade": st.column_config.NumberColumn(format="%.0f%%")},
+        )
 
         # Gráfico
         fig = px.histogram(df_prof, x='Conformidade', nbins=10,

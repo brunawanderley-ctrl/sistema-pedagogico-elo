@@ -14,7 +14,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_horario_esperado, carregar_fato_aulas, filtrar_ate_hoje, DATA_DIR, ORDEM_SERIES
 
-st.set_page_config(page_title="Visao do Professor", page_icon="👨‍🏫", layout="wide")
+st.set_page_config(page_title="Visão do Professor", page_icon="👨‍🏫", layout="wide")
 from auth import check_password, logout_button
 if not check_password():
     st.stop()

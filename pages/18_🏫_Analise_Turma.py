@@ -24,7 +24,7 @@ from utils import (
 )
 from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
 
-st.set_page_config(page_title="Analise por Turma", page_icon="🏫", layout="wide")
+st.set_page_config(page_title="Análise por Turma", page_icon="🏫", layout="wide")
 from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
@@ -84,14 +84,14 @@ def calcular_saude_turma(df_turma, df_horario, semana, unidade, serie):
 
 
 def main():
-    st.title("🏫 Analise por Turma")
-    st.markdown("**Visao completa de cada turma: todas as disciplinas, alinhamento e saude**")
+    st.title("🏫 Análise por Turma")
+    st.markdown("**Visão completa de cada turma: todas as disciplinas, alinhamento e saúde**")
 
     df = carregar_fato_aulas()
     df_horario = carregar_horario_esperado()
 
     if df.empty:
-        st.error("Dados nao carregados.")
+        st.error("Dados não carregados.")
         return
 
     df = filtrar_ate_hoje(df)
@@ -117,7 +117,7 @@ def main():
         un_sel = st.selectbox("Unidade:", opcoes_un, index=default_un)
 
     with col_f2:
-        st.selectbox("Periodo:", PERIODOS_OPCOES, key='periodo_18')
+        st.selectbox("Período:", PERIODOS_OPCOES, key='periodo_18')
 
     # Filtra por unidade
     df_un = df[df['unidade'] == un_sel]
@@ -125,7 +125,10 @@ def main():
 
     with col_f3:
         series_disponiveis = [s for s in ORDEM_SERIES if s in df_un['serie'].unique()]
-        serie_sel = st.selectbox("Serie:", series_disponiveis)
+        if not series_disponiveis:
+            st.info("Nenhuma série com dados para esta unidade.")
+            return
+        serie_sel = st.selectbox("Série:", series_disponiveis)
 
     with col_f4:
         turmas_serie = sorted(df_un[df_un['serie'] == serie_sel]['turma'].dropna().unique())
@@ -152,12 +155,12 @@ def main():
     <div style="background: linear-gradient(135deg, {cor_saude}dd 0%, {cor_saude} 100%); color: white; padding: 25px; border-radius: 15px; margin: 10px 0;">
         <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 15px;">
             <div style="text-align: center;">
-                <p style="margin: 0; opacity: 0.9; font-size: 1.1em;">Saude da Turma</p>
+                <p style="margin: 0; opacity: 0.9; font-size: 1.1em;">Saúde da Turma</p>
                 <p style="font-size: 3em; font-weight: bold; margin: 0;">{saude:.0f}</p>
                 <p style="margin: 0; opacity: 0.8;">de 100</p>
             </div>
             <div style="text-align: center;">
-                <p style="margin: 0; opacity: 0.9;">Serie</p>
+                <p style="margin: 0; opacity: 0.9;">Série</p>
                 <p style="font-size: 1.5em; font-weight: bold; margin: 0;">{serie_sel}</p>
                 <p style="margin: 0; opacity: 0.8;">{un_sel}</p>
             </div>
@@ -180,7 +183,7 @@ def main():
     # ========== TABS ==========
     tab1, tab2, tab3, tab4 = st.tabs([
         "📊 Panorama Disciplinas",
-        "📖 Alinhamento Capitulos",
+        "📖 Alinhamento Capítulos",
         "👨‍🏫 Mapa de Professores",
         "📋 Detalhes"
     ])
@@ -294,11 +297,11 @@ def main():
 
     # ========== TAB 2: ALINHAMENTO DE CAPITULOS ==========
     with tab2:
-        st.header("📖 Alinhamento de Capitulos entre Disciplinas")
+        st.header("📖 Alinhamento de Capítulos entre Disciplinas")
 
         st.markdown(f"""
-        Verifica se as disciplinas estao progredindo de forma alinhada.
-        **Capitulo esperado para semana {semana}: {cap_esperado}/12**
+        Verifica se as disciplinas estão progredindo de forma alinhada.
+        **Capítulo esperado para semana {semana}: {cap_esperado}/12**
         """)
 
         # Mapa de capitulos por disciplina
@@ -321,10 +324,10 @@ def main():
 
             cap_data.append({
                 'Disciplina': disc,
-                'Cap. Minimo': min_cap if min_cap > 0 else '-',
-                'Cap. Maximo': max_cap if max_cap > 0 else '-',
+                'Cap. Mínimo': min_cap if min_cap > 0 else '-',
+                'Cap. Máximo': max_cap if max_cap > 0 else '-',
                 'Esperado': cap_esperado,
-                'Diferenca': diff if max_cap > 0 else '-',
+                'Diferença': diff if max_cap > 0 else '-',
                 'Status': status,
             })
 
@@ -332,12 +335,12 @@ def main():
         st.dataframe(df_cap, use_container_width=True, hide_index=True)
 
         # Grafico de barras: capitulo atual vs esperado
-        cap_plot = [c for c in cap_data if c['Cap. Maximo'] != '-']
+        cap_plot = [c for c in cap_data if c['Cap. Máximo'] != '-']
         if cap_plot:
             fig = go.Figure()
             fig.add_trace(go.Bar(
                 x=[c['Disciplina'] for c in cap_plot],
-                y=[c['Cap. Maximo'] for c in cap_plot],
+                y=[c['Cap. Máximo'] for c in cap_plot],
                 name='Cap. Atual (detectado)',
                 marker_color=[
                     '#43A047' if c['Status'] == 'Adiantado'
@@ -349,8 +352,8 @@ def main():
             fig.add_hline(y=cap_esperado, line_dash="dash", line_color="red",
                          annotation_text=f"Esperado: Cap {cap_esperado}")
             fig.update_layout(
-                title=f'Capitulo Maximo Detectado por Disciplina - {serie_sel}',
-                yaxis_title='Capitulo',
+                title=f'Capítulo Máximo Detectado por Disciplina - {serie_sel}',
+                yaxis_title='Capítulo',
                 yaxis=dict(range=[0, 13]),
             )
             fig.update_xaxes(tickangle=45)
@@ -365,7 +368,7 @@ def main():
                       ', '.join(c['Disciplina'] for c in atrasados))
 
         if sem_dados:
-            st.info(f"ℹ️ {len(sem_dados)} disciplina(s) sem mencao a capitulos: " +
+            st.info(f"ℹ️ {len(sem_dados)} disciplina(s) sem menção a capítulos: " +
                    ', '.join(c['Disciplina'] for c in sem_dados))
 
     # ========== TAB 3: MAPA DE PROFESSORES ==========
@@ -396,7 +399,7 @@ def main():
                 'Professor': prof,
                 'Disciplina(s)': discs,
                 'Aulas': len(df_p),
-                'Ultimo Registro': ultimo_reg.strftime('%d/%m') if pd.notna(ultimo_reg) else '-',
+                'Último Registro': ultimo_reg.strftime('%d/%m') if pd.notna(ultimo_reg) else '-',
                 'Dias Sem Reg.': dias_sem if dias_sem < 999 else '-',
                 '% Preenchido': f"{pct_preenchido:.0f}%",
             })
@@ -444,7 +447,7 @@ def main():
         st.dataframe(df_show, use_container_width=True, hide_index=True, height=500)
 
         # Contagem por disciplina
-        st.subheader("Distribuicao de Aulas por Disciplina")
+        st.subheader("Distribuição de Aulas por Disciplina")
 
         disc_count = df_turma.groupby('disciplina').size().reset_index(name='aulas')
         disc_count = disc_count.sort_values('aulas', ascending=False)
@@ -469,7 +472,7 @@ def main():
 
             comp.append({
                 'Unidade': un,
-                'Saude': f"{saude_un:.0f}",
+                'Saúde': f"{saude_un:.0f}",
                 'Aulas': len(df_un_comp),
                 'Professores': df_un_comp['professor'].nunique(),
                 'Disciplinas': df_un_comp['disciplina'].nunique(),
@@ -479,10 +482,10 @@ def main():
         st.dataframe(df_comp, use_container_width=True, hide_index=True)
 
         # Grafico
-        df_comp['Saude_Num'] = df_comp['Saude'].astype(float)
+        df_comp['Saude_Num'] = df_comp['Saúde'].astype(float)
         fig = px.bar(df_comp, x='Unidade', y='Saude_Num',
                     color='Unidade', color_discrete_map=CORES_UNIDADES,
-                    title=f'Saude da Turma {serie_sel} por Unidade')
+                    title=f'Saúde da Turma {serie_sel} por Unidade')
         fig.add_hline(y=CONFORMIDADE_META, line_dash="dash", line_color="green", annotation_text=f"Meta {CONFORMIDADE_META}")
         st.plotly_chart(fig, use_container_width=True)
 

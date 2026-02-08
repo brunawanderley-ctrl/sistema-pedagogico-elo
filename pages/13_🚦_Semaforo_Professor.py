@@ -20,7 +20,7 @@ from utils import (
     _hoje, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM
 )
 
-st.set_page_config(page_title="Semaforo do Professor", page_icon="🚦", layout="wide")
+st.set_page_config(page_title="Semáforo do Professor", page_icon="🚦", layout="wide")
 from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
@@ -141,14 +141,14 @@ def render_semaforo_html(row):
 
 
 def main():
-    st.title("🚦 Semaforo do Professor")
-    st.markdown("**Visao rapida: quem precisa de atencao HOJE**")
+    st.title("🚦 Semáforo do Professor")
+    st.markdown("**Visão rápida: quem precisa de atenção HOJE**")
 
     df_aulas = carregar_fato_aulas()
     df_horario = carregar_horario_esperado()
 
     if df_aulas.empty or df_horario.empty:
-        st.error("Dados nao carregados. Execute a extracao do SIGA primeiro.")
+        st.error("Dados não carregados. Execute a extração do SIGA primeiro.")
         return
 
     df_aulas = filtrar_ate_hoje(df_aulas)
@@ -165,14 +165,14 @@ def main():
         filtro_un = st.selectbox("🏫 Unidade", un_opts, index=default_un)
 
     with col_f2:
-        seg_opts = ['TODOS', 'Anos Finais', 'Ensino Medio']
+        seg_opts = ['TODOS', 'Anos Finais', 'Ensino Médio']
         filtro_seg = st.selectbox("📚 Segmento", seg_opts)
 
     with col_f3:
-        periodo_sel = st.selectbox("📅 Periodo", PERIODOS_OPCOES, key='periodo_13')
+        periodo_sel = st.selectbox("📅 Período", PERIODOS_OPCOES, key='periodo_13')
 
     with col_f4:
-        cor_opts = ['TODOS', '🔴 Critico', '🟡 Atencao', '🟢 OK', '⚪ Sem dados']
+        cor_opts = ['TODOS', '🔴 Crítico', '🟡 Atenção', '🟢 OK', '⚪ Sem dados']
         filtro_cor = st.selectbox("🚦 Status", cor_opts)
 
     # Aplica filtro de periodo
@@ -189,7 +189,7 @@ def main():
     if filtro_seg == 'Anos Finais':
         df_hor_f = df_hor_f[df_hor_f['serie'].isin(SERIES_FUND_II)]
         df_aulas_f = df_aulas_f[df_aulas_f['serie'].isin(SERIES_FUND_II)]
-    elif filtro_seg == 'Ensino Medio':
+    elif filtro_seg == 'Ensino Médio':
         df_hor_f = df_hor_f[df_hor_f['serie'].isin(SERIES_EM)]
         df_aulas_f = df_aulas_f[df_aulas_f['serie'].isin(SERIES_EM)]
 
@@ -201,7 +201,7 @@ def main():
         return
 
     # Filtra por cor
-    cor_map = {'🔴 Critico': 'vermelho', '🟡 Atencao': 'amarelo', '🟢 OK': 'verde', '⚪ Sem dados': 'cinza'}
+    cor_map = {'🔴 Crítico': 'vermelho', '🟡 Atenção': 'amarelo', '🟢 OK': 'verde', '⚪ Sem dados': 'cinza'}
     if filtro_cor != 'TODOS':
         df_semaforo = df_semaforo[df_semaforo['Cor'] == cor_map[filtro_cor]]
 
@@ -221,7 +221,7 @@ def main():
         <div class="resumo-card card-verde">
             <h1 style="margin:0; font-size:3em; color:white;">{n_verde}</h1>
             <p style="margin:0; font-size:1.1em;">🟢 Em Dia</p>
-            <small>≥80% registro + ≥60% conteudo</small>
+            <small>≥80% registro + ≥60% conteúdo</small>
         </div>
         """, unsafe_allow_html=True)
 
@@ -229,7 +229,7 @@ def main():
         st.markdown(f"""
         <div class="resumo-card card-amarelo">
             <h1 style="margin:0; font-size:3em; color:#333;">{n_amarelo}</h1>
-            <p style="margin:0; font-size:1.1em;">🟡 Atencao</p>
+            <p style="margin:0; font-size:1.1em;">🟡 Atenção</p>
             <small>60-79% registro</small>
         </div>
         """, unsafe_allow_html=True)
@@ -238,7 +238,7 @@ def main():
         st.markdown(f"""
         <div class="resumo-card card-vermelho">
             <h1 style="margin:0; font-size:3em; color:white;">{n_vermelho + n_cinza}</h1>
-            <p style="margin:0; font-size:1.1em;">🔴 Critico</p>
+            <p style="margin:0; font-size:1.1em;">🔴 Crítico</p>
             <small>&lt;60% registro ou sem dados</small>
         </div>
         """, unsafe_allow_html=True)
@@ -248,7 +248,7 @@ def main():
         st.markdown(f"""
         <div class="resumo-card card-total">
             <h1 style="margin:0; font-size:3em; color:white;">{pct_ok:.0f}%</h1>
-            <p style="margin:0; font-size:1.1em;">Saude da Rede</p>
+            <p style="margin:0; font-size:1.1em;">Saúde da Rede</p>
             <small>{n_total} professores no filtro</small>
         </div>
         """, unsafe_allow_html=True)
@@ -265,7 +265,7 @@ def main():
                 resumo_un[cor] = 0
 
         resumo_un = resumo_un[['verde', 'amarelo', 'vermelho', 'cinza']]
-        resumo_un.columns = ['🟢 Em Dia', '🟡 Atencao', '🔴 Critico', '⚪ Sem dados']
+        resumo_un.columns = ['🟢 Em Dia', '🟡 Atenção', '🔴 Crítico', '⚪ Sem dados']
         resumo_un['Total'] = resumo_un.sum(axis=1)
         resumo_un['% Em Dia'] = (resumo_un['🟢 Em Dia'] / resumo_un['Total'] * 100).round(0).astype(int).astype(str) + '%'
 
@@ -274,14 +274,14 @@ def main():
         # Grafico empilhado
         cores_graf = ['#4CAF50', '#FFC107', '#F44336', '#9E9E9E']
         fig = go.Figure()
-        for col, cor in zip(['🟢 Em Dia', '🟡 Atencao', '🔴 Critico', '⚪ Sem dados'], cores_graf):
+        for col, cor in zip(['🟢 Em Dia', '🟡 Atenção', '🔴 Crítico', '⚪ Sem dados'], cores_graf):
             fig.add_trace(go.Bar(
                 name=col, x=resumo_un.index, y=resumo_un[col],
                 marker_color=cor, text=resumo_un[col], textposition='inside'
             ))
         fig.update_layout(
             barmode='stack',
-            title='Distribuicao de Professores por Unidade',
+            title='Distribuição de Professores por Unidade',
             yaxis_title='Quantidade',
             height=400
         )
@@ -323,7 +323,7 @@ def main():
     col_d1, col_d2 = st.columns(2)
 
     with col_d1:
-        st.subheader("🔴 Precisam de Atencao Imediata")
+        st.subheader("🔴 Precisam de Atenção Imediata")
         criticos = df_semaforo[df_semaforo['Cor'].isin(['vermelho', 'cinza'])]
         if not criticos.empty:
             for _, row in criticos.head(10).iterrows():
@@ -331,7 +331,7 @@ def main():
                     st.markdown(f"""
                     <div class="semaforo-cinza">
                         ⚪ <strong>{row['Professor']}</strong> ({row['Unidade']}) - {row['Disciplinas']}<br>
-                        <small>NENHUM registro no periodo</small>
+                        <small>NENHUM registro no período</small>
                     </div>
                     """, unsafe_allow_html=True)
                 else:
@@ -342,7 +342,7 @@ def main():
                     </div>
                     """, unsafe_allow_html=True)
         else:
-            st.success("Nenhum professor em situacao critica!")
+            st.success("Nenhum professor em situação crítica!")
 
     with col_d2:
         st.subheader("🏆 Destaques Positivos")
@@ -352,7 +352,7 @@ def main():
                 st.markdown(f"""
                 <div class="semaforo-verde">
                     🟢 <strong>{row['Professor']}</strong> ({row['Unidade']}) - {row['Disciplinas']}<br>
-                    <small>{row['Taxa Registro']:.0f}% registro | {row['Taxa Conteudo']:.0f}% conteudo | {row['Taxa Tarefa']:.0f}% tarefa</small>
+                    <small>{row['Taxa Registro']:.0f}% registro | {row['Taxa Conteudo']:.0f}% conteúdo | {row['Taxa Tarefa']:.0f}% tarefa</small>
                 </div>
                 """, unsafe_allow_html=True)
         else:
@@ -360,7 +360,7 @@ def main():
 
     # ========== HEATMAP POR SERIE x DISCIPLINA ==========
     st.markdown("---")
-    st.header("🗺️ Mapa de Calor: Serie x Disciplina")
+    st.header("🗺️ Mapa de Calor: Série x Disciplina")
 
     # Para cada combinacao serie+disciplina, calcula taxa media
     if filtro_un != 'TODAS':
@@ -410,7 +410,7 @@ def main():
             colorbar={'title': 'Conformidade %'}
         ))
         fig_hm.update_layout(
-            title=f'Conformidade por Serie x Disciplina ({unidade_heatmap})',
+            title=f'Conformidade por Série x Disciplina ({unidade_heatmap})',
             height=max(400, len(pivot_hm) * 30 + 100),
             yaxis={'autorange': 'reversed'}
         )
@@ -425,7 +425,7 @@ def main():
     with col_e1:
         csv_data = df_show.to_csv(index=False).encode('utf-8-sig')
         st.download_button(
-            "📥 Download Semaforo (CSV)",
+            "📥 Download Semáforo (CSV)",
             csv_data,
             f"semaforo_professores_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
             "text/csv"
@@ -435,18 +435,18 @@ def main():
         # Gera relatorio TXT para impressao
         relatorio = []
         relatorio.append("=" * 80)
-        relatorio.append("     SEMAFORO DO PROFESSOR - COLEGIO ELO 2026")
+        relatorio.append("     SEMÁFORO DO PROFESSOR - COLÉGIO ELO 2026")
         relatorio.append("=" * 80)
         relatorio.append(f"Gerado em: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
-        relatorio.append(f"Semana letiva: {semana}a | Capitulo esperado: {capitulo}")
+        relatorio.append(f"Semana letiva: {semana}a | Capítulo esperado: {capitulo}")
         relatorio.append(f"Filtro: {filtro_un} | {filtro_seg}")
         relatorio.append("")
-        relatorio.append(f"RESUMO: {n_verde} em dia | {n_amarelo} atencao | {n_vermelho} critico | {n_cinza} sem dados")
+        relatorio.append(f"RESUMO: {n_verde} em dia | {n_amarelo} atenção | {n_vermelho} crítico | {n_cinza} sem dados")
         relatorio.append("-" * 80)
         relatorio.append("")
 
-        for cor_label, cor_val, emoji in [('CRITICO', 'vermelho', '🔴'), ('SEM DADOS', 'cinza', '⚪'),
-                                           ('ATENCAO', 'amarelo', '🟡'), ('EM DIA', 'verde', '🟢')]:
+        for cor_label, cor_val, emoji in [('CRÍTICO', 'vermelho', '🔴'), ('SEM DADOS', 'cinza', '⚪'),
+                                           ('ATENÇÃO', 'amarelo', '🟡'), ('EM DIA', 'verde', '🟢')]:
             grupo = df_semaforo[df_semaforo['Cor'] == cor_val]
             if not grupo.empty:
                 relatorio.append(f"{emoji} {cor_label} ({len(grupo)} professores)")
@@ -456,12 +456,12 @@ def main():
                 relatorio.append("")
 
         relatorio.append("=" * 80)
-        relatorio.append("                 Coordenacao Pedagogica - Colegio ELO")
+        relatorio.append("                 Coordenação Pedagógica - Colégio ELO")
         relatorio.append("=" * 80)
 
         txt = "\n".join(relatorio)
         st.download_button(
-            "🖨️ Imprimir Relatorio (TXT)",
+            "🖨️ Imprimir Relatório (TXT)",
             txt.encode('utf-8'),
             f"semaforo_{datetime.now().strftime('%Y%m%d_%H%M')}.txt",
             "text/plain"

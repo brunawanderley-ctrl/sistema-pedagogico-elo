@@ -34,7 +34,7 @@ def main():
     df_horario = carregar_horario_esperado()
 
     if df_aulas.empty or df_horario.empty:
-        st.error("Dados nao carregados.")
+        st.error("Dados não carregados.")
         return
 
     df_aulas = filtrar_ate_hoje(df_aulas)

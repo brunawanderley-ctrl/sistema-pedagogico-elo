@@ -81,6 +81,8 @@ def calcular_capitulo_esperado(semana):
 
 def calcular_trimestre(semana):
     """Retorna o trimestre (1, 2 ou 3) baseado na semana letiva."""
+    if semana is None:
+        return 1
     if semana <= 14:
         return 1
     elif semana <= 28:
@@ -397,8 +399,16 @@ def calcular_frequencia_aluno(freq_df, aluno_id=None):
     df = freq_df.copy()
     if aluno_id is not None and 'aluno_id' in df.columns:
         df = df[df['aluno_id'] == aluno_id]
+    if df.empty:
+        return pd.DataFrame()
     cols_group = [c for c in ['aluno_id', 'aluno_nome', 'disciplina', 'serie', 'unidade'] if c in df.columns]
-    if not cols_group or 'presente' not in df.columns:
+    if not cols_group:
+        return pd.DataFrame()
+    # Se dados ja tem pct_frequencia (formato historico), retorna direto
+    if 'pct_frequencia' in df.columns:
+        return df
+    # Formato com coluna 'presente' (dados em tempo real)
+    if 'presente' not in df.columns:
         return pd.DataFrame()
     agg = df.groupby(cols_group).agg(
         total_aulas=('presente', 'count'),

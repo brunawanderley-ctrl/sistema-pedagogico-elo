@@ -468,7 +468,7 @@ def main():
     df_horario = carregar_horario_esperado()
 
     if df_aulas.empty or df_horario.empty:
-        st.error("Dados nao carregados. Execute a extracao do SIGA primeiro.")
+        st.error("Dados não carregados. Execute a extração do SIGA primeiro.")
         return
 
     from utils import filtrar_ate_hoje, _hoje

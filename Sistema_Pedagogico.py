@@ -48,10 +48,10 @@ _aulas_path = DATA_DIR / "fato_Aulas.csv"
 
 with st.sidebar:
     st.subheader("Atualizar Dados")
-    st.caption(f"Ultima atualizacao: {ultima_atualizacao()}")
+    st.caption(f"Última atualização: {ultima_atualizacao()}")
 
     if not is_cloud():
-        if st.button("Atualizar Diario de Classe", type="primary", key="btn_atualizar_home"):
+        if st.button("Atualizar Diário de Classe", type="primary", key="btn_atualizar_home"):
             _script_path = Path(__file__).parent / "atualizar_siga.py"
             _env = os.environ.copy()
             try:
@@ -71,10 +71,10 @@ with st.sidebar:
                 st.success("Dados atualizados com sucesso!")
                 st.rerun()
             else:
-                st.error("Erro na atualizacao:")
+                st.error("Erro na atualização:")
                 st.code(_result.stderr or _result.stdout, language="text")
     else:
-        st.info("Atualizacao de dados disponivel apenas localmente.")
+        st.info("Atualização de dados disponível apenas localmente.")
 
     st.markdown("---")
 
@@ -237,22 +237,22 @@ def main():
         st.markdown("""
         <div class="page-link">
             <h3>🖨️ 11. Material do Professor</h3>
-            <p>Relatorios individuais por professor para impressao em lote.</p>
+            <p>Relatórios individuais por professor para impressão em lote.</p>
         </div>
         """, unsafe_allow_html=True)
 
         st.markdown("""
         <div class="page-link">
-            <h3>🚦 13. Semaforo do Professor</h3>
-            <p>Visao matricial rapida: quem precisa de atencao HOJE. <strong>NOVO!</strong></p>
+            <h3>🚦 13. Semáforo do Professor</h3>
+            <p>Visão matricial rápida: quem precisa de atenção HOJE. <strong>NOVO!</strong></p>
         </div>
         """, unsafe_allow_html=True)
 
     with col3b:
         st.markdown("""
         <div class="page-link">
-            <h3>📋 12. Agenda da Coordenacao</h3>
-            <p>Observacao de aulas, feedback, acompanhamento de professores.</p>
+            <h3>📋 12. Agenda da Coordenação</h3>
+            <p>Observação de aulas, feedback, acompanhamento de professores.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -269,7 +269,7 @@ def main():
         st.markdown("""
         <div class="page-link">
             <h3>📄 15. Resumo Semanal</h3>
-            <p>Relatorio para reunioes e WhatsApp. Exportavel! <strong>NOVO!</strong></p>
+            <p>Relatório para reuniões e WhatsApp. Exportável! <strong>NOVO!</strong></p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -292,7 +292,7 @@ def main():
     """, unsafe_allow_html=True)
 
     # Saude da Rede
-    st.header("🏥 Saude da Rede")
+    st.header("🏥 Saúde da Rede")
 
     df_aulas = carregar_fato_aulas()
     df_aulas = filtrar_ate_hoje(df_aulas)
@@ -306,7 +306,7 @@ def main():
         trimestre = calcular_trimestre(semana)
 
         # Context bar
-        st.markdown(f"**Semana {semana}** | Capitulo esperado: {capitulo}/12 | {trimestre}o Trimestre")
+        st.markdown(f"**Semana {semana}** | Capítulo esperado: {capitulo}/12 | {trimestre}o Trimestre")
 
         # Health cards per unit
         unidades = sorted(df_horario['unidade'].unique())
@@ -348,22 +348,22 @@ def main():
         with col_s1:
             st.metric("Aulas Registradas", f"{len(df_aulas):,}")
         with col_s2:
-            st.metric("Grade Horaria", f"{len(df_horario):,}/sem")
+            st.metric("Grade Horária", f"{len(df_horario):,}/sem")
         with col_s3:
             if not df_cal.empty:
                 letivos = len(df_cal[df_cal['eh_letivo'] == 1])
                 st.metric("Dias Letivos", f"{letivos}")
             else:
-                st.metric("Calendario", "N/A")
+                st.metric("Calendário", "N/A")
         with col_s4:
             if not df_prog.empty:
-                st.metric("Progressao SAE", f"{len(df_prog):,}")
+                st.metric("Progressão SAE", f"{len(df_prog):,}")
             else:
-                st.metric("Progressao SAE", "N/A")
+                st.metric("Progressão SAE", "N/A")
 
         # ========== PONTOS DE ATENCAO HOJE ==========
         st.markdown("---")
-        st.header("📌 Pontos de Atencao Hoje")
+        st.header("📌 Pontos de Atenção Hoje")
 
         from auth import get_user_unit
         user_unit = get_user_unit()
@@ -413,7 +413,7 @@ def main():
             if len(sem_cont) > 0:
                 pct_vazio = len(sem_cont) / len(df_recente) * 100
                 if pct_vazio > 20:
-                    pontos.append(('🟡', f'{len(sem_cont)} aulas sem conteudo nos ultimos 7 dias ({pct_vazio:.0f}%)',
+                    pontos.append(('🟡', f'{len(sem_cont)} aulas sem conteúdo nos últimos 7 dias ({pct_vazio:.0f}%)',
                                    'Verificar registros dos professores'))
 
         # 4. Info positiva
@@ -442,7 +442,7 @@ def main():
             st.caption(f"Mostrando alertas para: {UNIDADES_NOMES.get(user_unit, user_unit)}")
 
     else:
-        st.warning("Dados nao carregados. Execute a extracao do SIGA para ver a saude da rede.")
+        st.warning("Dados não carregados. Execute a extração do SIGA para ver a saúde da rede.")
 
     # Rodapé
     st.markdown("---")

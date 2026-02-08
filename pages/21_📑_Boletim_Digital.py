@@ -55,7 +55,7 @@ def classificar_nota(nota):
 
 def main():
     st.title("📑 Boletim Digital")
-    st.markdown("**Boletim Escolar | Notas e Frequencia por Trimestre**")
+    st.markdown("**Boletim Escolar | Notas e Frequência por Trimestre**")
 
     hoje = _hoje()
     semana = calcular_semana_letiva(hoje)
@@ -66,15 +66,15 @@ def main():
     df_freq = carregar_frequencia_alunos()
 
     if df_notas.empty:
-        st.warning("⚠️ Dados de notas ainda nao extraidos do SIGA.")
+        st.warning("⚠️ Dados de notas ainda não extraídos do SIGA.")
         st.info("""
-        **Como ativar esta pagina:**
+        **Como ativar esta página:**
 
         1. Execute `python3 explorar_api_alunos.py` para descobrir os endpoints
-        2. Os endpoints de notas sao:
+        2. Os endpoints de notas são:
            - `/api/v1/diario/{id}/notas/` (P0)
            - `/api/v1/planilha_notas_faltas/` (P0)
-        3. Apos descobrir, a extracao populara `fato_Notas.csv`
+        3. Após descobrir, a extração populará `fato_Notas.csv`
 
         **Colunas esperadas:**
         `aluno_id, aluno_nome, unidade, serie, turma, disciplina, avaliacao, nota, trimestre, data_avaliacao`
@@ -86,7 +86,7 @@ def main():
         return
 
     # ========== VISAO: COORDENADOR OU ALUNO ==========
-    tab_coord, tab_turma = st.tabs(["👨‍💼 Visao Coordenacao", "📋 Boletim por Turma"])
+    tab_coord, tab_turma = st.tabs(["👨‍💼 Visão Coordenação", "📋 Boletim por Turma"])
 
     # TAB 1: VISAO COORDENACAO
     with tab_coord:
@@ -106,7 +106,7 @@ def main():
 
         with cols_filtro[idx]:
             series_disp = sorted(df_notas['serie'].unique()) if 'serie' in df_notas.columns else []
-            serie_sel = st.selectbox("Serie:", ['Todas'] + series_disp, key='bol_serie')
+            serie_sel = st.selectbox("Série:", ['Todas'] + series_disp, key='bol_serie')
         idx += 1
 
         # Filtro de ano (dados historicos)
@@ -146,9 +146,9 @@ def main():
             alunos_unicos = df['aluno_id'].nunique() if 'aluno_id' in df.columns else 0
 
             with col1:
-                st.metric("Media Geral", f"{media:.1f}")
+                st.metric("Média Geral", f"{media:.1f}")
             with col2:
-                st.metric("Avaliacoes", total_avaliacoes)
+                st.metric("Avaliações", total_avaliacoes)
             with col3:
                 st.metric("Abaixo de 7.0", abaixo_media)
             with col4:
@@ -162,7 +162,7 @@ def main():
                         pivot, text_auto=True,
                         color_continuous_scale=['#E53935', '#FBC02D', '#43A047'],
                         range_color=[0, 10],
-                        title='Media de Notas (Serie x Disciplina)'
+                        title='Média de Notas (Série x Disciplina)'
                     )
                     fig.update_layout(height=400)
                     st.plotly_chart(fig, use_container_width=True)
@@ -171,19 +171,19 @@ def main():
             if 'nota' in df.columns:
                 fig2 = px.histogram(
                     df, x='nota', nbins=20,
-                    title='Distribuicao de Notas',
+                    title='Distribuição de Notas',
                     color_discrete_sequence=['#1a237e']
                 )
-                fig2.add_vline(x=7, line_dash="dash", line_color="green", annotation_text="Media 7.0")
-                fig2.add_vline(x=5, line_dash="dash", line_color="red", annotation_text="Recuperacao")
+                fig2.add_vline(x=7, line_dash="dash", line_color="green", annotation_text="Média 7.0")
+                fig2.add_vline(x=5, line_dash="dash", line_color="red", annotation_text="Recuperação")
                 st.plotly_chart(fig2, use_container_width=True)
 
             # Ranking: disciplinas com pior media
             if 'disciplina' in df.columns and 'nota' in df.columns:
                 ranking = df.groupby('disciplina')['nota'].agg(['mean', 'count']).round(1)
-                ranking.columns = ['Media', 'Avaliacoes']
-                ranking = ranking.sort_values('Media')
-                st.subheader("📉 Disciplinas com Menor Media")
+                ranking.columns = ['Média', 'Avaliações']
+                ranking = ranking.sort_values('Média')
+                st.subheader("📉 Disciplinas com Menor Média")
                 st.dataframe(ranking.head(10), use_container_width=True)
 
     # TAB 2: BOLETIM POR TURMA
@@ -200,7 +200,7 @@ def main():
                 turma_sel = st.selectbox("Turma:", turmas_disp if turmas_disp else ['N/A'], key='bol_turma')
             else:
                 series_turma = sorted(df_notas['serie'].unique()) if 'serie' in df_notas.columns else []
-                turma_sel = st.selectbox("Serie:", series_turma if series_turma else ['N/A'], key='bol_turma')
+                turma_sel = st.selectbox("Série:", series_turma if series_turma else ['N/A'], key='bol_turma')
 
         with col_t2:
             if 'trimestre' in df_notas.columns:
@@ -209,7 +209,7 @@ def main():
                 anos_turma = sorted(df_notas['ano'].dropna().unique(), reverse=True)
                 ano_turma = st.selectbox("Ano:", anos_turma if anos_turma else [2025], key='bol_turma_ano')
             else:
-                st.info("Sem coluna de periodo disponivel.")
+                st.info("Sem coluna de período disponível.")
 
         if turma_sel == 'N/A':
             st.info("Selecione uma turma.")
@@ -252,7 +252,7 @@ def main():
 
                 # Legenda e resultado
                 st.markdown("""
-                **Legenda:** 🟢 >= 7.0 (Aprovado) | 🟡 5.0-6.9 (Recuperacao) | 🔴 < 5.0 (Reprovado)
+                **Legenda:** 🟢 >= 7.0 (Aprovado) | 🟡 5.0-6.9 (Recuperação) | 🔴 < 5.0 (Reprovado)
                 """)
                 if 'resultado' in df_turma.columns:
                     resultados = df_turma.groupby('aluno_nome')['resultado'].first().reset_index()
@@ -267,12 +267,12 @@ def _mostrar_boletim_simulado(trimestre):
 
     st.markdown("""
     <div class="boletim-header">
-        <h2 style="margin:0; color:white;">COLEGIO ELO - BOLETIM ESCOLAR 2026</h2>
-        <p style="margin:5px 0 0; opacity:0.8;">SIMULACAO - Execute extracao para dados reais</p>
+        <h2 style="margin:0; color:white;">COLÉGIO ELO - BOLETIM ESCOLAR 2026</h2>
+        <p style="margin:5px 0 0; opacity:0.8;">SIMULAÇÃO - Execute extração para dados reais</p>
     </div>
     """, unsafe_allow_html=True)
 
-    disciplinas = ['Matematica', 'L. Portuguesa', 'Historia', 'Geografia', 'Ciencias', 'Ingles', 'Arte']
+    disciplinas = ['Matemática', 'L. Portuguesa', 'História', 'Geografia', 'Ciências', 'Inglês', 'Arte']
     alunos = ['Ana Silva', 'Bruno Costa', 'Carla Mendes', 'Diego Santos', 'Eva Lima']
 
     data = {}

@@ -50,7 +50,7 @@ st.markdown("""
 
 def main():
     st.title("🎓 Painel do Aluno")
-    st.markdown("**Visao 360 graus do desempenho individual**")
+    st.markdown("**Visão 360 graus do desempenho individual**")
 
     hoje = _hoje()
     semana = calcular_semana_letiva(hoje)
@@ -72,18 +72,18 @@ def main():
     tem_ocorr = not df_ocorr.empty
 
     if not tem_dados_alunos:
-        st.warning("⚠️ Dados de alunos ainda nao extraidos do SIGA.")
+        st.warning("⚠️ Dados de alunos ainda não extraídos do SIGA.")
         st.info("""
-        **Para ativar esta pagina, execute:**
+        **Para ativar esta página, execute:**
 
         ```bash
         python3 explorar_api_alunos.py
         ```
 
-        Isso vai descobrir os endpoints da API SIGA para notas, frequencia e ocorrencias.
-        Depois, execute a extracao completa para popular os dados.
+        Isso vai descobrir os endpoints da API SIGA para notas, frequência e ocorrências.
+        Depois, execute a extração completa para popular os dados.
 
-        **Endpoints necessarios:**
+        **Endpoints necessários:**
         - `/api/v1/diario/{id}/alunos/lista/` → dim_Alunos.csv
         - `/api/v1/diario/{id}/notas/` → fato_Notas.csv
         - `/api/v1/diario/diario_aula/{id}/chamada/` → fato_Frequencia_Aluno.csv
@@ -113,7 +113,7 @@ def main():
 
     with col_f2:
         series_disponiveis = sorted(df_alunos_filtrado['serie'].unique()) if 'serie' in df_alunos_filtrado.columns else []
-        serie_sel = st.selectbox("Serie:", ['Todas'] + series_disponiveis)
+        serie_sel = st.selectbox("Série:", ['Todas'] + series_disponiveis)
 
     if serie_sel != 'Todas' and 'serie' in df_alunos_filtrado.columns:
         df_alunos_filtrado = df_alunos_filtrado[df_alunos_filtrado['serie'] == serie_sel]
@@ -140,7 +140,7 @@ def main():
         <p style="margin:5px 0 0; opacity:0.8;">
             {aluno_info.get('serie', '')} | {UNIDADES_NOMES.get(str(aluno_info.get('unidade', '')), '')} |
             Turma: {aluno_info.get('turma', 'N/A')} |
-            Matricula: {aluno_info.get('matricula', 'N/A')}
+            Matrícula: {aluno_info.get('matricula', 'N/A')}
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -167,7 +167,7 @@ def main():
 
     with col1:
         cor = "#43A047" if media_geral >= 7 else "#FBC02D" if media_geral >= 5 else "#E53935"
-        st.metric("Media Geral", f"{media_geral:.1f}", delta=None)
+        st.metric("Média Geral", f"{media_geral:.1f}", delta=None)
 
     # Frequencia geral
     if tem_freq and aluno_id is not None:
@@ -179,7 +179,7 @@ def main():
 
     with col2:
         emoji_freq, label_freq = status_frequencia(pct_freq) if pct_freq > 0 else ('⬜', 'N/A')
-        st.metric("Frequencia", f"{pct_freq:.1f}%", delta=f"{emoji_freq} {label_freq}")
+        st.metric("Frequência", f"{pct_freq:.1f}%", delta=f"{emoji_freq} {label_freq}")
 
     # Ocorrencias
     if tem_ocorr and aluno_id is not None:
@@ -190,14 +190,14 @@ def main():
         total_ocorr = 0
 
     with col3:
-        st.metric("Ocorrencias", total_ocorr)
+        st.metric("Ocorrências", total_ocorr)
 
     with col4:
         st.metric("Semana Letiva", f"{semana}a", delta=f"{trimestre}o Trimestre")
 
     # ========== TABS ==========
     tab1, tab2, tab3, tab4, tab5 = st.tabs([
-        "📊 Notas", "📅 Frequencia", "📋 Ocorrencias", "📈 Evolucao", "🕸️ Radar"
+        "📊 Notas", "📅 Frequência", "📋 Ocorrências", "📈 Evolução", "🕸️ Radar"
     ])
 
     # TAB 1: NOTAS
@@ -231,13 +231,13 @@ def main():
                     color=medias.values,
                     color_continuous_scale=['#E53935', '#FBC02D', '#43A047'],
                     range_color=[0, 10],
-                    title='Media por Disciplina'
+                    title='Média por Disciplina'
                 )
-                fig.update_layout(yaxis_title='', xaxis_title='Media', height=400)
+                fig.update_layout(yaxis_title='', xaxis_title='Média', height=400)
                 st.plotly_chart(fig, use_container_width=True)
 
             # Detalhamento por avaliacao
-            with st.expander("Ver detalhamento por avaliacao"):
+            with st.expander("Ver detalhamento por avaliação"):
                 cols_show = [c for c in ['disciplina', 'avaliacao', 'nota', 'trimestre', 'ano', 'resultado', 'faltas', 'data_avaliacao'] if c in notas_aluno.columns]
                 sort_cols = [c for c in ['disciplina', 'ano'] if c in notas_aluno.columns] or cols_show[:1]
                 st.dataframe(notas_aluno[cols_show].sort_values(sort_cols), use_container_width=True, hide_index=True)
@@ -246,7 +246,7 @@ def main():
 
     # TAB 2: FREQUENCIA
     with tab2:
-        st.subheader("📅 Frequencia por Disciplina")
+        st.subheader("📅 Frequência por Disciplina")
 
         if not freq_aluno.empty:
             # Gauge de frequencia geral
@@ -254,7 +254,7 @@ def main():
                 mode="gauge+number",
                 value=pct_freq,
                 domain={'x': [0, 1], 'y': [0, 1]},
-                title={'text': "Frequencia Geral"},
+                title={'text': "Frequência Geral"},
                 gauge={
                     'axis': {'range': [0, 100]},
                     'bar': {'color': '#1a237e'},
@@ -279,25 +279,25 @@ def main():
                 freq_display['Status'] = freq_display['pct_frequencia'].apply(
                     lambda x: status_frequencia(x)[0] + ' ' + status_frequencia(x)[1]
                 )
-                cols_show = [c for c in ['disciplina', 'total_aulas', 'presencas', 'pct_frequencia', 'Status'] if c in freq_display.columns]
                 freq_display = freq_display.rename(columns={
-                    'total_aulas': 'Aulas', 'presencas': 'Presencas',
-                    'pct_frequencia': '% Frequencia'
+                    'total_aulas': 'Aulas', 'presencas': 'Presenças',
+                    'pct_frequencia': '% Frequência'
                 })
+                cols_show = [c for c in ['disciplina', 'Aulas', 'Presenças', '% Frequência', 'Status'] if c in freq_display.columns]
                 st.dataframe(freq_display[cols_show] if cols_show else freq_display, use_container_width=True, hide_index=True)
 
                 # Alertas de risco
                 em_risco = freq_aluno[freq_aluno['pct_frequencia'] < THRESHOLD_FREQUENCIA_LDB]
                 if not em_risco.empty:
-                    st.error(f"🔴 ALERTA: Aluno com frequencia abaixo de {THRESHOLD_FREQUENCIA_LDB}% em {len(em_risco)} disciplina(s)!")
+                    st.error(f"🔴 ALERTA: Aluno com frequência abaixo de {THRESHOLD_FREQUENCIA_LDB}% em {len(em_risco)} disciplina(s)!")
                     for _, row in em_risco.iterrows():
                         st.markdown(f"  - **{row.get('disciplina', '?')}**: {row['pct_frequencia']:.1f}%")
         else:
-            st.info("Dados de frequencia individual ainda nao disponiveis.")
+            st.info("Dados de frequência individual ainda não disponíveis.")
 
     # TAB 3: OCORRENCIAS
     with tab3:
-        st.subheader("📋 Ocorrencias Disciplinares")
+        st.subheader("📋 Ocorrências Disciplinares")
 
         if not ocorr_aluno.empty:
             # Timeline
@@ -309,24 +309,24 @@ def main():
 
             # Distribuicao por tipo
             if 'tipo' in ocorr_aluno.columns:
-                fig = px.pie(ocorr_aluno, names='tipo', title='Distribuicao por Tipo')
+                fig = px.pie(ocorr_aluno, names='tipo', title='Distribuição por Tipo')
                 st.plotly_chart(fig, use_container_width=True)
         else:
-            st.success("Nenhuma ocorrencia registrada para este aluno.")
+            st.success("Nenhuma ocorrência registrada para este aluno.")
 
     # TAB 4: EVOLUCAO
     with tab4:
-        st.subheader("📈 Evolucao ao Longo do Tempo")
+        st.subheader("📈 Evolução ao Longo do Tempo")
 
         if not notas_aluno.empty and 'trimestre' in notas_aluno.columns and 'disciplina' in notas_aluno.columns:
             evolucao = notas_aluno.groupby(['trimestre', 'disciplina'])['nota'].mean().reset_index()
             fig = px.line(
                 evolucao, x='trimestre', y='nota', color='disciplina',
-                markers=True, title='Evolucao das Medias por Trimestre'
+                markers=True, title='Evolução das Médias por Trimestre'
             )
-            fig.update_layout(xaxis_title='Trimestre', yaxis_title='Media', yaxis_range=[0, 10])
+            fig.update_layout(xaxis_title='Trimestre', yaxis_title='Média', yaxis_range=[0, 10])
             fig.add_hline(y=7, line_dash="dash", line_color="green", annotation_text="Meta 7.0")
-            fig.add_hline(y=5, line_dash="dash", line_color="red", annotation_text="Minimo 5.0")
+            fig.add_hline(y=5, line_dash="dash", line_color="red", annotation_text="Mínimo 5.0")
             st.plotly_chart(fig, use_container_width=True)
         elif not notas_aluno.empty and 'ano' in notas_aluno.columns and 'disciplina' in notas_aluno.columns:
             # Dados historicos: evolucao por ano
@@ -335,16 +335,16 @@ def main():
                 evolucao = notas_todos_anos.groupby(['ano', 'disciplina'])['nota'].mean().reset_index()
                 fig = px.line(
                     evolucao, x='ano', y='nota', color='disciplina',
-                    markers=True, title='Evolucao das Medias por Ano'
+                    markers=True, title='Evolução das Médias por Ano'
                 )
-                fig.update_layout(xaxis_title='Ano', yaxis_title='Media', yaxis_range=[0, 10])
+                fig.update_layout(xaxis_title='Ano', yaxis_title='Média', yaxis_range=[0, 10])
                 fig.add_hline(y=7, line_dash="dash", line_color="green", annotation_text="Meta 7.0")
-                fig.add_hline(y=5, line_dash="dash", line_color="red", annotation_text="Minimo 5.0")
+                fig.add_hline(y=5, line_dash="dash", line_color="red", annotation_text="Mínimo 5.0")
                 st.plotly_chart(fig, use_container_width=True)
             else:
-                st.info("Dados insuficientes para evolucao temporal.")
+                st.info("Dados insuficientes para evolução temporal.")
         else:
-            st.info("Dados insuficientes para evolucao temporal.")
+            st.info("Dados insuficientes para evolução temporal.")
 
     # TAB 5: RADAR
     with tab5:
@@ -376,9 +376,9 @@ def main():
                 )
                 st.plotly_chart(fig, use_container_width=True)
             else:
-                st.info("Necessario ao menos 3 disciplinas para o radar.")
+                st.info("Necessário ao menos 3 disciplinas para o radar.")
         else:
-            st.info("Notas nao disponiveis para gerar radar.")
+            st.info("Notas não disponíveis para gerar radar.")
 
 
 def _mostrar_preview_simulado(trimestre, semana):
@@ -397,11 +397,11 @@ def _mostrar_preview_simulado(trimestre, semana):
 
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.metric("Media Geral", "7.8")
+        st.metric("Média Geral", "7.8")
     with col2:
-        st.metric("Frequencia", "92.3%", delta="✅ Excelente")
+        st.metric("Frequência", "92.3%", delta="✅ Excelente")
     with col3:
-        st.metric("Ocorrencias", "1")
+        st.metric("Ocorrências", "1")
     with col4:
         st.metric("Semana Letiva", f"{semana}a", delta=f"{trimestre}o Tri")
 
@@ -425,7 +425,7 @@ def _mostrar_preview_simulado(trimestre, semana):
     )
     st.plotly_chart(fig, use_container_width=True)
 
-    st.caption("⚠️ Dados simulados para demonstracao. Execute a extracao para dados reais.")
+    st.caption("⚠️ Dados simulados para demonstração. Execute a extração para dados reais.")
 
 
 if __name__ == "__main__":

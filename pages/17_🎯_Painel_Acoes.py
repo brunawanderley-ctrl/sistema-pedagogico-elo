@@ -26,7 +26,7 @@ from utils import (
 )
 from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
 
-st.set_page_config(page_title="Painel de Acoes", page_icon="🎯", layout="wide")
+st.set_page_config(page_title="Painel de Ações", page_icon="🎯", layout="wide")
 from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
@@ -91,7 +91,7 @@ def diagnosticar_professor(df_prof, df_horario, semana, prof_nome, unidade):
     conformidade = (total_aulas / esperado * 100) if esperado > 0 else 0
 
     if conformidade < CONFORMIDADE_CRITICO:
-        alertas.append(('critico', f'Conformidade critica: {conformidade:.0f}% ({total_aulas}/{esperado})'))
+        alertas.append(('critico', f'Conformidade crítica: {conformidade:.0f}% ({total_aulas}/{esperado})'))
         prioridade = max(prioridade, 3)
     elif conformidade < CONFORMIDADE_BAIXO:
         alertas.append(('urgente', f'Conformidade baixa: {conformidade:.0f}%'))
@@ -105,10 +105,10 @@ def diagnosticar_professor(df_prof, df_horario, semana, prof_nome, unidade):
     pct_vazio = (vazios / total_aulas * 100) if total_aulas > 0 else 0
 
     if pct_vazio > CONTEUDO_VAZIO_CRITICO:
-        alertas.append(('critico', f'{pct_vazio:.0f}% dos registros sem conteudo'))
+        alertas.append(('critico', f'{pct_vazio:.0f}% dos registros sem conteúdo'))
         prioridade = max(prioridade, 3)
     elif pct_vazio > CONTEUDO_VAZIO_ALERTA:
-        alertas.append(('urgente', f'{pct_vazio:.0f}% dos registros sem conteudo'))
+        alertas.append(('urgente', f'{pct_vazio:.0f}% dos registros sem conteúdo'))
         prioridade = max(prioridade, 2)
 
     # 3. Dias sem registro
@@ -165,19 +165,19 @@ def gerar_acao_recomendada(diag):
     elif p == 2:
         return f"Verificar registros de {diag['professor']} e agendar feedback"
     elif p == 1:
-        return f"Acompanhar {diag['professor']} na proxima semana"
+        return f"Acompanhar {diag['professor']} na próxima semana"
     return f"{diag['professor']} - OK, manter acompanhamento"
 
 
 def main():
-    st.title("🎯 Painel de Acoes da Coordenacao")
-    st.markdown("**Centro de comando: diagnostico automatico, prioridades e checklist**")
+    st.title("🎯 Painel de Ações da Coordenação")
+    st.markdown("**Centro de comando: diagnóstico automático, prioridades e checklist**")
 
     df = carregar_fato_aulas()
     df_horario = carregar_horario_esperado()
 
     if df.empty:
-        st.error("Dados nao carregados.")
+        st.error("Dados não carregados.")
         return
 
     df = filtrar_ate_hoje(df)
@@ -204,7 +204,7 @@ def main():
         un_sel = st.selectbox("Unidade:", opcoes_un, index=default_un)
 
     with col_f2:
-        st.selectbox("Periodo:", PERIODOS_OPCOES, key='periodo_17')
+        st.selectbox("Período:", PERIODOS_OPCOES, key='periodo_17')
 
     with col_f3:
         segmento = st.radio("Segmento:", ['Todos', 'Fund II', 'EM'], horizontal=True)
@@ -244,7 +244,7 @@ def main():
                 <p style="font-size: 2em; font-weight: bold; margin: 0;">{cap_esperado}/12</p>
             </div>
             <div style="text-align: center;">
-                <p style="margin: 0; opacity: 0.9;">Dias ate Fim do Tri</p>
+                <p style="margin: 0; opacity: 0.9;">Dias até Fim do Tri</p>
                 <p style="font-size: 2em; font-weight: bold; margin: 0;">{max(0, dias_fim)}</p>
             </div>
         </div>
@@ -267,7 +267,7 @@ def main():
     with col1:
         st.markdown(f"""
         <div style="background: #ffebee; border-left: 4px solid #E53935; padding: 15px; border-radius: 5px; text-align: center;">
-            <p style="margin: 0; color: #E53935; font-weight: bold;">CRITICOS</p>
+            <p style="margin: 0; color: #E53935; font-weight: bold;">CRÍTICOS</p>
             <p style="font-size: 2.5em; margin: 0; color: #E53935;">{criticos}</p>
         </div>
         """, unsafe_allow_html=True)
@@ -281,7 +281,7 @@ def main():
     with col3:
         st.markdown(f"""
         <div style="background: #fff8e1; border-left: 4px solid #FBC02D; padding: 15px; border-radius: 5px; text-align: center;">
-            <p style="margin: 0; color: #F9A825; font-weight: bold;">ATENCAO</p>
+            <p style="margin: 0; color: #F9A825; font-weight: bold;">ATENÇÃO</p>
             <p style="font-size: 2.5em; margin: 0; color: #F9A825;">{atencao}</p>
         </div>
         """, unsafe_allow_html=True)
@@ -295,29 +295,29 @@ def main():
 
     # ========== TABS ==========
     tab1, tab2, tab3, tab4 = st.tabs([
-        "🚨 Acoes Prioritarias",
+        "🚨 Ações Prioritárias",
         "📋 Checklist Semanal",
-        "📊 Visao Geral",
+        "📊 Visão Geral",
         "📝 Notas e Registro"
     ])
 
     # ========== TAB 1: ACOES PRIORITARIAS ==========
     with tab1:
-        st.header("🚨 Top 10 Acoes Prioritarias")
+        st.header("🚨 Top 10 Ações Prioritárias")
 
         st.markdown("""
-        Lista gerada automaticamente baseada em: **conformidade**, **qualidade de conteudo**,
-        **dias sem registro** e **tarefas atribuidas**. Foque nos criticos primeiro.
+        Lista gerada automaticamente baseada em: **conformidade**, **qualidade de conteúdo**,
+        **dias sem registro** e **tarefas atribuídas**. Foque nos críticos primeiro.
         """)
 
         top_acoes = [d for d in diagnosticos if d['prioridade'] >= 1][:10]
 
         if not top_acoes:
-            st.success("Nenhuma acao prioritaria no momento. Todos os professores estao OK!")
+            st.success("Nenhuma ação prioritária no momento. Todos os professores estão OK!")
         else:
             for i, diag in enumerate(top_acoes, 1):
                 prioridade_cor = {3: '#E53935', 2: '#F57C00', 1: '#FBC02D'}
-                prioridade_label = {3: 'CRITICO', 2: 'URGENTE', 1: 'ATENCAO'}
+                prioridade_label = {3: 'CRÍTICO', 2: 'URGENTE', 1: 'ATENÇÃO'}
                 prioridade_emoji = {3: '🔴', 2: '🟠', 1: '🟡'}
 
                 cor = prioridade_cor.get(diag['prioridade'], '#9E9E9E')
@@ -370,7 +370,7 @@ def main():
         st.header(f"📋 Checklist - Semana {semana}")
 
         st.markdown("""
-        Checklist automatico para acompanhamento semanal da coordenacao.
+        Checklist automático para acompanhamento semanal da coordenação.
         Marque os itens conforme for completando.
         """)
 
@@ -379,21 +379,21 @@ def main():
 
         items = [
             ("verificar_registros", "Verificar se todos os professores registraram aulas da semana"),
-            ("contatar_ausentes", f"Contatar professores sem registro ha mais de 3 dias"),
-            ("revisar_conteudo", "Revisar qualidade dos conteudos registrados (amostrar 5 professores)"),
-            ("conferir_progressao", f"Conferir se professores estao no capitulo {cap_esperado} ou proximo"),
-            ("verificar_tarefas", "Verificar se tarefas estao sendo atribuidas regularmente"),
-            ("preparar_resumo", "Preparar resumo semanal para reuniao de quinta-feira"),
-            ("agendar_feedbacks", "Verificar feedbacks pendentes e agendar proximos"),
+            ("contatar_ausentes", f"Contatar professores sem registro há mais de 3 dias"),
+            ("revisar_conteudo", "Revisar qualidade dos conteúdos registrados (amostrar 5 professores)"),
+            ("conferir_progressao", f"Conferir se professores estão no capítulo {cap_esperado} ou próximo"),
+            ("verificar_tarefas", "Verificar se tarefas estão sendo atribuídas regularmente"),
+            ("preparar_resumo", "Preparar resumo semanal para reunião de quinta-feira"),
+            ("agendar_feedbacks", "Verificar feedbacks pendentes e agendar próximos"),
         ]
 
         # Adicionar items especificos do trimestre
         if semana in (7, 8):
-            items.append(("verificar_a1", "Verificar aplicacao das avaliacoes A1.1-A1.4"))
+            items.append(("verificar_a1", "Verificar aplicação das avaliações A1.1-A1.4"))
         elif semana in (11, 12):
-            items.append(("verificar_a2", "Verificar aplicacao das avaliacoes A1.5-A2"))
+            items.append(("verificar_a2", "Verificar aplicação das avaliações A1.5-A2"))
         elif semana in (13, 14):
-            items.append(("verificar_simulado", "Verificar aplicacao do Simulado + Recuperacao"))
+            items.append(("verificar_simulado", "Verificar aplicação do Simulado + Recuperação"))
 
         for item_key, item_text in items:
             checked = checklist_salvo.get(item_key, False)
@@ -418,19 +418,19 @@ def main():
 
         eventos = []
         if semana in (7, 8):
-            eventos.append("📝 Semana de Avaliacoes A1.1-A1.4")
+            eventos.append("📝 Semana de Avaliações A1.1-A1.4")
         if semana in (11, 12):
-            eventos.append("📝 Semana de Avaliacoes A1.5-A2")
+            eventos.append("📝 Semana de Avaliações A1.5-A2")
         if semana in (13, 14):
-            eventos.append("📋 Simulado + Recuperacao 1o Trimestre")
+            eventos.append("📋 Simulado + Recuperação 1o Trimestre")
         if semana % 4 == 0:
-            eventos.append("📊 Reuniao mensal de coordenacao")
+            eventos.append("📊 Reunião mensal de coordenação")
 
         if hoje.weekday() == DIA_REUNIAO_SEMANAL:  # Quinta-feira
-            eventos.append("🗓️ Reuniao semanal de acompanhamento (hoje)")
+            eventos.append("🗓️ Reunião semanal de acompanhamento (hoje)")
         elif hoje.weekday() < DIA_REUNIAO_SEMANAL:
             dias_quinta = DIA_REUNIAO_SEMANAL - hoje.weekday()
-            eventos.append(f"🗓️ Reuniao semanal em {dias_quinta} dia(s)")
+            eventos.append(f"🗓️ Reunião semanal em {dias_quinta} dia(s)")
 
         if eventos:
             for ev in eventos:
@@ -440,7 +440,7 @@ def main():
 
     # ========== TAB 3: VISAO GERAL ==========
     with tab3:
-        st.header("📊 Visao Geral - Todos os Professores")
+        st.header("📊 Visão Geral - Todos os Professores")
 
         # Tabela completa
         dados_tabela = []
@@ -450,7 +450,7 @@ def main():
                 'Status': prioridade_emoji.get(diag['prioridade'], '⚪'),
                 'Professor': diag['professor'],
                 'Unidade': diag['unidade'],
-                'Series': diag['series'],
+                'Séries': diag['series'],
                 'Aulas': diag['total_aulas'],
                 'Conformidade': f"{diag['conformidade']:.0f}%",
                 '% Vazio': f"{diag['pct_vazio']:.0f}%",
@@ -460,13 +460,13 @@ def main():
         df_tabela = pd.DataFrame(dados_tabela)
 
         # Filtro de prioridade
-        filtro_prio = st.radio("Filtrar:", ['Todos', 'Criticos', 'Urgentes', 'Atencao', 'OK'], horizontal=True)
+        filtro_prio = st.radio("Filtrar:", ['Todos', 'Críticos', 'Urgentes', 'Atenção', 'OK'], horizontal=True)
 
-        if filtro_prio == 'Criticos':
+        if filtro_prio == 'Críticos':
             df_tabela = df_tabela[df_tabela['Status'] == '🔴']
         elif filtro_prio == 'Urgentes':
             df_tabela = df_tabela[df_tabela['Status'] == '🟠']
-        elif filtro_prio == 'Atencao':
+        elif filtro_prio == 'Atenção':
             df_tabela = df_tabela[df_tabela['Status'] == '🟡']
         elif filtro_prio == 'OK':
             df_tabela = df_tabela[df_tabela['Status'] == '🟢']
@@ -474,10 +474,10 @@ def main():
         st.dataframe(df_tabela, use_container_width=True, hide_index=True, height=500)
 
         # Distribuicao de prioridades
-        st.subheader("Distribuicao de Prioridades")
+        st.subheader("Distribuição de Prioridades")
 
         prio_counts = pd.DataFrame({
-            'Prioridade': ['Critico', 'Urgente', 'Atencao', 'OK'],
+            'Prioridade': ['Crítico', 'Urgente', 'Atenção', 'OK'],
             'Quantidade': [criticos, urgentes, atencao, ok],
             'Cor': ['#E53935', '#F57C00', '#FBC02D', '#43A047'],
         })
@@ -485,21 +485,21 @@ def main():
         fig = px.bar(prio_counts, x='Prioridade', y='Quantidade',
                     color='Prioridade',
                     color_discrete_map={
-                        'Critico': '#E53935', 'Urgente': '#F57C00',
-                        'Atencao': '#FBC02D', 'OK': '#43A047'
+                        'Crítico': '#E53935', 'Urgente': '#F57C00',
+                        'Atenção': '#FBC02D', 'OK': '#43A047'
                     },
-                    title='Professores por Nivel de Prioridade')
+                    title='Professores por Nível de Prioridade')
         st.plotly_chart(fig, use_container_width=True)
 
         # Scatter: Conformidade vs % Vazio
-        st.subheader("Conformidade vs Qualidade de Conteudo")
+        st.subheader("Conformidade vs Qualidade de Conteúdo")
 
         scatter_data = pd.DataFrame([{
             'Professor': d['professor'],
             'Unidade': d['unidade'],
             'Conformidade': d['conformidade'],
             'Pct Vazio': d['pct_vazio'],
-            'Prioridade': {3: 'Critico', 2: 'Urgente', 1: 'Atencao', 0: 'OK'}[d['prioridade']],
+            'Prioridade': {3: 'Crítico', 2: 'Urgente', 1: 'Atenção', 0: 'OK'}[d['prioridade']],
         } for d in diagnosticos])
 
         fig = px.scatter(
@@ -515,10 +515,10 @@ def main():
 
     # ========== TAB 4: NOTAS E REGISTRO ==========
     with tab4:
-        st.header("📝 Notas da Coordenacao")
+        st.header("📝 Notas da Coordenação")
 
         st.markdown("""
-        Registre observacoes, decisoes e acompanhamentos da semana.
+        Registre observações, decisões e acompanhamentos da semana.
         Estas notas ficam salvas e podem ser consultadas depois.
         """)
 
@@ -530,7 +530,7 @@ def main():
             f"Notas - Semana {semana}:",
             value=notas_atuais.get('texto', ''),
             height=200,
-            placeholder="Registre aqui suas observacoes da semana...\n\nExemplo:\n- Conversei com Prof. X sobre registro de conteudo\n- Agendar feedback com Prof. Y\n- Turma Z precisa de atencao especial em Matematica"
+            placeholder="Registre aqui suas observações da semana...\n\nExemplo:\n- Conversei com Prof. X sobre registro de conteúdo\n- Agendar feedback com Prof. Y\n- Turma Z precisa de atenção especial em Matemática"
         )
 
         if st.button("💾 Salvar Notas", type="primary"):
@@ -543,7 +543,7 @@ def main():
 
         # Historico de notas
         st.markdown("---")
-        st.subheader("📚 Historico de Notas")
+        st.subheader("📚 Histórico de Notas")
 
         notas_anteriores = []
         for k, v in sorted(acoes_salvas.items(), reverse=True):
@@ -564,30 +564,30 @@ def main():
 
         # Exportar relatorio semanal
         st.markdown("---")
-        st.subheader("📄 Exportar Relatorio Semanal")
+        st.subheader("📄 Exportar Relatório Semanal")
 
-        if st.button("Gerar Relatorio"):
+        if st.button("Gerar Relatório"):
             relatorio = f"""
 ================================================================================
-      RELATORIO SEMANAL DA COORDENACAO - COLEGIO ELO 2026
+      RELATÓRIO SEMANAL DA COORDENAÇÃO - COLÉGIO ELO 2026
 ================================================================================
 
 Semana Letiva: {semana}a | {trimestre}o Trimestre
-Capitulo Esperado: {cap_esperado}/12
+Capítulo Esperado: {cap_esperado}/12
 Data: {hoje.strftime('%d/%m/%Y')}
 
 ================================================================================
                          RESUMO DE PRIORIDADES
 ================================================================================
 
-Professores Criticos: {criticos}
+Professores Críticos: {criticos}
 Professores Urgentes: {urgentes}
-Professores Atencao:  {atencao}
+Professores Atenção:  {atencao}
 Professores OK:       {ok}
 Total:                {len(diagnosticos)}
 
 ================================================================================
-                    TOP ACOES PRIORITARIAS
+                    TOP AÇÕES PRIORITÁRIAS
 ================================================================================
 """
             for i, diag in enumerate([d for d in diagnosticos if d['prioridade'] >= 2][:5], 1):
@@ -607,7 +607,7 @@ Total:                {len(diagnosticos)}
 """
 
             st.download_button(
-                "📥 Baixar Relatorio (TXT)",
+                "📥 Baixar Relatório (TXT)",
                 relatorio,
                 f"relatorio_semana_{semana}.txt",
                 "text/plain"

@@ -152,7 +152,7 @@ def main():
 
     # Verificar dados minimos
     if not tem_alunos:
-        st.warning("⚠️ Dados de alunos ainda nao extraidos do SIGA.")
+        st.warning("⚠️ Dados de alunos ainda não extraídos do SIGA.")
         _mostrar_explicacao_abc()
         _mostrar_preview_simulado()
         return
@@ -164,7 +164,7 @@ def main():
         unidade_sel = st.selectbox("Unidade:", ['Todas'] + UNIDADES,
             format_func=lambda x: UNIDADES_NOMES.get(x, x) if x != 'Todas' else 'Todas')
     with cols_f[1]:
-        segmento_sel = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Medio'])
+        segmento_sel = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Médio'])
 
     # Filtro de ano para dados historicos
     ano_abc = None
@@ -183,7 +183,7 @@ def main():
         df = df[df['unidade'] == unidade_sel]
     if segmento_sel == 'Anos Finais' and 'serie' in df.columns:
         df = df[df['serie'].isin(SERIES_FUND_II)]
-    elif segmento_sel == 'Ensino Medio' and 'serie' in df.columns:
+    elif segmento_sel == 'Ensino Médio' and 'serie' in df.columns:
         df = df[df['serie'].isin(SERIES_EM)]
 
     resultados = []
@@ -232,7 +232,7 @@ def main():
             'flags_str': ', '.join(flags) if flags else 'OK',
             'num_flags': len(flags),
             'tier': tier,
-            'tier_nome': {0: 'Universal', 1: 'Atencao', 2: 'Intervencao', 3: 'Intensivo'}[tier],
+            'tier_nome': {0: 'Universal', 1: 'Atenção', 2: 'Intervenção', 3: 'Intensivo'}[tier],
             'score': score,
         })
 
@@ -257,24 +257,24 @@ def main():
     with col2:
         st.metric("🔴 Tier 3 (Intensivo)", n_tier3)
     with col3:
-        st.metric("🟠 Tier 2 (Intervencao)", n_tier2)
+        st.metric("🟠 Tier 2 (Intervenção)", n_tier2)
     with col4:
-        st.metric("🟡 Tier 1 (Atencao)", n_tier1)
+        st.metric("🟡 Tier 1 (Atenção)", n_tier1)
     with col5:
         st.metric("🟢 Universal (OK)", n_ok)
 
     # ========== TABS ==========
     tab1, tab2, tab3, tab4, tab5 = st.tabs([
-        "🔴 Alunos em Risco", "📊 Visao Geral", "🏫 Por Turma", "📈 Correlacoes", "ℹ️ Sobre o ABC"
+        "🔴 Alunos em Risco", "📊 Visão Geral", "🏫 Por Turma", "📈 Correlações", "ℹ️ Sobre o ABC"
     ])
 
     # TAB 1: ALUNOS EM RISCO
     with tab1:
-        st.subheader("🔴 Alunos que Precisam de Intervencao Imediata")
+        st.subheader("🔴 Alunos que Precisam de Intervenção Imediata")
 
-        for tier_val, tier_label, css_class in [(3, 'TIER 3 - INTERVENCAO INTENSIVA', 'tier3-card'),
-                                                  (2, 'TIER 2 - INTERVENCAO DIRECIONADA', 'tier2-card'),
-                                                  (1, 'TIER 1 - ATENCAO', 'tier1-card')]:
+        for tier_val, tier_label, css_class in [(3, 'TIER 3 - INTERVENÇÃO INTENSIVA', 'tier3-card'),
+                                                  (2, 'TIER 2 - INTERVENÇÃO DIRECIONADA', 'tier2-card'),
+                                                  (1, 'TIER 1 - ATENÇÃO', 'tier1-card')]:
             alunos_tier = df_abc[df_abc['tier'] == tier_val]
             if alunos_tier.empty:
                 continue
@@ -284,7 +284,7 @@ def main():
             for _, row in alunos_tier.iterrows():
                 badges = ''
                 if 'A' in row['flags']:
-                    badges += f'<span class="abc-badge badge-a">A Frequencia: {row["freq_pct"]:.0f}%</span>'
+                    badges += f'<span class="abc-badge badge-a">A Frequência: {row["freq_pct"]:.0f}%</span>'
                 if 'B' in row['flags']:
                     badges += f'<span class="abc-badge badge-b">B Comportamento: {row["num_ocorr"]} ocorr.</span>'
                 if 'C' in row['flags']:
@@ -309,14 +309,14 @@ def main():
 
     # TAB 2: VISAO GERAL
     with tab2:
-        st.subheader("📊 Distribuicao de Risco")
+        st.subheader("📊 Distribuição de Risco")
 
         col_e, col_d = st.columns(2)
 
         with col_e:
             # Donut de tiers
             tier_data = pd.DataFrame({
-                'Tier': ['Tier 3 (Intensivo)', 'Tier 2 (Intervencao)', 'Tier 1 (Atencao)', 'Universal (OK)'],
+                'Tier': ['Tier 3 (Intensivo)', 'Tier 2 (Intervenção)', 'Tier 1 (Atenção)', 'Universal (OK)'],
                 'Quantidade': [n_tier3, n_tier2, n_tier1, n_ok],
                 'Cor': ['#B71C1C', '#E65100', '#F9A825', '#2E7D32'],
             })
@@ -324,20 +324,20 @@ def main():
                         color='Tier',
                         color_discrete_map={
                             'Tier 3 (Intensivo)': '#B71C1C',
-                            'Tier 2 (Intervencao)': '#E65100',
-                            'Tier 1 (Atencao)': '#F9A825',
+                            'Tier 2 (Intervenção)': '#E65100',
+                            'Tier 1 (Atenção)': '#F9A825',
                             'Universal (OK)': '#2E7D32',
                         },
-                        title='Distribuicao por Tier', hole=0.4)
+                        title='Distribuição por Tier', hole=0.4)
             st.plotly_chart(fig, use_container_width=True)
 
         with col_d:
             # Distribuicao de flags
-            flags_count = {'A (Frequencia)': 0, 'B (Comportamento)': 0, 'C (Notas)': 0}
+            flags_count = {'A (Frequência)': 0, 'B (Comportamento)': 0, 'C (Notas)': 0}
             for flags in df_abc['flags']:
                 for f in flags:
                     if f == 'A':
-                        flags_count['A (Frequencia)'] += 1
+                        flags_count['A (Frequência)'] += 1
                     elif f == 'B':
                         flags_count['B (Comportamento)'] += 1
                     elif f == 'C':
@@ -348,11 +348,11 @@ def main():
                 orientation='h',
                 color=list(flags_count.keys()),
                 color_discrete_map={
-                    'A (Frequencia)': '#1565C0',
+                    'A (Frequência)': '#1565C0',
                     'B (Comportamento)': '#E65100',
                     'C (Notas)': '#7B1FA2',
                 },
-                title='Dimensoes com Mais Alertas'
+                title='Dimensões com Mais Alertas'
             )
             fig2.update_layout(showlegend=False, xaxis_title='Alunos Alertados', yaxis_title='')
             st.plotly_chart(fig2, use_container_width=True)
@@ -361,7 +361,7 @@ def main():
         fig3 = px.histogram(
             df_abc, x='score', nbins=20,
             color_discrete_sequence=['#B71C1C'],
-            title='Distribuicao do Score de Risco'
+            title='Distribuição do Score de Risco'
         )
         fig3.add_vline(x=50, line_dash="dash", line_color="orange", annotation_text="Risco Moderado")
         fig3.add_vline(x=75, line_dash="dash", line_color="red", annotation_text="Risco Alto")
@@ -376,15 +376,15 @@ def main():
             pivot = df_abc.pivot_table(
                 index='serie', columns='tier_nome', values='aluno_id', aggfunc='count', fill_value=0
             )
-            for col in ['Intensivo', 'Intervencao', 'Atencao', 'Universal']:
+            for col in ['Intensivo', 'Intervenção', 'Atenção', 'Universal']:
                 if col not in pivot.columns:
                     pivot[col] = 0
-            pivot = pivot[['Intensivo', 'Intervencao', 'Atencao', 'Universal']]
+            pivot = pivot[['Intensivo', 'Intervenção', 'Atenção', 'Universal']]
 
             fig = px.imshow(
                 pivot, text_auto=True,
                 color_continuous_scale=['#E8F5E9', '#FFF9C4', '#FFCCBC', '#FFCDD2'],
-                title='Alunos por Tier e Serie'
+                title='Alunos por Tier e Série'
             )
             fig.update_layout(height=400)
             st.plotly_chart(fig, use_container_width=True)
@@ -403,22 +403,22 @@ def main():
 
     # TAB 4: CORRELACOES
     with tab4:
-        st.subheader("📈 Correlacoes entre Dimensoes")
+        st.subheader("📈 Correlações entre Dimensões")
 
         # Scatter: Frequencia x Notas (cor = ocorrencias)
         fig = px.scatter(
             df_abc, x='freq_pct', y='media_notas',
             color='tier_nome',
             color_discrete_map={
-                'Intensivo': '#B71C1C', 'Intervencao': '#E65100',
-                'Atencao': '#F9A825', 'Universal': '#2E7D32',
+                'Intensivo': '#B71C1C', 'Intervenção': '#E65100',
+                'Atenção': '#F9A825', 'Universal': '#2E7D32',
             },
             size='num_ocorr' if df_abc['num_ocorr'].max() > 0 else None,
             hover_data=['aluno_nome', 'serie', 'unidade'],
-            title='Frequencia x Notas (tamanho = ocorrencias)',
-            labels={'freq_pct': '% Frequencia', 'media_notas': 'Media de Notas'},
+            title='Frequência x Notas (tamanho = ocorrências)',
+            labels={'freq_pct': '% Frequência', 'media_notas': 'Média de Notas'},
         )
-        fig.add_hline(y=5, line_dash="dash", line_color="red", annotation_text="Nota minima")
+        fig.add_hline(y=5, line_dash="dash", line_color="red", annotation_text="Nota mínima")
         fig.add_hline(y=7, line_dash="dash", line_color="green", annotation_text="Meta")
         fig.add_vline(x=75, line_dash="dash", line_color="red", annotation_text="LDB 75%")
         fig.update_layout(height=500)
@@ -426,11 +426,11 @@ def main():
 
         # Quadrante de desempenho
         st.markdown("""
-        **Leitura do grafico:**
-        - **Superior-direito:** Bom aluno (boa frequencia + boas notas)
-        - **Superior-esquerdo:** Frequenta mas nao aprende (precisa de suporte pedagogico)
-        - **Inferior-direito:** Bom quando vem, mas falta muito (acao: frequencia)
-        - **Inferior-esquerdo:** Risco maximo (intervencao urgente em tudo)
+        **Leitura do gráfico:**
+        - **Superior-direito:** Bom aluno (boa frequência + boas notas)
+        - **Superior-esquerdo:** Frequenta mas não aprende (precisa de suporte pedagógico)
+        - **Inferior-direito:** Bom quando vem, mas falta muito (ação: frequência)
+        - **Inferior-esquerdo:** Risco máximo (intervenção urgente em tudo)
         """)
 
     # TAB 5: SOBRE O ABC
@@ -441,31 +441,31 @@ def main():
 def _mostrar_explicacao_abc():
     """Mostra explicacao do framework ABC."""
     st.markdown("""
-    ## O que e o Sistema ABC de Alerta Precoce?
+    ## O que é o Sistema ABC de Alerta Precoce?
 
-    O framework **ABC** e o metodo mais validado internacionalmente para identificar alunos
+    O framework **ABC** é o método mais validado internacionalmente para identificar alunos
     em risco de fracasso escolar. Pesquisas mostram que ele identifica **50-75% dos futuros
-    fracassos** antes que acontecam.
+    fracassos** antes que aconteçam.
 
-    ### As 3 Dimensoes:
+    ### As 3 Dimensões:
 
-    | Dimensao | O que mede | Threshold de Risco |
+    | Dimensão | O que mede | Threshold de Risco |
     |----------|-----------|-------------------|
-    | **A** - Attendance (Frequencia) | % de presenca nas aulas | < 85% (alerta) / < 75% (critico - LDB) |
-    | **B** - Behavior (Comportamento) | Numero de ocorrencias disciplinares | >= 2 (alerta) / >= 5 (critico) |
-    | **C** - Coursework (Notas) | Media geral das avaliacoes | < 5.0 (alerta) / < 3.0 (critico) |
+    | **A** - Attendance (Frequência) | % de presença nas aulas | < 85% (alerta) / < 75% (crítico - LDB) |
+    | **B** - Behavior (Comportamento) | Número de ocorrências disciplinares | >= 2 (alerta) / >= 5 (crítico) |
+    | **C** - Coursework (Notas) | Média geral das avaliações | < 5.0 (alerta) / < 3.0 (crítico) |
 
-    ### Tiers de Intervencao:
+    ### Tiers de Intervenção:
 
-    | Tier | Criterio | Acao |
+    | Tier | Critério | Ação |
     |------|---------|------|
     | **Tier 0** - Universal | 0 flags | Acompanhamento normal |
-    | **Tier 1** - Atencao | 1 flag (A, B ou C) | Monitoramento semanal, conversa com professor |
-    | **Tier 2** - Intervencao | 2 flags | Reuniao com familia, plano de intervencao |
-    | **Tier 3** - Intensivo | 3 flags (A+B+C) | Acompanhamento diario, equipe multidisciplinar |
+    | **Tier 1** - Atenção | 1 flag (A, B ou C) | Monitoramento semanal, conversa com professor |
+    | **Tier 2** - Intervenção | 2 flags | Reunião com família, plano de intervenção |
+    | **Tier 3** - Intensivo | 3 flags (A+B+C) | Acompanhamento diário, equipe multidisciplinar |
 
     ### Pesos do Score:
-    - **A** (Frequencia): 30%
+    - **A** (Frequência): 30%
     - **B** (Comportamento): 30%
     - **C** (Notas): 40%
 
@@ -495,17 +495,17 @@ def _mostrar_preview_simulado():
         flags, tier, score = calcular_score_abc(freqs[i], ocorrs[i], notas[i])
         dados_sim.append({
             'Aluno': nomes[i],
-            'Frequencia': f"{freqs[i]:.0f}%",
-            'Ocorrencias': int(ocorrs[i]),
-            'Media': f"{notas[i]:.1f}",
+            'Frequência': f"{freqs[i]:.0f}%",
+            'Ocorrências': int(ocorrs[i]),
+            'Média': f"{notas[i]:.1f}",
             'Flags': ', '.join(flags) if flags else 'OK',
-            'Tier': {0: '🟢 Universal', 1: '🟡 Atencao', 2: '🟠 Intervencao', 3: '🔴 Intensivo'}[tier],
+            'Tier': {0: '🟢 Universal', 1: '🟡 Atenção', 2: '🟠 Intervenção', 3: '🔴 Intensivo'}[tier],
             'Score': score,
         })
 
     df_sim = pd.DataFrame(dados_sim).sort_values('Score', ascending=False)
     st.dataframe(df_sim, use_container_width=True, hide_index=True, height=400)
-    st.caption("⚠️ Dados simulados. Execute a extracao de dados de alunos para dados reais.")
+    st.caption("⚠️ Dados simulados. Execute a extração de dados de alunos para dados reais.")
 
 
 if __name__ == "__main__":

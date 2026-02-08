@@ -22,7 +22,7 @@ from utils import (
     PERIODOS_OPCOES, UNIDADES, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM,
 )
 
-st.set_page_config(page_title="Ocorrencias", page_icon="📋", layout="wide")
+st.set_page_config(page_title="Ocorrências", page_icon="📋", layout="wide")
 from auth import check_password, logout_button, get_user_unit, get_user_role
 if not check_password():
     st.stop()
@@ -54,13 +54,13 @@ TIPOS_OCORRENCIA = [
     'Indisciplina',
     'Atraso',
     'Falta de Material',
-    'Agressao Verbal',
-    'Agressao Fisica',
+    'Agressão Verbal',
+    'Agressão Física',
     'Uso de Celular',
-    'Evasao de Aula',
-    'Danificacao de Patrimonio',
+    'Evasão de Aula',
+    'Danificação de Patrimônio',
     'Bullying',
-    'Desobediencia',
+    'Desobediência',
     'Registro Positivo',
     'Outro',
 ]
@@ -68,14 +68,14 @@ TIPOS_OCORRENCIA = [
 GRAVIDADES = ['Leve', 'Media', 'Grave']
 
 PROVIDENCIAS_SUGERIDAS = {
-    'Leve': ['Advertencia verbal', 'Conversa com o aluno', 'Registro no diario'],
-    'Media': ['Advertencia escrita', 'Contato com responsavel', 'Encaminhamento a coordenacao'],
-    'Grave': ['Suspensao', 'Reuniao com responsavel', 'Encaminhamento a direcao', 'Ata de ocorrencia'],
+    'Leve': ['Advertência verbal', 'Conversa com o aluno', 'Registro no diário'],
+    'Media': ['Advertência escrita', 'Contato com responsável', 'Encaminhamento à coordenação'],
+    'Grave': ['Suspensão', 'Reunião com responsável', 'Encaminhamento à direção', 'Ata de ocorrência'],
 }
 
 
 def main():
-    st.title("📋 Ocorrencias Disciplinares")
+    st.title("📋 Ocorrências Disciplinares")
     st.markdown("**Registro e Monitoramento de Comportamento**")
 
     hoje = _hoje()
@@ -91,7 +91,7 @@ def main():
     # ========== TABS PRINCIPAIS ==========
     if tem_dados:
         tab_registro, tab_risco, tab_geral, tab_turma, tab_aluno, tab_detalhe = st.tabs([
-            "Novo Registro", "Alunos em Risco", "Visao Geral",
+            "Novo Registro", "Alunos em Risco", "Visão Geral",
             "Por Turma", "Por Aluno", "Detalhamento"
         ])
     else:
@@ -105,14 +105,14 @@ def main():
         # Filtros globais na sidebar
         with st.sidebar:
             st.markdown("---")
-            st.subheader("Filtros Ocorrencias")
+            st.subheader("Filtros Ocorrências")
 
             # Filtro de periodo
             if 'data' in df_ocorr.columns:
                 data_min = df_ocorr['data'].min()
                 data_max = df_ocorr['data'].max()
                 periodo_range = st.date_input(
-                    "Periodo:", value=(data_min, data_max),
+                    "Período:", value=(data_min, data_max),
                     min_value=data_min, max_value=data_max,
                     key='ocorr_periodo')
 
@@ -120,7 +120,7 @@ def main():
                 format_func=lambda x: UNIDADES_NOMES.get(x, x) if x != 'Todas' else 'Todas',
                 key='ocorr_unidade')
 
-            segmento_sel = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Medio'],
+            segmento_sel = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Médio'],
                 key='ocorr_segmento')
 
             tipos_disp = sorted(df_ocorr['tipo'].unique()) if 'tipo' in df_ocorr.columns else []
@@ -136,7 +136,7 @@ def main():
             df = df[df['unidade'] == unidade_sel]
         if segmento_sel == 'Anos Finais' and 'serie' in df.columns:
             df = df[df['serie'].isin(SERIES_FUND_II)]
-        elif segmento_sel == 'Ensino Medio' and 'serie' in df.columns:
+        elif segmento_sel == 'Ensino Médio' and 'serie' in df.columns:
             df = df[df['serie'].isin(SERIES_EM)]
         if tipo_sel != 'Todos' and 'tipo' in df.columns:
             df = df[df['tipo'] == tipo_sel]
@@ -145,9 +145,9 @@ def main():
 
         if df.empty:
             with tab_risco:
-                st.info("Nenhuma ocorrencia para os filtros selecionados.")
+                st.info("Nenhuma ocorrência para os filtros selecionados.")
             with tab_geral:
-                st.info("Nenhuma ocorrencia para os filtros selecionados.")
+                st.info("Nenhuma ocorrência para os filtros selecionados.")
         else:
             # ========== METRICAS (acima das tabs) ==========
             _mostrar_metricas(df, tab_risco)
@@ -178,16 +178,16 @@ def main():
 
 def _tab_novo_registro(df_alunos, tem_alunos):
     """Tab de registro de nova ocorrencia."""
-    st.subheader("Registrar Nova Ocorrencia")
+    st.subheader("Registrar Nova Ocorrência")
 
     if not tem_alunos:
-        st.warning("Dados de alunos nao disponiveis. Registre manualmente.")
+        st.warning("Dados de alunos não disponíveis. Registre manualmente.")
 
     with st.form("form_ocorrencia", clear_on_submit=True):
         col1, col2 = st.columns(2)
 
         with col1:
-            data_ocorr = st.date_input("Data:", value=date.today(), key='form_data')
+            data_ocorr = st.date_input("Data:", value=_hoje().date() if hasattr(_hoje(), 'date') else _hoje(), key='form_data')
 
             if tem_alunos:
                 # Filtrar por unidade primeiro
@@ -200,7 +200,7 @@ def _tab_novo_registro(df_alunos, tem_alunos):
 
                 # Filtrar por serie
                 series_disp = sorted(df_filtrado['serie'].unique()) if 'serie' in df_filtrado.columns else []
-                serie_form = st.selectbox("Serie:", series_disp, key='form_serie')
+                serie_form = st.selectbox("Série:", series_disp, key='form_serie')
 
                 df_filtrado = df_filtrado[df_filtrado['serie'] == serie_form] if 'serie' in df_filtrado.columns else df_filtrado
 
@@ -211,39 +211,39 @@ def _tab_novo_registro(df_alunos, tem_alunos):
                     aluno_sel = st.selectbox("Aluno:", list(aluno_options.keys()), key='form_aluno')
                     aluno_info = aluno_options.get(aluno_sel, {})
                 else:
-                    st.warning("Nenhum aluno encontrado para esta serie.")
+                    st.warning("Nenhum aluno encontrado para esta série.")
                     aluno_info = {}
                     aluno_sel = None
             else:
                 unidade_form = st.selectbox("Unidade:", UNIDADES,
                     format_func=lambda x: UNIDADES_NOMES.get(x, x), key='form_unidade')
-                serie_form = st.text_input("Serie:", key='form_serie')
+                serie_form = st.text_input("Série:", key='form_serie')
                 aluno_nome_manual = st.text_input("Nome do Aluno:", key='form_aluno_nome')
                 aluno_info = {}
                 aluno_sel = aluno_nome_manual
 
         with col2:
-            tipo_ocorr = st.selectbox("Tipo de Ocorrencia:", TIPOS_OCORRENCIA, key='form_tipo')
+            tipo_ocorr = st.selectbox("Tipo de Ocorrência:", TIPOS_OCORRENCIA, key='form_tipo')
             gravidade = st.selectbox("Gravidade:", GRAVIDADES, key='form_gravidade')
 
             # Sugestoes de providencia baseadas na gravidade
             sugestoes = PROVIDENCIAS_SUGERIDAS.get(gravidade, [])
-            providencia = st.selectbox("Providencia:", [''] + sugestoes + ['Outra...'], key='form_prov')
+            providencia = st.selectbox("Providência:", [''] + sugestoes + ['Outra...'], key='form_prov')
             if providencia == 'Outra...':
-                providencia = st.text_input("Especifique a providencia:", key='form_prov_custom')
+                providencia = st.text_input("Especifique a providência:", key='form_prov_custom')
 
-            responsavel = st.text_input("Responsavel pelo registro:",
+            responsavel = st.text_input("Responsável pelo registro:",
                 value=st.session_state.get("user_display", ""), key='form_responsavel')
 
-        descricao = st.text_area("Descricao da ocorrencia:", height=100, key='form_descricao',
-                                 placeholder="Descreva o que aconteceu, quando, onde e as circunstancias...")
+        descricao = st.text_area("Descrição da ocorrência:", height=100, key='form_descricao',
+                                 placeholder="Descreva o que aconteceu, quando, onde e as circunstâncias...")
 
-        submitted = st.form_submit_button("Registrar Ocorrencia", type="primary", use_container_width=True)
+        submitted = st.form_submit_button("Registrar Ocorrência", type="primary", use_container_width=True)
 
         if submitted:
             # Validar campos obrigatorios
             if not descricao.strip():
-                st.error("A descricao e obrigatoria.")
+                st.error("A descrição é obrigatória.")
             elif not aluno_sel:
                 st.error("Selecione ou informe o aluno.")
             else:
@@ -264,23 +264,23 @@ def _tab_novo_registro(df_alunos, tem_alunos):
                 }
 
                 if salvar_ocorrencia(registro):
-                    st.success(f"Ocorrencia registrada com sucesso! ({registro['aluno_nome']} - {tipo_ocorr})")
+                    st.success(f"Ocorrência registrada com sucesso! ({registro['aluno_nome']} - {tipo_ocorr})")
                     st.balloons()
                 else:
-                    st.error("Erro ao salvar a ocorrencia.")
+                    st.error("Erro ao salvar a ocorrência.")
 
     # Ultimos registros
     df_recentes = carregar_ocorrencias()
     if not df_recentes.empty:
         st.markdown("---")
-        st.subheader("Ultimos Registros")
+        st.subheader("Últimos Registros")
         cols_show = [c for c in ['data', 'aluno_nome', 'serie', 'tipo', 'gravidade', 'descricao', 'responsavel']
                      if c in df_recentes.columns]
         if 'data' in df_recentes.columns:
             df_recentes = df_recentes.sort_values('data', ascending=False)
         st.dataframe(df_recentes[cols_show].head(10) if cols_show else df_recentes.head(10),
                      use_container_width=True, hide_index=True)
-        st.caption(f"Total de ocorrencias registradas: {len(df_recentes)}")
+        st.caption(f"Total de ocorrências registradas: {len(df_recentes)}")
 
 
 def _mostrar_metricas(df, container):
@@ -298,7 +298,7 @@ def _mostrar_metricas(df, container):
         media_dia = total / max(1, df['data'].dt.date.nunique()) if 'data' in df.columns else 0
 
         with col1:
-            st.metric("Total Ocorrencias", total)
+            st.metric("Total Ocorrências", total)
         with col2:
             st.metric("Alunos Envolvidos", alunos_envolvidos)
         with col3:
@@ -306,15 +306,15 @@ def _mostrar_metricas(df, container):
         with col4:
             st.metric("Graves", graves)
         with col5:
-            st.metric("Media/Dia", f"{media_dia:.1f}")
+            st.metric("Média/Dia", f"{media_dia:.1f}")
 
 
 def _tab_alunos_risco(df):
     """Tab de alunos com mais ocorrencias (precisam de intervencao)."""
-    st.subheader("Alunos que Precisam de Atencao")
+    st.subheader("Alunos que Precisam de Atenção")
 
     if 'aluno_nome' not in df.columns:
-        st.info("Coluna aluno_nome nao disponivel.")
+        st.info("Coluna aluno_nome não disponível.")
         return
 
     # Alunos com mais ocorrencias
@@ -336,9 +336,9 @@ def _tab_alunos_risco(df):
     alerta = ranking[(ranking['total'] >= 3) & (ranking['total'] < 5)]
     atencao = ranking[(ranking['total'] >= 2) & (ranking['total'] < 3)]
 
-    for grupo, label, css in [(criticos, 'INTERVENCAO URGENTE (5+ ocorrencias)', 'ocorr-grave'),
-                               (alerta, 'ALERTA (3-4 ocorrencias)', 'ocorr-media'),
-                               (atencao, 'ATENCAO (2 ocorrencias)', 'ocorr-leve')]:
+    for grupo, label, css in [(criticos, 'INTERVENÇÃO URGENTE (5+ ocorrências)', 'ocorr-grave'),
+                               (alerta, 'ALERTA (3-4 ocorrências)', 'ocorr-media'),
+                               (atencao, 'ATENÇÃO (2 ocorrências)', 'ocorr-leve')]:
         if grupo.empty:
             continue
         st.markdown(f"### {label} ({len(grupo)} alunos)")
@@ -350,13 +350,13 @@ def _tab_alunos_risco(df):
             st.markdown(f"""
             <div class="{css}">
                 <strong>{row['aluno_nome']}</strong>{serie_info}{unidade_info}
-                <span style="float: right; font-weight: bold;">{int(row['total'])} ocorrencias{graves_info}</span>
+                <span style="float: right; font-weight: bold;">{int(row['total'])} ocorrências{graves_info}</span>
                 <br><small>Tipos: {row['tipos']}</small>
             </div>
             """, unsafe_allow_html=True)
 
     if criticos.empty and alerta.empty and atencao.empty:
-        st.success("Nenhum aluno com ocorrencias reincidentes!")
+        st.success("Nenhum aluno com ocorrências reincidentes!")
 
 
 def _tab_visao_geral(df):
@@ -370,7 +370,7 @@ def _tab_visao_geral(df):
             tipo_counts = df['tipo'].value_counts().reset_index()
             tipo_counts.columns = ['Tipo', 'Quantidade']
             fig = px.pie(tipo_counts, values='Quantidade', names='Tipo',
-                        title='Distribuicao por Tipo',
+                        title='Distribuição por Tipo',
                         color_discrete_sequence=px.colors.qualitative.Set2)
             st.plotly_chart(fig, use_container_width=True)
 
@@ -381,15 +381,15 @@ def _tab_visao_geral(df):
             fig2 = px.bar(grav_counts, x='Gravidade', y='Quantidade',
                          color='Gravidade',
                          color_discrete_map={'Grave': '#D32F2F', 'Media': '#F57C00', 'Leve': '#FBC02D'},
-                         title='Distribuicao por Gravidade')
+                         title='Distribuição por Gravidade')
             st.plotly_chart(fig2, use_container_width=True)
 
     # Timeline
     if 'data' in df.columns:
         timeline = df.groupby(df['data'].dt.date).size().reset_index()
-        timeline.columns = ['Data', 'Ocorrencias']
-        fig3 = px.line(timeline, x='Data', y='Ocorrencias', markers=True,
-                      title='Ocorrencias ao Longo do Tempo')
+        timeline.columns = ['Data', 'Ocorrências']
+        fig3 = px.line(timeline, x='Data', y='Ocorrências', markers=True,
+                      title='Ocorrências ao Longo do Tempo')
         fig3.update_traces(line_color='#E53935')
         st.plotly_chart(fig3, use_container_width=True)
 
@@ -400,41 +400,41 @@ def _tab_visao_geral(df):
         uni_counts['Unidade_Nome'] = uni_counts['Unidade'].map(UNIDADES_NOMES).fillna(uni_counts['Unidade'])
         fig4 = px.bar(uni_counts, x='Unidade_Nome', y='Quantidade',
                      color='Unidade', color_discrete_map=CORES_UNIDADES,
-                     title='Ocorrencias por Unidade')
+                     title='Ocorrências por Unidade')
         fig4.update_layout(showlegend=False)
         st.plotly_chart(fig4, use_container_width=True)
 
     # Por dia da semana
     if 'data' in df.columns:
-        dias = {0: 'Segunda', 1: 'Terca', 2: 'Quarta', 3: 'Quinta', 4: 'Sexta', 5: 'Sabado', 6: 'Domingo'}
+        dias = {0: 'Segunda', 1: 'Terça', 2: 'Quarta', 3: 'Quinta', 4: 'Sexta', 5: 'Sábado', 6: 'Domingo'}
         df_dias = df.copy()
         df_dias['dia_semana'] = df_dias['data'].dt.dayofweek.map(dias)
         dia_counts = df_dias['dia_semana'].value_counts().reindex(
-            ['Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta'], fill_value=0
+            ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'], fill_value=0
         ).reset_index()
-        dia_counts.columns = ['Dia', 'Ocorrencias']
-        fig5 = px.bar(dia_counts, x='Dia', y='Ocorrencias',
+        dia_counts.columns = ['Dia', 'Ocorrências']
+        fig5 = px.bar(dia_counts, x='Dia', y='Ocorrências',
                      color_discrete_sequence=['#1a237e'],
-                     title='Ocorrencias por Dia da Semana')
+                     title='Ocorrências por Dia da Semana')
         st.plotly_chart(fig5, use_container_width=True)
 
 
 def _tab_por_turma(df):
     """Tab de analise por turma."""
-    st.subheader("Ocorrencias por Turma/Serie")
+    st.subheader("Ocorrências por Turma/Série")
 
     if 'serie' in df.columns:
         serie_counts = df['serie'].value_counts().reset_index()
-        serie_counts.columns = ['Serie', 'Ocorrencias']
-        fig = px.bar(serie_counts, x='Serie', y='Ocorrencias',
-                    color='Ocorrencias',
+        serie_counts.columns = ['Série', 'Ocorrências']
+        fig = px.bar(serie_counts, x='Série', y='Ocorrências',
+                    color='Ocorrências',
                     color_continuous_scale=['#FBC02D', '#D32F2F'],
-                    title='Ocorrencias por Serie')
+                    title='Ocorrências por Série')
         st.plotly_chart(fig, use_container_width=True)
 
     if 'turma' in df.columns and df['turma'].notna().any():
         turma_counts = df['turma'].value_counts().reset_index()
-        turma_counts.columns = ['Turma', 'Ocorrencias']
+        turma_counts.columns = ['Turma', 'Ocorrências']
         st.subheader("Ranking por Turma")
         st.dataframe(turma_counts.head(20), use_container_width=True, hide_index=True)
 
@@ -447,7 +447,7 @@ def _tab_por_turma(df):
             fig3 = px.imshow(
                 pivot, text_auto=True,
                 color_continuous_scale=['#FFFFFF', '#FBC02D', '#D32F2F'],
-                title='Heatmap: Ocorrencias (Serie x Tipo)'
+                title='Heatmap: Ocorrências (Série x Tipo)'
             )
             fig3.update_layout(height=400)
             st.plotly_chart(fig3, use_container_width=True)
@@ -465,7 +465,7 @@ def _tab_por_turma(df):
             fig4 = px.imshow(
                 pivot2, text_auto=True,
                 color_continuous_scale=['#E8F5E9', '#FFF9C4', '#FFCDD2'],
-                title='Heatmap: Ocorrencias (Serie x Gravidade)'
+                title='Heatmap: Ocorrências (Série x Gravidade)'
             )
             fig4.update_layout(height=400)
             st.plotly_chart(fig4, use_container_width=True)
@@ -473,22 +473,22 @@ def _tab_por_turma(df):
 
 def _tab_por_aluno(df):
     """Tab de ranking por aluno."""
-    st.subheader("Alunos com Mais Ocorrencias")
+    st.subheader("Alunos com Mais Ocorrências")
 
     col_nome = 'aluno_nome' if 'aluno_nome' in df.columns else 'aluno_id' if 'aluno_id' in df.columns else None
     if not col_nome:
-        st.info("Dados de aluno nao disponiveis.")
+        st.info("Dados de aluno não disponíveis.")
         return
 
     ranking = df[col_nome].value_counts().reset_index()
-    ranking.columns = ['Aluno', 'Ocorrencias']
+    ranking.columns = ['Aluno', 'Ocorrências']
 
     # Top 20
     fig = px.bar(
-        ranking.head(20), x='Ocorrencias', y='Aluno', orientation='h',
-        color='Ocorrencias',
+        ranking.head(20), x='Ocorrências', y='Aluno', orientation='h',
+        color='Ocorrências',
         color_continuous_scale=['#FBC02D', '#F57C00', '#D32F2F'],
-        title='Top 20 Alunos com Mais Ocorrencias'
+        title='Top 20 Alunos com Mais Ocorrências'
     )
     fig.update_layout(yaxis={'categoryorder': 'total ascending'}, height=600)
     st.plotly_chart(fig, use_container_width=True)
@@ -503,7 +503,7 @@ def _tab_por_aluno(df):
         # Resumo
         col1, col2, col3 = st.columns(3)
         with col1:
-            st.metric("Total de Ocorrencias", len(df_aluno))
+            st.metric("Total de Ocorrências", len(df_aluno))
         with col2:
             graves = len(df_aluno[df_aluno['gravidade'] == 'Grave']) if 'gravidade' in df_aluno.columns else 0
             st.metric("Graves", graves)
@@ -519,7 +519,7 @@ def _tab_detalhamento(df):
     """Tab de lista completa com busca."""
     st.subheader("Registro Completo")
 
-    busca = st.text_input("Buscar:", placeholder="Nome do aluno, tipo de ocorrencia...", key='ocorr_busca')
+    busca = st.text_input("Buscar:", placeholder="Nome do aluno, tipo de ocorrência...", key='ocorr_busca')
 
     df_show = df.copy()
     if busca:
@@ -546,7 +546,7 @@ def _tab_detalhamento(df):
     else:
         st.dataframe(df_show[cols_show] if cols_show else df_show, use_container_width=True, hide_index=True, height=500)
 
-    st.caption(f"Total: {len(df_show)} ocorrencias")
+    st.caption(f"Total: {len(df_show)} ocorrências")
 
     # Exportar
     if not df_show.empty:
@@ -554,7 +554,7 @@ def _tab_detalhamento(df):
         st.download_button(
             "Exportar CSV",
             csv_data,
-            file_name=f"ocorrencias_{date.today().isoformat()}.csv",
+            file_name=f"ocorrencias_{_hoje().strftime('%Y-%m-%d')}.csv",
             mime="text/csv"
         )
 
@@ -562,39 +562,39 @@ def _tab_detalhamento(df):
 def _mostrar_info_sistema():
     """Informacoes sobre o sistema de ocorrencias."""
     st.markdown("""
-    ## Sistema de Registro de Ocorrencias
+    ## Sistema de Registro de Ocorrências
 
-    Este sistema permite o registro e acompanhamento de ocorrencias disciplinares
-    dos alunos do Colegio ELO.
+    Este sistema permite o registro e acompanhamento de ocorrências disciplinares
+    dos alunos do Colégio ELO.
 
-    ### Tipos de Ocorrencia
-    | Tipo | Descricao |
+    ### Tipos de Ocorrência
+    | Tipo | Descrição |
     |------|-----------|
     | Indisciplina | Comportamento inadequado em sala |
-    | Atraso | Chegada apos o horario |
-    | Falta de Material | Nao trouxe material necessario |
-    | Agressao Verbal/Fisica | Conflitos entre alunos |
+    | Atraso | Chegada após o horário |
+    | Falta de Material | Não trouxe material necessário |
+    | Agressão Verbal/Física | Conflitos entre alunos |
     | Uso de Celular | Uso indevido durante a aula |
-    | Evasao de Aula | Saida sem autorizacao |
-    | Bullying | Intimidacao/assedio entre alunos |
+    | Evasão de Aula | Saída sem autorização |
+    | Bullying | Intimidação/assédio entre alunos |
     | Registro Positivo | Destaque por bom comportamento |
 
-    ### Niveis de Gravidade
-    | Gravidade | Providencia Sugerida |
+    ### Níveis de Gravidade
+    | Gravidade | Providência Sugerida |
     |-----------|---------------------|
-    | **Leve** | Advertencia verbal, conversa com aluno |
-    | **Media** | Advertencia escrita, contato com responsavel |
-    | **Grave** | Suspensao, reuniao com responsavel, encaminhamento |
+    | **Leve** | Advertência verbal, conversa com aluno |
+    | **Média** | Advertência escrita, contato com responsável |
+    | **Grave** | Suspensão, reunião com responsável, encaminhamento |
 
-    ### Integracao com ABC
-    Os dados de ocorrencias alimentam a **dimensao B (Behavior)** do
-    Sistema ABC de Alerta Precoce (Pagina 23), contribuindo para
+    ### Integração com ABC
+    Os dados de ocorrências alimentam a **dimensão B (Behavior)** do
+    Sistema ABC de Alerta Precoce (Página 23), contribuindo para
     identificar alunos em risco.
 
     ### Dados
-    - As ocorrencias sao salvas em `fato_Ocorrencias.csv`
-    - Cada registro inclui data, aluno, tipo, gravidade e descricao
-    - Os dados podem ser exportados em CSV para relatorios
+    - As ocorrências são salvas em `fato_Ocorrencias.csv`
+    - Cada registro inclui data, aluno, tipo, gravidade e descrição
+    - Os dados podem ser exportados em CSV para relatórios
     """)
 
 

@@ -21,7 +21,7 @@ from utils import (
 )
 from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
 
-st.set_page_config(page_title="Inteligencia de Conteudo", page_icon="🔬", layout="wide")
+st.set_page_config(page_title="Inteligência de Conteúdo", page_icon="🔬", layout="wide")
 from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
@@ -116,14 +116,14 @@ def calcular_score_qualidade(row):
 
 
 def main():
-    st.title("🔬 Inteligencia de Conteudo")
-    st.markdown("**Analise profunda dos registros: qualidade, capitulos e alinhamento SAE**")
+    st.title("🔬 Inteligência de Conteúdo")
+    st.markdown("**Análise profunda dos registros: qualidade, capítulos e alinhamento SAE**")
 
     df = carregar_fato_aulas()
     df_horario = carregar_horario_esperado()
 
     if df.empty:
-        st.error("Dados nao carregados.")
+        st.error("Dados não carregados.")
         return
 
     df = filtrar_ate_hoje(df)
@@ -151,14 +151,14 @@ def main():
         un_sel = st.selectbox("Unidade:", opcoes_un, index=default_un)
 
     with col_f2:
-        st.selectbox("Periodo:", PERIODOS_OPCOES, key='periodo_16')
+        st.selectbox("Período:", PERIODOS_OPCOES, key='periodo_16')
 
     with col_f3:
         segmento = st.radio("Segmento:", ['Todos', 'Fund II', 'EM'], horizontal=True)
 
     with col_f4:
         st.metric("Semana Letiva", f"{semana_atual}a")
-        st.metric("Capitulo Esperado", f"{cap_esperado}/12")
+        st.metric("Capítulo Esperado", f"{cap_esperado}/12")
 
     # Aplica filtros
     df_f = df.copy()
@@ -187,20 +187,20 @@ def main():
                   delta_color="inverse")
     with col3:
         pct_cap = (com_capitulo / total * 100) if total > 0 else 0
-        st.metric("Com Capitulo", f"{com_capitulo} ({pct_cap:.0f}%)")
+        st.metric("Com Capítulo", f"{com_capitulo} ({pct_cap:.0f}%)")
     with col4:
-        st.metric("Score Medio", f"{score_medio:.0f}/100")
+        st.metric("Score Médio", f"{score_medio:.0f}/100")
     with col5:
         # Capitulos unicos detectados
         caps_unicos = sorted(df_f['capitulo_detectado'].dropna().unique())
-        st.metric("Capitulos Cobertos", f"{len(caps_unicos)}/12")
+        st.metric("Capítulos Cobertos", f"{len(caps_unicos)}/12")
 
     # ========== TABS ==========
     tab1, tab2, tab3, tab4 = st.tabs([
         "📊 Qualidade por Professor",
-        "📖 Cobertura de Capitulos",
+        "📖 Cobertura de Capítulos",
         "🎯 Tipos de Atividade",
-        "⚠️ Alertas de Conteudo"
+        "⚠️ Alertas de Conteúdo"
     ])
 
     # ========== TAB 1: QUALIDADE POR PROFESSOR ==========
@@ -209,8 +209,8 @@ def main():
 
         st.markdown("""
         **Como funciona o Score:** Cada registro recebe 0-100 pontos baseado em:
-        conteudo preenchido (40pts), tarefa registrada (20pts), capitulo mencionado (20pts),
-        pagina do livro (10pts), tipo de atividade (10pts).
+        conteúdo preenchido (40pts), tarefa registrada (20pts), capítulo mencionado (20pts),
+        página do livro (10pts), tipo de atividade (10pts).
         """)
 
         # Agrupa por professor
@@ -238,13 +238,13 @@ def main():
             'aulas': 'Aulas',
             'score_medio': 'Score',
             'pct_vazios': '% Vazios',
-            'pct_capitulo': '% c/ Capitulo',
-            'classificacao': 'Classificacao',
+            'pct_capitulo': '% c/ Capítulo',
+            'classificacao': 'Classificação',
         })
         df_show['Score'] = df_show['Score'].round(0).astype(int)
 
         st.dataframe(
-            df_show[['Professor', 'Unidade', 'Aulas', 'Score', '% Vazios', '% c/ Capitulo', 'Classificacao']],
+            df_show[['Professor', 'Unidade', 'Aulas', 'Score', '% Vazios', '% c/ Capítulo', 'Classificação']],
             use_container_width=True, hide_index=True, height=400
         )
 
@@ -257,28 +257,28 @@ def main():
             title='Top 20 - Score de Qualidade por Professor',
             labels={'professor': 'Professor', 'score_medio': 'Score'},
         )
-        fig.add_hline(y=50, line_dash="dash", line_color="orange", annotation_text="Meta minima")
+        fig.add_hline(y=50, line_dash="dash", line_color="orange", annotation_text="Meta mínima")
         fig.update_xaxes(tickangle=45)
         st.plotly_chart(fig, use_container_width=True)
 
         # Distribuicao
         fig2 = px.histogram(
             prof_qual, x='score_medio', nbins=10,
-            title='Distribuicao dos Scores de Qualidade',
-            labels={'score_medio': 'Score Medio'},
+            title='Distribuição dos Scores de Qualidade',
+            labels={'score_medio': 'Score Médio'},
             color_discrete_sequence=['#1976D2'],
         )
         st.plotly_chart(fig2, use_container_width=True)
 
     # ========== TAB 2: COBERTURA DE CAPITULOS ==========
     with tab2:
-        st.header("📖 Cobertura de Capitulos SAE")
+        st.header("📖 Cobertura de Capítulos SAE")
 
         st.markdown(f"""
-        **Semana {semana_atual}** - Capitulo esperado: **{cap_esperado}/12**
+        **Semana {semana_atual}** - Capítulo esperado: **{cap_esperado}/12**
 
-        A analise detecta mencoes a capitulos no campo de conteudo e compara
-        com a progressao esperada SAE (3.5 semanas por capitulo).
+        A análise detecta menções a capítulos no campo de conteúdo e compara
+        com a progressão esperada SAE (3.5 semanas por capítulo).
         """)
 
         # Filtro de disciplina
@@ -290,7 +290,7 @@ def main():
             df_cap = df_cap[df_cap['disciplina'] == disc_sel]
 
         # Cobertura por serie
-        st.subheader("Cobertura por Serie")
+        st.subheader("Cobertura por Série")
 
         cobertura = []
         series_list = [s for s in ORDEM_SERIES if s in df_cap['serie'].unique()]
@@ -301,11 +301,11 @@ def main():
             max_cap = max(caps_detectados) if caps_detectados else 0
 
             cobertura.append({
-                'Serie': serie,
-                'Capitulos Detectados': ', '.join(str(int(c)) for c in caps_detectados) if caps_detectados else '-',
-                'Max Capitulo': int(max_cap),
+                'Série': serie,
+                'Capítulos Detectados': ', '.join(str(int(c)) for c in caps_detectados) if caps_detectados else '-',
+                'Max Capítulo': int(max_cap),
                 'Esperado': cap_esperado,
-                'Diferenca': int(max_cap) - cap_esperado,
+                'Diferença': int(max_cap) - cap_esperado,
                 'Status': 'Adiantado' if max_cap > cap_esperado else ('No prazo' if max_cap >= cap_esperado - 1 else 'Atrasado'),
                 'Registros c/ Cap': df_s['capitulo_detectado'].notna().sum(),
                 'Total Registros': len(df_s),
@@ -316,7 +316,7 @@ def main():
 
         # Heatmap: Serie x Capitulo (contagem de aulas)
         if len(df_cap[df_cap['capitulo_detectado'].notna()]) > 0:
-            st.subheader("Mapa de Calor: Aulas por Capitulo")
+            st.subheader("Mapa de Calor: Aulas por Capítulo")
 
             pivot = df_cap[df_cap['capitulo_detectado'].notna()].copy()
             pivot['capitulo_detectado'] = pivot['capitulo_detectado'].astype(int)
@@ -349,9 +349,9 @@ def main():
                          annotation_text=f"Esperado (Cap {cap_esperado})")
 
             fig.update_layout(
-                title='Aulas por Serie x Capitulo (detectado no conteudo)',
-                xaxis_title='Capitulo',
-                yaxis_title='Serie',
+                title='Aulas por Série x Capítulo (detectado no conteúdo)',
+                xaxis_title='Capítulo',
+                yaxis_title='Série',
                 height=350,
             )
             st.plotly_chart(fig, use_container_width=True)
@@ -368,23 +368,23 @@ def main():
 
                 disc_cob.append({
                     'Disciplina': disc,
-                    'Max Capitulo': int(max_c),
+                    'Max Capítulo': int(max_c),
                     'Esperado': cap_esperado,
-                    'Diferenca': int(max_c) - cap_esperado,
+                    'Diferença': int(max_c) - cap_esperado,
                     'Registros c/ Cap': df_d['capitulo_detectado'].notna().sum(),
                     'Total Registros': len(df_d),
                 })
 
-            df_disc_cob = pd.DataFrame(disc_cob).sort_values('Diferenca')
+            df_disc_cob = pd.DataFrame(disc_cob).sort_values('Diferença')
             st.dataframe(df_disc_cob, use_container_width=True, hide_index=True)
 
     # ========== TAB 3: TIPOS DE ATIVIDADE ==========
     with tab3:
-        st.header("🎯 Distribuicao de Tipos de Atividade")
+        st.header("🎯 Distribuição de Tipos de Atividade")
 
         st.markdown("""
-        Cada registro eh classificado automaticamente pelo conteudo:
-        **Expositiva** (aula teorica), **Pratica** (exercicios),
+        Cada registro é classificado automaticamente pelo conteúdo:
+        **Expositiva** (aula teórica), **Prática** (exercícios),
         **Leitura** (livro/texto), **Avaliativa** (prova/teste),
         **Projeto** (trabalho/pesquisa), **Outro** ou **Vazio**.
         """)
@@ -406,7 +406,7 @@ def main():
                 'Vazio': '#BDBDBD',
             }
             fig = px.pie(tipos, values='Quantidade', names='Tipo',
-                        title='Distribuicao Geral',
+                        title='Distribuição Geral',
                         color='Tipo',
                         color_discrete_map=cores_tipo)
             st.plotly_chart(fig, use_container_width=True)
@@ -428,7 +428,7 @@ def main():
         st.plotly_chart(fig, use_container_width=True)
 
         # Por serie
-        st.subheader("Tipos por Serie")
+        st.subheader("Tipos por Série")
         tipo_serie = df_f.groupby(['serie', 'tipo_aula']).size().reset_index(name='qtd')
         # Ordena series
         tipo_serie['ordem'] = tipo_serie['serie'].apply(
@@ -436,14 +436,14 @@ def main():
         tipo_serie = tipo_serie.sort_values('ordem')
 
         fig = px.bar(tipo_serie, x='serie', y='qtd', color='tipo_aula',
-                    title='Tipos de Atividade por Serie',
+                    title='Tipos de Atividade por Série',
                     color_discrete_map=cores_tipo,
                     barmode='stack')
         st.plotly_chart(fig, use_container_width=True)
 
     # ========== TAB 4: ALERTAS DE CONTEUDO ==========
     with tab4:
-        st.header("⚠️ Alertas de Conteudo")
+        st.header("⚠️ Alertas de Conteúdo")
 
         # Alerta 1: Professores com muitos registros vazios
         st.subheader("🔴 Professores com Registros Vazios Excessivos")
@@ -468,7 +468,7 @@ def main():
             st.success("Nenhum professor com mais de 30% de registros vazios")
 
         # Alerta 2: Disciplinas sem mencao a capitulos
-        st.subheader("📖 Disciplinas sem Mencao a Capitulos")
+        st.subheader("📖 Disciplinas sem Menção a Capítulos")
 
         disc_sem_cap = []
         for disc in disciplinas:
@@ -478,14 +478,14 @@ def main():
                 disc_sem_cap.append({
                     'Disciplina': disc,
                     'Total Aulas': len(df_d),
-                    'Observacao': 'Nenhuma mencao a capitulo detectada'
+                    'Observação': 'Nenhuma menção a capítulo detectada'
                 })
 
         if disc_sem_cap:
-            st.info(f"{len(disc_sem_cap)} disciplinas sem mencao a capitulos")
+            st.info(f"{len(disc_sem_cap)} disciplinas sem menção a capítulos")
             st.dataframe(pd.DataFrame(disc_sem_cap), use_container_width=True, hide_index=True)
         else:
-            st.success("Todas as disciplinas com registros mencionam capitulos")
+            st.success("Todas as disciplinas com registros mencionam capítulos")
 
         # Alerta 3: Score abaixo da media
         st.subheader("📉 Professores com Score Abaixo de 30")
@@ -510,7 +510,7 @@ def main():
             st.success("Nenhum professor com score abaixo de 30")
 
         # Alerta 4: Conteudo repetido (possivel copia)
-        st.subheader("🔄 Conteudos Repetidos (Possivel Copia)")
+        st.subheader("🔄 Conteúdos Repetidos (Possível Cópia)")
 
         # Encontra conteudos identicos de professores diferentes
         df_cont = df_f[df_f['tipo_aula'] != 'Vazio'].copy()
@@ -522,16 +522,16 @@ def main():
         cont_repetidos = cont_repetidos.sort_values('total', ascending=False).head(10)
 
         if len(cont_repetidos) > 0:
-            st.info(f"{len(cont_repetidos)} conteudos identicos usados por multiplos professores")
+            st.info(f"{len(cont_repetidos)} conteúdos idênticos usados por múltiplos professores")
             st.dataframe(
                 cont_repetidos.rename(columns={
-                    'conteudo': 'Conteudo', 'professores': 'Professores', 'total': 'Ocorrencias'
+                    'conteudo': 'Conteúdo', 'professores': 'Professores', 'total': 'Ocorrências'
                 }),
                 use_container_width=True, hide_index=True
             )
 
         # Alerta 5: Evolucao semanal do score
-        st.subheader("📈 Evolucao Semanal do Score de Qualidade")
+        st.subheader("📈 Evolução Semanal do Score de Qualidade")
 
         df_semanal = df_f.groupby('semana_letiva').agg(
             score_medio=('score_qualidade', 'mean'),
@@ -542,7 +542,7 @@ def main():
         fig = go.Figure()
         fig.add_trace(go.Scatter(
             x=df_semanal['semana_letiva'], y=df_semanal['score_medio'],
-            mode='lines+markers', name='Score Medio',
+            mode='lines+markers', name='Score Médio',
             line=dict(color='#1976D2', width=3),
         ))
         fig.add_trace(go.Scatter(
@@ -552,9 +552,9 @@ def main():
             yaxis='y2',
         ))
         fig.update_layout(
-            title='Evolucao Semanal: Score de Qualidade e % Vazios',
+            title='Evolução Semanal: Score de Qualidade e % Vazios',
             xaxis_title='Semana Letiva',
-            yaxis=dict(title='Score Medio', range=[0, 100]),
+            yaxis=dict(title='Score Médio', range=[0, 100]),
             yaxis2=dict(title='% Vazios', overlaying='y', side='right', range=[0, 100]),
             height=400,
         )

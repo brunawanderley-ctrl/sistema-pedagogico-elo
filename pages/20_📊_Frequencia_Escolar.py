@@ -24,7 +24,7 @@ from utils import (
     UNIDADES, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM,
 )
 
-st.set_page_config(page_title="Frequencia Escolar", page_icon="📊", layout="wide")
+st.set_page_config(page_title="Frequência Escolar", page_icon="📊", layout="wide")
 from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
@@ -45,8 +45,8 @@ st.markdown("""
 
 
 def main():
-    st.title("📊 Frequencia Escolar")
-    st.markdown("**Monitoramento de Presenca | Limite LDB: 75%**")
+    st.title("📊 Frequência Escolar")
+    st.markdown("**Monitoramento de Presença | Limite LDB: 75%**")
 
     hoje = _hoje()
     semana = calcular_semana_letiva(hoje)
@@ -56,21 +56,21 @@ def main():
     df_alunos = carregar_alunos()
 
     if df_freq.empty:
-        st.warning("Dados de frequencia individual ainda nao disponiveis.")
-        st.info("Nenhuma fonte de dados de frequencia encontrada (nem fato_Frequencia_Aluno.csv nem historico com faltas).")
+        st.warning("Dados de frequência individual ainda não disponíveis.")
+        st.info("Nenhuma fonte de dados de frequência encontrada (nem fato_Frequencia_Aluno.csv nem histórico com faltas).")
 
         # Mostrar informacoes do fato_Aulas (frequencia da AULA, nao do aluno)
         df_aulas = carregar_fato_aulas()
         if not df_aulas.empty:
             df_aulas = filtrar_ate_hoje(df_aulas)
             st.markdown("---")
-            st.subheader("Frequencia de Registro por Aula (dados disponiveis)")
-            st.caption("Nota: Esta e a frequencia de REGISTRO das aulas pelo professor, nao a frequencia individual do aluno.")
+            st.subheader("Frequência de Registro por Aula (dados disponíveis)")
+            st.caption("Nota: Esta é a frequência de REGISTRO das aulas pelo professor, não a frequência individual do aluno.")
 
             if 'frequencia' in df_aulas.columns:
                 freq_counts = df_aulas['frequencia'].value_counts()
                 fig = px.pie(values=freq_counts.values, names=freq_counts.index,
-                            title='Status de Frequencia dos Registros de Aula',
+                            title='Status de Frequência dos Registros de Aula',
                             color_discrete_sequence=['#43A047', '#FBC02D', '#E53935', '#9E9E9E'])
                 st.plotly_chart(fig, use_container_width=True)
 
@@ -92,8 +92,8 @@ def main():
     tem_presente = 'presente' in df_freq.columns
 
     if is_historico:
-        st.info("Dados derivados do historico de notas (faltas/carga horaria por disciplina/ano). "
-                "Para frequencia diaria, aguarde a extracao do endpoint de chamada do SIGA.")
+        st.info("Dados derivados do histórico de notas (faltas/carga horária por disciplina/ano). "
+                "Para frequência diária, aguarde a extração do endpoint de chamada do SIGA.")
 
     # ========== FILTROS ==========
     n_filtros = 2 + (1 if tem_ano else 0) + (1 if not is_historico else 0)
@@ -107,7 +107,7 @@ def main():
     idx += 1
 
     with cols_filtro[idx]:
-        segmento_sel = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Medio'],
+        segmento_sel = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Médio'],
             key='freq_segmento')
     idx += 1
 
@@ -120,7 +120,7 @@ def main():
 
     if not is_historico and idx < n_filtros:
         with cols_filtro[idx]:
-            periodo_sel = st.selectbox("Periodo:", PERIODOS_OPCOES, key='freq_periodo')
+            periodo_sel = st.selectbox("Período:", PERIODOS_OPCOES, key='freq_periodo')
 
     # Aplicar filtros
     df = df_freq.copy()
@@ -128,7 +128,7 @@ def main():
         df = df[df['unidade'] == unidade_sel]
     if segmento_sel == 'Anos Finais' and 'serie' in df.columns:
         df = df[df['serie'].isin(SERIES_FUND_II)]
-    elif segmento_sel == 'Ensino Medio' and 'serie' in df.columns:
+    elif segmento_sel == 'Ensino Médio' and 'serie' in df.columns:
         df = df[df['serie'].isin(SERIES_EM)]
     if ano_sel is not None and 'ano' in df.columns:
         df = df[df['ano'] == ano_sel]
@@ -136,7 +136,7 @@ def main():
         df = filtrar_por_periodo(df, periodo_sel)
 
     if df.empty:
-        st.info("Nenhum dado de frequencia para os filtros selecionados.")
+        st.info("Nenhum dado de frequência para os filtros selecionados.")
         return
 
     # ========== CALCULAR FREQUENCIA ==========
@@ -166,7 +166,7 @@ def main():
         # Dados diretos com coluna 'presente'
         freq_por_aluno = calcular_frequencia_aluno(df)
         if freq_por_aluno.empty:
-            st.info("Dados insuficientes para calcular frequencia.")
+            st.info("Dados insuficientes para calcular frequência.")
             return
         if 'aluno_nome' in freq_por_aluno.columns:
             freq_geral = freq_por_aluno.groupby('aluno_nome').agg(
@@ -186,29 +186,29 @@ def main():
     atencao = len(freq_geral[(freq_geral['pct_frequencia'] >= THRESHOLD_FREQUENCIA_LDB) & (freq_geral['pct_frequencia'] < 85)]) if 'pct_frequencia' in freq_geral.columns else 0
 
     with col1:
-        st.metric("Media Geral", f"{media_geral:.1f}%")
+        st.metric("Média Geral", f"{media_geral:.1f}%")
     with col2:
         st.metric("Total Alunos", total_alunos)
     with col3:
         st.metric("Em Risco (<75%)", em_risco, delta=f"{'ALERTA' if em_risco > 0 else 'OK'}")
     with col4:
-        st.metric("Atencao (75-85%)", atencao)
+        st.metric("Atenção (75-85%)", atencao)
 
     # ========== TABS ==========
     tab1, tab2, tab3, tab4 = st.tabs([
-        "Alunos em Risco", "Visao Geral", "Por Serie", "Detalhamento"
+        "Alunos em Risco", "Visão Geral", "Por Série", "Detalhamento"
     ])
 
     # TAB 1: ALUNOS EM RISCO
     with tab1:
-        st.subheader(f"Alunos com Frequencia Abaixo de {THRESHOLD_FREQUENCIA_LDB}%")
+        st.subheader(f"Alunos com Frequência Abaixo de {THRESHOLD_FREQUENCIA_LDB}%")
 
         risco = freq_geral[freq_geral['pct_frequencia'] < THRESHOLD_FREQUENCIA_LDB].sort_values('pct_frequencia') if 'pct_frequencia' in freq_geral.columns else pd.DataFrame()
 
         if risco.empty:
-            st.success(f"Nenhum aluno com frequencia abaixo de {THRESHOLD_FREQUENCIA_LDB}%!")
+            st.success(f"Nenhum aluno com frequência abaixo de {THRESHOLD_FREQUENCIA_LDB}%!")
         else:
-            st.error(f"{len(risco)} aluno(s) em risco de reprovacao por faltas!")
+            st.error(f"{len(risco)} aluno(s) em risco de reprovação por faltas!")
 
             for _, row in risco.iterrows():
                 pct = row['pct_frequencia']
@@ -232,13 +232,13 @@ def main():
 
     # TAB 2: VISAO GERAL
     with tab2:
-        st.subheader("Distribuicao de Frequencia")
+        st.subheader("Distribuição de Frequência")
 
         if 'pct_frequencia' in freq_geral.columns and len(freq_geral) > 0:
             fig = px.histogram(
                 freq_geral, x='pct_frequencia', nbins=20,
-                title='Distribuicao da Frequencia dos Alunos',
-                labels={'pct_frequencia': '% Frequencia'},
+                title='Distribuição da Frequência dos Alunos',
+                labels={'pct_frequencia': '% Frequência'},
                 color_discrete_sequence=['#1a237e']
             )
             fig.add_vline(x=THRESHOLD_FREQUENCIA_LDB, line_dash="dash", line_color="red",
@@ -251,7 +251,7 @@ def main():
                 fig2 = px.box(
                     freq_por_aluno, x='unidade', y='pct_frequencia',
                     color='unidade', color_discrete_map=CORES_UNIDADES,
-                    title='Frequencia por Unidade'
+                    title='Frequência por Unidade'
                 )
                 fig2.add_hline(y=THRESHOLD_FREQUENCIA_LDB, line_dash="dash", line_color="red")
                 st.plotly_chart(fig2, use_container_width=True)
@@ -264,7 +264,7 @@ def main():
                     df_all = df_all[df_all['unidade'] == unidade_sel]
                 if segmento_sel == 'Anos Finais' and 'serie' in df_all.columns:
                     df_all = df_all[df_all['serie'].isin(SERIES_FUND_II)]
-                elif segmento_sel == 'Ensino Medio' and 'serie' in df_all.columns:
+                elif segmento_sel == 'Ensino Médio' and 'serie' in df_all.columns:
                     df_all = df_all[df_all['serie'].isin(SERIES_EM)]
                 # Media por ano
                 anos_com_dados = df_all.groupby('ano')['pct_frequencia'].agg(['mean', 'count']).reset_index()
@@ -272,8 +272,8 @@ def main():
                 if len(anos_com_dados) > 1:
                     fig3 = px.line(
                         anos_com_dados, x='ano', y='mean', markers=True,
-                        title='Evolucao da Frequencia Media por Ano',
-                        labels={'mean': '% Frequencia Media', 'ano': 'Ano'}
+                        title='Evolução da Frequência Média por Ano',
+                        labels={'mean': '% Frequência Média', 'ano': 'Ano'}
                     )
                     fig3.add_hline(y=THRESHOLD_FREQUENCIA_LDB, line_dash="dash", line_color="red",
                                   annotation_text="LDB 75%")
@@ -282,7 +282,7 @@ def main():
 
     # TAB 3: POR SERIE
     with tab3:
-        st.subheader("Frequencia por Serie")
+        st.subheader("Frequência por Série")
 
         if 'serie' in freq_por_aluno.columns and 'pct_frequencia' in freq_por_aluno.columns:
             media_serie = freq_por_aluno.groupby('serie')['pct_frequencia'].mean().reset_index()
@@ -293,10 +293,10 @@ def main():
                 color='pct_frequencia',
                 color_continuous_scale=['#E53935', '#FBC02D', '#43A047'],
                 range_color=[60, 100],
-                title='Media de Frequencia por Serie'
+                title='Média de Frequência por Série'
             )
             fig.add_vline(x=THRESHOLD_FREQUENCIA_LDB, line_dash="dash", line_color="red")
-            fig.update_layout(yaxis_title='', xaxis_title='% Frequencia', height=400)
+            fig.update_layout(yaxis_title='', xaxis_title='% Frequência', height=400)
             st.plotly_chart(fig, use_container_width=True)
 
             # Heatmap serie x disciplina
@@ -309,7 +309,7 @@ def main():
                         pivot, text_auto=True,
                         color_continuous_scale=['#E53935', '#FBC02D', '#43A047'],
                         range_color=[60, 100],
-                        title='Heatmap: Frequencia Media (Serie x Disciplina)'
+                        title='Heatmap: Frequência Média (Série x Disciplina)'
                     )
                     fig3.update_layout(height=400)
                     st.plotly_chart(fig3, use_container_width=True)
@@ -324,7 +324,7 @@ def main():
                     total_count.columns = ['serie', 'total_alunos']
                     risco_count = risco_count.merge(total_count, on='serie', how='left')
                     risco_count['pct_risco'] = (risco_count['alunos_risco'] / risco_count['total_alunos'].clip(lower=1) * 100).round(1)
-                    st.subheader("Alunos em Risco por Serie")
+                    st.subheader("Alunos em Risco por Série")
                     st.dataframe(risco_count.sort_values('pct_risco', ascending=False),
                                 use_container_width=True, hide_index=True)
 
@@ -353,7 +353,7 @@ def main():
             st.dataframe(df_show, use_container_width=True, hide_index=True, height=500)
 
         st.caption(f"Total: {total_alunos} alunos | Limite LDB: {THRESHOLD_FREQUENCIA_LDB}%"
-                   + (" | Fonte: Historico de Notas" if is_historico else ""))
+                   + (" | Fonte: Histórico de Notas" if is_historico else ""))
 
         # Detalhamento por disciplina para aluno selecionado
         if is_historico and 'aluno_nome' in df.columns:

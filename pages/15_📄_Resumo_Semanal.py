@@ -255,7 +255,7 @@ def main():
     df_prog = carregar_progressao_sae()
 
     if df_aulas.empty or df_horario.empty:
-        st.warning("Dados nao carregados. Execute a extracao do SIGA primeiro.")
+        st.warning("Dados não carregados. Execute a extração do SIGA primeiro.")
         return
 
     df_aulas = filtrar_ate_hoje(df_aulas)
@@ -275,7 +275,7 @@ def main():
     with col_cfg2:
         semana_sel = st.number_input("Semana:", min_value=1, max_value=42, value=semana_atual)
     with col_cfg3:
-        periodo_sel = st.selectbox("Periodo:", PERIODOS_OPCOES, key='periodo_15')
+        periodo_sel = st.selectbox("Período:", PERIODOS_OPCOES, key='periodo_15')
 
     df_aulas = filtrar_por_periodo(df_aulas, periodo_sel)
 
@@ -290,7 +290,7 @@ def main():
     df_metricas = calcular_metricas_unidade(df_f, df_h, semana_sel)
 
     if df_metricas.empty:
-        st.info("Nenhum dado para a selecao.")
+        st.info("Nenhum dado para a seleção.")
         return
 
     # ========== VISAO RAPIDA ==========

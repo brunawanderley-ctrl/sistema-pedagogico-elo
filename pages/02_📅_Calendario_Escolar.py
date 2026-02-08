@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import carregar_calendario, _hoje, calcular_semana_letiva, calcular_capitulo_esperado
 from config_cores import CORES_SERIES, ORDEM_SERIES
 
-st.set_page_config(page_title="Calendario Escolar", page_icon="📅", layout="wide")
+st.set_page_config(page_title="Calendário Escolar", page_icon="📅", layout="wide")
 from auth import check_password, logout_button
 if not check_password():
     st.stop()

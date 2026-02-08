@@ -17,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import DATA_DIR, is_cloud, ultima_atualizacao, calcular_semana_letiva, calcular_capitulo_esperado, carregar_fato_aulas, filtrar_ate_hoje, _hoje
 from config_cores import CORES_UNIDADES
 
-st.set_page_config(page_title="Agenda Coordenacao", page_icon="📋", layout="wide")
+st.set_page_config(page_title="Agenda Coordenação", page_icon="📋", layout="wide")
 from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
@@ -26,10 +26,10 @@ logout_button()
 # ========== SIDEBAR: ATUALIZAÇÃO DE DADOS (topo) ==========
 with st.sidebar:
     st.subheader("Atualizar Dados")
-    st.caption(f"Ultima atualizacao: {ultima_atualizacao()}")
+    st.caption(f"Última atualização: {ultima_atualizacao()}")
 
     if not is_cloud():
-        if st.button("Atualizar Diario de Classe", type="primary", key="btn_atualizar_agenda"):
+        if st.button("Atualizar Diário de Classe", type="primary", key="btn_atualizar_agenda"):
             _script_dir = Path(__file__).parent.parent
             _script_path = _script_dir / "atualizar_siga.py"
             _env = os.environ.copy()
@@ -48,10 +48,10 @@ with st.sidebar:
                 st.success("Dados atualizados com sucesso!")
                 st.rerun()
             else:
-                st.error("Erro na atualizacao:")
+                st.error("Erro na atualização:")
                 st.code(_result.stderr or _result.stdout, language="text")
     else:
-        st.info("Atualizacao de dados disponivel apenas localmente.")
+        st.info("Atualização de dados disponível apenas localmente.")
     st.markdown("---")
 
 st.markdown("""
@@ -121,7 +121,7 @@ def carregar_config():
             with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except (json.JSONDecodeError, ValueError):
-            st.warning("Arquivo de configuracao corrompido. Usando valores padrao.")
+            st.warning("Arquivo de configuração corrompido. Usando valores padrão.")
     return {"coordenadores": [], "periodos_feedback": []}
 
 def salvar_config(config):
@@ -137,7 +137,7 @@ def carregar_feedbacks():
             with open(FEEDBACK_FILE, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except (json.JSONDecodeError, ValueError):
-            st.warning("Arquivo de feedbacks corrompido. Usando valores padrao.")
+            st.warning("Arquivo de feedbacks corrompido. Usando valores padrão.")
     return {}
 
 def salvar_feedbacks(feedbacks):
@@ -245,7 +245,7 @@ def main():
     df_aulas = carregar_fato_aulas()
 
     if df_aulas.empty:
-        st.error("Dados nao carregados. Execute a extracao do SIGA primeiro.")
+        st.error("Dados não carregados. Execute a extração do SIGA primeiro.")
         return
 
     df_aulas = filtrar_ate_hoje(df_aulas)
@@ -652,7 +652,11 @@ Professor: ___________________________
                                 coord_responsavel = c['nome']
                                 break
 
-                prof_key = f"{unidade_sel}_{prof_fb}_{bimestre_info['bimestre']}"
+                if unidade_sel == "TODAS":
+                    prof_un_fb = df_aulas[df_aulas['professor'] == prof_fb]['unidade'].iloc[0] if len(df_aulas[df_aulas['professor'] == prof_fb]) > 0 else ""
+                else:
+                    prof_un_fb = unidade_sel
+                prof_key = f"{prof_un_fb}_{prof_fb}_{bimestre_info['bimestre']}"
                 fb_atual = feedbacks.get(prof_key, {})
 
                 col1, col2 = st.columns(2)
