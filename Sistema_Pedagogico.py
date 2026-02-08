@@ -10,6 +10,7 @@ Sistema multi-página para coordenação pedagógica com:
 """
 
 import streamlit as st
+import pandas as pd
 import subprocess
 import os
 from datetime import datetime
@@ -344,6 +345,91 @@ def main():
                 st.metric("Progressao SAE", f"{len(df_prog):,}")
             else:
                 st.metric("Progressao SAE", "N/A")
+
+        # ========== PONTOS DE ATENCAO HOJE ==========
+        st.markdown("---")
+        st.header("📌 Pontos de Atencao Hoje")
+
+        from auth import get_user_unit
+        user_unit = get_user_unit()
+        hoje = datetime.now()
+
+        pontos = []
+
+        # 1. Disciplinas sem nenhum registro
+        slots_esp = set()
+        for _, r in df_horario.iterrows():
+            slots_esp.add((r.get('unidade',''), r.get('serie',''), r.get('disciplina','')))
+        slots_real = set()
+        for _, r in df_aulas.iterrows():
+            slots_real.add((r.get('unidade',''), r.get('serie',''), r.get('disciplina','')))
+        slots_sem = slots_esp - slots_real
+        if user_unit:
+            slots_sem_un = [s for s in slots_sem if s[0] == user_unit]
+        else:
+            slots_sem_un = list(slots_sem)
+        if len(slots_sem_un) > 0:
+            exemplos = [f"{d} ({s})" for u, s, d in sorted(slots_sem_un)[:4]]
+            pontos.append(('🔴', f'{len(slots_sem_un)} disciplinas sem NENHUM registro', ', '.join(exemplos)))
+
+        # 2. Professores com baixa conformidade na unidade do usuario
+        df_un_user = df_aulas if not user_unit else df_aulas[df_aulas['unidade'] == user_unit]
+        df_hor_user = df_horario if not user_unit else df_horario[df_horario['unidade'] == user_unit]
+        profs_baixos = []
+        for prof, df_p in df_un_user.groupby('professor'):
+            un_p = df_p['unidade'].iloc[0]
+            esp = 0
+            for s in df_p['serie'].unique():
+                for d in df_p['disciplina'].unique():
+                    esp += len(df_hor_user[
+                        (df_hor_user['unidade'] == un_p) &
+                        (df_hor_user['serie'] == s) &
+                        (df_hor_user['disciplina'] == d)
+                    ]) * semana
+            if esp > 0:
+                conf_p = len(df_p) / esp * 100
+                if conf_p < 60:
+                    profs_baixos.append((prof, conf_p))
+        if profs_baixos:
+            profs_baixos.sort(key=lambda x: x[1])
+            nomes = [f"{p} ({c:.0f}%)" for p, c in profs_baixos[:3]]
+            pontos.append(('🟡', f'{len(profs_baixos)} professores abaixo de 60%', ', '.join(nomes)))
+
+        # 3. Aulas recentes sem conteudo
+        df_recente = df_un_user[df_un_user['data'] >= (hoje - pd.Timedelta(days=7))]
+        if not df_recente.empty:
+            sem_cont = df_recente[df_recente['conteudo'].isna() | (df_recente['conteudo'] == '')]
+            if len(sem_cont) > 0:
+                pct_vazio = len(sem_cont) / len(df_recente) * 100
+                if pct_vazio > 20:
+                    pontos.append(('🟡', f'{len(sem_cont)} aulas sem conteudo nos ultimos 7 dias ({pct_vazio:.0f}%)',
+                                   'Verificar registros dos professores'))
+
+        # 4. Info positiva
+        if not profs_baixos and len(slots_sem_un) == 0:
+            pontos.append(('🟢', 'Tudo em ordem!', 'Todos os professores registrando e todas disciplinas cobertas'))
+
+        # Render pontos
+        for emoji, msg, detalhe in pontos:
+            if emoji == '🔴':
+                bg = '#FFEBEE'
+                border = '#E53935'
+            elif emoji == '🟡':
+                bg = '#FFF8E1'
+                border = '#FFA726'
+            else:
+                bg = '#E8F5E9'
+                border = '#43A047'
+            st.markdown(f"""
+            <div style="background:{bg}; border-left:4px solid {border}; padding:12px 16px; margin:8px 0; border-radius:4px;">
+                <strong>{emoji} {msg}</strong><br>
+                <small style="color:#666;">{detalhe}</small>
+            </div>
+            """, unsafe_allow_html=True)
+
+        if user_unit:
+            st.caption(f"Mostrando alertas para: {UNIDADES_NOMES.get(user_unit, user_unit)}")
+
     else:
         st.warning("Dados nao carregados. Execute a extracao do SIGA para ver a saude da rede.")
 

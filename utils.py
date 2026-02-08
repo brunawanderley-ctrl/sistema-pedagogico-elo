@@ -24,7 +24,8 @@ UNIDADES_NOMES = {
     'CDR': 'Cordeiro',
 }
 
-ORDEM_SERIES = ['6º Ano', '7º Ano', '8º Ano', '9º Ano', '1ª Série', '2ª Série', '3ª Série']
+# Re-exporta de config_cores para manter compatibilidade de imports
+from config_cores import ORDEM_SERIES  # noqa: F401
 
 SERIES_FUND_II = ['6º Ano', '7º Ano', '8º Ano', '9º Ano']
 SERIES_EM = ['1ª Série', '2ª Série', '3ª Série']
