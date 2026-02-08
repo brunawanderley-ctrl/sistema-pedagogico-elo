@@ -323,7 +323,8 @@ def main():
         df_un = df.groupby('unidade').size().reset_index(name='aulas')
         fig = px.pie(df_un, values='aulas', names='unidade',
                     title='Distribuição por Unidade',
-                    color_discrete_sequence=px.colors.qualitative.Set2)
+                    color='unidade',
+                    color_discrete_map=CORES_UNIDADES)
         st.plotly_chart(fig, use_container_width=True)
 
     with col_g2:
