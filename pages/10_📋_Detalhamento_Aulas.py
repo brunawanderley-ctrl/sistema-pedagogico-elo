@@ -10,7 +10,7 @@ from pathlib import Path
 from datetime import datetime
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import carregar_fato_aulas, _hoje, ORDEM_SERIES
+from utils import carregar_fato_aulas, _hoje, ORDEM_SERIES, SERIES_FUND_II, SERIES_EM
 
 st.set_page_config(page_title="Detalhamento de Aulas", page_icon="📋", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -46,9 +46,9 @@ def main():
     # Aplica filtro de segmento primeiro
     df_seg = df.copy()
     if filtro_seg == 'Anos Finais':
-        df_seg = df_seg[df_seg['serie'].str.contains('Ano', na=False)]
+        df_seg = df_seg[df_seg['serie'].isin(SERIES_FUND_II)]
     elif filtro_seg == 'Ensino Médio':
-        df_seg = df_seg[df_seg['serie'].str.contains('Série|EM', na=False)]
+        df_seg = df_seg[df_seg['serie'].isin(SERIES_EM)]
 
     with col3:
         if filtro_un != 'TODAS':
@@ -305,9 +305,9 @@ def main():
     if un_busca != 'TODAS':
         df_busca_base = df_busca_base[df_busca_base['unidade'] == un_busca]
     if seg_busca == 'Anos Finais':
-        df_busca_base = df_busca_base[df_busca_base['serie'].str.contains('Ano', na=False)]
+        df_busca_base = df_busca_base[df_busca_base['serie'].isin(SERIES_FUND_II)]
     elif seg_busca == 'Ensino Médio':
-        df_busca_base = df_busca_base[df_busca_base['serie'].str.contains('Série|EM', na=False)]
+        df_busca_base = df_busca_base[df_busca_base['serie'].isin(SERIES_EM)]
 
     with cb3:
         serie_busca_opts = ['TODAS'] + sorted(df_busca_base['serie'].dropna().unique().tolist(), key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99)

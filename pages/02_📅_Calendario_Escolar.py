@@ -10,7 +10,7 @@ from datetime import datetime
 from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import carregar_calendario
+from utils import carregar_calendario, _hoje, calcular_semana_letiva, calcular_capitulo_esperado
 from config_cores import CORES_SERIES, ORDEM_SERIES
 
 st.set_page_config(page_title="Calendario Escolar", page_icon="📅", layout="wide")
@@ -356,11 +356,9 @@ def main():
     if not df_cal.empty:
 
         # --- Referência: Capítulo esperado por semana ---
-        import math
-        hoje = datetime.now().date()
-        inicio_letivo = datetime(2026, 1, 26).date()
-        semana_atual = max(1, (hoje - inicio_letivo).days // 7 + 1)
-        cap_esperado = min(12, math.ceil(semana_atual / 3.5))
+        hoje = _hoje()
+        semana_atual = calcular_semana_letiva(hoje)
+        cap_esperado = calcular_capitulo_esperado(semana_atual)
         trimestre_atual = 1 if semana_atual <= 14 else (2 if semana_atual <= 28 else 3)
 
         c1, c2, c3, c4 = st.columns(4)
@@ -384,7 +382,7 @@ def main():
         # Filtra por mês
         meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
                  'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
-        mes_sel = st.selectbox("Selecione o mês:", meses, index=datetime.now().month - 1)
+        mes_sel = st.selectbox("Selecione o mês:", meses, index=_hoje().month - 1)
         mes_num = meses.index(mes_sel) + 1
 
         df_mes = df_cal[df_cal['data'].dt.month == mes_num].copy()

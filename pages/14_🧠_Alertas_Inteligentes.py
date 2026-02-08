@@ -514,12 +514,14 @@ def main():
 
     if 'semana_letiva' in df_aulas.columns and semana > 1:
         evolucao = []
+        # Total de slots esperados/semana e professores conhecidos (de fato_Aulas)
+        profs_total = df_aulas_f['professor'].nunique()
+        esperado_sem = len(df_hor_f)
+
         for s in range(1, semana + 1):
             df_sem = df_aulas_f[df_aulas_f['semana_letiva'] == s]
             profs_ativos = df_sem['professor'].nunique()
-            profs_total = df_hor_f['professor'].nunique()
             aulas_sem = len(df_sem)
-            esperado_sem = len(df_hor_f)
 
             evolucao.append({
                 'Semana': s,
@@ -570,7 +572,7 @@ def main():
             st.download_button(
                 "📥 Alertas (CSV)",
                 csv_alertas,
-                f"alertas_inteligentes_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
+                f"alertas_inteligentes_{_hoje().strftime('%Y%m%d_%H%M')}.csv",
                 "text/csv"
             )
 
@@ -580,7 +582,7 @@ def main():
             st.download_button(
                 "📥 Scores (CSV)",
                 csv_scores,
-                f"scores_risco_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
+                f"scores_risco_{_hoje().strftime('%Y%m%d_%H%M')}.csv",
                 "text/csv"
             )
 
@@ -590,7 +592,7 @@ def main():
         relatorio.append("=" * 80)
         relatorio.append("     ALERTAS INTELIGENTES - COLEGIO ELO 2026")
         relatorio.append("=" * 80)
-        relatorio.append(f"Gerado em: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
+        relatorio.append(f"Gerado em: {_hoje().strftime('%d/%m/%Y %H:%M')}")
         relatorio.append(f"Semana letiva: {semana}a | Capitulo esperado: {capitulo}")
         relatorio.append(f"Filtro: {filtro_un} | {filtro_seg}")
         relatorio.append("")
@@ -624,7 +626,7 @@ def main():
         st.download_button(
             "🖨️ Imprimir (TXT)",
             txt.encode('utf-8'),
-            f"alertas_inteligentes_{datetime.now().strftime('%Y%m%d_%H%M')}.txt",
+            f"alertas_inteligentes_{_hoje().strftime('%Y%m%d_%H%M')}.txt",
             "text/plain"
         )
 

@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 import math
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_fato_aulas, carregar_horario_esperado, DATA_DIR
+from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_fato_aulas, carregar_horario_esperado, DATA_DIR, SERIES_FUND_II, SERIES_EM
 
 st.set_page_config(page_title="Material do Professor", page_icon="🖨️", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -510,11 +510,11 @@ def main():
 
     # Aplica filtro de segmento
     if segmento_sel == 'Anos Finais (6º-9º)':
-        df_horario_un = df_horario_un[df_horario_un['serie'].str.contains('Ano', na=False)]
-        df_aulas_un = df_aulas_un[df_aulas_un['serie'].str.contains('Ano', na=False)]
+        df_horario_un = df_horario_un[df_horario_un['serie'].isin(SERIES_FUND_II)]
+        df_aulas_un = df_aulas_un[df_aulas_un['serie'].isin(SERIES_FUND_II)]
     elif segmento_sel == 'Ensino Médio (1ª-3ª)':
-        df_horario_un = df_horario_un[df_horario_un['serie'].str.contains('Série|EM', na=False)]
-        df_aulas_un = df_aulas_un[df_aulas_un['serie'].str.contains('Série|EM', na=False)]
+        df_horario_un = df_horario_un[df_horario_un['serie'].isin(SERIES_EM)]
+        df_aulas_un = df_aulas_un[df_aulas_un['serie'].isin(SERIES_EM)]
 
     # Lista de professores da unidade (usa nomes de fato_Aulas que tem registros reais)
     professores = sorted(df_aulas_un['professor'].dropna().unique())

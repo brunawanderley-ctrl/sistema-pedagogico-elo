@@ -11,7 +11,7 @@ from pathlib import Path
 from datetime import datetime
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje, _hoje
+from utils import calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje, _hoje, SERIES_FUND_II, SERIES_EM
 
 st.set_page_config(page_title="Alertas e Conformidade", page_icon="⚠️", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -126,11 +126,11 @@ def main():
             df_horario_filt = df_horario_filt[df_horario_filt['unidade'] == un_sel]
 
         if seg_sel == 'Anos Finais (6º-9º)':
-            df_aulas_filt = df_aulas_filt[df_aulas_filt['serie'].str.contains('Ano', na=False)]
-            df_horario_filt = df_horario_filt[df_horario_filt['serie'].str.contains('Ano', na=False)]
+            df_aulas_filt = df_aulas_filt[df_aulas_filt['serie'].isin(SERIES_FUND_II)]
+            df_horario_filt = df_horario_filt[df_horario_filt['serie'].isin(SERIES_FUND_II)]
         elif seg_sel == 'Ensino Médio (1ª-3ª)':
-            df_aulas_filt = df_aulas_filt[df_aulas_filt['serie'].str.contains('Série|EM', na=False)]
-            df_horario_filt = df_horario_filt[df_horario_filt['serie'].str.contains('Série|EM', na=False)]
+            df_aulas_filt = df_aulas_filt[df_aulas_filt['serie'].isin(SERIES_EM)]
+            df_horario_filt = df_horario_filt[df_horario_filt['serie'].isin(SERIES_EM)]
 
         # ========== ALERTAS ATIVOS ==========
         st.subheader("🚨 Alertas Ativos")

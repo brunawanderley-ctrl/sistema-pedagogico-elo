@@ -13,7 +13,7 @@ from datetime import datetime
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
-from utils import calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje, _hoje
+from utils import calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje, _hoje, SERIES_FUND_II, SERIES_EM
 
 st.set_page_config(page_title="Comparativos", page_icon="🔄", layout="wide")
 from auth import check_password, logout_button
@@ -127,11 +127,11 @@ def main():
         df_hor_seg = df_horario.copy()
 
         if segmento == 'Anos Finais (6º-9º)':
-            df_seg = df_seg[df_seg['serie'].str.contains('Ano', na=False)]
-            df_hor_seg = df_hor_seg[df_hor_seg['serie'].str.contains('Ano', na=False)]
+            df_seg = df_seg[df_seg['serie'].isin(SERIES_FUND_II)]
+            df_hor_seg = df_hor_seg[df_hor_seg['serie'].isin(SERIES_FUND_II)]
         elif segmento == 'Ensino Médio (1ª-3ª)':
-            df_seg = df_seg[df_seg['serie'].str.contains('Série|EM', na=False)]
-            df_hor_seg = df_hor_seg[df_hor_seg['serie'].str.contains('Série|EM', na=False)]
+            df_seg = df_seg[df_seg['serie'].isin(SERIES_EM)]
+            df_hor_seg = df_hor_seg[df_hor_seg['serie'].isin(SERIES_EM)]
 
         with col_s2:
             # Seletor de disciplina (filtrado pelo segmento)
@@ -259,8 +259,8 @@ def main():
         # Comparativo Anos Finais vs Ensino Médio
         st.subheader("📊 Anos Finais vs Ensino Médio")
 
-        df_fund = df_aulas[df_aulas['serie'].str.contains('Ano', na=False)]
-        df_em = df_aulas[df_aulas['serie'].str.contains('Série|EM', na=False)]
+        df_fund = df_aulas[df_aulas['serie'].isin(SERIES_FUND_II)]
+        df_em = df_aulas[df_aulas['serie'].isin(SERIES_EM)]
 
         col1, col2 = st.columns(2)
 

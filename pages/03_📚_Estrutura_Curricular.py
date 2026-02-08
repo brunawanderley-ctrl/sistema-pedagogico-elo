@@ -14,7 +14,7 @@ from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
-from utils import carregar_horario_esperado
+from utils import carregar_horario_esperado, SERIES_FUND_II, SERIES_EM
 
 st.set_page_config(page_title="Estrutura Curricular", page_icon="📚", layout="wide")
 from auth import check_password, logout_button
@@ -260,7 +260,7 @@ def main():
 
         # Pega grade do 6º ano como referência (de BV)
         ref_fund = media_serie[(media_serie['unidade'] == 'BV') &
-                               (media_serie['serie'].str.contains('Ano'))]
+                               (media_serie['serie'].isin(SERIES_FUND_II))]
 
         # Agrupa por disciplina (pega a média entre séries)
         resumo_fund = ref_fund.groupby('disciplina')['aulas'].mean().reset_index()
@@ -281,7 +281,7 @@ def main():
         st.subheader("Grade Padrão - Ensino Médio")
 
         ref_em = media_serie[(media_serie['unidade'] == 'BV') &
-                             (media_serie['serie'].str.contains('Série'))]
+                             (media_serie['serie'].isin(SERIES_EM))]
 
         resumo_em = ref_em.groupby('disciplina')['aulas'].mean().reset_index()
         resumo_em.columns = ['Componente', 'Aulas/Semana']

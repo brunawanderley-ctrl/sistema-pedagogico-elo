@@ -117,7 +117,7 @@ def carregar_config():
 
 def salvar_config(config):
     """Salva configuração de coordenadores."""
-    config['atualizado_em'] = datetime.now().strftime('%Y-%m-%d %H:%M')
+    config['atualizado_em'] = _hoje().strftime('%Y-%m-%d %H:%M')
     with open(CONFIG_FILE, 'w', encoding='utf-8') as f:
         json.dump(config, f, ensure_ascii=False, indent=2)
 
@@ -156,26 +156,8 @@ def get_bimestre_atual(hoje):
     }
 
 def filtrar_series(serie_texto, series_coordenador):
-    """Verifica se a série está na lista do coordenador."""
-    for s in series_coordenador:
-        if s.lower() in serie_texto.lower():
-            return True
-        # Trata variações
-        if "6" in s and "6" in serie_texto:
-            return True
-        if "7" in s and "7" in serie_texto:
-            return True
-        if "8" in s and "8" in serie_texto:
-            return True
-        if "9" in s and "9" in serie_texto:
-            return True
-        if "1ª" in s and ("1ª" in serie_texto or "1a" in serie_texto.lower()):
-            return True
-        if "2ª" in s and ("2ª" in serie_texto or "2a" in serie_texto.lower()):
-            return True
-        if "3ª" in s and ("3ª" in serie_texto or "3a" in serie_texto.lower()):
-            return True
-    return False
+    """Verifica se a série está na lista do coordenador (match exato)."""
+    return str(serie_texto).strip() in series_coordenador
 
 def main():
     st.title("📋 Agenda da Coordenação Pedagógica")
@@ -703,7 +685,7 @@ Professor: ___________________________
                         'aval_progressao': aval_prog,
                         'aval_registros': aval_reg,
                         'aval_geral': aval_geral,
-                        'atualizado_em': datetime.now().strftime('%d/%m/%Y %H:%M')
+                        'atualizado_em': _hoje().strftime('%d/%m/%Y %H:%M')
                     }
                     salvar_feedbacks(feedbacks)
                     st.success("✅ Salvo!")
