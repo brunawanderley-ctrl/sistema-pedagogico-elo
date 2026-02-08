@@ -184,7 +184,8 @@ def main():
             # Gráfico
             fig = px.bar(df_profs, x='Professor', y='Aulas Registradas',
                         title=f'Aulas Registradas - {disc_sel}',
-                        color='Unidades')
+                        color='Unidades',
+                        color_discrete_map=CORES_UNIDADES)
             st.plotly_chart(fig, use_container_width=True)
 
             # Alerta de discrepância

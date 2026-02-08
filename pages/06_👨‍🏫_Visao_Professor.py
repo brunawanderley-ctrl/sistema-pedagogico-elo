@@ -248,16 +248,17 @@ def main():
 
     # ========== PROGRESSO REAL (do SIGA) ==========
     if not df_aulas.empty:
-        # Buscar aulas reais deste professor (por nome completo ou parcial)
+        # Buscar aulas reais deste professor (horário usa nome curto, fato usa nome completo)
         nome_prof_upper = professor.split(' - ')[0].strip().upper()
-        df_prof_aulas = df_aulas[df_aulas['professor'].str.upper().str.startswith(nome_prof_upper[:20])]
+        col_match = 'professor_normalizado' if 'professor_normalizado' in df_aulas.columns else 'professor'
+        df_prof_aulas = df_aulas[df_aulas[col_match].str.upper().str.startswith(nome_prof_upper, na=False)]
 
         if not df_prof_aulas.empty:
             st.markdown("---")
             st.header("📊 Progresso Real (dados do SIGA)")
 
             semana = calcular_semana_letiva()
-            cap_esp = calcular_capitulo_esperado()
+            cap_esp = calcular_capitulo_esperado(semana)
 
             total_aulas = len(df_prof_aulas)
             aulas_com_conteudo = len(df_prof_aulas[df_prof_aulas['conteudo'].notna() & (df_prof_aulas['conteudo'] != '')])
