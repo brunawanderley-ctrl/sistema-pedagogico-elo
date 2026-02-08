@@ -143,10 +143,8 @@ def main():
         df_hor_disc = df_hor_seg[df_hor_seg['disciplina'] == disc_sel]
 
         if len(df_disc) > 0:
-            # Calcula aulas esperadas via (unidade, serie, disciplina) slots
-            slots_horario = set()
-            for _, r in df_hor_disc.iterrows():
-                slots_horario.add((r.get('unidade',''), r.get('serie',''), r.get('disciplina','')))
+            # Pre-calcula slots do horário por (unidade, serie, disciplina) com contagem
+            hor_slots = df_hor_seg.groupby(['unidade', 'serie', 'disciplina']).size()
 
             # Agrupa por professor
             profs_comp = []
@@ -157,19 +155,11 @@ def main():
                 turmas = df_prof['turma'].nunique()
                 aulas = len(df_prof)
 
-                # Aulas esperadas: conta slots de horário que o professor leciona (por unidade+serie+disciplina)
-                prof_slots = set()
-                for _, r in df_prof.iterrows():
-                    prof_slots.add((r.get('unidade',''), r.get('serie',''), r.get('disciplina','')))
-                # Conta quantos slots/semana este professor tem no horário
-                aulas_sem_prof = 0
-                for slot in prof_slots:
-                    matches = df_hor_seg[
-                        (df_hor_seg['unidade'] == slot[0]) &
-                        (df_hor_seg['serie'] == slot[1]) &
-                        (df_hor_seg['disciplina'] == slot[2])
-                    ]
-                    aulas_sem_prof += len(matches)
+                # Aulas esperadas: slots únicos (unidade, serie, disciplina) do professor
+                prof_slots = set(df_prof.groupby(['unidade', 'serie', 'disciplina']).size().index)
+                aulas_sem_prof = sum(
+                    hor_slots.get(slot, 0) for slot in prof_slots
+                )
                 esperado = aulas_sem_prof * semana
 
                 # Conteúdos únicos

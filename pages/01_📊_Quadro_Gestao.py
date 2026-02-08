@@ -206,7 +206,14 @@ def main():
             df_hor = df_hor[df_hor['serie'].isin(SERIES_EM)]
 
         aulas_semana = len(df_hor)
-        aulas_esperadas = aulas_semana * semana
+        # Ajusta semana para trimestre filtrado (não ultrapassar o fim do trimestre)
+        semana_calc = semana
+        if filtro_tri != 'TODOS':
+            tri_map_calc = {'1º Trimestre': (1, 14), '2º Trimestre': (15, 28), '3º Trimestre': (29, 42)}
+            sem_min_tri, sem_max_tri = tri_map_calc[filtro_tri]
+            semana_calc = min(semana, sem_max_tri) - sem_min_tri + 1
+            semana_calc = max(0, semana_calc)
+        aulas_esperadas = aulas_semana * semana_calc
         conformidade = (total_aulas / aulas_esperadas * 100) if aulas_esperadas > 0 else 0
 
         col_c1, col_c2, col_c3 = st.columns(3)
