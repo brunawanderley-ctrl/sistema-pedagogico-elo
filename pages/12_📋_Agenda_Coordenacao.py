@@ -14,7 +14,7 @@ import subprocess
 import os
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import DATA_DIR, is_cloud, ultima_atualizacao, calcular_semana_letiva, calcular_capitulo_esperado, carregar_fato_aulas, filtrar_ate_hoje, _hoje
+from utils import DATA_DIR, WRITABLE_DIR, is_cloud, ultima_atualizacao, calcular_semana_letiva, calcular_capitulo_esperado, carregar_fato_aulas, filtrar_ate_hoje, _hoje
 from config_cores import CORES_UNIDADES
 
 st.set_page_config(page_title="Agenda Coordenação", page_icon="📋", layout="wide")
@@ -111,8 +111,8 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-FEEDBACK_FILE = DATA_DIR / "feedbacks_coordenacao.json"
-CONFIG_FILE = DATA_DIR / "config_coordenadores.json"
+FEEDBACK_FILE = WRITABLE_DIR / "feedbacks_coordenacao.json"
+CONFIG_FILE = WRITABLE_DIR / "config_coordenadores.json"
 
 def carregar_config():
     """Carrega configuração de coordenadores."""

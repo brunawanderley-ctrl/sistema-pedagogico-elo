@@ -19,7 +19,7 @@ from utils import (
     carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje,
     filtrar_por_periodo, PERIODOS_OPCOES,
     calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre,
-    _hoje, DATA_DIR, SERIES_FUND_II, SERIES_EM, UNIDADES_NOMES,
+    _hoje, DATA_DIR, WRITABLE_DIR, SERIES_FUND_II, SERIES_EM, UNIDADES_NOMES,
     CONFORMIDADE_CRITICO, CONFORMIDADE_BAIXO, CONFORMIDADE_META,
     CONTEUDO_VAZIO_ALERTA, CONTEUDO_VAZIO_CRITICO,
     DIAS_SEM_REGISTRO_ATENCAO, DIAS_SEM_REGISTRO_URGENTE,
@@ -34,8 +34,8 @@ logout_button()
 
 # ========== FUNCOES DE DIAGNOSTICO ==========
 
-CONFIG_FILE = DATA_DIR / "config_coordenadores.json"
-ACOES_FILE = DATA_DIR / "acoes_coordenacao.json"
+CONFIG_FILE = WRITABLE_DIR / "config_coordenadores.json"
+ACOES_FILE = WRITABLE_DIR / "acoes_coordenacao.json"
 
 # Dia da semana para reuniao semanal (0=Segunda, 3=Quinta, 6=Domingo)
 DIA_REUNIAO_SEMANAL = 3

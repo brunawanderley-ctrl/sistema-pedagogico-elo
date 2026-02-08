@@ -5,6 +5,8 @@ Centraliza calculos, carregamento de dados e constantes usados em todas as pagin
 
 import math
 import os
+import tempfile
+import shutil
 import streamlit as st
 import pandas as pd
 from datetime import datetime
@@ -14,6 +16,29 @@ from pathlib import Path
 
 INICIO_ANO_LETIVO = datetime(2026, 1, 26)
 DATA_DIR = Path(__file__).parent / "power_bi"
+
+
+def _get_writable_dir():
+    """Retorna diretorio gravavel. No Cloud, copia CSVs para /tmp na primeira vez."""
+    _is_cloud = os.environ.get('STREAMLIT_SHARING_MODE') == '1' or \
+                os.environ.get('IS_STREAMLIT_CLOUD', '') == '1' or \
+                not Path(__file__).parent.joinpath('atualizar_siga.py').exists()
+    if not _is_cloud:
+        return DATA_DIR
+    tmp_dir = Path(tempfile.gettempdir()) / "siga_data"
+    if not tmp_dir.exists():
+        tmp_dir.mkdir(exist_ok=True)
+        # Copiar CSVs/JSONs existentes para /tmp na primeira execução
+        if DATA_DIR.exists():
+            for f in DATA_DIR.glob("*"):
+                if f.is_file() and f.suffix in ('.csv', '.json'):
+                    dest = tmp_dir / f.name
+                    if not dest.exists():
+                        shutil.copy2(f, dest)
+    return tmp_dir
+
+
+WRITABLE_DIR = _get_writable_dir()
 
 UNIDADES = ['BV', 'CD', 'JG', 'CDR']
 
@@ -342,7 +367,7 @@ def carregar_frequencia_historico():
 @st.cache_data(ttl=60)
 def carregar_ocorrencias():
     """Carrega fato_Ocorrencias.csv com cache curto (permite refresh apos novo registro)."""
-    path = DATA_DIR / "fato_Ocorrencias.csv"
+    path = WRITABLE_DIR / "fato_Ocorrencias.csv"
     if not path.exists():
         return pd.DataFrame()
     df = pd.read_csv(path)
@@ -353,7 +378,7 @@ def carregar_ocorrencias():
 
 def salvar_ocorrencia(registro: dict):
     """Salva nova ocorrencia em fato_Ocorrencias.csv. Retorna True se sucesso."""
-    path = DATA_DIR / "fato_Ocorrencias.csv"
+    path = WRITABLE_DIR / "fato_Ocorrencias.csv"
     colunas = ['ocorrencia_id', 'aluno_id', 'aluno_nome', 'data', 'unidade', 'serie',
                'turma', 'tipo', 'categoria', 'gravidade', 'descricao', 'responsavel',
                'providencia', 'registrado_por', 'data_registro']

@@ -3,6 +3,7 @@ streamlit>=1.28.0
 pandas>=2.0.0
 plotly>=5.17.0
 python-dateutil>=2.8.2
+numpy>=1.24.0
 
 # === Scripts de extracao (opcional - apenas para atualizar dados) ===
 # playwright>=1.40.0  # Necessita: playwright install chromium
