@@ -59,22 +59,30 @@ st.markdown("""
 
 
 def calcular_metricas_professor(df_aulas, df_horario, semana_atual):
-    """Calcula metricas de cada professor cruzando aulas reais x esperadas."""
+    """
+    Calcula metricas de cada professor usando fato_Aulas como base.
+    Esperado calculado via (unidade, serie, disciplina) do horario.
+    """
     hoje = _hoje()
     resultados = []
 
-    for _, grupo in df_horario.groupby('professor'):
-        prof = grupo['professor'].iloc[0]
-        unidade = grupo['unidade'].iloc[0]
-        disciplinas = grupo['disciplina'].unique()
-        series = grupo['serie'].unique()
+    for prof, df_prof in df_aulas.groupby('professor'):
+        unidade = df_prof['unidade'].iloc[0]
+        disciplinas = sorted(df_prof['disciplina'].unique())
+        series = df_prof['serie'].unique()
 
-        # Aulas esperadas ate agora
-        aulas_semana = len(grupo)
+        # Calcula esperado via horario usando chaves (unidade, serie, disciplina)
+        aulas_semana = 0
+        for serie_p in series:
+            for disc_p in disciplinas:
+                n = len(df_horario[
+                    (df_horario['unidade'] == unidade) &
+                    (df_horario['serie'] == serie_p) &
+                    (df_horario['disciplina'] == disc_p)
+                ])
+                aulas_semana += n
+
         esperado = aulas_semana * semana_atual
-
-        # Aulas registradas
-        df_prof = df_aulas[df_aulas['professor'] == prof]
         registrado = len(df_prof)
 
         # Taxa de registro
@@ -89,7 +97,7 @@ def calcular_metricas_professor(df_aulas, df_horario, semana_atual):
         taxa_tarefa = (com_tarefa / registrado * 100) if registrado > 0 else 0
 
         # Dias sem registro
-        if not df_prof.empty and df_prof['data'].notna().any():
+        if df_prof['data'].notna().any():
             ultimo_registro = df_prof['data'].max()
             dias_sem = (hoje - ultimo_registro).days
         else:
@@ -105,19 +113,16 @@ def calcular_metricas_professor(df_aulas, df_horario, semana_atual):
         else:
             cor = 'vermelho'
 
-        # Nome limpo (remove sufixo "- BV - 2026")
-        nome_limpo = prof.split(' - ')[0] if ' - ' in prof else prof
-
         resultados.append({
-            'Professor': nome_limpo,
+            'Professor': prof,
             'Professor_Raw': prof,
             'Unidade': unidade,
-            'Disciplinas': ', '.join(sorted(disciplinas)),
+            'Disciplinas': ', '.join(disciplinas[:3]) + ('...' if len(disciplinas) > 3 else ''),
             'Series': ', '.join(sorted(series, key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99)),
             'Aulas/Sem': aulas_semana,
             'Esperado': esperado,
             'Registrado': registrado,
-            'Taxa Registro': round(taxa_registro, 1),
+            'Taxa Registro': round(min(taxa_registro, 200), 1),
             'Taxa Conteudo': round(taxa_conteudo, 1),
             'Taxa Tarefa': round(taxa_tarefa, 1),
             'Dias Sem Registro': dias_sem,

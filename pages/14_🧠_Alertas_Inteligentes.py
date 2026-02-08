@@ -99,7 +99,7 @@ TIPOS_ALERTA = {
 
 
 def detectar_alertas(df_aulas, df_horario, semana_atual):
-    """Detecta todos os 5 tipos de alerta."""
+    """Detecta todos os 5 tipos de alerta usando fato_Aulas como base."""
     hoje = _hoje()
     alertas = []
 
@@ -109,13 +109,11 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
     else:
         prof_semana = pd.DataFrame()
 
-    for prof in df_horario['professor'].unique():
-        df_prof_hor = df_horario[df_horario['professor'] == prof]
+    # Itera sobre professores em fato_Aulas
+    for prof in df_aulas['professor'].unique():
         df_prof_aulas = df_aulas[df_aulas['professor'] == prof]
-        unidade = df_prof_hor['unidade'].iloc[0]
-        disciplinas = ', '.join(sorted(df_prof_hor['disciplina'].unique()))
-        nome_limpo = prof.split(' - ')[0] if ' - ' in prof else prof
-        aulas_semana_esp = len(df_prof_hor)
+        unidade = df_prof_aulas['unidade'].iloc[0]
+        disciplinas = ', '.join(sorted(df_prof_aulas['disciplina'].unique())[:3])
 
         # --- ALERTA VERMELHO: Professor Silencioso ---
         if not prof_semana.empty:
@@ -125,14 +123,13 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
             ]
             n_aulas_sem = aulas_semana_atual['aulas'].sum() if not aulas_semana_atual.empty else 0
         else:
-            # Fallback: verifica se tem registro nos ultimos 7 dias
             recentes = df_prof_aulas[df_prof_aulas['data'] >= (hoje - timedelta(days=7))]
             n_aulas_sem = len(recentes)
 
         if n_aulas_sem == 0 and semana_atual > 1:
             alertas.append({
                 'tipo': 'VERMELHO',
-                'professor': nome_limpo,
+                'professor': prof,
                 'professor_raw': prof,
                 'unidade': unidade,
                 'disciplinas': disciplinas,
@@ -158,22 +155,22 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
                 if queda > 30:
                     alertas.append({
                         'tipo': 'AMARELO',
-                        'professor': nome_limpo,
+                        'professor': prof,
                         'professor_raw': prof,
                         'unidade': unidade,
                         'disciplinas': disciplinas,
-                        'detalhe': f'Queda de {queda:.0f}%: sem {semana_atual-2}={n_ant_ant} → sem {semana_atual-1}={n_ant}',
+                        'detalhe': f'Queda de {queda:.0f}%: sem {semana_atual-2}={n_ant_ant} -> sem {semana_atual-1}={n_ant}',
                         'valor': round(queda, 1),
                     })
 
         # --- ALERTA AZUL: Frequencia Pendente ---
-        if not df_prof_aulas.empty and df_prof_aulas['data'].notna().any():
+        if df_prof_aulas['data'].notna().any():
             ultimo_registro = df_prof_aulas['data'].max()
             dias_sem = (hoje - ultimo_registro).days
             if dias_sem > 5:
                 alertas.append({
                     'tipo': 'AZUL',
-                    'professor': nome_limpo,
+                    'professor': prof,
                     'professor_raw': prof,
                     'unidade': unidade,
                     'disciplinas': disciplinas,
@@ -182,8 +179,6 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
                 })
 
     # --- ALERTA LARANJA: Curriculo Atrasado (por disciplina/serie) ---
-    capitulo_esperado = calcular_capitulo_esperado(semana_atual)
-
     for (un, serie, disc), grupo_hor in df_horario.groupby(['unidade', 'serie', 'disciplina']):
         df_disc_aulas = df_aulas[
             (df_aulas['unidade'] == un) &
@@ -194,24 +189,12 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
         if df_disc_aulas.empty:
             continue
 
-        # Estima capitulo atual pelo conteudo registrado
-        # Se tem progressao_key, usa semana_letiva max
-        if 'semana_letiva' in df_disc_aulas.columns:
-            semana_max_disc = df_disc_aulas['semana_letiva'].max()
-            cap_estimado = calcular_capitulo_esperado(semana_max_disc)
-        else:
-            cap_estimado = capitulo_esperado
-
-        # Verifica por aulas registradas vs esperadas (proxy de progresso)
         aulas_esp_total = len(grupo_hor) * semana_atual
         aulas_real = len(df_disc_aulas)
         taxa = (aulas_real / aulas_esp_total * 100) if aulas_esp_total > 0 else 0
 
-        # Se taxa < 50%, provavelmente atrasado mais de 1 capitulo
         if taxa < 50 and aulas_real > 0:
-            profs_disc = ', '.join(sorted(grupo_hor['professor'].apply(
-                lambda x: x.split(' - ')[0] if ' - ' in x else x
-            ).unique()))
+            profs_disc = ', '.join(sorted(df_disc_aulas['professor'].unique())[:2])
             alertas.append({
                 'tipo': 'LARANJA',
                 'professor': profs_disc,
@@ -231,12 +214,9 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
         ]
 
         if len(df_disc_aulas) == 0 and semana_atual > 1:
-            profs = ', '.join(sorted(grupo_hor['professor'].apply(
-                lambda x: x.split(' - ')[0] if ' - ' in x else x
-            ).unique()))
             alertas.append({
                 'tipo': 'ROSA',
-                'professor': profs if profs else 'Nenhum alocado',
+                'professor': 'Nenhum registro',
                 'professor_raw': '',
                 'unidade': un,
                 'disciplinas': f'{disc} ({serie})',
@@ -248,17 +228,29 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
 
 
 def calcular_score_risco(df_aulas, df_horario, semana_atual):
-    """Calcula Score de Risco do Professor (0-100, quanto MENOR pior)."""
+    """Calcula Score de Risco do Professor (0-100, quanto MENOR pior).
+    Usa fato_Aulas como base e calcula esperado via (unidade, serie, disciplina).
+    """
     hoje = _hoje()
     scores = []
 
-    for prof in df_horario['professor'].unique():
-        df_prof_hor = df_horario[df_horario['professor'] == prof]
+    for prof in df_aulas['professor'].unique():
         df_prof_aulas = df_aulas[df_aulas['professor'] == prof]
-        unidade = df_prof_hor['unidade'].iloc[0]
-        disciplinas = ', '.join(sorted(df_prof_hor['disciplina'].unique()))
-        nome_limpo = prof.split(' - ')[0] if ' - ' in prof else prof
-        aulas_semana_esp = len(df_prof_hor)
+        unidade = df_prof_aulas['unidade'].iloc[0]
+        disciplinas = sorted(df_prof_aulas['disciplina'].unique())
+        series = df_prof_aulas['serie'].unique()
+
+        # Calcula esperado via horario usando chaves (unidade, serie, disciplina)
+        aulas_semana_esp = 0
+        for serie_p in series:
+            for disc_p in disciplinas:
+                n = len(df_horario[
+                    (df_horario['unidade'] == unidade) &
+                    (df_horario['serie'] == serie_p) &
+                    (df_horario['disciplina'] == disc_p)
+                ])
+                aulas_semana_esp += n
+
         esperado = aulas_semana_esp * semana_atual
 
         # 1. Taxa de registro (peso 0.35)
@@ -274,10 +266,9 @@ def calcular_score_risco(df_aulas, df_horario, semana_atual):
         taxa_tarefa = (com_tarefa / registrado * 100) if registrado > 0 else 0
 
         # 4. Regularidade/recencia (peso 0.25)
-        if not df_prof_aulas.empty and df_prof_aulas['data'].notna().any():
+        if df_prof_aulas['data'].notna().any():
             ultimo = df_prof_aulas['data'].max()
             dias_sem = (hoje - ultimo).days
-            # Score de recencia: 100 se registrou hoje, 0 se >14 dias
             recencia = max(0, min(100, 100 - (dias_sem * 100 / 14)))
         else:
             recencia = 0
@@ -291,12 +282,12 @@ def calcular_score_risco(df_aulas, df_horario, semana_atual):
         )
 
         scores.append({
-            'Professor': nome_limpo,
+            'Professor': prof,
             'Professor_Raw': prof,
             'Unidade': unidade,
-            'Disciplinas': disciplinas,
+            'Disciplinas': ', '.join(disciplinas[:3]) + ('...' if len(disciplinas) > 3 else ''),
             'Score': round(score, 1),
-            'Taxa Registro': round(taxa_registro, 1),
+            'Taxa Registro': round(min(taxa_registro, 100), 1),
             'Taxa Conteudo': round(taxa_conteudo, 1),
             'Taxa Tarefa': round(taxa_tarefa, 1),
             'Recencia': round(recencia, 1),
