@@ -241,16 +241,17 @@ def main():
 
     alertas = []
 
-    # Alerta: Professores sem registro
+    # Alerta: Disciplinas/series sem nenhum registro
     if not df_horario.empty:
-        profs_esperados = set(df_horario['professor'].unique())
-        profs_registrados = set(df['professor'].unique())
-        profs_sem = profs_esperados - profs_registrados
-        if len(profs_sem) > 0:
+        slots_esp = set(df_horario.groupby(['unidade', 'serie', 'disciplina']).size().index)
+        slots_real = set(df.groupby(['unidade', 'serie', 'disciplina']).size().index) if not df.empty else set()
+        slots_sem = slots_esp - slots_real
+        if len(slots_sem) > 0:
+            exemplos = [f"{d} ({s}, {u})" for u, s, d in sorted(slots_sem)[:5]]
             alertas.append({
                 'tipo': 'CRÍTICO',
-                'msg': f'{len(profs_sem)} professores SEM registro no período',
-                'detalhe': ', '.join(sorted(list(profs_sem))[:5]) + ('...' if len(profs_sem) > 5 else '')
+                'msg': f'{len(slots_sem)} disciplinas SEM registro no período',
+                'detalhe': ', '.join(exemplos) + ('...' if len(slots_sem) > 5 else '')
             })
 
     # Alerta: Aulas sem conteúdo

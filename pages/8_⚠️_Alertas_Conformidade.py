@@ -137,18 +137,22 @@ def main():
 
         alertas = []
 
-        # 1. Professores sem registro
-        profs_esperados = set(df_horario_filt['professor'].unique())
-        profs_registrados = set(df_aulas_filt['professor'].unique())
-        profs_sem_registro = profs_esperados - profs_registrados
+        # 1. Disciplinas sem registro (unidade+serie+disciplina no horario mas sem aulas)
+        slots_esperados = set(
+            df_horario_filt.groupby(['unidade', 'serie', 'disciplina']).size().index
+        )
+        slots_com_aula = set(
+            df_aulas_filt.groupby(['unidade', 'serie', 'disciplina']).size().index
+        )
+        slots_sem = slots_esperados - slots_com_aula
 
-        if len(profs_sem_registro) > 0:
-            for prof in sorted(profs_sem_registro)[:10]:  # Limita a 10
+        if len(slots_sem) > 0:
+            for (un, serie, disc) in sorted(slots_sem)[:10]:
                 alertas.append({
                     'nivel': 'CRÍTICO',
-                    'tipo': 'Professor sem registro',
-                    'detalhe': prof,
-                    'acao': 'Verificar se está atuando e orientar sobre registro'
+                    'tipo': 'Disciplina sem registro',
+                    'detalhe': f'{disc} - {serie} ({un})',
+                    'acao': 'Verificar se professor esta alocado e orientar sobre registro'
                 })
 
         # 2. Conformidade por unidade (usando data máxima de cada unidade)
@@ -238,18 +242,30 @@ def main():
         st.markdown("---")
         st.subheader("👨‍🏫 Conformidade por Professor")
 
-        # Calcula conformidade por professor
+        # Calcula conformidade por professor (via fato_Aulas, esperado por chaves)
         prof_conformidade = []
-        for prof in df_horario_filt['professor'].unique():
-            esperado = len(df_horario_filt[df_horario_filt['professor'] == prof]) * semana
-            realizado = len(df_aulas_filt[df_aulas_filt['professor'] == prof])
+        for prof in df_aulas_filt['professor'].unique():
+            df_p = df_aulas_filt[df_aulas_filt['professor'] == prof]
+            un = df_p['unidade'].iloc[0]
+            discs = df_p['disciplina'].unique()
+            series = df_p['serie'].unique()
+            esp_sem = 0
+            for s in series:
+                for d in discs:
+                    esp_sem += len(df_horario_filt[
+                        (df_horario_filt['unidade'] == un) &
+                        (df_horario_filt['serie'] == s) &
+                        (df_horario_filt['disciplina'] == d)
+                    ])
+            esperado = esp_sem * semana
+            realizado = len(df_p)
             conf = (realizado / esperado * 100) if esperado > 0 else 0
 
             prof_conformidade.append({
                 'Professor': prof,
                 'Esperado': esperado,
                 'Registrado': realizado,
-                'Conformidade': f'{conf:.0f}%',
+                'Conformidade': f'{min(conf, 200):.0f}%',
                 'Status': '✅' if conf >= 85 else ('⚠️' if conf >= 70 else '🔴')
             })
 
