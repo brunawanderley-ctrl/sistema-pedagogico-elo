@@ -14,7 +14,8 @@ import json
 import subprocess
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import DATA_DIR, is_cloud, ultima_atualizacao, calcular_semana_letiva, calcular_capitulo_esperado, carregar_fato_aulas
+from utils import DATA_DIR, is_cloud, ultima_atualizacao, calcular_semana_letiva, calcular_capitulo_esperado, carregar_fato_aulas, _hoje
+from config_cores import CORES_UNIDADES
 
 st.set_page_config(page_title="Agenda Coordenacao", page_icon="📋", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -183,10 +184,7 @@ def main():
     config = carregar_config()
     feedbacks = carregar_feedbacks()
 
-    # Define "hoje"
-    hoje = datetime.now()
-    if hoje.year < 2026:
-        hoje = datetime(2026, 2, 5)
+    hoje = _hoje()
 
     bimestre_info = get_bimestre_atual(hoje)
     deadline = datetime.strptime(bimestre_info['deadline_feedback'], '%Y-%m-%d')
@@ -753,6 +751,7 @@ Professor: ___________________________
 
         import plotly.express as px
         fig = px.bar(df_geral, x='Coordenador', y='Pct', color='Unidade',
+                    color_discrete_map=CORES_UNIDADES,
                     title=f'Progresso de Feedbacks - {bimestre_info["nome"]}')
         fig.add_hline(y=100, line_dash="dash", line_color="green", annotation_text="Meta 100%")
         st.plotly_chart(fig, use_container_width=True)

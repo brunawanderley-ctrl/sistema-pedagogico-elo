@@ -54,12 +54,11 @@ def calcular_metricas_unidade(df_aulas, df_horario, semana):
         com_conteudo = df_un['conteudo'].notna().sum()
         taxa_conteudo = (com_conteudo / total_aulas * 100) if total_aulas > 0 else 0
 
-        # Professores sem registro na semana
-        profs_horario = set(df_hor_un['professor'].str.split(' - ').str[0].unique())
-        profs_com_aula = set(df_un[
-            (df_un['data'] >= inicio_semana) & (df_un['data'] <= fim_semana)
-        ]['professor'].unique())
-        profs_sem = len(profs_horario - profs_com_aula)
+        # Slots sem registro na semana (compara combinações serie+disciplina)
+        slots_esperados = set(df_hor_un.groupby(['serie', 'disciplina']).size().index)
+        df_un_sem = df_un[(df_un['data'] >= inicio_semana) & (df_un['data'] <= fim_semana)]
+        slots_com_aula = set(df_un_sem.groupby(['serie', 'disciplina']).size().index) if not df_un_sem.empty else set()
+        profs_sem = len(slots_esperados - slots_com_aula)
 
         resultados.append({
             'unidade': un,
@@ -107,7 +106,7 @@ def gerar_resumo_texto(semana, cap_esperado, trimestre, df_metricas, df_aulas, d
         linhas.append(f"   Aulas total: {row['aulas_total']} | Esta semana: {row['aulas_semana']}")
         linhas.append(f"   Professores ativos: {row['profs_ativos']}")
         if row['profs_sem_registro'] > 0:
-            linhas.append(f"   ⚠️ {row['profs_sem_registro']} professor(es) sem registro na semana")
+            linhas.append(f"   ⚠️ {row['profs_sem_registro']} disciplina(s)/série(s) sem registro na semana")
         linhas.append(f"   Conteúdo preenchido: {row['taxa_conteudo']:.0f}%")
         linhas.append("")
 
@@ -138,7 +137,7 @@ def gerar_resumo_texto(semana, cap_esperado, trimestre, df_metricas, df_aulas, d
         if row['conformidade'] < 70:
             linhas.append(f"  🔴 {row['nome']}: conformidade {row['conformidade']:.0f}%")
         if row['profs_sem_registro'] > 3:
-            linhas.append(f"  ⚠️ {row['nome']}: {row['profs_sem_registro']} profs sem registro")
+            linhas.append(f"  ⚠️ {row['nome']}: {row['profs_sem_registro']} disc/série sem registro")
 
     linhas.append("")
     linhas.append(f"_Gerado em {hoje.strftime('%d/%m/%Y %H:%M')}_")
@@ -210,29 +209,29 @@ def gerar_resumo_reuniao(semana, cap_esperado, trimestre, df_metricas, df_aulas,
                 linhas.append(f"    - {disc}: {n} aulas")
         linhas.append("")
 
-    # Professores sem registro
-    linhas.append("3. PROFESSORES SEM REGISTRO NA SEMANA")
+    # Disciplinas/séries sem registro na semana
+    linhas.append("3. DISCIPLINAS SEM REGISTRO NA SEMANA")
     linhas.append("-" * 70)
 
     for un in sorted(df_aulas['unidade'].unique()):
         nome_un = UNIDADES_NOMES.get(un, un)
         df_hor_un = df_horario[df_horario['unidade'] == un]
-        profs_horario = set(df_hor_un['professor'].str.split(' - ').str[0].unique())
+        slots_esperados = set(df_hor_un.groupby(['serie', 'disciplina']).size().index)
 
         df_un_sem = df_aulas[
             (df_aulas['unidade'] == un) &
             (df_aulas['data'] >= inicio_semana) &
             (df_aulas['data'] <= fim_semana)
         ]
-        profs_com = set(df_un_sem['professor'].unique())
-        profs_sem = sorted(profs_horario - profs_com)
+        slots_com = set(df_un_sem.groupby(['serie', 'disciplina']).size().index) if not df_un_sem.empty else set()
+        slots_sem = sorted(slots_esperados - slots_com)
 
-        if profs_sem:
-            linhas.append(f"\n  {nome_un} ({len(profs_sem)} professores):")
-            for p in profs_sem[:15]:
-                linhas.append(f"    - {p}")
-            if len(profs_sem) > 15:
-                linhas.append(f"    ... e mais {len(profs_sem) - 15}")
+        if slots_sem:
+            linhas.append(f"\n  {nome_un} ({len(slots_sem)} disciplinas/séries):")
+            for (serie, disc) in slots_sem[:15]:
+                linhas.append(f"    - {disc} ({serie})")
+            if len(slots_sem) > 15:
+                linhas.append(f"    ... e mais {len(slots_sem) - 15}")
 
     linhas.append("")
     linhas.append("=" * 70)
@@ -319,7 +318,7 @@ def main():
         'aulas_total': 'Aulas Total',
         'aulas_semana': 'Aulas Semana',
         'profs_ativos': 'Professores',
-        'profs_sem_registro': 'Sem Registro',
+        'profs_sem_registro': 'Slots s/ Registro',
         'taxa_conteudo': 'Conteúdo %',
     })
     st.dataframe(df_show, use_container_width=True, hide_index=True)

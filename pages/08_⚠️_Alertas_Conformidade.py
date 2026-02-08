@@ -369,31 +369,42 @@ def main():
 
                 divergencias_un = []
 
-                # 1. Professores sem registro
+                # 1. Disciplinas sem registro (slot-based: compara combinações unidade+serie+disciplina)
                 if 'Professores sem registro' in tipos_divergencia:
-                    profs_esperados_un = set(df_un_horario['professor'].unique())
-                    profs_registrados_un = set(df_un_aulas['professor'].unique())
-                    profs_sem_un = profs_esperados_un - profs_registrados_un
+                    slots_esperados = set(
+                        df_un_horario.groupby(['serie', 'disciplina']).size().index
+                    )
+                    slots_com_aula = set(
+                        df_un_aulas.groupby(['serie', 'disciplina']).size().index
+                    )
+                    slots_sem = sorted(slots_esperados - slots_com_aula)
 
-                    for prof in sorted(profs_sem_un):
-                        # Pega disciplinas do professor
-                        disc_prof = df_un_horario[df_un_horario['professor'] == prof]['disciplina'].unique()
-                        disc_str = ', '.join(disc_prof)[:40]
+                    for (serie, disc) in slots_sem:
                         divergencias_un.append({
                             'tipo': 'SEM REGISTRO',
-                            'professor': prof,
-                            'detalhe': f'Disciplinas: {disc_str}',
+                            'professor': f'{disc} - {serie}',
+                            'detalhe': f'Nenhuma aula registrada',
                             'acao': 'Verificar atuação e orientar registro'
                         })
 
-                # 2. Conformidade crítica
+                # 2. Conformidade crítica (por professor do fato_Aulas, slots via unidade/serie/disciplina)
                 if 'Conformidade crítica (<70%)' in tipos_divergencia:
-                    for prof in df_un_horario['professor'].unique():
-                        esperado_p = len(df_un_horario[df_un_horario['professor'] == prof]) * semana
-                        realizado_p = len(df_un_aulas[df_un_aulas['professor'] == prof])
+                    for prof in df_un_aulas['professor'].unique():
+                        df_p = df_un_aulas[df_un_aulas['professor'] == prof]
+                        discs = df_p['disciplina'].unique()
+                        series = df_p['serie'].unique()
+                        esp_sem = 0
+                        for s in series:
+                            for d in discs:
+                                esp_sem += len(df_un_horario[
+                                    (df_un_horario['serie'] == s) &
+                                    (df_un_horario['disciplina'] == d)
+                                ])
+                        esperado_p = esp_sem * semana
+                        realizado_p = len(df_p)
                         conf_p = (realizado_p / esperado_p * 100) if esperado_p > 0 else 0
 
-                        if conf_p < 70 and realizado_p > 0:  # Tem registro mas está crítico
+                        if conf_p < 70 and realizado_p > 0:
                             divergencias_un.append({
                                 'tipo': 'CONFORMIDADE CRÍTICA',
                                 'professor': prof,
@@ -401,11 +412,21 @@ def main():
                                 'acao': 'Reunião urgente'
                             })
 
-                # 3. Conformidade atenção
+                # 3. Conformidade atenção (por professor do fato_Aulas)
                 if 'Conformidade atenção (70-84%)' in tipos_divergencia:
-                    for prof in df_un_horario['professor'].unique():
-                        esperado_p = len(df_un_horario[df_un_horario['professor'] == prof]) * semana
-                        realizado_p = len(df_un_aulas[df_un_aulas['professor'] == prof])
+                    for prof in df_un_aulas['professor'].unique():
+                        df_p = df_un_aulas[df_un_aulas['professor'] == prof]
+                        discs = df_p['disciplina'].unique()
+                        series = df_p['serie'].unique()
+                        esp_sem = 0
+                        for s in series:
+                            for d in discs:
+                                esp_sem += len(df_un_horario[
+                                    (df_un_horario['serie'] == s) &
+                                    (df_un_horario['disciplina'] == d)
+                                ])
+                        esperado_p = esp_sem * semana
+                        realizado_p = len(df_p)
                         conf_p = (realizado_p / esperado_p * 100) if esperado_p > 0 else 0
 
                         if 70 <= conf_p < 85 and realizado_p > 0:
@@ -494,15 +515,14 @@ def main():
                 df_un_horario = df_horario_rel[df_horario_rel['unidade'] == un] if unidade_rel == 'TODAS' else df_horario_rel
 
                 if 'Professores sem registro' in tipos_divergencia:
-                    profs_esperados_un = set(df_un_horario['professor'].unique())
-                    profs_registrados_un = set(df_un_aulas['professor'].unique())
-                    for prof in (profs_esperados_un - profs_registrados_un):
-                        disc = ', '.join(df_un_horario[df_un_horario['professor'] == prof]['disciplina'].unique())
+                    slots_esp = set(df_un_horario.groupby(['serie', 'disciplina']).size().index)
+                    slots_reg = set(df_un_aulas.groupby(['serie', 'disciplina']).size().index)
+                    for (serie, disc) in sorted(slots_esp - slots_reg):
                         todas_divergencias.append({
                             'Unidade': un,
                             'Tipo': 'Sem Registro',
-                            'Professor': prof,
-                            'Detalhe': disc,
+                            'Professor': f'{disc} - {serie}',
+                            'Detalhe': 'Nenhuma aula registrada',
                             'Ação': 'Verificar atuação'
                         })
 

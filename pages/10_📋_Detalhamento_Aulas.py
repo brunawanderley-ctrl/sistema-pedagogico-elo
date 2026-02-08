@@ -10,7 +10,7 @@ from pathlib import Path
 from datetime import datetime
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import carregar_fato_aulas
+from utils import carregar_fato_aulas, _hoje
 
 st.set_page_config(page_title="Detalhamento de Aulas", page_icon="📋", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -83,10 +83,7 @@ def main():
         data_min = df_seg['data'].min()
         data_max = df_seg['data'].max()
 
-        # Define "hoje" - se estamos em 2025, simula 05/02/2026
-        hoje = datetime.now()
-        if hoje.year < 2026:
-            hoje = datetime(2026, 2, 5)
+        hoje = _hoje()
 
         if pd.notna(data_min) and pd.notna(data_max):
             # Por padrão, mostra apenas ATÉ HOJE (não inclui futuros)
