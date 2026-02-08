@@ -20,6 +20,9 @@ from utils import (
     filtrar_por_periodo, PERIODOS_OPCOES,
     calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre,
     _hoje, DATA_DIR, SERIES_FUND_II, SERIES_EM, UNIDADES_NOMES,
+    CONFORMIDADE_CRITICO, CONFORMIDADE_BAIXO, CONFORMIDADE_META,
+    CONTEUDO_VAZIO_ALERTA, CONTEUDO_VAZIO_CRITICO,
+    DIAS_SEM_REGISTRO_ATENCAO, DIAS_SEM_REGISTRO_URGENTE,
 )
 from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
 
@@ -33,6 +36,9 @@ logout_button()
 
 CONFIG_FILE = DATA_DIR / "config_coordenadores.json"
 ACOES_FILE = DATA_DIR / "acoes_coordenacao.json"
+
+# Dia da semana para reuniao semanal (0=Segunda, 3=Quinta, 6=Domingo)
+DIA_REUNIAO_SEMANAL = 3
 
 
 def carregar_config_coords():
@@ -84,13 +90,13 @@ def diagnosticar_professor(df_prof, df_horario, semana, prof_nome, unidade):
     esperado = slots * semana
     conformidade = (total_aulas / esperado * 100) if esperado > 0 else 0
 
-    if conformidade < 50:
+    if conformidade < CONFORMIDADE_CRITICO:
         alertas.append(('critico', f'Conformidade critica: {conformidade:.0f}% ({total_aulas}/{esperado})'))
         prioridade = max(prioridade, 3)
-    elif conformidade < 70:
+    elif conformidade < CONFORMIDADE_BAIXO:
         alertas.append(('urgente', f'Conformidade baixa: {conformidade:.0f}%'))
         prioridade = max(prioridade, 2)
-    elif conformidade < 85:
+    elif conformidade < CONFORMIDADE_META:
         alertas.append(('atencao', f'Conformidade abaixo da meta: {conformidade:.0f}%'))
         prioridade = max(prioridade, 1)
 
@@ -98,10 +104,10 @@ def diagnosticar_professor(df_prof, df_horario, semana, prof_nome, unidade):
     vazios = len(df_prof[df_prof['conteudo'].isin(['.', ',', '-', '']) | df_prof['conteudo'].isna()])
     pct_vazio = (vazios / total_aulas * 100) if total_aulas > 0 else 0
 
-    if pct_vazio > 50:
+    if pct_vazio > CONTEUDO_VAZIO_CRITICO:
         alertas.append(('critico', f'{pct_vazio:.0f}% dos registros sem conteudo'))
         prioridade = max(prioridade, 3)
-    elif pct_vazio > 30:
+    elif pct_vazio > CONTEUDO_VAZIO_ALERTA:
         alertas.append(('urgente', f'{pct_vazio:.0f}% dos registros sem conteudo'))
         prioridade = max(prioridade, 2)
 
@@ -109,10 +115,10 @@ def diagnosticar_professor(df_prof, df_horario, semana, prof_nome, unidade):
     if df_prof['data'].notna().any():
         ultimo_registro = df_prof['data'].max()
         dias_sem = (_hoje() - ultimo_registro).days
-        if dias_sem > 7:
+        if dias_sem > DIAS_SEM_REGISTRO_URGENTE:
             alertas.append(('urgente', f'{dias_sem} dias sem registrar aulas'))
             prioridade = max(prioridade, 2)
-        elif dias_sem > 4:
+        elif dias_sem > DIAS_SEM_REGISTRO_ATENCAO:
             alertas.append(('atencao', f'{dias_sem} dias sem registro'))
             prioridade = max(prioridade, 1)
     else:
@@ -415,10 +421,10 @@ def main():
         if semana % 4 == 0:
             eventos.append("📊 Reuniao mensal de coordenacao")
 
-        if hoje.weekday() == 3:  # Quinta-feira
+        if hoje.weekday() == DIA_REUNIAO_SEMANAL:  # Quinta-feira
             eventos.append("🗓️ Reuniao semanal de acompanhamento (hoje)")
-        elif hoje.weekday() < 3:
-            dias_quinta = 3 - hoje.weekday()
+        elif hoje.weekday() < DIA_REUNIAO_SEMANAL:
+            dias_quinta = DIA_REUNIAO_SEMANAL - hoje.weekday()
             eventos.append(f"🗓️ Reuniao semanal em {dias_quinta} dia(s)")
 
         if eventos:
@@ -498,8 +504,8 @@ def main():
             title='Conformidade (%) vs Registros Vazios (%)',
             labels={'Pct Vazio': '% Registros Vazios', 'Conformidade': '% Conformidade'},
         )
-        fig.add_hline(y=30, line_dash="dash", line_color="red", annotation_text="Limite 30% vazios")
-        fig.add_vline(x=85, line_dash="dash", line_color="green", annotation_text="Meta 85%")
+        fig.add_hline(y=CONTEUDO_VAZIO_ALERTA, line_dash="dash", line_color="red", annotation_text=f"Limite {CONTEUDO_VAZIO_ALERTA}% vazios")
+        fig.add_vline(x=CONFORMIDADE_META, line_dash="dash", line_color="green", annotation_text=f"Meta {CONFORMIDADE_META}%")
         st.plotly_chart(fig, use_container_width=True)
 
     # ========== TAB 4: NOTAS E REGISTRO ==========

@@ -11,7 +11,13 @@ from pathlib import Path
 from datetime import datetime
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES, _hoje, SERIES_FUND_II, SERIES_EM
+from utils import (
+    calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado,
+    filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES, _hoje,
+    SERIES_FUND_II, SERIES_EM,
+    CONFORMIDADE_CRITICO, CONFORMIDADE_BAIXO, CONFORMIDADE_META,
+    CONFORMIDADE_EXCELENTE, CONTEUDO_VAZIO_ALERTA,
+)
 
 st.set_page_config(page_title="Alertas e Conformidade", page_icon="⚠️", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -64,7 +70,7 @@ def main():
     niveis_df = pd.DataFrame({
         'Status': ['✅', 'ℹ️', '⚠️', '🔴'],
         'Nível': ['Excelente', 'Bom', 'Atenção', 'Crítico'],
-        'Conformidade': ['≥95%', '85-94%', '70-84%', '<70%'],
+        'Conformidade': [f'≥{CONFORMIDADE_EXCELENTE}%', f'{CONFORMIDADE_META}-{CONFORMIDADE_EXCELENTE - 1}%', f'{CONFORMIDADE_BAIXO}-{CONFORMIDADE_META - 1}%', f'<{CONFORMIDADE_BAIXO}%'],
         'Descrição': ['Registro em dia', 'Dentro do esperado', 'Monitorar', 'Ação urgente']
     })
     st.dataframe(niveis_df, use_container_width=True, hide_index=True, height=178)
@@ -74,9 +80,9 @@ def main():
     st.header("📋 Critérios de Alerta")
 
     criterios = pd.DataFrame({
-        'Alerta': ['Professor sem registro >3 dias', 'Conformidade <70%', 'Atraso >2 capítulos',
+        'Alerta': ['Professor sem registro >3 dias', f'Conformidade <{CONFORMIDADE_BAIXO}%', 'Atraso >2 capítulos',
                   'Aulas sem conteúdo', 'Disciplina sem aula na semana', 'Desvio entre unidades'],
-        'Gatilho': ['Nenhuma aula registrada em 3+ dias úteis', 'Aulas registradas / esperadas < 70%',
+        'Gatilho': ['Nenhuma aula registrada em 3+ dias úteis', f'Aulas registradas / esperadas < {CONFORMIDADE_BAIXO}%',
                    'Capítulo atual muito abaixo do esperado', 'Campo conteúdo vazio ou genérico',
                    'Zero aulas de uma disciplina na semana', 'Diferença > 2 capítulos entre unidades'],
         'Nível': ['CRÍTICO', 'CRÍTICO', 'CRÍTICO', 'ATENÇÃO', 'ATENÇÃO', 'ATENÇÃO'],
@@ -176,14 +182,14 @@ def main():
             esperado = horario_un * semana_un
             conformidade = (aulas_un / esperado * 100) if esperado > 0 else 0
 
-            if conformidade < 70:
+            if conformidade < CONFORMIDADE_BAIXO:
                 alertas.append({
                     'nivel': 'CRÍTICO',
                     'tipo': 'Conformidade baixa',
                     'detalhe': f'{un}: {conformidade:.0f}% ({aulas_un}/{esperado}) - Sem {semana_un}',
                     'acao': 'Reunião urgente com coordenação da unidade'
                 })
-            elif conformidade < 85:
+            elif conformidade < CONFORMIDADE_META:
                 alertas.append({
                     'nivel': 'ATENÇÃO',
                     'tipo': 'Conformidade abaixo do ideal',
@@ -271,7 +277,7 @@ def main():
                 'Esperado': esperado,
                 'Registrado': realizado,
                 'Conformidade': f'{min(conf, 200):.0f}%',
-                'Status': '✅' if conf >= 85 else ('⚠️' if conf >= 70 else '🔴')
+                'Status': '✅' if conf >= CONFORMIDADE_META else ('⚠️' if conf >= CONFORMIDADE_BAIXO else '🔴')
             })
 
         df_prof = pd.DataFrame(prof_conformidade)
@@ -280,10 +286,10 @@ def main():
 
         # Filtro de status
         status_filter = st.multiselect("Filtrar por status:",
-                                       ['✅ OK (≥85%)', '⚠️ Atenção (70-84%)', '🔴 Crítico (<70%)'],
-                                       default=['🔴 Crítico (<70%)', '⚠️ Atenção (70-84%)'])
+                                       [f'✅ OK (≥{CONFORMIDADE_META}%)', f'⚠️ Atenção ({CONFORMIDADE_BAIXO}-{CONFORMIDADE_META - 1}%)', f'🔴 Crítico (<{CONFORMIDADE_BAIXO}%)'],
+                                       default=[f'🔴 Crítico (<{CONFORMIDADE_BAIXO}%)', f'⚠️ Atenção ({CONFORMIDADE_BAIXO}-{CONFORMIDADE_META - 1}%)'])
 
-        status_map = {'✅ OK (≥85%)': '✅', '⚠️ Atenção (70-84%)': '⚠️', '🔴 Crítico (<70%)': '🔴'}
+        status_map = {f'✅ OK (≥{CONFORMIDADE_META}%)': '✅', f'⚠️ Atenção ({CONFORMIDADE_BAIXO}-{CONFORMIDADE_META - 1}%)': '⚠️', f'🔴 Crítico (<{CONFORMIDADE_BAIXO}%)': '🔴'}
         status_sel = [status_map[s] for s in status_filter]
 
         df_prof_filtered = df_prof[df_prof['Status'].isin(status_sel)]
@@ -337,8 +343,8 @@ def main():
         with col_r2:
             tipos_divergencia = st.multiselect(
                 "📋 Tipos de divergência:",
-                ['Professores sem registro', 'Conformidade crítica (<70%)', 'Conformidade atenção (70-84%)', 'Aulas sem conteúdo'],
-                default=['Professores sem registro', 'Conformidade crítica (<70%)']
+                ['Professores sem registro', f'Conformidade crítica (<{CONFORMIDADE_BAIXO}%)', f'Conformidade atenção ({CONFORMIDADE_BAIXO}-{CONFORMIDADE_META - 1}%)', 'Aulas sem conteúdo'],
+                default=['Professores sem registro', f'Conformidade crítica (<{CONFORMIDADE_BAIXO}%)']
             )
 
         if st.button("📊 Gerar Relatório", type="primary"):
@@ -393,7 +399,7 @@ def main():
                         })
 
                 # 2. Conformidade crítica (por professor do fato_Aulas, slots via unidade/serie/disciplina)
-                if 'Conformidade crítica (<70%)' in tipos_divergencia:
+                if f'Conformidade crítica (<{CONFORMIDADE_BAIXO}%)' in tipos_divergencia:
                     for prof in df_un_aulas['professor'].unique():
                         df_p = df_un_aulas[df_un_aulas['professor'] == prof]
                         discs = df_p['disciplina'].unique()
@@ -409,7 +415,7 @@ def main():
                         realizado_p = len(df_p)
                         conf_p = (realizado_p / esperado_p * 100) if esperado_p > 0 else 0
 
-                        if conf_p < 70 and realizado_p > 0:
+                        if conf_p < CONFORMIDADE_BAIXO and realizado_p > 0:
                             divergencias_un.append({
                                 'tipo': 'CONFORMIDADE CRÍTICA',
                                 'professor': prof,
@@ -418,7 +424,7 @@ def main():
                             })
 
                 # 3. Conformidade atenção (por professor do fato_Aulas)
-                if 'Conformidade atenção (70-84%)' in tipos_divergencia:
+                if f'Conformidade atenção ({CONFORMIDADE_BAIXO}-{CONFORMIDADE_META - 1}%)' in tipos_divergencia:
                     for prof in df_un_aulas['professor'].unique():
                         df_p = df_un_aulas[df_un_aulas['professor'] == prof]
                         discs = df_p['disciplina'].unique()
@@ -434,7 +440,7 @@ def main():
                         realizado_p = len(df_p)
                         conf_p = (realizado_p / esperado_p * 100) if esperado_p > 0 else 0
 
-                        if 70 <= conf_p < 85 and realizado_p > 0:
+                        if CONFORMIDADE_BAIXO <= conf_p < CONFORMIDADE_META and realizado_p > 0:
                             divergencias_un.append({
                                 'tipo': 'CONFORMIDADE ATENÇÃO',
                                 'professor': prof,
@@ -449,7 +455,7 @@ def main():
                         sem_cont = aulas_prof[aulas_prof['conteudo'].isna() | (aulas_prof['conteudo'] == '')]
                         if len(sem_cont) > 0:
                             pct = len(sem_cont) / max(1, len(aulas_prof)) * 100
-                            if pct > 30:  # Mais de 30% sem conteúdo
+                            if pct > CONTEUDO_VAZIO_ALERTA:  # Mais de CONTEUDO_VAZIO_ALERTA% sem conteúdo
                                 divergencias_un.append({
                                     'tipo': 'AULAS SEM CONTEÚDO',
                                     'professor': prof,

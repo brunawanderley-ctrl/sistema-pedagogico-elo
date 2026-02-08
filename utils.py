@@ -30,10 +30,26 @@ from config_cores import ORDEM_SERIES  # noqa: F401
 SERIES_FUND_II = ['6º Ano', '7º Ano', '8º Ano', '9º Ano']
 SERIES_EM = ['1ª Série', '2ª Série', '3ª Série']
 
-# Thresholds de conformidade
-THRESHOLD_EXCELENTE = 95
-THRESHOLD_BOM = 85
-THRESHOLD_ATENCAO = 70
+# ============================================================
+# THRESHOLDS DE CONFORMIDADE (%)
+# ============================================================
+CONFORMIDADE_CRITICO = 50
+CONFORMIDADE_BAIXO = 70
+CONFORMIDADE_META = 85
+CONFORMIDADE_EXCELENTE = 95
+
+# Qualidade de conteúdo (%)
+CONTEUDO_VAZIO_ALERTA = 30
+CONTEUDO_VAZIO_CRITICO = 50
+
+# Dias sem registro
+DIAS_SEM_REGISTRO_ATENCAO = 4
+DIAS_SEM_REGISTRO_URGENTE = 7
+
+# Aliases para compatibilidade interna
+THRESHOLD_EXCELENTE = CONFORMIDADE_EXCELENTE
+THRESHOLD_BOM = CONFORMIDADE_META
+THRESHOLD_ATENCAO = CONFORMIDADE_BAIXO
 
 
 # ========== FUNCOES DE CALCULO ==========
@@ -75,11 +91,11 @@ def calcular_trimestre(semana):
 
 def status_conformidade(pct):
     """Retorna (emoji, label) baseado no percentual de conformidade."""
-    if pct >= THRESHOLD_EXCELENTE:
+    if pct >= CONFORMIDADE_EXCELENTE:
         return '✅', 'Excelente'
-    elif pct >= THRESHOLD_BOM:
+    elif pct >= CONFORMIDADE_META:
         return 'ℹ️', 'Bom'
-    elif pct >= THRESHOLD_ATENCAO:
+    elif pct >= CONFORMIDADE_BAIXO:
         return '⚠️', 'Atencao'
     else:
         return '🔴', 'Critico'

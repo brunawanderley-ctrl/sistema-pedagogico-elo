@@ -18,6 +18,9 @@ from utils import (
     filtrar_por_periodo, PERIODOS_OPCOES,
     calcular_semana_letiva, calcular_capitulo_esperado, _hoje,
     SERIES_FUND_II, SERIES_EM,
+    CONFORMIDADE_META, CONFORMIDADE_BAIXO, CONFORMIDADE_CRITICO,
+    CONTEUDO_VAZIO_ALERTA,
+    DIAS_SEM_REGISTRO_ATENCAO, DIAS_SEM_REGISTRO_URGENTE,
 )
 from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
 
@@ -142,7 +145,7 @@ def main():
 
     # ========== SAUDE DA TURMA ==========
     saude = calcular_saude_turma(df_turma, df_hor_un, semana, un_sel, serie_sel)
-    cor_saude = '#43A047' if saude >= 80 else ('#F57C00' if saude >= 60 else '#E53935')
+    cor_saude = '#43A047' if saude >= CONFORMIDADE_META else ('#F57C00' if saude >= 60 else '#E53935')
 
     st.markdown(f"""
     <div style="background: linear-gradient(135deg, {cor_saude}dd 0%, {cor_saude} 100%); color: white; padding: 25px; border-radius: 15px; margin: 10px 0;">
@@ -209,9 +212,9 @@ def main():
             profs = ', '.join(df_d['professor'].dropna().unique()[:2])
 
             # Status geral
-            if conf >= 85 and pct_preenchido >= 70:
+            if conf >= CONFORMIDADE_META and pct_preenchido >= CONFORMIDADE_BAIXO:
                 status = '✅'
-            elif conf >= 70 or pct_preenchido >= 50:
+            elif conf >= CONFORMIDADE_BAIXO or pct_preenchido >= CONFORMIDADE_CRITICO:
                 status = '⚠️'
             else:
                 status = '🔴'
@@ -248,10 +251,10 @@ def main():
                 line=dict(color='#1976D2'),
             ))
             fig.add_trace(go.Scatterpolar(
-                r=[85] * (len(disc_names) + 1),
+                r=[CONFORMIDADE_META] * (len(disc_names) + 1),
                 theta=disc_names + [disc_names[0]],
                 fill='none',
-                name='Meta 85%',
+                name=f'Meta {CONFORMIDADE_META}%',
                 line=dict(color='#43A047', dash='dash'),
             ))
             fig.update_layout(
@@ -380,9 +383,9 @@ def main():
             pct_preenchido = ((len(df_p) - vazios) / len(df_p) * 100) if len(df_p) > 0 else 0
 
             # Status
-            if dias_sem > 7 or pct_preenchido < 30:
+            if dias_sem > DIAS_SEM_REGISTRO_URGENTE or pct_preenchido < CONTEUDO_VAZIO_ALERTA:
                 status = '🔴'
-            elif dias_sem > 4 or pct_preenchido < 60:
+            elif dias_sem > DIAS_SEM_REGISTRO_ATENCAO or pct_preenchido < 60:
                 status = '⚠️'
             else:
                 status = '✅'
@@ -479,7 +482,7 @@ def main():
         fig = px.bar(df_comp, x='Unidade', y='Saude_Num',
                     color='Unidade', color_discrete_map=CORES_UNIDADES,
                     title=f'Saude da Turma {serie_sel} por Unidade')
-        fig.add_hline(y=80, line_dash="dash", line_color="green", annotation_text="Meta 80")
+        fig.add_hline(y=CONFORMIDADE_META, line_dash="dash", line_color="green", annotation_text=f"Meta {CONFORMIDADE_META}")
         st.plotly_chart(fig, use_container_width=True)
 
 

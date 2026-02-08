@@ -17,7 +17,8 @@ from utils import (
     calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre,
     status_conformidade, carregar_fato_aulas, carregar_horario_esperado,
     carregar_calendario, filtrar_ate_hoje, filtrar_por_periodo, _hoje,
-    DATA_DIR, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM, PERIODOS_OPCOES
+    DATA_DIR, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM, PERIODOS_OPCOES,
+    CONFORMIDADE_BAIXO, CONFORMIDADE_META,
 )
 
 st.set_page_config(page_title="Quadro de Gestao", page_icon="📊", layout="wide")
@@ -230,17 +231,17 @@ def main():
             title={'text': "Taxa de Conformidade Geral"},
             gauge={
                 'axis': {'range': [0, 100]},
-                'bar': {'color': "#4CAF50" if conformidade >= 85 else "#FF9800" if conformidade >= 70 else "#f44336"},
+                'bar': {'color': "#4CAF50" if conformidade >= CONFORMIDADE_META else "#FF9800" if conformidade >= CONFORMIDADE_BAIXO else "#f44336"},
                 'steps': [
-                    {'range': [0, 50], 'color': "#ffebee"},
-                    {'range': [50, 70], 'color': "#fff3e0"},
-                    {'range': [70, 85], 'color': "#e8f5e9"},
-                    {'range': [85, 100], 'color': "#c8e6c9"}
+                    {'range': [0, CONFORMIDADE_BAIXO - 20], 'color': "#ffebee"},
+                    {'range': [CONFORMIDADE_BAIXO - 20, CONFORMIDADE_BAIXO], 'color': "#fff3e0"},
+                    {'range': [CONFORMIDADE_BAIXO, CONFORMIDADE_META], 'color': "#e8f5e9"},
+                    {'range': [CONFORMIDADE_META, 100], 'color': "#c8e6c9"}
                 ],
                 'threshold': {
                     'line': {'color': "red", 'width': 4},
                     'thickness': 0.75,
-                    'value': 85
+                    'value': CONFORMIDADE_META
                 }
             }
         ))
@@ -292,13 +293,13 @@ def main():
             esperado_un = len(df_hor_un) * semana_un
             real_un = len(df_un)
             conf_un = (real_un / esperado_un * 100) if esperado_un > 0 else 0
-            if conf_un < 70:
+            if conf_un < CONFORMIDADE_BAIXO:
                 alertas.append({
                     'tipo': 'CRÍTICO',
                     'msg': f'Unidade {un}: conformidade de apenas {conf_un:.0f}%',
                     'detalhe': f'{real_un} registradas de {esperado_un} esperadas (sem {semana_un})'
                 })
-            elif conf_un < 85:
+            elif conf_un < CONFORMIDADE_META:
                 alertas.append({
                     'tipo': 'ATENÇÃO',
                     'msg': f'Unidade {un}: conformidade de {conf_un:.0f}%',
@@ -396,7 +397,7 @@ def main():
             'Esperadas': esperado,
             'Semanas': semana_un,
             'Conformidade': f"{conf:.1f}%",
-            'Status': '✅' if conf >= 85 else ('⚠️' if conf >= 70 else '🔴')
+            'Status': '✅' if conf >= CONFORMIDADE_META else ('⚠️' if conf >= CONFORMIDADE_BAIXO else '🔴')
         })
 
     df_resumo = pd.DataFrame(resumo)

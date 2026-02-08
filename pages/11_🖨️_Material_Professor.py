@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 import math
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_fato_aulas, carregar_horario_esperado, carregar_calendario, DATA_DIR, SERIES_FUND_II, SERIES_EM
+from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_fato_aulas, carregar_horario_esperado, carregar_calendario, DATA_DIR, SERIES_FUND_II, SERIES_EM, CONFORMIDADE_EXCELENTE, CONFORMIDADE_META, CONFORMIDADE_BAIXO
 
 st.set_page_config(page_title="Material do Professor", page_icon="🖨️", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -142,7 +142,7 @@ def gerar_conteudo_professor(prof_nome, df_aulas_prof, df_horario_prof, semana_a
   ✓ Aulas registradas:         {aulas_registradas}
   ✓ Taxa de conformidade:      {conformidade:.1f}%
 
-  Status: {'✅ EXCELENTE' if conformidade >= 95 else '✓ BOM' if conformidade >= 85 else '⚠️ ATENÇÃO' if conformidade >= 70 else '❌ CRÍTICO'}
+  Status: {'✅ EXCELENTE' if conformidade >= CONFORMIDADE_EXCELENTE else '✓ BOM' if conformidade >= CONFORMIDADE_META else '⚠️ ATENÇÃO' if conformidade >= CONFORMIDADE_BAIXO else '❌ CRÍTICO'}
 
 """
 
@@ -354,7 +354,7 @@ def gerar_relatorio_por_disciplina(prof_nome, df_aulas_prof, df_horario_prof, se
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ Turma(s): {', '.join(turmas):<67}│
 │ Aulas Registradas: {aulas_registradas:<3} | Esperadas: {aulas_esperadas:<3} | Conformidade: {conformidade:>5.1f}%{' '*(14)}│
-│ Status: {'✅ OK' if conformidade >= 85 else ('⚠️ ATENÇÃO' if conformidade >= 70 else '❌ CRÍTICO'):<70}│
+│ Status: {'✅ OK' if conformidade >= CONFORMIDADE_META else ('⚠️ ATENÇÃO' if conformidade >= CONFORMIDADE_BAIXO else '❌ CRÍTICO'):<70}│
 └──────────────────────────────────────────────────────────────────────────────┘
 """
 
@@ -708,7 +708,7 @@ def main():
             'Registrado': registrado,
             'Esperado': esperado,
             'Conformidade': f'{conf:.0f}%',
-            'Status': '✅' if conf >= 85 else ('⚠️' if conf >= 70 else '🔴')
+            'Status': '✅' if conf >= CONFORMIDADE_META else ('⚠️' if conf >= CONFORMIDADE_BAIXO else '🔴')
         })
 
     df_resumo = pd.DataFrame(resumo)

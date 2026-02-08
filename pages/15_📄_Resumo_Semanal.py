@@ -16,7 +16,8 @@ from utils import (
     carregar_fato_aulas, carregar_horario_esperado, carregar_progressao_sae,
     filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES,
     _hoje, DATA_DIR, UNIDADES_NOMES, ORDEM_SERIES,
-    SERIES_FUND_II, SERIES_EM, INICIO_ANO_LETIVO
+    SERIES_FUND_II, SERIES_EM, INICIO_ANO_LETIVO,
+    CONFORMIDADE_META, CONFORMIDADE_BAIXO,
 )
 from auth import check_password, logout_button, get_user_unit
 
@@ -95,9 +96,9 @@ def gerar_resumo_texto(semana, cap_esperado, trimestre, df_metricas, df_aulas, d
     # Por unidade
     for _, row in df_metricas.iterrows():
         # Emoji de status
-        if row['conformidade'] >= 85:
+        if row['conformidade'] >= CONFORMIDADE_META:
             emoji = '🟢'
-        elif row['conformidade'] >= 70:
+        elif row['conformidade'] >= CONFORMIDADE_BAIXO:
             emoji = '🟡'
         else:
             emoji = '🔴'
@@ -135,7 +136,7 @@ def gerar_resumo_texto(semana, cap_esperado, trimestre, df_metricas, df_aulas, d
     # Alertas rápidos
     linhas.append("*PONTOS DE ATENÇÃO:*")
     for _, row in df_metricas.iterrows():
-        if row['conformidade'] < 70:
+        if row['conformidade'] < CONFORMIDADE_BAIXO:
             linhas.append(f"  🔴 {row['nome']}: conformidade {row['conformidade']:.0f}%")
         if row['profs_sem_registro'] > 3:
             linhas.append(f"  ⚠️ {row['nome']}: {row['profs_sem_registro']} disc/série sem registro")

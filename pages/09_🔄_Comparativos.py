@@ -13,7 +13,12 @@ from datetime import datetime
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
-from utils import calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES, _hoje, SERIES_FUND_II, SERIES_EM
+from utils import (
+    calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado,
+    filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES, _hoje,
+    SERIES_FUND_II, SERIES_EM,
+    CONFORMIDADE_BAIXO, CONFORMIDADE_META,
+)
 
 st.set_page_config(page_title="Comparativos", page_icon="🔄", layout="wide")
 from auth import check_password, logout_button
@@ -76,7 +81,7 @@ def main():
                 'Aulas Esperadas': esperado,
                 'Aulas Registradas': realizado,
                 'Conformidade': f'{conf:.1f}%',
-                'Status': '✅' if conf >= 85 else ('⚠️' if conf >= 70 else '🔴')
+                'Status': '✅' if conf >= CONFORMIDADE_META else ('⚠️' if conf >= CONFORMIDADE_BAIXO else '🔴')
             })
 
         df_comp = pd.DataFrame(comparativo)
@@ -98,8 +103,8 @@ def main():
                         title='Taxa de Conformidade por Unidade',
                         color='Conf_Num', color_continuous_scale='RdYlGn',
                         range_color=[0, 100])
-            fig.add_hline(y=85, line_dash="dash", line_color="green",
-                         annotation_text="Meta 85%")
+            fig.add_hline(y=CONFORMIDADE_META, line_dash="dash", line_color="green",
+                         annotation_text=f"Meta {CONFORMIDADE_META}%")
             st.plotly_chart(fig, use_container_width=True)
 
         # Ranking
@@ -240,8 +245,8 @@ def main():
                     title='Conformidade por Série',
                     color='Série',
                     color_discrete_map=CORES_SERIES)
-        fig.add_hline(y=85, line_dash="dash", line_color="green",
-                     annotation_text="Meta 85%")
+        fig.add_hline(y=CONFORMIDADE_META, line_dash="dash", line_color="green",
+                     annotation_text=f"Meta {CONFORMIDADE_META}%")
         fig.update_layout(showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
 

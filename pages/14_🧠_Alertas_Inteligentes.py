@@ -18,7 +18,9 @@ from utils import (
     calcular_semana_letiva, calcular_capitulo_esperado,
     carregar_fato_aulas, carregar_horario_esperado, carregar_progressao_sae,
     filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES,
-    _hoje, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM
+    _hoje, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM,
+    CONFORMIDADE_CRITICO, CONFORMIDADE_BAIXO, CONFORMIDADE_META,
+    CONTEUDO_VAZIO_ALERTA,
 )
 
 st.set_page_config(page_title="Alertas Inteligentes", page_icon="🧠", layout="wide")
@@ -153,7 +155,7 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
 
             if n_ant_ant > 0 and n_ant > 0:
                 queda = ((n_ant_ant - n_ant) / n_ant_ant) * 100
-                if queda > 30:
+                if queda > CONTEUDO_VAZIO_ALERTA:
                     alertas.append({
                         'tipo': 'AMARELO',
                         'professor': prof,
@@ -194,7 +196,7 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
         aulas_real = len(df_disc_aulas)
         taxa = (aulas_real / aulas_esp_total * 100) if aulas_esp_total > 0 else 0
 
-        if taxa < 50 and aulas_real > 0:
+        if taxa < CONFORMIDADE_CRITICO and aulas_real > 0:
             profs_disc = ', '.join(sorted(df_disc_aulas['professor'].unique())[:2])
             alertas.append({
                 'tipo': 'LARANJA',
@@ -449,7 +451,7 @@ def main():
     st.markdown("""
     <div class="legenda-box">
         <strong>Formula:</strong> Score = 0.35 x Taxa Registro + 0.25 x Taxa Conteudo + 0.15 x Taxa Tarefa + 0.25 x Recencia<br>
-        <small>Quanto MAIOR o score, MELHOR o professor esta. Score < 40 = critico | 40-70 = atencao | > 70 = em dia</small>
+        <small>Quanto MAIOR o score, MELHOR o professor esta. Score < {CONFORMIDADE_CRITICO} = critico | {CONFORMIDADE_CRITICO}-{CONFORMIDADE_BAIXO} = atencao | > {CONFORMIDADE_BAIXO} = em dia</small>
     </div>
     """, unsafe_allow_html=True)
 
@@ -460,22 +462,22 @@ def main():
 
         # Categoriza
         df_scores['Nivel'] = df_scores['Score'].apply(
-            lambda s: '🔴 Critico' if s < 40 else ('🟡 Atencao' if s < 70 else '🟢 Em Dia')
+            lambda s: '🔴 Critico' if s < CONFORMIDADE_CRITICO else ('🟡 Atencao' if s < CONFORMIDADE_BAIXO else '🟢 Em Dia')
         )
 
         # Contadores
         col_s1, col_s2, col_s3, col_s4 = st.columns(4)
-        n_critico = len(df_scores[df_scores['Score'] < 40])
-        n_atencao = len(df_scores[(df_scores['Score'] >= 40) & (df_scores['Score'] < 70)])
-        n_ok = len(df_scores[df_scores['Score'] >= 70])
+        n_critico = len(df_scores[df_scores['Score'] < CONFORMIDADE_CRITICO])
+        n_atencao = len(df_scores[(df_scores['Score'] >= CONFORMIDADE_CRITICO) & (df_scores['Score'] < CONFORMIDADE_BAIXO)])
+        n_ok = len(df_scores[df_scores['Score'] >= CONFORMIDADE_BAIXO])
         media = df_scores['Score'].mean()
 
         with col_s1:
-            st.metric("🔴 Critico (<40)", n_critico)
+            st.metric(f"🔴 Critico (<{CONFORMIDADE_CRITICO})", n_critico)
         with col_s2:
-            st.metric("🟡 Atencao (40-70)", n_atencao)
+            st.metric(f"🟡 Atencao ({CONFORMIDADE_CRITICO}-{CONFORMIDADE_BAIXO})", n_atencao)
         with col_s3:
-            st.metric("🟢 Em Dia (>70)", n_ok)
+            st.metric(f"🟢 Em Dia (>{CONFORMIDADE_BAIXO})", n_ok)
         with col_s4:
             st.metric("Score Medio", f"{media:.0f}")
 
@@ -486,8 +488,8 @@ def main():
             color_discrete_sequence=['#5C6BC0'],
             labels={'Score': 'Score de Risco', 'count': 'Professores'}
         )
-        fig_dist.add_vline(x=40, line_dash="dash", line_color="red", annotation_text="Critico")
-        fig_dist.add_vline(x=70, line_dash="dash", line_color="green", annotation_text="Em Dia")
+        fig_dist.add_vline(x=CONFORMIDADE_CRITICO, line_dash="dash", line_color="red", annotation_text="Critico")
+        fig_dist.add_vline(x=CONFORMIDADE_BAIXO, line_dash="dash", line_color="green", annotation_text="Em Dia")
         st.plotly_chart(fig_dist, use_container_width=True)
 
         # Grafico scatter: Score x Taxa Registro
