@@ -205,10 +205,14 @@ def main():
                 elif 'presente' in freq_aluno.columns:
                     freq_pct = (freq_aluno['presente'].sum() / len(freq_aluno) * 100)
 
-        # B - Ocorrencias
+        # B - Ocorrencias (apenas disciplinares para score comportamental)
         num_ocorr = 0
         if tem_ocorr and 'aluno_id' in df_ocorr.columns:
-            num_ocorr = len(df_ocorr[df_ocorr['aluno_id'] == aluno_id])
+            ocorr_aluno = df_ocorr[df_ocorr['aluno_id'] == aluno_id]
+            if 'categoria' in df_ocorr.columns:
+                num_ocorr = len(ocorr_aluno[ocorr_aluno['categoria'] == 'Disciplinar'])
+            else:
+                num_ocorr = len(ocorr_aluno)
 
         # C - Media de notas
         media = 7.0  # default se nao tem dados

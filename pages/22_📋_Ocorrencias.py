@@ -256,6 +256,7 @@ def _tab_novo_registro(df_alunos, tem_alunos):
                     'aluno_id': int(float(aluno_info.get('aluno_id', 0))) if tem_alunos and aluno_info else 0,
                     'aluno_nome': aluno_info.get('aluno_nome', aluno_sel) if tem_alunos and aluno_info else aluno_sel,
                     'tipo': tipo_ocorr,
+                    'categoria': 'Disciplinar',
                     'gravidade': gravidade,
                     'descricao': descricao.strip().replace('\n', ' | '),
                     'responsavel': responsavel.strip(),

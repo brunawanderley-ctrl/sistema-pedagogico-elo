@@ -355,8 +355,8 @@ def salvar_ocorrencia(registro: dict):
     """Salva nova ocorrencia em fato_Ocorrencias.csv. Retorna True se sucesso."""
     path = DATA_DIR / "fato_Ocorrencias.csv"
     colunas = ['ocorrencia_id', 'aluno_id', 'aluno_nome', 'data', 'unidade', 'serie',
-               'turma', 'tipo', 'gravidade', 'descricao', 'responsavel', 'providencia',
-               'registrado_por', 'data_registro']
+               'turma', 'tipo', 'categoria', 'gravidade', 'descricao', 'responsavel',
+               'providencia', 'registrado_por', 'data_registro']
     if path.exists():
         df = pd.read_csv(path)
         next_id = df['ocorrencia_id'].max() + 1 if 'ocorrencia_id' in df.columns and not df.empty else 1
