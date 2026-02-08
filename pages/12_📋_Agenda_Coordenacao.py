@@ -117,8 +117,11 @@ CONFIG_FILE = DATA_DIR / "config_coordenadores.json"
 def carregar_config():
     """Carrega configuração de coordenadores."""
     if CONFIG_FILE.exists():
-        with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
+        try:
+            with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except (json.JSONDecodeError, ValueError):
+            st.warning("Arquivo de configuracao corrompido. Usando valores padrao.")
     return {"coordenadores": [], "periodos_feedback": []}
 
 def salvar_config(config):
@@ -130,8 +133,11 @@ def salvar_config(config):
 def carregar_feedbacks():
     """Carrega feedbacks salvos."""
     if FEEDBACK_FILE.exists():
-        with open(FEEDBACK_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
+        try:
+            with open(FEEDBACK_FILE, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except (json.JSONDecodeError, ValueError):
+            st.warning("Arquivo de feedbacks corrompido. Usando valores padrao.")
     return {}
 
 def salvar_feedbacks(feedbacks):

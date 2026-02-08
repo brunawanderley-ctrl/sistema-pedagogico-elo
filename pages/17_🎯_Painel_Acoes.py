@@ -37,15 +37,21 @@ ACOES_FILE = DATA_DIR / "acoes_coordenacao.json"
 
 def carregar_config_coords():
     if CONFIG_FILE.exists():
-        with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
+        try:
+            with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except (json.JSONDecodeError, ValueError):
+            pass
     return {"coordenadores": [], "periodos_feedback": []}
 
 
 def carregar_acoes():
     if ACOES_FILE.exists():
-        with open(ACOES_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
+        try:
+            with open(ACOES_FILE, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except (json.JSONDecodeError, ValueError):
+            pass
     return {}
 
 

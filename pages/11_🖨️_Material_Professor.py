@@ -519,10 +519,6 @@ def main():
     # Lista de professores da unidade (usa nomes de fato_Aulas que tem registros reais)
     professores = sorted(df_aulas_un['professor'].dropna().unique())
 
-    # Debug info
-    st.sidebar.markdown("---")
-    st.sidebar.caption(f"📊 Debug: {len(df_aulas_un)} aulas, {len(professores)} professores")
-
     st.markdown("---")
     st.header(f"👨‍🏫 Professores - {unidade_sel} ({len(professores)} professores)")
 
