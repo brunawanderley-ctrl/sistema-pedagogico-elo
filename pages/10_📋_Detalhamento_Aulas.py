@@ -8,6 +8,9 @@ import streamlit as st
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils import carregar_fato_aulas
 
 st.set_page_config(page_title="Detalhamento de Aulas", page_icon="📋", layout="wide")
 from auth import check_password, logout_button
@@ -15,20 +18,15 @@ if not check_password():
     st.stop()
 logout_button()
 
-DATA_DIR = Path(__file__).parent.parent / "power_bi"
-
 def main():
     st.title("📋 Detalhamento de Aulas")
     st.markdown("**Visão completa dos registros: quem, o quê, onde, quando**")
 
-    aulas_path = DATA_DIR / "fato_Aulas.csv"
+    df = carregar_fato_aulas()
 
-    if not aulas_path.exists():
-        st.error("Dados não carregados. Execute a extração do SIGA.")
+    if df.empty:
+        st.error("Dados nao carregados. Execute a extracao do SIGA.")
         return
-
-    df = pd.read_csv(aulas_path)
-    df['data'] = pd.to_datetime(df['data'], errors='coerce')
 
     # ========== FILTROS NO TOPO ==========
     st.markdown("---")

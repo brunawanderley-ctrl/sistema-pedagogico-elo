@@ -10,10 +10,10 @@ import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
 from datetime import datetime
-import math
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
+from utils import calcular_semana_letiva, carregar_fato_aulas, carregar_horario_esperado, filtrar_ate_hoje, _hoje
 
 st.set_page_config(page_title="Comparativos", page_icon="🔄", layout="wide")
 from auth import check_password, logout_button
@@ -21,44 +21,22 @@ if not check_password():
     st.stop()
 logout_button()
 
-DATA_DIR = Path(__file__).parent.parent / "power_bi"
-
-def calcular_semana_letiva(data_ref=None):
-    """Calcula semana letiva baseada em data de referência."""
-    inicio = datetime(2026, 1, 26)
-    if data_ref is None:
-        return 1
-    if isinstance(data_ref, str):
-        data_ref = datetime.strptime(data_ref, '%Y-%m-%d')
-    return max(1, (data_ref - inicio).days // 7 + 1)
-
 def main():
     st.title("🔄 Análise Comparativa")
     st.markdown("**Compare unidades, professores e séries**")
 
-    aulas_path = DATA_DIR / "fato_Aulas.csv"
-    horario_path = DATA_DIR / "dim_Horario_Esperado.csv"
+    df_aulas = carregar_fato_aulas()
+    df_horario = carregar_horario_esperado()
 
-    if not aulas_path.exists() or not horario_path.exists():
-        st.error("Dados não carregados.")
+    if df_aulas.empty or df_horario.empty:
+        st.error("Dados nao carregados.")
         return
 
-    df_aulas = pd.read_csv(aulas_path)
-    df_aulas['data'] = pd.to_datetime(df_aulas['data'], errors='coerce')
-    df_horario = pd.read_csv(horario_path)
+    df_aulas = filtrar_ate_hoje(df_aulas)
 
-    # Define "hoje" - se estamos em 2025, simula 05/02/2026
-    hoje = datetime.now()
-    if hoje.year < 2026:
-        hoje = datetime(2026, 2, 5)
-
-    # Filtra apenas até HOJE
-    df_aulas = df_aulas[df_aulas['data'] <= hoje]
-
-    # Calcula semana baseada na última data de registro
+    # Calcula semana baseada na ultima data de registro
     if df_aulas['data'].notna().any():
-        data_max = df_aulas['data'].max()
-        semana = calcular_semana_letiva(data_max)
+        semana = calcular_semana_letiva(df_aulas['data'].max())
     else:
         semana = 1
 

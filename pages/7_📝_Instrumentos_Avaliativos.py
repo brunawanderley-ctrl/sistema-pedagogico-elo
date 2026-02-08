@@ -7,6 +7,9 @@ Trilhas, avaliações, simulados - quem usou, quando, onde
 import streamlit as st
 import pandas as pd
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils import carregar_fato_aulas
 
 st.set_page_config(page_title="Instrumentos Avaliativos", page_icon="📝", layout="wide")
 from auth import check_password, logout_button
@@ -33,7 +36,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-DATA_DIR = Path(__file__).parent.parent / "power_bi"
 
 def main():
     st.title("📝 Instrumentos Avaliativos SAE")
@@ -140,10 +142,9 @@ def main():
     st.markdown("---")
     st.header("🔍 Verificação nos Registros do SIGA")
 
-    aulas_path = DATA_DIR / "fato_Aulas.csv"
+    df = carregar_fato_aulas()
 
-    if aulas_path.exists():
-        df = pd.read_csv(aulas_path)
+    if not df.empty:
 
         st.markdown("""
         <div class="info-box">

@@ -14,6 +14,7 @@ from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
+from utils import carregar_horario_esperado
 
 st.set_page_config(page_title="Estrutura Curricular", page_icon="📚", layout="wide")
 from auth import check_password, logout_button
@@ -47,14 +48,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-DATA_DIR = Path(__file__).parent.parent / "power_bi"
-
-@st.cache_data
 def carregar_grade():
-    path = DATA_DIR / "dim_Horario_Esperado.csv"
-    if path.exists():
-        return pd.read_csv(path)
-    return None
+    df = carregar_horario_esperado()
+    return df if not df.empty else None
 
 def main():
     st.title("📚 Estrutura Curricular")

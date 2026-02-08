@@ -10,12 +10,16 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
 from pathlib import Path
-import math
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
+from utils import (
+    calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre,
+    status_conformidade, carregar_fato_aulas, carregar_horario_esperado,
+    carregar_calendario, filtrar_ate_hoje, _hoje, DATA_DIR
+)
 
-st.set_page_config(page_title="Quadro de Gestão", page_icon="📊", layout="wide")
+st.set_page_config(page_title="Quadro de Gestao", page_icon="📊", layout="wide")
 from auth import check_password, logout_button
 if not check_password():
     st.stop()
@@ -52,45 +56,18 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-DATA_DIR = Path(__file__).parent.parent / "power_bi"
-
-@st.cache_data(ttl=300)
 def carregar_dados():
     dados = {}
-
-    # Define "hoje" - se estamos em 2025, simula 05/02/2026
-    hoje = datetime.now()
-    if hoje.year < 2026:
-        hoje = datetime(2026, 2, 5)
-
-    if (DATA_DIR / "fato_Aulas.csv").exists():
-        df = pd.read_csv(DATA_DIR / "fato_Aulas.csv")
-        df['data'] = pd.to_datetime(df['data'], errors='coerce')
-        # Filtra apenas até HOJE (não inclui aulas futuras)
-        df = df[df['data'] <= hoje]
-        dados['aulas'] = df
-    if (DATA_DIR / "dim_Horario_Esperado.csv").exists():
-        dados['horario'] = pd.read_csv(DATA_DIR / "dim_Horario_Esperado.csv")
-    if (DATA_DIR / "dim_Calendario.csv").exists():
-        df = pd.read_csv(DATA_DIR / "dim_Calendario.csv")
-        df['data'] = pd.to_datetime(df['data'])
-        dados['calendario'] = df
+    df_aulas = carregar_fato_aulas()
+    if not df_aulas.empty:
+        dados['aulas'] = filtrar_ate_hoje(df_aulas)
+    df_horario = carregar_horario_esperado()
+    if not df_horario.empty:
+        dados['horario'] = df_horario
+    df_cal = carregar_calendario()
+    if not df_cal.empty:
+        dados['calendario'] = df_cal
     return dados
-
-def calcular_semana_letiva(data_ref=None):
-    """
-    Calcula semana letiva baseada em uma data de referência.
-    Se não fornecida, retorna None (deve ser calculada com base nos dados).
-    """
-    inicio = datetime(2026, 1, 26)
-    if data_ref is None:
-        return None
-    if isinstance(data_ref, str):
-        data_ref = datetime.strptime(data_ref, '%Y-%m-%d')
-    return max(1, (data_ref - inicio).days // 7 + 1)
-
-def calcular_capitulo_esperado(semana):
-    return min(12, math.ceil(semana / 3.5))
 
 def main():
     st.title("📊 Quadro de Gestão à Vista")
@@ -140,16 +117,10 @@ def main():
     st.markdown("---")
     st.header("🎯 Indicadores Principais")
 
-    # Calcula semana letiva baseada na data de HOJE (não nos dados)
-    hoje = datetime.now()
-    if hoje.year >= 2026:
-        semana = calcular_semana_letiva(hoje)
-    else:
-        # Se estamos em 2025, simula 05/02/2026
-        semana = calcular_semana_letiva(datetime(2026, 2, 5))
-
-    capitulo = calcular_capitulo_esperado(semana) if semana else 1
-    trimestre = 1 if semana <= 14 else (2 if semana <= 28 else 3)
+    # Calcula semana letiva baseada na data de HOJE
+    semana = calcular_semana_letiva()
+    capitulo = calcular_capitulo_esperado(semana)
+    trimestre = calcular_trimestre(semana)
 
     col1, col2, col3, col4, col5 = st.columns(5)
 

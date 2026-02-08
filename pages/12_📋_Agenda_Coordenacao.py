@@ -12,39 +12,39 @@ from datetime import datetime, timedelta
 import math
 import json
 import subprocess
-import os
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils import DATA_DIR, is_cloud, ultima_atualizacao, calcular_semana_letiva, calcular_capitulo_esperado, carregar_fato_aulas
 
-st.set_page_config(page_title="Agenda Coordenação", page_icon="📋", layout="wide")
+st.set_page_config(page_title="Agenda Coordenacao", page_icon="📋", layout="wide")
 from auth import check_password, logout_button
 if not check_password():
     st.stop()
 logout_button()
 
 # ========== SIDEBAR: ATUALIZAÇÃO DE DADOS (topo) ==========
-_aulas_path_top = Path(__file__).parent.parent / "power_bi" / "fato_Aulas.csv"
 with st.sidebar:
     st.subheader("Atualizar Dados")
-    if _aulas_path_top.exists():
-        _mod = datetime.fromtimestamp(os.path.getmtime(_aulas_path_top)).strftime("%d/%m/%Y %H:%M")
-        st.caption(f"Ultima atualizacao: {_mod}")
-    else:
-        st.caption("Dados ainda nao extraidos")
+    st.caption(f"Ultima atualizacao: {ultima_atualizacao()}")
 
-    if st.button("Atualizar Diario de Classe", type="primary", key="btn_atualizar_agenda"):
-        _script_dir = Path(__file__).parent.parent
-        _script_path = _script_dir / "atualizar_siga.py"
-        with st.spinner("Atualizando dados do SIGA..."):
-            _result = subprocess.run(
-                ["python3", str(_script_path)],
-                capture_output=True, text=True, timeout=300,
-                cwd=str(_script_dir),
-            )
-        if _result.returncode == 0:
-            st.success("Dados atualizados com sucesso!")
-            st.rerun()
-        else:
-            st.error("Erro na atualizacao:")
-            st.code(_result.stderr or _result.stdout, language="text")
+    if not is_cloud():
+        if st.button("Atualizar Diario de Classe", type="primary", key="btn_atualizar_agenda"):
+            _script_dir = Path(__file__).parent.parent
+            _script_path = _script_dir / "atualizar_siga.py"
+            with st.spinner("Atualizando dados do SIGA..."):
+                _result = subprocess.run(
+                    ["python3", str(_script_path)],
+                    capture_output=True, text=True, timeout=300,
+                    cwd=str(_script_dir),
+                )
+            if _result.returncode == 0:
+                st.success("Dados atualizados com sucesso!")
+                st.rerun()
+            else:
+                st.error("Erro na atualizacao:")
+                st.code(_result.stderr or _result.stdout, language="text")
+    else:
+        st.info("Atualizacao de dados disponivel apenas localmente.")
     st.markdown("---")
 
 st.markdown("""
@@ -104,22 +104,8 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-DATA_DIR = Path(__file__).parent.parent / "power_bi"
 FEEDBACK_FILE = DATA_DIR / "feedbacks_coordenacao.json"
 CONFIG_FILE = DATA_DIR / "config_coordenadores.json"
-
-def calcular_semana_letiva(data_ref):
-    """Calcula semana letiva baseada em data de referência."""
-    inicio = datetime(2026, 1, 26)
-    if data_ref is None:
-        return 1
-    if isinstance(data_ref, str):
-        data_ref = datetime.strptime(data_ref, '%Y-%m-%d')
-    return max(1, (data_ref - inicio).days // 7 + 1)
-
-def calcular_capitulo(semana):
-    """Retorna o capítulo esperado para uma semana."""
-    return min(12, math.ceil(semana / 3.5))
 
 def carregar_config():
     """Carrega configuração de coordenadores."""
@@ -264,18 +250,16 @@ def main():
     st.markdown("---")
 
     # Carrega dados
-    aulas_path = DATA_DIR / "fato_Aulas.csv"
+    df_aulas = carregar_fato_aulas()
 
-    if not aulas_path.exists():
-        st.error("Dados não carregados. Execute a extração do SIGA primeiro.")
+    if df_aulas.empty:
+        st.error("Dados nao carregados. Execute a extracao do SIGA primeiro.")
         return
 
-    df_aulas = pd.read_csv(aulas_path)
-    df_aulas['data'] = pd.to_datetime(df_aulas['data'], errors='coerce')
-    df_aulas = df_aulas[df_aulas['data'] <= hoje]
+    df_aulas = df_aulas[df_aulas['data'] <= hoje].copy()
 
     semana_atual = calcular_semana_letiva(hoje)
-    capitulo_esperado = calcular_capitulo(semana_atual)
+    capitulo_esperado = calcular_capitulo_esperado(semana_atual)
 
     # ========== SELEÇÃO INICIAL: UNIDADE E COORDENADOR ==========
     st.markdown("---")

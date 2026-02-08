@@ -15,6 +15,7 @@ import os
 from datetime import datetime
 from pathlib import Path
 from auth import check_password, logout_button
+from utils import DATA_DIR, is_cloud, ultima_atualizacao, carregar_fato_aulas, carregar_horario_esperado, carregar_calendario, carregar_progressao_sae
 
 # Configuração da página (DEVE ser a primeira chamada Streamlit)
 st.set_page_config(
@@ -30,35 +31,31 @@ if not check_password():
 
 # ========== SIDEBAR: LOGOUT + ATUALIZAÇÃO DE DADOS ==========
 logout_button()
-DATA_DIR = Path(__file__).parent / "power_bi"
 _aulas_path = DATA_DIR / "fato_Aulas.csv"
 
 with st.sidebar:
     st.subheader("Atualizar Dados")
+    st.caption(f"Ultima atualizacao: {ultima_atualizacao()}")
 
-    if _aulas_path.exists():
-        _mod_time = os.path.getmtime(_aulas_path)
-        _ultima = datetime.fromtimestamp(_mod_time).strftime("%d/%m/%Y %H:%M")
-        st.caption(f"Ultima atualizacao: {_ultima}")
+    if not is_cloud():
+        if st.button("Atualizar Diario de Classe", type="primary", key="btn_atualizar_home"):
+            _script_path = Path(__file__).parent / "atualizar_siga.py"
+            with st.spinner("Atualizando dados do SIGA..."):
+                _result = subprocess.run(
+                    ["python3", str(_script_path)],
+                    capture_output=True,
+                    text=True,
+                    timeout=300,
+                    cwd=str(Path(__file__).parent),
+                )
+            if _result.returncode == 0:
+                st.success("Dados atualizados com sucesso!")
+                st.rerun()
+            else:
+                st.error("Erro na atualizacao:")
+                st.code(_result.stderr or _result.stdout, language="text")
     else:
-        st.caption("Dados ainda nao extraidos")
-
-    if st.button("Atualizar Diario de Classe", type="primary", key="btn_atualizar_home"):
-        _script_path = Path(__file__).parent / "atualizar_siga.py"
-        with st.spinner("Atualizando dados do SIGA..."):
-            _result = subprocess.run(
-                ["python3", str(_script_path)],
-                capture_output=True,
-                text=True,
-                timeout=300,
-                cwd=str(Path(__file__).parent),
-            )
-        if _result.returncode == 0:
-            st.success("Dados atualizados com sucesso!")
-            st.rerun()
-        else:
-            st.error("Erro na atualizacao:")
-            st.code(_result.stderr or _result.stdout, language="text")
+        st.info("Atualizacao de dados disponivel apenas localmente.")
 
     st.markdown("---")
 
@@ -228,42 +225,36 @@ def main():
     # Status atual
     st.header("📊 Status Atual do Sistema")
 
-    import pandas as pd
-
     col_s1, col_s2, col_s3, col_s4 = st.columns(4)
 
-    # Verifica arquivos disponíveis
-    horario_path = DATA_DIR / "dim_Horario_Esperado.csv"
-    calendario_path = DATA_DIR / "dim_Calendario.csv"
-    progressao_path = DATA_DIR / "dim_Progressao_SAE.csv"
+    df_aulas = carregar_fato_aulas()
+    df_horario = carregar_horario_esperado()
+    df_cal = carregar_calendario()
+    df_prog = carregar_progressao_sae()
 
     with col_s1:
-        if aulas_path.exists():
-            df = pd.read_csv(aulas_path)
-            st.metric("✅ Aulas no SIGA", f"{len(df):,}")
+        if not df_aulas.empty:
+            st.metric("✅ Aulas no SIGA", f"{len(df_aulas):,}")
         else:
-            st.metric("❌ Aulas no SIGA", "Não carregado")
+            st.metric("❌ Aulas no SIGA", "Nao carregado")
 
     with col_s2:
-        if horario_path.exists():
-            df = pd.read_csv(horario_path)
-            st.metric("✅ Grade Horária", f"{len(df):,}/semana")
+        if not df_horario.empty:
+            st.metric("✅ Grade Horaria", f"{len(df_horario):,}/semana")
         else:
-            st.metric("❌ Grade Horária", "Não carregado")
+            st.metric("❌ Grade Horaria", "Nao carregado")
 
     with col_s3:
-        if calendario_path.exists():
-            df = pd.read_csv(calendario_path)
-            st.metric("✅ Calendário", f"{len(df)} dias")
+        if not df_cal.empty:
+            st.metric("✅ Calendario", f"{len(df_cal)} dias")
         else:
-            st.metric("❌ Calendário", "Não carregado")
+            st.metric("❌ Calendario", "Nao carregado")
 
     with col_s4:
-        if progressao_path.exists():
-            df = pd.read_csv(progressao_path)
-            st.metric("✅ Progressão SAE", f"{len(df):,} registros")
+        if not df_prog.empty:
+            st.metric("✅ Progressao SAE", f"{len(df_prog):,} registros")
         else:
-            st.metric("❌ Progressão SAE", "Não carregado")
+            st.metric("❌ Progressao SAE", "Nao carregado")
 
     # Rodapé
     st.markdown("---")

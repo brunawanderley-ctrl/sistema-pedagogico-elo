@@ -11,8 +11,11 @@ import plotly.graph_objects as go
 from datetime import datetime, timedelta
 from pathlib import Path
 import math
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils import calcular_semana_letiva, calcular_capitulo_esperado, carregar_fato_aulas, DATA_DIR
 
-st.set_page_config(page_title="Progressão SAE", page_icon="📈", layout="wide")
+st.set_page_config(page_title="Progressao SAE", page_icon="📈", layout="wide")
 from auth import check_password, logout_button
 if not check_password():
     st.stop()
@@ -41,22 +44,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-DATA_DIR = Path(__file__).parent.parent / "power_bi"
-
-def calcular_semana_letiva(data=None):
-    """Calcula semana letiva baseada em data de HOJE."""
-    inicio = datetime(2026, 1, 26)
-    if data is None:
-        hoje = datetime.now()
-        # Se estamos em 2025, usar 05/02/2026 para demonstração (Semana 2)
-        if hoje.year < 2026:
-            data = datetime(2026, 2, 5)
-        else:
-            data = hoje
-    return max(1, (data - inicio).days // 7 + 1)
-
-def calcular_capitulo_esperado(semana):
-    return min(12, math.ceil(semana / 3.5))
 
 def main():
     st.title("📈 Progressão SAE")
@@ -335,12 +322,10 @@ ATENÇÃO:
     st.markdown("---")
     st.header("🔍 Verificação com Dados do SIGA")
 
-    # Carrega dados reais se disponíveis
-    aulas_path = DATA_DIR / "fato_Aulas.csv"
+    # Carrega dados reais se disponiveis
+    df_aulas = carregar_fato_aulas()
 
-    if aulas_path.exists():
-        df_aulas = pd.read_csv(aulas_path)
-        df_aulas['data'] = pd.to_datetime(df_aulas['data'], errors='coerce')
+    if not df_aulas.empty:
 
         # Recalcula semana e capítulo baseado nos dados reais
         if df_aulas['data'].notna().any():
@@ -387,7 +372,7 @@ ATENÇÃO:
         **Verificação:** Analise os "Últimos Conteúdos" e compare com o capítulo esperado ({cap_esperado}).
         """)
     else:
-        st.warning("Dados do SIGA não carregados. Execute a extração primeiro.")
+        st.warning("Dados do SIGA nao carregados. Execute a extracao primeiro.")
 
 if __name__ == "__main__":
     main()

@@ -8,8 +8,11 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils import carregar_calendario
 
-st.set_page_config(page_title="Calendário Escolar", page_icon="📅", layout="wide")
+st.set_page_config(page_title="Calendario Escolar", page_icon="📅", layout="wide")
 from auth import check_password, logout_button
 if not check_password():
     st.stop()
@@ -274,13 +277,10 @@ def main():
     st.markdown("---")
     st.header("📆 6. Visão do Calendário")
 
-    # Tenta carregar o calendário do CSV
-    DATA_DIR = Path(__file__).parent.parent / "power_bi"
-    cal_path = DATA_DIR / "dim_Calendario.csv"
+    # Tenta carregar o calendario do CSV
+    df_cal = carregar_calendario()
 
-    if cal_path.exists():
-        df_cal = pd.read_csv(cal_path)
-        df_cal['data'] = pd.to_datetime(df_cal['data'])
+    if not df_cal.empty:
 
         # Filtra por mês
         meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',

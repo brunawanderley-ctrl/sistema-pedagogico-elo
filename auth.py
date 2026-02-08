@@ -42,9 +42,8 @@ def _validate_credentials(username, password):
             stored_password = users[username]["password"]
             return hmac.compare_digest(password, stored_password)
     except (KeyError, FileNotFoundError):
-        # Fallback: se secrets não configurado, aceita acesso (dev local)
-        st.warning("Secrets não configurado. Acesso liberado para desenvolvimento.")
-        return True
+        st.error("Credenciais nao configuradas. Configure .streamlit/secrets.toml ou Streamlit Cloud Secrets.")
+        return False
     return False
 
 

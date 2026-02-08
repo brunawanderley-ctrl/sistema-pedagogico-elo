@@ -10,14 +10,15 @@ import pandas as pd
 from pathlib import Path
 from datetime import datetime, timedelta
 import math
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_fato_aulas, carregar_horario_esperado, DATA_DIR
 
 st.set_page_config(page_title="Material do Professor", page_icon="🖨️", layout="wide")
 from auth import check_password, logout_button
 if not check_password():
     st.stop()
 logout_button()
-
-DATA_DIR = Path(__file__).parent.parent / "power_bi"
 
 # Datas de início de cada semana letiva
 INICIO_ANO = datetime(2026, 1, 26)
@@ -50,19 +51,6 @@ EVENTOS_SEMANA = {
     42: "Encerramento"
 }
 
-def calcular_semana_letiva(data_ref):
-    """Calcula semana letiva baseada em data de referência."""
-    inicio = datetime(2026, 1, 26)
-    if data_ref is None:
-        return 1
-    if isinstance(data_ref, str):
-        data_ref = datetime.strptime(data_ref, '%Y-%m-%d')
-    return max(1, (data_ref - inicio).days // 7 + 1)
-
-def calcular_capitulo(semana):
-    """Retorna o capítulo esperado para uma semana."""
-    return min(12, math.ceil(semana / 3.5))
-
 def get_trimestre(semana):
     """Retorna o trimestre de uma semana."""
     if semana <= 14:
@@ -76,7 +64,7 @@ def gerar_tabela_semanal(semana_inicio, semana_fim, aulas_por_semana):
     """Gera tabela semana a semana."""
     linhas = []
     for sem in range(semana_inicio, semana_fim + 1):
-        cap = calcular_capitulo(sem)
+        cap = calcular_capitulo_esperado(sem)
         data = SEMANAS_DATAS.get(sem, "")
         evento = EVENTOS_SEMANA.get(sem, "-")
         aulas_esperadas = aulas_por_semana
@@ -89,7 +77,7 @@ def gerar_conteudo_professor(prof_nome, df_aulas_prof, df_horario_prof, semana_a
                               incluir_conteudo=False, incluir_tarefa=False):
     """Gera o conteúdo textual do relatório do professor."""
 
-    cap_esperado = calcular_capitulo(semana_atual)
+    cap_esperado = calcular_capitulo_esperado(semana_atual)
     trimestre = get_trimestre(semana_atual)
 
     # Informações gerais - prioriza dados reais de aulas
@@ -164,7 +152,7 @@ def gerar_conteudo_professor(prof_nome, df_aulas_prof, df_horario_prof, semana_a
             sem_inicio, sem_fim = 29, 42
 
         for sem in range(sem_inicio, sem_fim + 1):
-            cap = calcular_capitulo(sem)
+            cap = calcular_capitulo_esperado(sem)
             data = SEMANAS_DATAS.get(sem, "")
             evento = EVENTOS_SEMANA.get(sem, "-")
             marcador = " 👉" if sem == semana_atual else ""
@@ -305,7 +293,7 @@ def gerar_relatorio_por_disciplina(prof_nome, df_aulas_prof, df_horario_prof, se
                                     visualizacao, disciplina_sel, incluir_conteudo, incluir_tarefa):
     """Gera relatório detalhado por componente curricular (disciplina)."""
 
-    cap_esperado = calcular_capitulo(semana_atual)
+    cap_esperado = calcular_capitulo_esperado(semana_atual)
     trimestre = get_trimestre(semana_atual)
 
     # Cabeçalho
@@ -467,24 +455,16 @@ def main():
     st.markdown("**Gere relatórios individuais para entregar aos professores**")
 
     # Carrega dados
-    aulas_path = DATA_DIR / "fato_Aulas.csv"
-    horario_path = DATA_DIR / "dim_Horario_Esperado.csv"
+    df_aulas = carregar_fato_aulas()
+    df_horario = carregar_horario_esperado()
 
-    if not aulas_path.exists() or not horario_path.exists():
-        st.error("Dados não carregados. Execute a extração do SIGA primeiro.")
+    if df_aulas.empty or df_horario.empty:
+        st.error("Dados nao carregados. Execute a extracao do SIGA primeiro.")
         return
 
-    df_aulas = pd.read_csv(aulas_path)
-    df_aulas['data'] = pd.to_datetime(df_aulas['data'], errors='coerce')
-    df_horario = pd.read_csv(horario_path)
-
-    # Define "hoje" - se estamos em 2025, simula 05/02/2026
-    hoje = datetime.now()
-    if hoje.year < 2026:
-        hoje = datetime(2026, 2, 5)
-
-    # Filtra aulas apenas até HOJE (não inclui aulas futuras programadas)
-    df_aulas = df_aulas[df_aulas['data'] <= hoje]
+    from utils import filtrar_ate_hoje, _hoje
+    hoje = _hoje()
+    df_aulas = filtrar_ate_hoje(df_aulas)
 
     # Cria mapeamento entre nomes de professores
     mapeamento_profs = criar_mapeamento_professores(df_aulas, df_horario)
@@ -510,13 +490,7 @@ def main():
                                     help="Escolha como mostrar a progressão no relatório")
 
     with col4:
-        # Usa a data de HOJE para calcular a semana (não a data máxima dos dados)
-        hoje = datetime.now()
-        if hoje.year >= 2026:
-            semana_atual = calcular_semana_letiva(hoje)
-        else:
-            # Se estamos em 2025, simula como se fosse 05/02/2026
-            semana_atual = calcular_semana_letiva(datetime(2026, 2, 5))
+        semana_atual = calcular_semana_letiva()
         st.metric("📅 Semana Atual", f"{semana_atual}ª")
 
     # Filtra por unidade

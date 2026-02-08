@@ -10,8 +10,11 @@ import pandas as pd
 from datetime import datetime, timedelta
 from pathlib import Path
 import math
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_horario_esperado, carregar_fato_aulas, DATA_DIR
 
-st.set_page_config(page_title="Visão do Professor", page_icon="👨‍🏫", layout="wide")
+st.set_page_config(page_title="Visao do Professor", page_icon="👨‍🏫", layout="wide")
 from auth import check_password, logout_button
 if not check_password():
     st.stop()
@@ -46,7 +49,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-DATA_DIR = Path(__file__).parent.parent / "power_bi"
 
 # Feriados 2026
 FERIADOS_2026 = {
@@ -145,12 +147,9 @@ def main():
 
     col1, col2, col3 = st.columns(3)
 
-    # Carrega dados se disponíveis
-    horario_path = DATA_DIR / "dim_Horario_Esperado.csv"
-    aulas_path = DATA_DIR / "fato_Aulas.csv"
-
-    if horario_path.exists():
-        df_horario = pd.read_csv(horario_path)
+    # Carrega dados se disponiveis
+    df_horario = carregar_horario_esperado()
+    if not df_horario.empty:
         professores = sorted(df_horario['professor'].unique())
     else:
         professores = []
