@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 import math
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_fato_aulas, carregar_horario_esperado, DATA_DIR, SERIES_FUND_II, SERIES_EM
+from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_fato_aulas, carregar_horario_esperado, carregar_calendario, DATA_DIR, SERIES_FUND_II, SERIES_EM
 
 st.set_page_config(page_title="Material do Professor", page_icon="🖨️", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -20,19 +20,19 @@ if not check_password():
     st.stop()
 logout_button()
 
-# Datas de início de cada semana letiva
 INICIO_ANO = datetime(2026, 1, 26)
-SEMANAS_DATAS = {
-    1: "26/01", 2: "02/02", 3: "09/02", 4: "16/02", 5: "23/02",
-    6: "02/03", 7: "09/03", 8: "16/03", 9: "23/03", 10: "30/03",
-    11: "06/04", 12: "13/04", 13: "20/04", 14: "27/04",
-    15: "11/05", 16: "18/05", 17: "25/05", 18: "01/06", 19: "08/06",
-    20: "15/06", 21: "22/06", 22: "29/06", 23: "03/08", 24: "10/08",
-    25: "17/08", 26: "24/08", 27: "31/08", 28: "07/09",
-    29: "14/09", 30: "21/09", 31: "28/09", 32: "05/10", 33: "12/10",
-    34: "19/10", 35: "26/10", 36: "02/11", 37: "09/11", 38: "16/11",
-    39: "23/11", 40: "30/11", 41: "07/12", 42: "14/12"
-}
+
+def _gerar_semanas_datas():
+    """Gera datas de início de cada semana letiva a partir de dim_Calendario."""
+    df_cal = carregar_calendario()
+    if df_cal.empty or 'semana_letiva' not in df_cal.columns:
+        # Fallback: cálculo simples se calendário indisponível
+        return {sem: (INICIO_ANO + timedelta(weeks=sem - 1)).strftime("%d/%m") for sem in range(1, 43)}
+    df_cal['data'] = pd.to_datetime(df_cal['data'])
+    df_letivo = df_cal[df_cal['semana_letiva'].notna() & (df_cal['semana_letiva'] > 0)]
+    return df_letivo.groupby('semana_letiva')['data'].min().apply(lambda d: d.strftime("%d/%m")).to_dict()
+
+SEMANAS_DATAS = _gerar_semanas_datas()
 
 EVENTOS_SEMANA = {
     1: "Adaptação",

@@ -231,10 +231,40 @@ def main():
     }
     df_show = df_show.rename(columns=rename_map)
 
-    # Limita quantidade
-    limite = st.slider("Linhas a exibir:", 10, 500, 100)
+    # Paginação
+    LINHAS_POR_PAGINA = 50
+    total_registros = len(df_show)
+    total_paginas = max(1, (total_registros + LINHAS_POR_PAGINA - 1) // LINHAS_POR_PAGINA)
 
-    st.dataframe(df_show.head(limite), use_container_width=True, hide_index=True, height=500)
+    if 'pagina_detalhamento' not in st.session_state:
+        st.session_state.pagina_detalhamento = 1
+    # Reset se filtros mudaram e página ficou fora do range
+    if st.session_state.pagina_detalhamento > total_paginas:
+        st.session_state.pagina_detalhamento = 1
+
+    col_pag1, col_pag2, col_pag3, col_pag4, col_pag5 = st.columns([1, 1, 2, 1, 1])
+    with col_pag1:
+        if st.button("⏮ Primeira", disabled=st.session_state.pagina_detalhamento <= 1):
+            st.session_state.pagina_detalhamento = 1
+            st.rerun()
+    with col_pag2:
+        if st.button("◀ Anterior", disabled=st.session_state.pagina_detalhamento <= 1):
+            st.session_state.pagina_detalhamento -= 1
+            st.rerun()
+    with col_pag3:
+        st.markdown(f"<div style='text-align:center;padding:8px'>Página **{st.session_state.pagina_detalhamento}** de **{total_paginas}** ({total_registros:,} registros)</div>", unsafe_allow_html=True)
+    with col_pag4:
+        if st.button("Próxima ▶", disabled=st.session_state.pagina_detalhamento >= total_paginas):
+            st.session_state.pagina_detalhamento += 1
+            st.rerun()
+    with col_pag5:
+        if st.button("Última ⏭", disabled=st.session_state.pagina_detalhamento >= total_paginas):
+            st.session_state.pagina_detalhamento = total_paginas
+            st.rerun()
+
+    inicio = (st.session_state.pagina_detalhamento - 1) * LINHAS_POR_PAGINA
+    fim = inicio + LINHAS_POR_PAGINA
+    st.dataframe(df_show.iloc[inicio:fim], use_container_width=True, hide_index=True, height=500)
 
     # ========== DOWNLOAD ==========
     st.markdown("---")
@@ -251,8 +281,8 @@ def main():
         )
 
     with col_d2:
-        # Download dos filtrados visíveis
-        csv_show = df_show.head(limite).to_csv(index=False).encode('utf-8-sig')
+        # Download dos filtrados visíveis (página atual)
+        csv_show = df_show.iloc[inicio:fim].to_csv(index=False).encode('utf-8-sig')
         st.download_button(
             "📥 Download Exibido (CSV)",
             csv_show,
