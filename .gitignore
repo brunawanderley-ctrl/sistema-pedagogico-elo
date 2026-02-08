@@ -1,0 +1,98 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# Secrets (NUNCA enviar credenciais ao GitHub)
+.streamlit/secrets.toml
+
+# Dados temporarios de extracao
+extracao_*.json
+extracao_*.csv
+aulas_todas_unidades_*.csv
+diarios_web_*.csv
+extracao_web_*.json
+api_*.json
+api_*.csv
+backup_*.json
+aulas_*.csv
+aulas_*.json
+
+# Debug files
+debug_*
+
+# Cookies do SIGA (credenciais)
+.siga_cookies.json
+.siga02_cookies.json
+.siga02_v2_cookies.json
+
+# Logs
+*.log
+logs/
+
+# Screenshots
+screenshots/
+
+# Environment
+.env
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Power BI docs (nao precisam no deploy)
+power_bi/*.md
+
+# Arquivos binarios
+*.pbix
+*.png
+*.jpg
+
+# Scripts de extracao (rodam local, nao precisam no Cloud)
+siga_api.py
+siga_extrator.py
+siga_relatorio.py
+extracao_automatica.py
+extracao_rapida.py
+atualizar_siga.py
+descobrir_api.py
+explorar_siga*.py
+extrair_diario_classe.py
+ver_tela_unidades.py
+analisar_conteudos_por_serie.py
+analise_pedagogica.py
+diagnostico_unidades.py
+gerar_calendario_200dias.py
+criar_tabelas_dimensao.py
+criar_tabelas_dimensao_v2.py
+processar_horarios.py
+dashboard_completo.py
+dashboard_pedagogico.py
+extracao_correta_todas_unidades.py
+extracao_todas_unidades.py
+extracao_web_completa.py
+extracao_web_todas_unidades.py
+
+# Resultados de exploracao/diagnostico (locais)
+apis_descobertas.json
+diag_*.json
+diagnostico_*.txt
+diagnostico_*.json
+diarios_extraidos.json
+exploracao_*.html
+exploracao_*.json
+historico_aulas.csv
+pagina_*.html
+relatorio_*.html
+relatorio_*.json
+resultado_*.html
+resultado_*.txt
+texto_*.txt
+v3_*.html

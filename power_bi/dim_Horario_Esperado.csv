@@ -1,0 +1,1849 @@
+﻿unidade,turma_id,turma,serie,disciplina_id,disciplina,professor_id,professor,dia_semana,dia_semana_nome,horario_inicio,horario_fim
+BV,78,6° AM - BV,6º Ano,11,Geografia,278,LUANA MARIA - BV - 2026,SEG,Segunda,07:15,08:05
+BV,79,6° BM - BV,6º Ano,14,Filosofia,137,ADRIANO DO NASCIMENTO - BV - 2026,SEG,Segunda,07:15,08:05
+BV,81,7° AM - BV,7º Ano,5,Ciências Naturais,286,SUELLEN CINTIA - BV - 2026,SEG,Segunda,07:15,08:05
+BV,83,7° BM - BV,7º Ano,10,Língua Estrangeira Inglês,284,LIDIANY MOTA - BV - 2026,SEG,Segunda,07:15,08:05
+BV,85,8° AM - BV,8º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,SEG,Segunda,07:15,08:05
+BV,86,8° BM - BV,8º Ano,3,Arte,285,KATARINA SILVA - BV - 2026,SEG,Segunda,07:15,08:05
+BV,88,9° AM - BV,9º Ano,44,Língua Portuguesa,281,DANILO LUCENA - BV - 2026,SEG,Segunda,07:15,08:05
+BV,89,9° BM - BV,9º Ano,25,Matemática 1,138,PAULO RODRIGO - BV - 2026,SEG,Segunda,07:15,08:05
+BV,91,1ª A - EM - BV,1ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,SEG,Segunda,07:15,08:05
+BV,92,1ª B - EM - BV,1ª Série,22,Química 1,27,RUBEM VITÓRIO  - BV - 2026,SEG,Segunda,07:15,08:05
+BV,93,1ª C - EM - BV,1ª Série,11,Geografia,235,IVSON SANTOS - BV - 2026,SEG,Segunda,07:15,08:05
+BV,94,2ª A - EM - BV,2ª Série,13,Redação,280,DIELLEN - BV - 2026,SEG,Segunda,07:15,08:05
+BV,95,2ª B - EM - BV,2ª Série,35,História 2,13,DIEGO RODRIGUES - BV - 2026,SEG,Segunda,07:15,08:05
+BV,96,2ª C - EM - BV,2ª Série,15,Sociologia,33,JOSÉ ROBERTO SENA - BV - 2026,SEG,Segunda,07:15,08:05
+BV,97,3ª A - EM - BV,3ª Série,3,Arte,322,ARTE - BV - 2026,SEG,Segunda,07:15,08:05
+BV,98,3ª B - EM - BV,3ª Série,13,Redação,31,VERIDIANA ROCHA - BV - 2026,SEG,Segunda,07:15,08:05
+BV,78,6° AM - BV,6º Ano,13,Redação,1,ALBA VALÉRIA - BV - 2026,SEG,Segunda,08:05,08:55
+BV,79,6° BM - BV,6º Ano,10,Língua Estrangeira Inglês,284,LIDIANY MOTA - BV - 2026,SEG,Segunda,08:05,08:55
+BV,81,7° AM - BV,7º Ano,3,Arte,285,KATARINA SILVA - BV - 2026,SEG,Segunda,08:05,08:55
+BV,83,7° BM - BV,7º Ano,14,Filosofia,137,ADRIANO DO NASCIMENTO - BV - 2026,SEG,Segunda,08:05,08:55
+BV,85,8° AM - BV,8º Ano,11,Geografia,278,LUANA MARIA - BV - 2026,SEG,Segunda,08:05,08:55
+BV,86,8° BM - BV,8º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,SEG,Segunda,08:05,08:55
+BV,88,9° AM - BV,9º Ano,20,Biologia,286,SUELLEN CINTIA - BV - 2026,SEG,Segunda,08:05,08:55
+BV,89,9° BM - BV,9º Ano,13,Redação,281,DANILO LUCENA - BV - 2026,SEG,Segunda,08:05,08:55
+BV,91,1ª A - EM - BV,1ª Série,35,História 2,13,DIEGO RODRIGUES - BV - 2026,SEG,Segunda,08:05,08:55
+BV,92,1ª B - EM - BV,1ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,SEG,Segunda,08:05,08:55
+BV,93,1ª C - EM - BV,1ª Série,11,Geografia,235,IVSON SANTOS - BV - 2026,SEG,Segunda,08:05,08:55
+BV,94,2ª A - EM - BV,2ª Série,15,Sociologia,33,JOSÉ ROBERTO SENA - BV - 2026,SEG,Segunda,08:05,08:55
+BV,95,2ª B - EM - BV,2ª Série,21,Química 2,27,RUBEM VITÓRIO  - BV - 2026,SEG,Segunda,08:05,08:55
+BV,96,2ª C - EM - BV,2ª Série,3,Arte,322,ARTE - BV - 2026,SEG,Segunda,08:05,08:55
+BV,97,3ª A - EM - BV,3ª Série,18,Projeto de Vida,280,DIELLEN - BV - 2026,SEG,Segunda,08:05,08:55
+BV,98,3ª B - EM - BV,3ª Série,13,Redação,31,VERIDIANA ROCHA - BV - 2026,SEG,Segunda,08:05,08:55
+BV,88,9° AM - BV,9º Ano,13,Redação,281,DANILO LUCENA - BV - 2026,SEG,Segunda,08:55,09:45
+BV,89,9° BM - BV,9º Ano,25,Matemática 1,138,PAULO RODRIGO - BV - 2026,SEG,Segunda,08:55,09:45
+BV,91,1ª A - EM - BV,1ª Série,14,Filosofia,33,JOSÉ ROBERTO SENA - BV - 2026,SEG,Segunda,08:55,09:45
+BV,92,1ª B - EM - BV,1ª Série,11,Geografia,235,IVSON SANTOS - BV - 2026,SEG,Segunda,08:55,09:45
+BV,93,1ª C - EM - BV,1ª Série,22,Química 1,27,RUBEM VITÓRIO  - BV - 2026,SEG,Segunda,08:55,09:45
+BV,94,2ª A - EM - BV,2ª Série,3,Arte,322,ARTE - BV - 2026,SEG,Segunda,08:55,09:45
+BV,95,2ª B - EM - BV,2ª Série,19,Biologia 2,286,SUELLEN CINTIA - BV - 2026,SEG,Segunda,08:55,09:45
+BV,96,2ª C - EM - BV,2ª Série,13,Redação,280,DIELLEN - BV - 2026,SEG,Segunda,08:55,09:45
+BV,97,3ª A - EM - BV,3ª Série,43,Redação,31,VERIDIANA ROCHA - BV - 2026,SEG,Segunda,08:55,09:45
+BV,98,3ª B - EM - BV,3ª Série,12,História,13,DIEGO RODRIGUES - BV - 2026,SEG,Segunda,08:55,09:45
+BV,78,6° AM - BV,6º Ano,10,Língua Estrangeira Inglês,284,LIDIANY MOTA - BV - 2026,SEG,Segunda,09:25,10:15
+BV,79,6° BM - BV,6º Ano,13,Redação,1,ALBA VALÉRIA - BV - 2026,SEG,Segunda,09:25,10:15
+BV,81,7° AM - BV,7º Ano,11,Geografia,278,LUANA MARIA - BV - 2026,SEG,Segunda,09:25,10:15
+BV,83,7° BM - BV,7º Ano,2,Matemática,250,BEATRIZ FÉLIX - BV - 2026,SEG,Segunda,09:25,10:15
+BV,85,8° AM - BV,8º Ano,14,Filosofia,137,ADRIANO DO NASCIMENTO - BV - 2026,SEG,Segunda,09:25,10:15
+BV,86,8° BM - BV,8º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,SEG,Segunda,09:25,10:15
+BV,94,2ª A - EM - BV,2ª Série,14,Filosofia,33,JOSÉ ROBERTO SENA - BV - 2026,SEG,Segunda,09:45,10:35
+BV,95,2ª B - EM - BV,2ª Série,11,Geografia,235,IVSON SANTOS - BV - 2026,SEG,Segunda,09:45,10:35
+BV,96,2ª C - EM - BV,2ª Série,13,Redação,280,DIELLEN - BV - 2026,SEG,Segunda,09:45,10:35
+BV,97,3ª A - EM - BV,3ª Série,35,História 2,13,DIEGO RODRIGUES - BV - 2026,SEG,Segunda,09:45,10:35
+BV,98,3ª B - EM - BV,3ª Série,43,Redação,31,VERIDIANA ROCHA - BV - 2026,SEG,Segunda,09:45,10:35
+BV,78,6° AM - BV,6º Ano,13,Redação,1,ALBA VALÉRIA - BV - 2026,SEG,Segunda,10:15,11:05
+BV,79,6° BM - BV,6º Ano,10,Língua Estrangeira Inglês,284,LIDIANY MOTA - BV - 2026,SEG,Segunda,10:15,11:05
+BV,81,7° AM - BV,7º Ano,5,Ciências Naturais,286,SUELLEN CINTIA - BV - 2026,SEG,Segunda,10:15,11:05
+BV,83,7° BM - BV,7º Ano,11,Geografia,278,LUANA MARIA - BV - 2026,SEG,Segunda,10:15,11:05
+BV,85,8° AM - BV,8º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,SEG,Segunda,10:15,11:05
+BV,86,8° BM - BV,8º Ano,14,Filosofia,137,ADRIANO DO NASCIMENTO - BV - 2026,SEG,Segunda,10:15,11:05
+BV,88,9° AM - BV,9º Ano,25,Matemática 1,138,PAULO RODRIGO - BV - 2026,SEG,Segunda,10:15,11:05
+BV,89,9° BM - BV,9º Ano,13,Redação,281,DANILO LUCENA - BV - 2026,SEG,Segunda,10:15,11:05
+BV,91,1ª A - EM - BV,1ª Série,21,Química 2,27,RUBEM VITÓRIO  - BV - 2026,SEG,Segunda,10:15,11:05
+BV,92,1ª B - EM - BV,1ª Série,3,Arte,322,ARTE - BV - 2026,SEG,Segunda,10:15,11:05
+BV,93,1ª C - EM - BV,1ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,SEG,Segunda,10:15,11:05
+BV,78,6° AM - BV,6º Ano,10,Língua Estrangeira Inglês,284,LIDIANY MOTA - BV - 2026,SEG,Segunda,11:05,11:55
+BV,79,6° BM - BV,6º Ano,13,Redação,1,ALBA VALÉRIA - BV - 2026,SEG,Segunda,11:05,11:55
+BV,81,7° AM - BV,7º Ano,14,Filosofia,137,ADRIANO DO NASCIMENTO - BV - 2026,SEG,Segunda,11:05,11:55
+BV,83,7° BM - BV,7º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,SEG,Segunda,11:05,11:55
+BV,85,8° AM - BV,8º Ano,25,Matemática 1,138,PAULO RODRIGO - BV - 2026,SEG,Segunda,11:05,11:55
+BV,86,8° BM - BV,8º Ano,11,Geografia,278,LUANA MARIA - BV - 2026,SEG,Segunda,11:05,11:55
+BV,88,9° AM - BV,9º Ano,44,Língua Portuguesa,281,DANILO LUCENA - BV - 2026,SEG,Segunda,11:05,11:55
+BV,89,9° BM - BV,9º Ano,8,Química,27,RUBEM VITÓRIO  - BV - 2026,SEG,Segunda,11:05,11:55
+BV,91,1ª A - EM - BV,1ª Série,13,Redação,280,DIELLEN - BV - 2026,SEG,Segunda,11:05,11:55
+BV,92,1ª B - EM - BV,1ª Série,11,Geografia,235,IVSON SANTOS - BV - 2026,SEG,Segunda,11:05,11:55
+BV,93,1ª C - EM - BV,1ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,SEG,Segunda,11:05,11:55
+BV,94,2ª A - EM - BV,2ª Série,19,Biologia 2,286,SUELLEN CINTIA - BV - 2026,SEG,Segunda,11:05,11:55
+BV,95,2ª B - EM - BV,2ª Série,14,Filosofia,33,JOSÉ ROBERTO SENA - BV - 2026,SEG,Segunda,11:05,11:55
+BV,96,2ª C - EM - BV,2ª Série,35,História 2,13,DIEGO RODRIGUES - BV - 2026,SEG,Segunda,11:05,11:55
+BV,97,3ª A - EM - BV,3ª Série,13,Redação,31,VERIDIANA ROCHA - BV - 2026,SEG,Segunda,11:05,11:55
+BV,98,3ª B - EM - BV,3ª Série,3,Arte,322,ARTE - BV - 2026,SEG,Segunda,11:05,11:55
+BV,78,6° AM - BV,6º Ano,14,Filosofia,137,ADRIANO DO NASCIMENTO - BV - 2026,SEG,Segunda,11:55,12:45
+BV,79,6° BM - BV,6º Ano,11,Geografia,278,LUANA MARIA - BV - 2026,SEG,Segunda,11:55,12:45
+BV,91,1ª A - EM - BV,1ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,SEG,Segunda,11:55,12:45
+BV,92,1ª B - EM - BV,1ª Série,15,Sociologia,33,JOSÉ ROBERTO SENA - BV - 2026,SEG,Segunda,11:55,12:45
+BV,93,1ª C - EM - BV,1ª Série,22,Química 1,27,RUBEM VITÓRIO  - BV - 2026,SEG,Segunda,11:55,12:45
+BV,94,2ª A - EM - BV,2ª Série,13,Redação,280,DIELLEN - BV - 2026,SEG,Segunda,11:55,12:45
+BV,95,2ª B - EM - BV,2ª Série,11,Geografia,235,IVSON SANTOS - BV - 2026,SEG,Segunda,11:55,12:45
+BV,96,2ª C - EM - BV,2ª Série,19,Biologia 2,286,SUELLEN CINTIA - BV - 2026,SEG,Segunda,11:55,12:45
+BV,97,3ª A - EM - BV,3ª Série,13,Redação,31,VERIDIANA ROCHA - BV - 2026,SEG,Segunda,11:55,12:45
+BV,98,3ª B - EM - BV,3ª Série,35,História 2,13,DIEGO RODRIGUES - BV - 2026,SEG,Segunda,11:55,12:45
+BV,80,6° AT - BV,6º Ano,44,Língua Portuguesa,1,ALBA VALÉRIA - BV - 2026,SEG,Segunda,13:15,14:05
+BV,84,7° AT - BV,7º Ano,5,Ciências Naturais,318,IVALDO SANTOS - BV - 2026,SEG,Segunda,13:15,14:05
+BV,87,8° AT - BV,8º Ano,11,Geografia,7,FLÁVIO NASCIMENTO - BV - 2026,SEG,Segunda,13:15,14:05
+BV,90,9° AT - BV,9º Ano,44,Língua Portuguesa,191,WILLIAM MACIEL - BV - 2026,SEG,Segunda,13:15,14:05
+BV,80,6° AT - BV,6º Ano,29,Projeto de Vida,318,IVALDO SANTOS - BV - 2026,SEG,Segunda,14:05,14:55
+BV,84,7° AT - BV,7º Ano,13,Redação,1,ALBA VALÉRIA - BV - 2026,SEG,Segunda,14:05,14:55
+BV,87,8° AT - BV,8º Ano,11,Geografia,7,FLÁVIO NASCIMENTO - BV - 2026,SEG,Segunda,14:05,14:55
+BV,90,9° AT - BV,9º Ano,44,Língua Portuguesa,191,WILLIAM MACIEL - BV - 2026,SEG,Segunda,14:05,14:55
+BV,80,6° AT - BV,6º Ano,44,Língua Portuguesa,1,ALBA VALÉRIA - BV - 2026,SEG,Segunda,15:15,16:05
+BV,84,7° AT - BV,7º Ano,14,Filosofia,137,ADRIANO DO NASCIMENTO - BV - 2026,SEG,Segunda,15:15,16:05
+BV,87,8° AT - BV,8º Ano,5,Ciências Naturais,318,IVALDO SANTOS - BV - 2026,SEG,Segunda,15:15,16:05
+BV,90,9° AT - BV,9º Ano,11,Geografia,7,FLÁVIO NASCIMENTO - BV - 2026,SEG,Segunda,15:15,16:05
+BV,80,6° AT - BV,6º Ano,11,Geografia,7,FLÁVIO NASCIMENTO - BV - 2026,SEG,Segunda,16:05,16:55
+BV,84,7° AT - BV,7º Ano,44,Língua Portuguesa,1,ALBA VALÉRIA - BV - 2026,SEG,Segunda,16:05,16:55
+BV,87,8° AT - BV,8º Ano,44,Língua Portuguesa,191,WILLIAM MACIEL - BV - 2026,SEG,Segunda,16:05,16:55
+BV,90,9° AT - BV,9º Ano,14,Filosofia,137,ADRIANO DO NASCIMENTO - BV - 2026,SEG,Segunda,16:05,16:55
+BV,80,6° AT - BV,6º Ano,13,Redação,1,ALBA VALÉRIA - BV - 2026,SEG,Segunda,16:55,17:45
+BV,84,7° AT - BV,7º Ano,11,Geografia,7,FLÁVIO NASCIMENTO - BV - 2026,SEG,Segunda,16:55,17:45
+BV,87,8° AT - BV,8º Ano,14,Filosofia,137,ADRIANO DO NASCIMENTO - BV - 2026,SEG,Segunda,16:55,17:45
+BV,90,9° AT - BV,9º Ano,44,Língua Portuguesa,191,WILLIAM MACIEL - BV - 2026,SEG,Segunda,16:55,17:45
+BV,80,6° AT - BV,6º Ano,14,Filosofia,137,ADRIANO DO NASCIMENTO - BV - 2026,SEG,Segunda,17:45,18:35
+BV,85,8° AM - BV,8º Ano,4,Educação Física,22,OTÁVIO MASCENA - BV - 2026,TER,Terça,07:15,08:05
+BV,86,8° BM - BV,8º Ano,25,Matemática 1,138,PAULO RODRIGO - BV - 2026,TER,Terça,07:15,08:05
+BV,88,9° AM - BV,9º Ano,8,Química,27,RUBEM VITÓRIO  - BV - 2026,TER,Terça,07:15,08:05
+BV,89,9° BM - BV,9º Ano,30,Raciocínio Lógico,323,THAYS SANTOS - BV - 2026,TER,Terça,07:15,08:05
+BV,91,1ª A - EM - BV,1ª Série,17,Gramática,4,ARLINE VASCONCELOS - BV - 2026,TER,Terça,07:15,08:05
+BV,92,1ª B - EM - BV,1ª Série,26,Matemática 2,314,MÔNICA BASÍLIO - BV - 2026,TER,Terça,07:15,08:05
+BV,93,1ª C - EM - BV,1ª Série,36,História 1,8,LORENA OLIVEIRA - BV - 2026,TER,Terça,07:15,08:05
+BV,94,2ª A - EM - BV,2ª Série,10,Língua Estrangeira Inglês,328,ELIANE SERRA - BV - 2026,TER,Terça,07:15,08:05
+BV,95,2ª B - EM - BV,2ª Série,13,Redação,280,DIELLEN - BV - 2026,TER,Terça,07:15,08:05
+BV,96,2ª C - EM - BV,2ª Série,4,Educação Física,254,JULIO - ED. FÍSICA - BV - 2026,TER,Terça,07:15,08:05
+BV,97,3ª A - EM - BV,3ª Série,36,História 1,13,DIEGO RODRIGUES - BV - 2026,TER,Terça,07:15,08:05
+BV,98,3ª B - EM - BV,3ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,TER,Terça,07:15,08:05
+BV,85,8° AM - BV,8º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,TER,Terça,08:05,08:55
+BV,86,8° BM - BV,8º Ano,30,Raciocínio Lógico,323,THAYS SANTOS - BV - 2026,TER,Terça,08:05,08:55
+BV,88,9° AM - BV,9º Ano,25,Matemática 1,138,PAULO RODRIGO - BV - 2026,TER,Terça,08:05,08:55
+BV,89,9° BM - BV,9º Ano,4,Educação Física,22,OTÁVIO MASCENA - BV - 2026,TER,Terça,08:05,08:55
+BV,91,1ª A - EM - BV,1ª Série,26,Matemática 2,314,MÔNICA BASÍLIO - BV - 2026,TER,Terça,08:05,08:55
+BV,92,1ª B - EM - BV,1ª Série,17,Gramática,4,ARLINE VASCONCELOS - BV - 2026,TER,Terça,08:05,08:55
+BV,93,1ª C - EM - BV,1ª Série,35,História 2,13,DIEGO RODRIGUES - BV - 2026,TER,Terça,08:05,08:55
+BV,94,2ª A - EM - BV,2ª Série,21,Química 2,27,RUBEM VITÓRIO  - BV - 2026,TER,Terça,08:05,08:55
+BV,95,2ª B - EM - BV,2ª Série,4,Educação Física,254,JULIO - ED. FÍSICA - BV - 2026,TER,Terça,08:05,08:55
+BV,96,2ª C - EM - BV,2ª Série,10,Língua Estrangeira Inglês,328,ELIANE SERRA - BV - 2026,TER,Terça,08:05,08:55
+BV,97,3ª A - EM - BV,3ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,TER,Terça,08:05,08:55
+BV,98,3ª B - EM - BV,3ª Série,18,Projeto de Vida,280,DIELLEN - BV - 2026,TER,Terça,08:05,08:55
+BV,88,9° AM - BV,9º Ano,10,Língua Estrangeira Inglês,321,BRUNA BARROS - BV - 2026,TER,Terça,08:55,09:45
+BV,89,9° BM - BV,9º Ano,25,Matemática 1,138,PAULO RODRIGO - BV - 2026,TER,Terça,08:55,09:45
+BV,91,1ª A - EM - BV,1ª Série,23,Física 1,287,DIEGO CALADO - BV - 2026,TER,Terça,08:55,09:45
+BV,92,1ª B - EM - BV,1ª Série,35,História 2,13,DIEGO RODRIGUES - BV - 2026,TER,Terça,08:55,09:45
+BV,93,1ª C - EM - BV,1ª Série,21,Química 2,27,RUBEM VITÓRIO  - BV - 2026,TER,Terça,08:55,09:45
+BV,94,2ª A - EM - BV,2ª Série,11,Geografia,235,IVSON SANTOS - BV - 2026,TER,Terça,08:55,09:45
+BV,95,2ª B - EM - BV,2ª Série,18,Projeto de Vida,280,DIELLEN - BV - 2026,TER,Terça,08:55,09:45
+BV,96,2ª C - EM - BV,2ª Série,26,Matemática 2,314,MÔNICA BASÍLIO - BV - 2026,TER,Terça,08:55,09:45
+BV,97,3ª A - EM - BV,3ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,TER,Terça,08:55,09:45
+BV,98,3ª B - EM - BV,3ª Série,10,Língua Estrangeira Inglês,328,ELIANE SERRA - BV - 2026,TER,Terça,08:55,09:45
+BV,78,6° AM - BV,6º Ano,44,Língua Portuguesa,324,LAURA MARIA - BV - 2026,TER,Terça,09:25,10:15
+BV,79,6° BM - BV,6º Ano,2,Matemática,323,THAYS SANTOS - BV - 2026,TER,Terça,09:25,10:15
+BV,81,7° AM - BV,7º Ano,13,Redação,4,ARLINE VASCONCELOS - BV - 2026,TER,Terça,09:25,10:15
+BV,83,7° BM - BV,7º Ano,3,Arte,285,KATARINA SILVA - BV - 2026,TER,Terça,09:25,10:15
+BV,85,8° AM - BV,8º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,TER,Terça,09:25,10:15
+BV,86,8° BM - BV,8º Ano,4,Educação Física,22,OTÁVIO MASCENA - BV - 2026,TER,Terça,09:25,10:15
+BV,94,2ª A - EM - BV,2ª Série,35,História 2,13,DIEGO RODRIGUES - BV - 2026,TER,Terça,09:45,10:35
+BV,95,2ª B - EM - BV,2ª Série,26,Matemática 2,314,MÔNICA BASÍLIO - BV - 2026,TER,Terça,09:45,10:35
+BV,96,2ª C - EM - BV,2ª Série,21,Química 2,27,RUBEM VITÓRIO  - BV - 2026,TER,Terça,09:45,10:35
+BV,97,3ª A - EM - BV,3ª Série,10,Língua Estrangeira Inglês,328,ELIANE SERRA - BV - 2026,TER,Terça,09:45,10:35
+BV,98,3ª B - EM - BV,3ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,TER,Terça,09:45,10:35
+BV,78,6° AM - BV,6º Ano,2,Matemática,323,THAYS SANTOS - BV - 2026,TER,Terça,10:15,11:05
+BV,79,6° BM - BV,6º Ano,44,Língua Portuguesa,324,LAURA MARIA - BV - 2026,TER,Terça,10:15,11:05
+BV,81,7° AM - BV,7º Ano,10,Língua Estrangeira Inglês,284,LIDIANY MOTA - BV - 2026,TER,Terça,10:15,11:05
+BV,83,7° BM - BV,7º Ano,13,Redação,4,ARLINE VASCONCELOS - BV - 2026,TER,Terça,10:15,11:05
+BV,85,8° AM - BV,8º Ano,3,Arte,285,KATARINA SILVA - BV - 2026,TER,Terça,10:15,11:05
+BV,86,8° BM - BV,8º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,TER,Terça,10:15,11:05
+BV,88,9° AM - BV,9º Ano,25,Matemática 1,138,PAULO RODRIGO - BV - 2026,TER,Terça,10:15,11:05
+BV,89,9° BM - BV,9º Ano,11,Geografia,235,IVSON SANTOS - BV - 2026,TER,Terça,10:15,11:05
+BV,91,1ª A - EM - BV,1ª Série,10,Língua Estrangeira Inglês,321,BRUNA BARROS - BV - 2026,TER,Terça,10:15,11:05
+BV,92,1ª B - EM - BV,1ª Série,23,Física 1,287,DIEGO CALADO - BV - 2026,TER,Terça,10:15,11:05
+BV,93,1ª C - EM - BV,1ª Série,13,Redação,280,DIELLEN - BV - 2026,TER,Terça,10:15,11:05
+BV,78,6° AM - BV,6º Ano,44,Língua Portuguesa,324,LAURA MARIA - BV - 2026,TER,Terça,11:05,11:55
+BV,79,6° BM - BV,6º Ano,30,Raciocínio Lógico,323,THAYS SANTOS - BV - 2026,TER,Terça,11:05,11:55
+BV,81,7° AM - BV,7º Ano,10,Língua Estrangeira Inglês,284,LIDIANY MOTA - BV - 2026,TER,Terça,11:05,11:55
+BV,83,7° BM - BV,7º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,TER,Terça,11:05,11:55
+BV,85,8° AM - BV,8º Ano,13,Redação,4,ARLINE VASCONCELOS - BV - 2026,TER,Terça,11:05,11:55
+BV,86,8° BM - BV,8º Ano,25,Matemática 1,138,PAULO RODRIGO - BV - 2026,TER,Terça,11:05,11:55
+BV,88,9° AM - BV,9º Ano,10,Língua Estrangeira Inglês,321,BRUNA BARROS - BV - 2026,TER,Terça,11:05,11:55
+BV,89,9° BM - BV,9º Ano,3,Arte,285,KATARINA SILVA - BV - 2026,TER,Terça,11:05,11:55
+BV,91,1ª A - EM - BV,1ª Série,11,Geografia,235,IVSON SANTOS - BV - 2026,TER,Terça,11:05,11:55
+BV,92,1ª B - EM - BV,1ª Série,21,Química 2,27,RUBEM VITÓRIO  - BV - 2026,TER,Terça,11:05,11:55
+BV,93,1ª C - EM - BV,1ª Série,26,Matemática 2,314,MÔNICA BASÍLIO - BV - 2026,TER,Terça,11:05,11:55
+BV,94,2ª A - EM - BV,2ª Série,18,Projeto de Vida,280,DIELLEN - BV - 2026,TER,Terça,11:05,11:55
+BV,95,2ª B - EM - BV,2ª Série,10,Língua Estrangeira Inglês,328,ELIANE SERRA - BV - 2026,TER,Terça,11:05,11:55
+BV,96,2ª C - EM - BV,2ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,TER,Terça,11:05,11:55
+BV,97,3ª A - EM - BV,3ª Série,23,Física 1,287,DIEGO CALADO - BV - 2026,TER,Terça,11:05,11:55
+BV,98,3ª B - EM - BV,3ª Série,36,História 1,13,DIEGO RODRIGUES - BV - 2026,TER,Terça,11:05,11:55
+BV,81,7° AM - BV,7º Ano,30,Raciocínio Lógico,323,THAYS SANTOS - BV - 2026,TER,Terça,11:55,12:45
+BV,83,7° BM - BV,7º Ano,10,Língua Estrangeira Inglês,284,LIDIANY MOTA - BV - 2026,TER,Terça,11:55,12:45
+BV,91,1ª A - EM - BV,1ª Série,22,Química 1,27,RUBEM VITÓRIO  - BV - 2026,TER,Terça,11:55,12:45
+BV,92,1ª B - EM - BV,1ª Série,13,Redação,280,DIELLEN - BV - 2026,TER,Terça,11:55,12:45
+BV,93,1ª C - EM - BV,1ª Série,17,Gramática,4,ARLINE VASCONCELOS - BV - 2026,TER,Terça,11:55,12:45
+BV,94,2ª A - EM - BV,2ª Série,26,Matemática 2,314,MÔNICA BASÍLIO - BV - 2026,TER,Terça,11:55,12:45
+BV,95,2ª B - EM - BV,2ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,TER,Terça,11:55,12:45
+BV,96,2ª C - EM - BV,2ª Série,11,Geografia,235,IVSON SANTOS - BV - 2026,TER,Terça,11:55,12:45
+BV,97,3ª A - EM - BV,3ª Série,12,História,13,DIEGO RODRIGUES - BV - 2026,TER,Terça,11:55,12:45
+BV,98,3ª B - EM - BV,3ª Série,23,Física 1,287,DIEGO CALADO - BV - 2026,TER,Terça,11:55,12:45
+BV,87,8° AT - BV,8º Ano,5,Ciências Naturais,318,IVALDO SANTOS - BV - 2026,TER,Terça,13:15,14:05
+BV,90,9° AT - BV,9º Ano,12,História,93,WILLIAMS RODRIGUES - BV - 2026,TER,Terça,13:15,14:05
+BV,87,8° AT - BV,8º Ano,5,Ciências Naturais,318,IVALDO SANTOS - BV - 2026,TER,Terça,14:05,14:55
+BV,90,9° AT - BV,9º Ano,12,História,93,WILLIAMS RODRIGUES - BV - 2026,TER,Terça,14:05,14:55
+BV,97,3ª A - EM - BV,3ª Série,4,Educação Física,22,OTÁVIO MASCENA - BV - 2026,TER,Terça,14:05,14:55
+BV,98,3ª B - EM - BV,3ª Série,4,Educação Física,22,OTÁVIO MASCENA - BV - 2026,TER,Terça,14:55,15:45
+BV,80,6° AT - BV,6º Ano,5,Ciências Naturais,318,IVALDO SANTOS - BV - 2026,TER,Terça,15:15,16:05
+BV,84,7° AT - BV,7º Ano,44,Língua Portuguesa,1,ALBA VALÉRIA - BV - 2026,TER,Terça,15:15,16:05
+BV,87,8° AT - BV,8º Ano,12,História,93,WILLIAMS RODRIGUES - BV - 2026,TER,Terça,15:15,16:05
+BV,90,9° AT - BV,9º Ano,2,Matemática,5,CARLA VERÔNICA - BV - 2025,TER,Terça,15:15,16:05
+BV,80,6° AT - BV,6º Ano,13,Redação,1,ALBA VALÉRIA - BV - 2026,TER,Terça,16:05,16:55
+BV,84,7° AT - BV,7º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,TER,Terça,16:05,16:55
+BV,87,8° AT - BV,8º Ano,2,Matemática,5,CARLA VERÔNICA - BV - 2025,TER,Terça,16:05,16:55
+BV,90,9° AT - BV,9º Ano,29,Projeto de Vida,318,IVALDO SANTOS - BV - 2026,TER,Terça,16:05,16:55
+BV,80,6° AT - BV,6º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,TER,Terça,16:55,17:45
+BV,84,7° AT - BV,7º Ano,44,Língua Portuguesa,1,ALBA VALÉRIA - BV - 2026,TER,Terça,16:55,17:45
+BV,87,8° AT - BV,8º Ano,2,Matemática,5,CARLA VERÔNICA - BV - 2025,TER,Terça,16:55,17:45
+BV,90,9° AT - BV,9º Ano,20,Biologia,318,IVALDO SANTOS - BV - 2026,TER,Terça,16:55,17:45
+BV,84,7° AT - BV,7º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,TER,Terça,17:45,18:35
+BV,78,6° AM - BV,6º Ano,5,Ciências Naturais,286,SUELLEN CINTIA - BV - 2026,QUA,Quarta,07:15,08:05
+BV,79,6° BM - BV,6º Ano,3,Arte,285,KATARINA SILVA - BV - 2026,QUA,Quarta,07:15,08:05
+BV,81,7° AM - BV,7º Ano,11,Geografia,278,LUANA MARIA - BV - 2026,QUA,Quarta,07:15,08:05
+BV,83,7° BM - BV,7º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,QUA,Quarta,07:15,08:05
+BV,91,1ª A - EM - BV,1ª Série,15,Sociologia,33,JOSÉ ROBERTO SENA - BV - 2026,QUA,Quarta,07:15,08:05
+BV,92,1ª B - EM - BV,1ª Série,36,História 1,8,LORENA OLIVEIRA - BV - 2026,QUA,Quarta,07:15,08:05
+BV,93,1ª C - EM - BV,1ª Série,6,Biologia 1,21,ANA CAROLINA MATOS - BV - 2026,QUA,Quarta,07:15,08:05
+BV,94,2ª A - EM - BV,2ª Série,23,Física 1,316,TIAGO AUGUSTO - BV - 2026,QUA,Quarta,07:15,08:05
+BV,95,2ª B - EM - BV,2ª Série,16,Literatura,25,JULIANA CHAGAS - BV - 2026,QUA,Quarta,07:15,08:05
+BV,96,2ª C - EM - BV,2ª Série,6,Biologia 1,330,SANDRO CORDEIRO - BV - 2026,QUA,Quarta,07:15,08:05
+BV,97,3ª A - EM - BV,3ª Série,22,Química 1,29,TATIANA MARQUES - BV - 2026,QUA,Quarta,07:15,08:05
+BV,98,3ª B - EM - BV,3ª Série,17,Gramática,191,WILLIAM MACIEL - BV - 2026,QUA,Quarta,07:15,08:05
+BV,78,6° AM - BV,6º Ano,3,Arte,285,KATARINA SILVA - BV - 2026,QUA,Quarta,08:05,08:55
+BV,79,6° BM - BV,6º Ano,5,Ciências Naturais,286,SUELLEN CINTIA - BV - 2026,QUA,Quarta,08:05,08:55
+BV,81,7° AM - BV,7º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,QUA,Quarta,08:05,08:55
+BV,83,7° BM - BV,7º Ano,11,Geografia,278,LUANA MARIA - BV - 2026,QUA,Quarta,08:05,08:55
+BV,91,1ª A - EM - BV,1ª Série,36,História 1,8,LORENA OLIVEIRA - BV - 2026,QUA,Quarta,08:05,08:55
+BV,92,1ª B - EM - BV,1ª Série,6,Biologia 1,21,ANA CAROLINA MATOS - BV - 2026,QUA,Quarta,08:05,08:55
+BV,93,1ª C - EM - BV,1ª Série,24,Física 2,316,TIAGO AUGUSTO - BV - 2026,QUA,Quarta,08:05,08:55
+BV,94,2ª A - EM - BV,2ª Série,16,Literatura,25,JULIANA CHAGAS - BV - 2026,QUA,Quarta,08:05,08:55
+BV,95,2ª B - EM - BV,2ª Série,6,Biologia 1,330,SANDRO CORDEIRO - BV - 2026,QUA,Quarta,08:05,08:55
+BV,96,2ª C - EM - BV,2ª Série,14,Filosofia,33,JOSÉ ROBERTO SENA - BV - 2026,QUA,Quarta,08:05,08:55
+BV,97,3ª A - EM - BV,3ª Série,17,Gramática,191,WILLIAM MACIEL - BV - 2026,QUA,Quarta,08:05,08:55
+BV,98,3ª B - EM - BV,3ª Série,22,Química 1,29,TATIANA MARQUES - BV - 2026,QUA,Quarta,08:05,08:55
+BV,88,9° AM - BV,9º Ano,3,Arte,285,KATARINA SILVA - BV - 2026,QUA,Quarta,08:55,09:45
+BV,89,9° BM - BV,9º Ano,44,Língua Portuguesa,281,DANILO LUCENA - BV - 2026,QUA,Quarta,08:55,09:45
+BV,91,1ª A - EM - BV,1ª Série,24,Física 2,316,TIAGO AUGUSTO - BV - 2026,QUA,Quarta,08:55,09:45
+BV,92,1ª B - EM - BV,1ª Série,19,Biologia 2,330,SANDRO CORDEIRO - BV - 2026,QUA,Quarta,08:55,09:45
+BV,93,1ª C - EM - BV,1ª Série,3,Arte,322,ARTE - BV - 2026,QUA,Quarta,08:55,09:45
+BV,94,2ª A - EM - BV,2ª Série,16,Literatura,25,JULIANA CHAGAS - BV - 2026,QUA,Quarta,08:55,09:45
+BV,95,2ª B - EM - BV,2ª Série,15,Sociologia,33,JOSÉ ROBERTO SENA - BV - 2026,QUA,Quarta,08:55,09:45
+BV,96,2ª C - EM - BV,2ª Série,22,Química 1,29,TATIANA MARQUES - BV - 2026,QUA,Quarta,08:55,09:45
+BV,97,3ª A - EM - BV,3ª Série,17,Gramática,191,WILLIAM MACIEL - BV - 2026,QUA,Quarta,08:55,09:45
+BV,98,3ª B - EM - BV,3ª Série,19,Biologia 2,21,ANA CAROLINA MATOS - BV - 2026,QUA,Quarta,08:55,09:45
+BV,78,6° AM - BV,6º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,QUA,Quarta,09:25,10:15
+BV,79,6° BM - BV,6º Ano,5,Ciências Naturais,286,SUELLEN CINTIA - BV - 2026,QUA,Quarta,09:25,10:15
+BV,81,7° AM - BV,7º Ano,2,Matemática,250,BEATRIZ FÉLIX - BV - 2026,QUA,Quarta,09:25,10:15
+BV,83,7° BM - BV,7º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,QUA,Quarta,09:25,10:15
+BV,85,8° AM - BV,8º Ano,25,Matemática 1,138,PAULO RODRIGO - BV - 2026,QUA,Quarta,09:25,10:15
+BV,86,8° BM - BV,8º Ano,11,Geografia,278,LUANA MARIA - BV - 2026,QUA,Quarta,09:25,10:15
+BV,94,2ª A - EM - BV,2ª Série,6,Biologia 1,330,SANDRO CORDEIRO - BV - 2026,QUA,Quarta,09:45,10:35
+BV,95,2ª B - EM - BV,2ª Série,3,Arte,322,ARTE - BV - 2026,QUA,Quarta,09:45,10:35
+BV,96,2ª C - EM - BV,2ª Série,16,Literatura,25,JULIANA CHAGAS - BV - 2026,QUA,Quarta,09:45,10:35
+BV,97,3ª A - EM - BV,3ª Série,19,Biologia 2,21,ANA CAROLINA MATOS - BV - 2026,QUA,Quarta,09:45,10:35
+BV,98,3ª B - EM - BV,3ª Série,21,Química 2,29,TATIANA MARQUES - BV - 2026,QUA,Quarta,09:45,10:35
+BV,78,6° AM - BV,6º Ano,5,Ciências Naturais,286,SUELLEN CINTIA - BV - 2026,QUA,Quarta,10:15,11:05
+BV,79,6° BM - BV,6º Ano,11,Geografia,278,LUANA MARIA - BV - 2026,QUA,Quarta,10:15,11:05
+BV,81,7° AM - BV,7º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,QUA,Quarta,10:15,11:05
+BV,83,7° BM - BV,7º Ano,2,Matemática,250,BEATRIZ FÉLIX - BV - 2026,QUA,Quarta,10:15,11:05
+BV,85,8° AM - BV,8º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,QUA,Quarta,10:15,11:05
+BV,86,8° BM - BV,8º Ano,25,Matemática 1,138,PAULO RODRIGO - BV - 2026,QUA,Quarta,10:15,11:05
+BV,88,9° AM - BV,9º Ano,12,História,140,BARTOLOMEU JOSÉ - BV - 2026,QUA,Quarta,10:15,11:05
+BV,89,9° BM - BV,9º Ano,44,Língua Portuguesa,281,DANILO LUCENA - BV - 2026,QUA,Quarta,10:15,11:05
+BV,91,1ª A - EM - BV,1ª Série,16,Literatura,191,WILLIAM MACIEL - BV - 2026,QUA,Quarta,10:15,11:05
+BV,92,1ª B - EM - BV,1ª Série,24,Física 2,316,TIAGO AUGUSTO - BV - 2026,QUA,Quarta,10:15,11:05
+BV,93,1ª C - EM - BV,1ª Série,14,Filosofia,33,JOSÉ ROBERTO SENA - BV - 2026,QUA,Quarta,10:15,11:05
+BV,78,6° AM - BV,6º Ano,11,Geografia,278,LUANA MARIA - BV - 2026,QUA,Quarta,11:05,11:55
+BV,79,6° BM - BV,6º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,QUA,Quarta,11:05,11:55
+BV,81,7° AM - BV,7º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,QUA,Quarta,11:05,11:55
+BV,83,7° BM - BV,7º Ano,5,Ciências Naturais,286,SUELLEN CINTIA - BV - 2026,QUA,Quarta,11:05,11:55
+BV,85,8° AM - BV,8º Ano,25,Matemática 1,138,PAULO RODRIGO - BV - 2026,QUA,Quarta,11:05,11:55
+BV,86,8° BM - BV,8º Ano,13,Redação,281,DANILO LUCENA - BV - 2026,QUA,Quarta,11:05,11:55
+BV,88,9° AM - BV,9º Ano,26,Matemática 2,250,BEATRIZ FÉLIX - BV - 2026,QUA,Quarta,11:05,11:55
+BV,89,9° BM - BV,9º Ano,12,História,140,BARTOLOMEU JOSÉ - BV - 2026,QUA,Quarta,11:05,11:55
+BV,91,1ª A - EM - BV,1ª Série,3,Arte,322,ARTE - BV - 2026,QUA,Quarta,11:05,11:55
+BV,92,1ª B - EM - BV,1ª Série,14,Filosofia,33,JOSÉ ROBERTO SENA - BV - 2026,QUA,Quarta,11:05,11:55
+BV,93,1ª C - EM - BV,1ª Série,16,Literatura,191,WILLIAM MACIEL - BV - 2026,QUA,Quarta,11:05,11:55
+BV,94,2ª A - EM - BV,2ª Série,22,Química 1,29,TATIANA MARQUES - BV - 2026,QUA,Quarta,11:05,11:55
+BV,95,2ª B - EM - BV,2ª Série,16,Literatura,25,JULIANA CHAGAS - BV - 2026,QUA,Quarta,11:05,11:55
+BV,96,2ª C - EM - BV,2ª Série,6,Biologia 1,330,SANDRO CORDEIRO - BV - 2026,QUA,Quarta,11:05,11:55
+BV,97,3ª A - EM - BV,3ª Série,24,Física 2,316,TIAGO AUGUSTO - BV - 2026,QUA,Quarta,11:05,11:55
+BV,98,3ª B - EM - BV,3ª Série,6,Biologia 1,21,ANA CAROLINA MATOS - BV - 2026,QUA,Quarta,11:05,11:55
+BV,85,8° AM - BV,8º Ano,11,Geografia,278,LUANA MARIA - BV - 2026,QUA,Quarta,11:55,12:45
+BV,86,8° BM - BV,8º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,QUA,Quarta,11:55,12:45
+BV,88,9° AM - BV,9º Ano,13,Redação,281,DANILO LUCENA - BV - 2026,QUA,Quarta,11:55,12:45
+BV,89,9° BM - BV,9º Ano,20,Biologia,286,SUELLEN CINTIA - BV - 2026,QUA,Quarta,11:55,12:45
+BV,91,1ª A - EM - BV,1ª Série,6,Biologia 1,21,ANA CAROLINA MATOS - BV - 2026,QUA,Quarta,11:55,12:45
+BV,92,1ª B - EM - BV,1ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,QUA,Quarta,11:55,12:45
+BV,93,1ª C - EM - BV,1ª Série,15,Sociologia,33,JOSÉ ROBERTO SENA - BV - 2026,QUA,Quarta,11:55,12:45
+BV,94,2ª A - EM - BV,2ª Série,6,Biologia 1,330,SANDRO CORDEIRO - BV - 2026,QUA,Quarta,11:55,12:45
+BV,95,2ª B - EM - BV,2ª Série,23,Física 1,316,TIAGO AUGUSTO - BV - 2026,QUA,Quarta,11:55,12:45
+BV,96,2ª C - EM - BV,2ª Série,16,Literatura,25,JULIANA CHAGAS - BV - 2026,QUA,Quarta,11:55,12:45
+BV,97,3ª A - EM - BV,3ª Série,22,Química 1,29,TATIANA MARQUES - BV - 2026,QUA,Quarta,11:55,12:45
+BV,98,3ª B - EM - BV,3ª Série,17,Gramática,191,WILLIAM MACIEL - BV - 2026,QUA,Quarta,11:55,12:45
+BV,80,6° AT - BV,6º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,QUA,Quarta,13:15,14:05
+BV,84,7° AT - BV,7º Ano,11,Geografia,7,FLÁVIO NASCIMENTO - BV - 2026,QUA,Quarta,13:15,14:05
+BV,80,6° AT - BV,6º Ano,11,Geografia,7,FLÁVIO NASCIMENTO - BV - 2026,QUA,Quarta,14:05,14:55
+BV,84,7° AT - BV,7º Ano,44,Língua Portuguesa,1,ALBA VALÉRIA - BV - 2026,QUA,Quarta,14:05,14:55
+BV,97,3ª A - EM - BV,3ª Série,28,Química 3,329,QUIMICA - BV - 2026,QUA,Quarta,14:05,14:55
+BV,98,3ª B - EM - BV,3ª Série,16,Literatura,25,JULIANA CHAGAS - BV - 2026,QUA,Quarta,14:05,14:55
+BV,97,3ª A - EM - BV,3ª Série,16,Literatura,25,JULIANA CHAGAS - BV - 2026,QUA,Quarta,14:55,15:45
+BV,98,3ª B - EM - BV,3ª Série,28,Química 3,329,QUIMICA - BV - 2026,QUA,Quarta,14:55,15:45
+BV,80,6° AT - BV,6º Ano,44,Língua Portuguesa,1,ALBA VALÉRIA - BV - 2026,QUA,Quarta,15:15,16:05
+BV,84,7° AT - BV,7º Ano,2,Matemática,10,NATÁLIA MOURA - BV - 2026,QUA,Quarta,15:15,16:05
+BV,87,8° AT - BV,8º Ano,2,Matemática,5,CARLA VERÔNICA - BV - 2025,QUA,Quarta,15:15,16:05
+BV,90,9° AT - BV,9º Ano,11,Geografia,7,FLÁVIO NASCIMENTO - BV - 2026,QUA,Quarta,15:15,16:05
+BV,80,6° AT - BV,6º Ano,2,Matemática,10,NATÁLIA MOURA - BV - 2026,QUA,Quarta,16:05,16:55
+BV,84,7° AT - BV,7º Ano,13,Redação,1,ALBA VALÉRIA - BV - 2026,QUA,Quarta,16:05,16:55
+BV,87,8° AT - BV,8º Ano,10,Língua Estrangeira Inglês,320,MONIK - BV - 2026,QUA,Quarta,16:05,16:55
+BV,90,9° AT - BV,9º Ano,8,Química,329,QUIMICA - BV - 2026,QUA,Quarta,16:05,16:55
+BV,97,3ª A - EM - BV,3ª Série,32,Física 3,327,LUCIANO LAGOSTA - BV - 2026,QUA,Quarta,16:05,16:55
+BV,98,3ª B - EM - BV,3ª Série,16,Literatura,25,JULIANA CHAGAS - BV - 2026,QUA,Quarta,16:05,16:55
+BV,80,6° AT - BV,6º Ano,44,Língua Portuguesa,1,ALBA VALÉRIA - BV - 2026,QUA,Quarta,16:55,17:45
+BV,84,7° AT - BV,7º Ano,2,Matemática,10,NATÁLIA MOURA - BV - 2026,QUA,Quarta,16:55,17:45
+BV,87,8° AT - BV,8º Ano,10,Língua Estrangeira Inglês,320,MONIK - BV - 2026,QUA,Quarta,16:55,17:45
+BV,90,9° AT - BV,9º Ano,2,Matemática,5,CARLA VERÔNICA - BV - 2025,QUA,Quarta,16:55,17:45
+BV,97,3ª A - EM - BV,3ª Série,16,Literatura,25,JULIANA CHAGAS - BV - 2026,QUA,Quarta,16:55,17:45
+BV,98,3ª B - EM - BV,3ª Série,32,Física 3,327,LUCIANO LAGOSTA - BV - 2026,QUA,Quarta,16:55,17:45
+BV,87,8° AT - BV,8º Ano,44,Língua Portuguesa,191,WILLIAM MACIEL - BV - 2026,QUA,Quarta,17:45,18:35
+BV,90,9° AT - BV,9º Ano,10,Língua Estrangeira Inglês,320,MONIK - BV - 2026,QUA,Quarta,17:45,18:35
+BV,78,6° AM - BV,6º Ano,44,Língua Portuguesa,324,LAURA MARIA - BV - 2026,QUI,Quinta,07:15,08:05
+BV,79,6° BM - BV,6º Ano,2,Matemática,323,THAYS SANTOS - BV - 2026,QUI,Quinta,07:15,08:05
+BV,81,7° AM - BV,7º Ano,13,Redação,4,ARLINE VASCONCELOS - BV - 2026,QUI,Quinta,07:15,08:05
+BV,83,7° BM - BV,7º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,QUI,Quinta,07:15,08:05
+BV,85,8° AM - BV,8º Ano,5,Ciências Naturais,90,BARTIRA ROCHA - BV - 2026,QUI,Quinta,07:15,08:05
+BV,86,8° BM - BV,8º Ano,26,Matemática 2,340,BEATRIZ SOUZA  - BV - 2026,QUI,Quinta,07:15,08:05
+BV,88,9° AM - BV,9º Ano,4,Educação Física,22,OTÁVIO MASCENA - BV - 2026,QUI,Quinta,07:15,08:05
+BV,89,9° BM - BV,9º Ano,26,Matemática 2,250,BEATRIZ FÉLIX - BV - 2026,QUI,Quinta,07:15,08:05
+BV,91,1ª A - EM - BV,1ª Série,11,Geografia,235,IVSON SANTOS - BV - 2026,QUI,Quinta,07:15,08:05
+BV,92,1ª B - EM - BV,1ª Série,10,Língua Estrangeira Inglês,328,ELIANE SERRA - BV - 2026,QUI,Quinta,07:15,08:05
+BV,93,1ª C - EM - BV,1ª Série,26,Matemática 2,314,MÔNICA BASÍLIO - BV - 2026,QUI,Quinta,07:15,08:05
+BV,94,2ª A - EM - BV,2ª Série,22,Química 1,29,TATIANA MARQUES - BV - 2026,QUI,Quinta,07:15,08:05
+BV,95,2ª B - EM - BV,2ª Série,17,Gramática,325,WANDRESSON ROCHA - BV - 2026,QUI,Quinta,07:15,08:05
+BV,96,2ª C - EM - BV,2ª Série,36,História 1,140,BARTOLOMEU JOSÉ - BV - 2026,QUI,Quinta,07:15,08:05
+BV,97,3ª A - EM - BV,3ª Série,15,Sociologia,317,FILIPE SILAS - BV - 2026,QUI,Quinta,07:15,08:05
+BV,98,3ª B - EM - BV,3ª Série,26,Matemática 2,319,VICTOR CALDAS - BV - 2025,QUI,Quinta,07:15,08:05
+BV,78,6° AM - BV,6º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,QUI,Quinta,08:05,08:55
+BV,79,6° BM - BV,6º Ano,44,Língua Portuguesa,324,LAURA MARIA - BV - 2026,QUI,Quinta,08:05,08:55
+BV,81,7° AM - BV,7º Ano,2,Matemática,250,BEATRIZ FÉLIX - BV - 2026,QUI,Quinta,08:05,08:55
+BV,83,7° BM - BV,7º Ano,13,Redação,4,ARLINE VASCONCELOS - BV - 2026,QUI,Quinta,08:05,08:55
+BV,85,8° AM - BV,8º Ano,26,Matemática 2,340,BEATRIZ SOUZA  - BV - 2026,QUI,Quinta,08:05,08:55
+BV,86,8° BM - BV,8º Ano,5,Ciências Naturais,90,BARTIRA ROCHA - BV - 2026,QUI,Quinta,08:05,08:55
+BV,88,9° AM - BV,9º Ano,30,Raciocínio Lógico,323,THAYS SANTOS - BV - 2026,QUI,Quinta,08:05,08:55
+BV,89,9° BM - BV,9º Ano,11,Geografia,235,IVSON SANTOS - BV - 2026,QUI,Quinta,08:05,08:55
+BV,91,1ª A - EM - BV,1ª Série,4,Educação Física,22,OTÁVIO MASCENA - BV - 2026,QUI,Quinta,08:05,08:55
+BV,92,1ª B - EM - BV,1ª Série,26,Matemática 2,314,MÔNICA BASÍLIO - BV - 2026,QUI,Quinta,08:05,08:55
+BV,93,1ª C - EM - BV,1ª Série,10,Língua Estrangeira Inglês,328,ELIANE SERRA - BV - 2026,QUI,Quinta,08:05,08:55
+BV,94,2ª A - EM - BV,2ª Série,36,História 1,140,BARTOLOMEU JOSÉ - BV - 2026,QUI,Quinta,08:05,08:55
+BV,95,2ª B - EM - BV,2ª Série,22,Química 1,29,TATIANA MARQUES - BV - 2026,QUI,Quinta,08:05,08:55
+BV,96,2ª C - EM - BV,2ª Série,17,Gramática,325,WANDRESSON ROCHA - BV - 2026,QUI,Quinta,08:05,08:55
+BV,97,3ª A - EM - BV,3ª Série,33,Matemática 3,319,VICTOR CALDAS - BV - 2025,QUI,Quinta,08:05,08:55
+BV,98,3ª B - EM - BV,3ª Série,15,Sociologia,317,FILIPE SILAS - BV - 2026,QUI,Quinta,08:05,08:55
+BV,88,9° AM - BV,9º Ano,14,Filosofia,317,FILIPE SILAS - BV - 2026,QUI,Quinta,08:55,09:45
+BV,89,9° BM - BV,9º Ano,12,História,140,BARTOLOMEU JOSÉ - BV - 2026,QUI,Quinta,08:55,09:45
+BV,91,1ª A - EM - BV,1ª Série,17,Gramática,4,ARLINE VASCONCELOS - BV - 2026,QUI,Quinta,08:55,09:45
+BV,92,1ª B - EM - BV,1ª Série,16,Literatura,191,WILLIAM MACIEL - BV - 2026,QUI,Quinta,08:55,09:45
+BV,93,1ª C - EM - BV,1ª Série,4,Educação Física,22,OTÁVIO MASCENA - BV - 2026,QUI,Quinta,08:55,09:45
+BV,94,2ª A - EM - BV,2ª Série,26,Matemática 2,314,MÔNICA BASÍLIO - BV - 2026,QUI,Quinta,08:55,09:45
+BV,95,2ª B - EM - BV,2ª Série,17,Gramática,325,WANDRESSON ROCHA - BV - 2026,QUI,Quinta,08:55,09:45
+BV,96,2ª C - EM - BV,2ª Série,11,Geografia,235,IVSON SANTOS - BV - 2026,QUI,Quinta,08:55,09:45
+BV,97,3ª A - EM - BV,3ª Série,21,Química 2,29,TATIANA MARQUES - BV - 2026,QUI,Quinta,08:55,09:45
+BV,98,3ª B - EM - BV,3ª Série,33,Matemática 3,319,VICTOR CALDAS - BV - 2025,QUI,Quinta,08:55,09:45
+BV,78,6° AM - BV,6º Ano,44,Língua Portuguesa,324,LAURA MARIA - BV - 2026,QUI,Quinta,09:25,10:15
+BV,79,6° BM - BV,6º Ano,2,Matemática,323,THAYS SANTOS - BV - 2026,QUI,Quinta,09:25,10:15
+BV,81,7° AM - BV,7º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,QUI,Quinta,09:25,10:15
+BV,83,7° BM - BV,7º Ano,2,Matemática,250,BEATRIZ FÉLIX - BV - 2026,QUI,Quinta,09:25,10:15
+BV,85,8° AM - BV,8º Ano,26,Matemática 2,340,BEATRIZ SOUZA  - BV - 2026,QUI,Quinta,09:25,10:15
+BV,86,8° BM - BV,8º Ano,5,Ciências Naturais,90,BARTIRA ROCHA - BV - 2026,QUI,Quinta,09:25,10:15
+BV,94,2ª A - EM - BV,2ª Série,17,Gramática,325,WANDRESSON ROCHA - BV - 2026,QUI,Quinta,09:45,10:35
+BV,95,2ª B - EM - BV,2ª Série,22,Química 1,29,TATIANA MARQUES - BV - 2026,QUI,Quinta,09:45,10:35
+BV,96,2ª C - EM - BV,2ª Série,26,Matemática 2,314,MÔNICA BASÍLIO - BV - 2026,QUI,Quinta,09:45,10:35
+BV,97,3ª A - EM - BV,3ª Série,26,Matemática 2,319,VICTOR CALDAS - BV - 2025,QUI,Quinta,09:45,10:35
+BV,98,3ª B - EM - BV,3ª Série,14,Filosofia,317,FILIPE SILAS - BV - 2026,QUI,Quinta,09:45,10:35
+BV,78,6° AM - BV,6º Ano,2,Matemática,323,THAYS SANTOS - BV - 2026,QUI,Quinta,10:15,11:05
+BV,79,6° BM - BV,6º Ano,44,Língua Portuguesa,324,LAURA MARIA - BV - 2026,QUI,Quinta,10:15,11:05
+BV,81,7° AM - BV,7º Ano,2,Matemática,250,BEATRIZ FÉLIX - BV - 2026,QUI,Quinta,10:15,11:05
+BV,83,7° BM - BV,7º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,QUI,Quinta,10:15,11:05
+BV,85,8° AM - BV,8º Ano,13,Redação,4,ARLINE VASCONCELOS - BV - 2026,QUI,Quinta,10:15,11:05
+BV,86,8° BM - BV,8º Ano,5,Ciências Naturais,90,BARTIRA ROCHA - BV - 2026,QUI,Quinta,10:15,11:05
+BV,88,9° AM - BV,9º Ano,11,Geografia,235,IVSON SANTOS - BV - 2026,QUI,Quinta,10:15,11:05
+BV,89,9° BM - BV,9º Ano,12,História,140,BARTOLOMEU JOSÉ - BV - 2026,QUI,Quinta,10:15,11:05
+BV,91,1ª A - EM - BV,1ª Série,16,Literatura,191,WILLIAM MACIEL - BV - 2026,QUI,Quinta,10:15,11:05
+BV,92,1ª B - EM - BV,1ª Série,4,Educação Física,22,OTÁVIO MASCENA - BV - 2026,QUI,Quinta,10:15,11:05
+BV,93,1ª C - EM - BV,1ª Série,19,Biologia 2,330,SANDRO CORDEIRO - BV - 2026,QUI,Quinta,10:15,11:05
+BV,78,6° AM - BV,6º Ano,2,Matemática,323,THAYS SANTOS - BV - 2026,QUI,Quinta,11:05,11:55
+BV,79,6° BM - BV,6º Ano,44,Língua Portuguesa,324,LAURA MARIA - BV - 2026,QUI,Quinta,11:05,11:55
+BV,81,7° AM - BV,7º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,QUI,Quinta,11:05,11:55
+BV,83,7° BM - BV,7º Ano,2,Matemática,250,BEATRIZ FÉLIX - BV - 2026,QUI,Quinta,11:05,11:55
+BV,85,8° AM - BV,8º Ano,5,Ciências Naturais,90,BARTIRA ROCHA - BV - 2026,QUI,Quinta,11:05,11:55
+BV,86,8° BM - BV,8º Ano,26,Matemática 2,340,BEATRIZ SOUZA  - BV - 2026,QUI,Quinta,11:05,11:55
+BV,88,9° AM - BV,9º Ano,12,História,140,BARTOLOMEU JOSÉ - BV - 2026,QUI,Quinta,11:05,11:55
+BV,89,9° BM - BV,9º Ano,14,Filosofia,317,FILIPE SILAS - BV - 2026,QUI,Quinta,11:05,11:55
+BV,91,1ª A - EM - BV,1ª Série,19,Biologia 2,330,SANDRO CORDEIRO - BV - 2026,QUI,Quinta,11:05,11:55
+BV,92,1ª B - EM - BV,1ª Série,16,Literatura,191,WILLIAM MACIEL - BV - 2026,QUI,Quinta,11:05,11:55
+BV,93,1ª C - EM - BV,1ª Série,17,Gramática,4,ARLINE VASCONCELOS - BV - 2026,QUI,Quinta,11:05,11:55
+BV,94,2ª A - EM - BV,2ª Série,11,Geografia,235,IVSON SANTOS - BV - 2026,QUI,Quinta,11:05,11:55
+BV,95,2ª B - EM - BV,2ª Série,26,Matemática 2,314,MÔNICA BASÍLIO - BV - 2026,QUI,Quinta,11:05,11:55
+BV,96,2ª C - EM - BV,2ª Série,17,Gramática,325,WANDRESSON ROCHA - BV - 2026,QUI,Quinta,11:05,11:55
+BV,97,3ª A - EM - BV,3ª Série,26,Matemática 2,319,VICTOR CALDAS - BV - 2025,QUI,Quinta,11:05,11:55
+BV,98,3ª B - EM - BV,3ª Série,22,Química 1,29,TATIANA MARQUES - BV - 2026,QUI,Quinta,11:05,11:55
+BV,85,8° AM - BV,8º Ano,5,Ciências Naturais,90,BARTIRA ROCHA - BV - 2026,QUI,Quinta,11:55,12:45
+BV,86,8° BM - BV,8º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,QUI,Quinta,11:55,12:45
+BV,88,9° AM - BV,9º Ano,11,Geografia,235,IVSON SANTOS - BV - 2026,QUI,Quinta,11:55,12:45
+BV,89,9° BM - BV,9º Ano,26,Matemática 2,250,BEATRIZ FÉLIX - BV - 2026,QUI,Quinta,11:55,12:45
+BV,91,1ª A - EM - BV,1ª Série,26,Matemática 2,314,MÔNICA BASÍLIO - BV - 2026,QUI,Quinta,11:55,12:45
+BV,92,1ª B - EM - BV,1ª Série,17,Gramática,4,ARLINE VASCONCELOS - BV - 2026,QUI,Quinta,11:55,12:45
+BV,93,1ª C - EM - BV,1ª Série,16,Literatura,191,WILLIAM MACIEL - BV - 2026,QUI,Quinta,11:55,12:45
+BV,94,2ª A - EM - BV,2ª Série,17,Gramática,325,WANDRESSON ROCHA - BV - 2026,QUI,Quinta,11:55,12:45
+BV,95,2ª B - EM - BV,2ª Série,6,Biologia 1,330,SANDRO CORDEIRO - BV - 2026,QUI,Quinta,11:55,12:45
+BV,96,2ª C - EM - BV,2ª Série,22,Química 1,29,TATIANA MARQUES - BV - 2026,QUI,Quinta,11:55,12:45
+BV,97,3ª A - EM - BV,3ª Série,14,Filosofia,317,FILIPE SILAS - BV - 2026,QUI,Quinta,11:55,12:45
+BV,98,3ª B - EM - BV,3ª Série,26,Matemática 2,319,VICTOR CALDAS - BV - 2025,QUI,Quinta,11:55,12:45
+BV,80,6° AT - BV,6º Ano,2,Matemática,10,NATÁLIA MOURA - BV - 2026,QUI,Quinta,13:15,14:05
+BV,84,7° AT - BV,7º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,QUI,Quinta,13:15,14:05
+BV,87,8° AT - BV,8º Ano,4,Educação Física,254,JULIO - ED. FÍSICA - BV - 2026,QUI,Quinta,13:15,14:05
+BV,90,9° AT - BV,9º Ano,3,Arte,285,KATARINA SILVA - BV - 2026,QUI,Quinta,13:15,14:05
+BV,80,6° AT - BV,6º Ano,3,Arte,285,KATARINA SILVA - BV - 2026,QUI,Quinta,14:05,14:55
+BV,84,7° AT - BV,7º Ano,2,Matemática,10,NATÁLIA MOURA - BV - 2026,QUI,Quinta,14:05,14:55
+BV,87,8° AT - BV,8º Ano,2,Matemática,5,CARLA VERÔNICA - BV - 2025,QUI,Quinta,14:05,14:55
+BV,90,9° AT - BV,9º Ano,4,Educação Física,254,JULIO - ED. FÍSICA - BV - 2026,QUI,Quinta,14:05,14:55
+BV,80,6° AT - BV,6º Ano,4,Educação Física,254,JULIO - ED. FÍSICA - BV - 2026,QUI,Quinta,15:15,16:05
+BV,84,7° AT - BV,7º Ano,2,Matemática,10,NATÁLIA MOURA - BV - 2026,QUI,Quinta,15:15,16:05
+BV,87,8° AT - BV,8º Ano,3,Arte,285,KATARINA SILVA - BV - 2026,QUI,Quinta,15:15,16:05
+BV,90,9° AT - BV,9º Ano,2,Matemática,5,CARLA VERÔNICA - BV - 2025,QUI,Quinta,15:15,16:05
+BV,80,6° AT - BV,6º Ano,2,Matemática,10,NATÁLIA MOURA - BV - 2026,QUI,Quinta,16:05,16:55
+BV,84,7° AT - BV,7º Ano,3,Arte,285,KATARINA SILVA - BV - 2026,QUI,Quinta,16:05,16:55
+BV,87,8° AT - BV,8º Ano,44,Língua Portuguesa,191,WILLIAM MACIEL - BV - 2026,QUI,Quinta,16:05,16:55
+BV,90,9° AT - BV,9º Ano,2,Matemática,5,CARLA VERÔNICA - BV - 2025,QUI,Quinta,16:05,16:55
+BV,80,6° AT - BV,6º Ano,2,Matemática,10,NATÁLIA MOURA - BV - 2026,QUI,Quinta,16:55,17:45
+BV,84,7° AT - BV,7º Ano,4,Educação Física,254,JULIO - ED. FÍSICA - BV - 2026,QUI,Quinta,16:55,17:45
+BV,87,8° AT - BV,8º Ano,44,Língua Portuguesa,191,WILLIAM MACIEL - BV - 2026,QUI,Quinta,16:55,17:45
+BV,90,9° AT - BV,9º Ano,2,Matemática,5,CARLA VERÔNICA - BV - 2025,QUI,Quinta,16:55,17:45
+BV,87,8° AT - BV,8º Ano,2,Matemática,5,CARLA VERÔNICA - BV - 2025,QUI,Quinta,17:45,18:35
+BV,90,9° AT - BV,9º Ano,44,Língua Portuguesa,191,WILLIAM MACIEL - BV - 2026,QUI,Quinta,17:45,18:35
+BV,78,6° AM - BV,6º Ano,2,Matemática,323,THAYS SANTOS - BV - 2026,SEX,Sexta,07:15,08:05
+BV,79,6° BM - BV,6º Ano,29,Projeto de Vida,315,ROMÁRIO PEREIRA - BV - 2026,SEX,Sexta,07:15,08:05
+BV,81,7° AM - BV,7º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,SEX,Sexta,07:15,08:05
+BV,83,7° BM - BV,7º Ano,5,Ciências Naturais,286,SUELLEN CINTIA - BV - 2026,SEX,Sexta,07:15,08:05
+BV,85,8° AM - BV,8º Ano,10,Língua Estrangeira Inglês,321,BRUNA BARROS - BV - 2026,SEX,Sexta,07:15,08:05
+BV,86,8° BM - BV,8º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,SEX,Sexta,07:15,08:05
+BV,88,9° AM - BV,9º Ano,12,História,140,BARTOLOMEU JOSÉ - BV - 2026,SEX,Sexta,07:15,08:05
+BV,89,9° BM - BV,9º Ano,44,Língua Portuguesa,281,DANILO LUCENA - BV - 2026,SEX,Sexta,07:15,08:05
+BV,91,1ª A - EM - BV,1ª Série,22,Química 1,27,RUBEM VITÓRIO  - BV - 2026,SEX,Sexta,07:15,08:05
+BV,92,1ª B - EM - BV,1ª Série,23,Física 1,287,DIEGO CALADO - BV - 2026,SEX,Sexta,07:15,08:05
+BV,93,1ª C - EM - BV,1ª Série,13,Redação,280,DIELLEN - BV - 2026,SEX,Sexta,07:15,08:05
+BV,94,2ª A - EM - BV,2ª Série,4,Educação Física,254,JULIO - ED. FÍSICA - BV - 2026,SEX,Sexta,07:15,08:05
+BV,95,2ª B - EM - BV,2ª Série,23,Física 1,316,TIAGO AUGUSTO - BV - 2026,SEX,Sexta,07:15,08:05
+BV,96,2ª C - EM - BV,2ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,SEX,Sexta,07:15,08:05
+BV,97,3ª A - EM - BV,3ª Série,6,Biologia 1,21,ANA CAROLINA MATOS - BV - 2026,SEX,Sexta,07:15,08:05
+BV,98,3ª B - EM - BV,3ª Série,39,Geografia 1,180,RAFAEL LEAL - BV - 2025,SEX,Sexta,07:15,08:05
+BV,78,6° AM - BV,6º Ano,5,Ciências Naturais,286,SUELLEN CINTIA - BV - 2026,SEX,Sexta,08:05,08:55
+BV,79,6° BM - BV,6º Ano,2,Matemática,323,THAYS SANTOS - BV - 2026,SEX,Sexta,08:05,08:55
+BV,81,7° AM - BV,7º Ano,4,Educação Física,254,JULIO - ED. FÍSICA - BV - 2026,SEX,Sexta,08:05,08:55
+BV,83,7° BM - BV,7º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,SEX,Sexta,08:05,08:55
+BV,85,8° AM - BV,8º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,SEX,Sexta,08:05,08:55
+BV,86,8° BM - BV,8º Ano,13,Redação,281,DANILO LUCENA - BV - 2026,SEX,Sexta,08:05,08:55
+BV,88,9° AM - BV,9º Ano,29,Projeto de Vida,315,ROMÁRIO PEREIRA - BV - 2026,SEX,Sexta,08:05,08:55
+BV,89,9° BM - BV,9º Ano,10,Língua Estrangeira Inglês,321,BRUNA BARROS - BV - 2026,SEX,Sexta,08:05,08:55
+BV,91,1ª A - EM - BV,1ª Série,13,Redação,280,DIELLEN - BV - 2026,SEX,Sexta,08:05,08:55
+BV,92,1ª B - EM - BV,1ª Série,22,Química 1,27,RUBEM VITÓRIO  - BV - 2026,SEX,Sexta,08:05,08:55
+BV,93,1ª C - EM - BV,1ª Série,6,Biologia 1,21,ANA CAROLINA MATOS - BV - 2026,SEX,Sexta,08:05,08:55
+BV,94,2ª A - EM - BV,2ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,SEX,Sexta,08:05,08:55
+BV,95,2ª B - EM - BV,2ª Série,36,História 1,140,BARTOLOMEU JOSÉ - BV - 2026,SEX,Sexta,08:05,08:55
+BV,96,2ª C - EM - BV,2ª Série,23,Física 1,316,TIAGO AUGUSTO - BV - 2026,SEX,Sexta,08:05,08:55
+BV,97,3ª A - EM - BV,3ª Série,40,Geografia 2,180,RAFAEL LEAL - BV - 2025,SEX,Sexta,08:05,08:55
+BV,98,3ª B - EM - BV,3ª Série,23,Física 1,287,DIEGO CALADO - BV - 2026,SEX,Sexta,08:05,08:55
+BV,88,9° AM - BV,9º Ano,44,Língua Portuguesa,281,DANILO LUCENA - BV - 2026,SEX,Sexta,08:55,09:45
+BV,89,9° BM - BV,9º Ano,7,Física,283,JOSAFARY CAMPELO - BV - 2026,SEX,Sexta,08:55,09:45
+BV,91,1ª A - EM - BV,1ª Série,18,Projeto de Vida,315,ROMÁRIO PEREIRA - BV - 2026,SEX,Sexta,08:55,09:45
+BV,92,1ª B - EM - BV,1ª Série,13,Redação,280,DIELLEN - BV - 2026,SEX,Sexta,08:55,09:45
+BV,93,1ª C - EM - BV,1ª Série,23,Física 1,287,DIEGO CALADO - BV - 2026,SEX,Sexta,08:55,09:45
+BV,94,2ª A - EM - BV,2ª Série,24,Física 2,316,TIAGO AUGUSTO - BV - 2026,SEX,Sexta,08:55,09:45
+BV,95,2ª B - EM - BV,2ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,SEX,Sexta,08:55,09:45
+BV,96,2ª C - EM - BV,2ª Série,36,História 1,140,BARTOLOMEU JOSÉ - BV - 2026,SEX,Sexta,08:55,09:45
+BV,97,3ª A - EM - BV,3ª Série,6,Biologia 1,21,ANA CAROLINA MATOS - BV - 2026,SEX,Sexta,08:55,09:45
+BV,98,3ª B - EM - BV,3ª Série,39,Geografia 1,180,RAFAEL LEAL - BV - 2025,SEX,Sexta,08:55,09:45
+BV,78,6° AM - BV,6º Ano,4,Educação Física,254,JULIO - ED. FÍSICA - BV - 2026,SEX,Sexta,09:25,10:15
+BV,79,6° BM - BV,6º Ano,12,História,8,LORENA OLIVEIRA - BV - 2026,SEX,Sexta,09:25,10:15
+BV,81,7° AM - BV,7º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,SEX,Sexta,09:25,10:15
+BV,83,7° BM - BV,7º Ano,5,Ciências Naturais,286,SUELLEN CINTIA - BV - 2026,SEX,Sexta,09:25,10:15
+BV,85,8° AM - BV,8º Ano,30,Raciocínio Lógico,323,THAYS SANTOS - BV - 2026,SEX,Sexta,09:25,10:15
+BV,86,8° BM - BV,8º Ano,10,Língua Estrangeira Inglês,321,BRUNA BARROS - BV - 2026,SEX,Sexta,09:25,10:15
+BV,94,2ª A - EM - BV,2ª Série,36,História 1,140,BARTOLOMEU JOSÉ - BV - 2026,SEX,Sexta,09:45,10:35
+BV,95,2ª B - EM - BV,2ª Série,24,Física 2,283,JOSAFARY CAMPELO - BV - 2026,SEX,Sexta,09:45,10:35
+BV,96,2ª C - EM - BV,2ª Série,18,Projeto de Vida,280,DIELLEN - BV - 2026,SEX,Sexta,09:45,10:35
+BV,97,3ª A - EM - BV,3ª Série,39,Geografia 1,180,RAFAEL LEAL - BV - 2025,SEX,Sexta,09:45,10:35
+BV,98,3ª B - EM - BV,3ª Série,24,Física 2,316,TIAGO AUGUSTO - BV - 2026,SEX,Sexta,09:45,10:35
+BV,78,6° AM - BV,6º Ano,30,Raciocínio Lógico,323,THAYS SANTOS - BV - 2026,SEX,Sexta,10:15,11:05
+BV,79,6° BM - BV,6º Ano,5,Ciências Naturais,286,SUELLEN CINTIA - BV - 2026,SEX,Sexta,10:15,11:05
+BV,81,7° AM - BV,7º Ano,2,Matemática,250,BEATRIZ FÉLIX - BV - 2026,SEX,Sexta,10:15,11:05
+BV,83,7° BM - BV,7º Ano,4,Educação Física,254,JULIO - ED. FÍSICA - BV - 2026,SEX,Sexta,10:15,11:05
+BV,85,8° AM - BV,8º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,SEX,Sexta,10:15,11:05
+BV,86,8° BM - BV,8º Ano,10,Língua Estrangeira Inglês,321,BRUNA BARROS - BV - 2026,SEX,Sexta,10:15,11:05
+BV,88,9° AM - BV,9º Ano,44,Língua Portuguesa,281,DANILO LUCENA - BV - 2026,SEX,Sexta,10:15,11:05
+BV,89,9° BM - BV,9º Ano,29,Projeto de Vida,315,ROMÁRIO PEREIRA - BV - 2026,SEX,Sexta,10:15,11:05
+BV,91,1ª A - EM - BV,1ª Série,6,Biologia 1,21,ANA CAROLINA MATOS - BV - 2026,SEX,Sexta,10:15,11:05
+BV,92,1ª B - EM - BV,1ª Série,36,História 1,8,LORENA OLIVEIRA - BV - 2026,SEX,Sexta,10:15,11:05
+BV,93,1ª C - EM - BV,1ª Série,23,Física 1,287,DIEGO CALADO - BV - 2026,SEX,Sexta,10:15,11:05
+BV,78,6° AM - BV,6º Ano,29,Projeto de Vida,315,ROMÁRIO PEREIRA - BV - 2026,SEX,Sexta,11:05,11:55
+BV,79,6° BM - BV,6º Ano,4,Educação Física,254,JULIO - ED. FÍSICA - BV - 2026,SEX,Sexta,11:05,11:55
+BV,81,7° AM - BV,7º Ano,5,Ciências Naturais,286,SUELLEN CINTIA - BV - 2026,SEX,Sexta,11:05,11:55
+BV,83,7° BM - BV,7º Ano,30,Raciocínio Lógico,323,THAYS SANTOS - BV - 2026,SEX,Sexta,11:05,11:55
+BV,85,8° AM - BV,8º Ano,10,Língua Estrangeira Inglês,321,BRUNA BARROS - BV - 2026,SEX,Sexta,11:05,11:55
+BV,86,8° BM - BV,8º Ano,44,Língua Portuguesa,148,LILIANE TAVEIROS - BV  - 2026,SEX,Sexta,11:05,11:55
+BV,88,9° AM - BV,9º Ano,26,Matemática 2,250,BEATRIZ FÉLIX - BV - 2026,SEX,Sexta,11:05,11:55
+BV,89,9° BM - BV,9º Ano,44,Língua Portuguesa,281,DANILO LUCENA - BV - 2026,SEX,Sexta,11:05,11:55
+BV,91,1ª A - EM - BV,1ª Série,36,História 1,8,LORENA OLIVEIRA - BV - 2026,SEX,Sexta,11:05,11:55
+BV,92,1ª B - EM - BV,1ª Série,6,Biologia 1,21,ANA CAROLINA MATOS - BV - 2026,SEX,Sexta,11:05,11:55
+BV,93,1ª C - EM - BV,1ª Série,18,Projeto de Vida,280,DIELLEN - BV - 2026,SEX,Sexta,11:05,11:55
+BV,94,2ª A - EM - BV,2ª Série,23,Física 1,316,TIAGO AUGUSTO - BV - 2026,SEX,Sexta,11:05,11:55
+BV,95,2ª B - EM - BV,2ª Série,36,História 1,140,BARTOLOMEU JOSÉ - BV - 2026,SEX,Sexta,11:05,11:55
+BV,96,2ª C - EM - BV,2ª Série,24,Física 2,283,JOSAFARY CAMPELO - BV - 2026,SEX,Sexta,11:05,11:55
+BV,97,3ª A - EM - BV,3ª Série,23,Física 1,287,DIEGO CALADO - BV - 2026,SEX,Sexta,11:05,11:55
+BV,98,3ª B - EM - BV,3ª Série,40,Geografia 2,180,RAFAEL LEAL - BV - 2025,SEX,Sexta,11:05,11:55
+BV,88,9° AM - BV,9º Ano,7,Física,283,JOSAFARY CAMPELO - BV - 2026,SEX,Sexta,11:55,12:45
+BV,89,9° BM - BV,9º Ano,10,Língua Estrangeira Inglês,321,BRUNA BARROS - BV - 2026,SEX,Sexta,11:55,12:45
+BV,91,1ª A - EM - BV,1ª Série,23,Física 1,287,DIEGO CALADO - BV - 2026,SEX,Sexta,11:55,12:45
+BV,92,1ª B - EM - BV,1ª Série,18,Projeto de Vida,315,ROMÁRIO PEREIRA - BV - 2026,SEX,Sexta,11:55,12:45
+BV,93,1ª C - EM - BV,1ª Série,36,História 1,8,LORENA OLIVEIRA - BV - 2026,SEX,Sexta,11:55,12:45
+BV,94,2ª A - EM - BV,2ª Série,25,Matemática 1,250,BEATRIZ FÉLIX - BV - 2026,SEX,Sexta,11:55,12:45
+BV,95,2ª B - EM - BV,2ª Série,13,Redação,280,DIELLEN - BV - 2026,SEX,Sexta,11:55,12:45
+BV,96,2ª C - EM - BV,2ª Série,23,Física 1,316,TIAGO AUGUSTO - BV - 2026,SEX,Sexta,11:55,12:45
+BV,97,3ª A - EM - BV,3ª Série,39,Geografia 1,180,RAFAEL LEAL - BV - 2025,SEX,Sexta,11:55,12:45
+BV,98,3ª B - EM - BV,3ª Série,6,Biologia 1,21,ANA CAROLINA MATOS - BV - 2026,SEX,Sexta,11:55,12:45
+BV,80,6° AT - BV,6º Ano,5,Ciências Naturais,318,IVALDO SANTOS - BV - 2026,SEX,Sexta,13:15,14:05
+BV,84,7° AT - BV,7º Ano,10,Língua Estrangeira Inglês,320,MONIK - BV - 2026,SEX,Sexta,13:15,14:05
+BV,87,8° AT - BV,8º Ano,30,Raciocínio Lógico,36,ORDEPE XAVIER - BV - 2026,SEX,Sexta,13:15,14:05
+BV,90,9° AT - BV,9º Ano,7,Física,283,JOSAFARY CAMPELO - BV - 2026,SEX,Sexta,13:15,14:05
+BV,80,6° AT - BV,6º Ano,10,Língua Estrangeira Inglês,320,MONIK - BV - 2026,SEX,Sexta,14:05,14:55
+BV,84,7° AT - BV,7º Ano,5,Ciências Naturais,318,IVALDO SANTOS - BV - 2026,SEX,Sexta,14:05,14:55
+BV,87,8° AT - BV,8º Ano,13,Redação,281,DANILO LUCENA - BV - 2026,SEX,Sexta,14:05,14:55
+BV,90,9° AT - BV,9º Ano,30,Raciocínio Lógico,36,ORDEPE XAVIER - BV - 2026,SEX,Sexta,14:05,14:55
+BV,80,6° AT - BV,6º Ano,30,Raciocínio Lógico,36,ORDEPE XAVIER - BV - 2026,SEX,Sexta,15:15,16:05
+BV,84,7° AT - BV,7º Ano,5,Ciências Naturais,318,IVALDO SANTOS - BV - 2026,SEX,Sexta,15:15,16:05
+BV,87,8° AT - BV,8º Ano,13,Redação,281,DANILO LUCENA - BV - 2026,SEX,Sexta,15:15,16:05
+BV,90,9° AT - BV,9º Ano,10,Língua Estrangeira Inglês,320,MONIK - BV - 2026,SEX,Sexta,15:15,16:05
+BV,80,6° AT - BV,6º Ano,5,Ciências Naturais,318,IVALDO SANTOS - BV - 2026,SEX,Sexta,16:05,16:55
+BV,84,7° AT - BV,7º Ano,10,Língua Estrangeira Inglês,320,MONIK - BV - 2026,SEX,Sexta,16:05,16:55
+BV,87,8° AT - BV,8º Ano,12,História,93,WILLIAMS RODRIGUES - BV - 2026,SEX,Sexta,16:05,16:55
+BV,90,9° AT - BV,9º Ano,13,Redação,281,DANILO LUCENA - BV - 2026,SEX,Sexta,16:05,16:55
+BV,80,6° AT - BV,6º Ano,10,Língua Estrangeira Inglês,320,MONIK - BV - 2026,SEX,Sexta,16:55,17:45
+BV,84,7° AT - BV,7º Ano,30,Raciocínio Lógico,36,ORDEPE XAVIER - BV - 2026,SEX,Sexta,16:55,17:45
+BV,87,8° AT - BV,8º Ano,12,História,93,WILLIAMS RODRIGUES - BV - 2026,SEX,Sexta,16:55,17:45
+BV,90,9° AT - BV,9º Ano,13,Redação,281,DANILO LUCENA - BV - 2026,SEX,Sexta,16:55,17:45
+BV,90,9° AT - BV,9º Ano,12,História,93,WILLIAMS RODRIGUES - BV - 2026,SEX,Sexta,17:45,18:35
+CD,78,6° AM - CD,6º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,SEG,Segunda,07:15,08:05
+CD,79,6° BM - CD,6º Ano,11,Geografia,59,FAGNER CARDOSO - TEEN 1 - 2026,SEG,Segunda,07:15,08:05
+CD,81,7° AM - CD,7º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,SEG,Segunda,07:15,08:05
+CD,83,7° BM - CD,7º Ano,5,Ciências Naturais,51,BARTIRA ROCHA - TEEN 1 - 2026,SEG,Segunda,07:15,08:05
+CD,85,8° AM - CD,8º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,SEG,Segunda,07:15,08:05
+CD,86,8° BM - CD,8º Ano,44,Língua Portuguesa,264,RISELDA BARRETO - TEEN 1 - 2026,SEG,Segunda,07:15,08:05
+CD,88,9° AM - CD,9º Ano,3,Arte,307,ARTE - TEEN 2 - 2026,SEG,Segunda,07:15,08:05
+CD,89,9° BM - CD,9º Ano,14,Filosofia,288,ANILTON SANTOS - TEEN 2 - 2026,SEG,Segunda,07:15,08:05
+CD,90,9° CM - CD,9º Ano,25,Matemática 1,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,07:15,08:05
+CD,91,1ª A - EM - CD,1ª Série,19,Biologia 2,86,ANA CAROLINA MATOS - TEEN 2 - 2026,SEG,Segunda,07:15,08:05
+CD,92,1ª B - EM - CD,1ª Série,16,Literatura,125,WILLIAM MACIEL - TEEN 2 - 2026,SEG,Segunda,07:15,08:05
+CD,93,1ª C - EM - CD,1ª Série,11,Geografia,298,ARIANE SILVA - TEEN 2 - 2026,SEG,Segunda,07:15,08:05
+CD,94,2ª A - EM - CD,2ª Série,26,Matemática 2,304,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,07:15,08:05
+CD,95,2ª B - EM - CD,2ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,SEG,Segunda,07:15,08:05
+CD,96,2ª C - EM - CD,2ª Série,16,Literatura,309,JULIANA CHAGAS - TEEN 2 - 2026,SEG,Segunda,07:15,08:05
+CD,97,3ª A - EM - CD,3ª Série,18,Projeto de Vida,308,PROJETO DE VIDA - TEEN 2 - 2026,SEG,Segunda,07:15,08:05
+CD,98,3ª B - EM - CD,3ª Série,4,Educação Física,267,CAIO FELLYPE - TEEN 2 - 2026,SEG,Segunda,07:15,08:05
+CD,99,3ª C - EM - CD,3ª Série,21,Química 2,84,TATIANA MARQUES - TEEN 2 - 2026,SEG,Segunda,07:15,08:05
+CD,78,6° AM - CD,6º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,SEG,Segunda,08:05,08:55
+CD,79,6° BM - CD,6º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,SEG,Segunda,08:05,08:55
+CD,81,7° AM - CD,7º Ano,11,Geografia,59,FAGNER CARDOSO - TEEN 1 - 2026,SEG,Segunda,08:05,08:55
+CD,83,7° BM - CD,7º Ano,5,Ciências Naturais,51,BARTIRA ROCHA - TEEN 1 - 2026,SEG,Segunda,08:05,08:55
+CD,85,8° AM - CD,8º Ano,44,Língua Portuguesa,264,RISELDA BARRETO - TEEN 1 - 2026,SEG,Segunda,08:05,08:55
+CD,86,8° BM - CD,8º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,SEG,Segunda,08:05,08:55
+CD,88,9° AM - CD,9º Ano,25,Matemática 1,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,08:05,08:55
+CD,89,9° BM - CD,9º Ano,45,Língua Portuguesa 1,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,SEG,Segunda,08:05,08:55
+CD,90,9° CM - CD,9º Ano,3,Arte,307,ARTE - TEEN 2 - 2026,SEG,Segunda,08:05,08:55
+CD,91,1ª A - EM - CD,1ª Série,14,Filosofia,288,ANILTON SANTOS - TEEN 2 - 2026,SEG,Segunda,08:05,08:55
+CD,92,1ª B - EM - CD,1ª Série,19,Biologia 2,86,ANA CAROLINA MATOS - TEEN 2 - 2026,SEG,Segunda,08:05,08:55
+CD,93,1ª C - EM - CD,1ª Série,18,Projeto de Vida,308,PROJETO DE VIDA - TEEN 2 - 2026,SEG,Segunda,08:05,08:55
+CD,94,2ª A - EM - CD,2ª Série,16,Literatura,309,JULIANA CHAGAS - TEEN 2 - 2026,SEG,Segunda,08:05,08:55
+CD,95,2ª B - EM - CD,2ª Série,26,Matemática 2,304,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,08:05,08:55
+CD,96,2ª C - EM - CD,2ª Série,4,Educação Física,267,CAIO FELLYPE - TEEN 2 - 2026,SEG,Segunda,08:05,08:55
+CD,97,3ª A - EM - CD,3ª Série,21,Química 2,84,TATIANA MARQUES - TEEN 2 - 2026,SEG,Segunda,08:05,08:55
+CD,98,3ª B - EM - CD,3ª Série,3,Arte,125,WILLIAM MACIEL - TEEN 2 - 2026,SEG,Segunda,08:05,08:55
+CD,99,3ª C - EM - CD,3ª Série,39,Geografia 1,298,ARIANE SILVA - TEEN 2 - 2026,SEG,Segunda,08:05,08:55
+CD,81,7° AM - CD,7º Ano,11,Geografia,59,FAGNER CARDOSO - TEEN 1 - 2026,SEG,Segunda,08:55,09:45
+CD,83,7° BM - CD,7º Ano,5,Ciências Naturais,51,BARTIRA ROCHA - TEEN 1 - 2026,SEG,Segunda,08:55,09:45
+CD,85,8° AM - CD,8º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,SEG,Segunda,08:55,09:45
+CD,86,8° BM - CD,8º Ano,44,Língua Portuguesa,264,RISELDA BARRETO - TEEN 1 - 2026,SEG,Segunda,08:55,09:45
+CD,88,9° AM - CD,9º Ano,14,Filosofia,288,ANILTON SANTOS - TEEN 2 - 2026,SEG,Segunda,08:55,09:45
+CD,89,9° BM - CD,9º Ano,30,Raciocínio Lógico,306,PROF. 3 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,08:55,09:45
+CD,90,9° CM - CD,9º Ano,33,Matemática 3,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,08:55,09:45
+CD,91,1ª A - EM - CD,1ª Série,3,Arte,307,ARTE - TEEN 2 - 2026,SEG,Segunda,08:55,09:45
+CD,92,1ª B - EM - CD,1ª Série,16,Literatura,125,WILLIAM MACIEL - TEEN 2 - 2026,SEG,Segunda,08:55,09:45
+CD,93,1ª C - EM - CD,1ª Série,4,Educação Física,267,CAIO FELLYPE - TEEN 2 - 2026,SEG,Segunda,08:55,09:45
+CD,94,2ª A - EM - CD,2ª Série,21,Química 2,84,TATIANA MARQUES - TEEN 2 - 2026,SEG,Segunda,08:55,09:45
+CD,95,2ª B - EM - CD,2ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,SEG,Segunda,08:55,09:45
+CD,96,2ª C - EM - CD,2ª Série,18,Projeto de Vida,308,PROJETO DE VIDA - TEEN 2 - 2026,SEG,Segunda,08:55,09:45
+CD,97,3ª A - EM - CD,3ª Série,39,Geografia 1,298,ARIANE SILVA - TEEN 2 - 2026,SEG,Segunda,08:55,09:45
+CD,98,3ª B - EM - CD,3ª Série,19,Biologia 2,86,ANA CAROLINA MATOS - TEEN 2 - 2026,SEG,Segunda,08:55,09:45
+CD,99,3ª C - EM - CD,3ª Série,26,Matemática 2,304,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,08:55,09:45
+CD,78,6° AM - CD,6º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,SEG,Segunda,09:25,10:15
+CD,79,6° BM - CD,6º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,SEG,Segunda,09:25,10:15
+CD,94,2ª A - EM - CD,2ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,SEG,Segunda,09:45,10:35
+CD,95,2ª B - EM - CD,2ª Série,18,Projeto de Vida,308,PROJETO DE VIDA - TEEN 2 - 2026,SEG,Segunda,09:45,10:35
+CD,96,2ª C - EM - CD,2ª Série,3,Arte,125,WILLIAM MACIEL - TEEN 2 - 2026,SEG,Segunda,09:45,10:35
+CD,97,3ª A - EM - CD,3ª Série,4,Educação Física,267,CAIO FELLYPE - TEEN 2 - 2026,SEG,Segunda,09:45,10:35
+CD,98,3ª B - EM - CD,3ª Série,26,Matemática 2,304,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,09:45,10:35
+CD,99,3ª C - EM - CD,3ª Série,21,Química 2,84,TATIANA MARQUES - TEEN 2 - 2026,SEG,Segunda,09:45,10:35
+CD,78,6° AM - CD,6º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,SEG,Segunda,10:15,11:05
+CD,79,6° BM - CD,6º Ano,11,Geografia,59,FAGNER CARDOSO - TEEN 1 - 2026,SEG,Segunda,10:15,11:05
+CD,81,7° AM - CD,7º Ano,5,Ciências Naturais,51,BARTIRA ROCHA - TEEN 1 - 2026,SEG,Segunda,10:15,11:05
+CD,83,7° BM - CD,7º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,SEG,Segunda,10:15,11:05
+CD,85,8° AM - CD,8º Ano,44,Língua Portuguesa,264,RISELDA BARRETO - TEEN 1 - 2026,SEG,Segunda,10:15,11:05
+CD,86,8° BM - CD,8º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,SEG,Segunda,10:15,11:05
+CD,88,9° AM - CD,9º Ano,30,Raciocínio Lógico,306,PROF. 3 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,10:15,11:05
+CD,89,9° BM - CD,9º Ano,25,Matemática 1,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,10:15,11:05
+CD,90,9° CM - CD,9º Ano,14,Filosofia,288,ANILTON SANTOS - TEEN 2 - 2026,SEG,Segunda,10:15,11:05
+CD,91,1ª A - EM - CD,1ª Série,11,Geografia,298,ARIANE SILVA - TEEN 2 - 2026,SEG,Segunda,10:15,11:05
+CD,92,1ª B - EM - CD,1ª Série,3,Arte,307,ARTE - TEEN 2 - 2026,SEG,Segunda,10:15,11:05
+CD,93,1ª C - EM - CD,1ª Série,19,Biologia 2,86,ANA CAROLINA MATOS - TEEN 2 - 2026,SEG,Segunda,10:15,11:05
+CD,78,6° AM - CD,6º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,SEG,Segunda,11:05,11:55
+CD,79,6° BM - CD,6º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,SEG,Segunda,11:05,11:55
+CD,81,7° AM - CD,7º Ano,5,Ciências Naturais,51,BARTIRA ROCHA - TEEN 1 - 2026,SEG,Segunda,11:05,11:55
+CD,83,7° BM - CD,7º Ano,11,Geografia,59,FAGNER CARDOSO - TEEN 1 - 2026,SEG,Segunda,11:05,11:55
+CD,85,8° AM - CD,8º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,SEG,Segunda,11:05,11:55
+CD,86,8° BM - CD,8º Ano,44,Língua Portuguesa,264,RISELDA BARRETO - TEEN 1 - 2026,SEG,Segunda,11:05,11:55
+CD,88,9° AM - CD,9º Ano,33,Matemática 3,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,11:05,11:55
+CD,89,9° BM - CD,9º Ano,3,Arte,307,ARTE - TEEN 2 - 2026,SEG,Segunda,11:05,11:55
+CD,90,9° CM - CD,9º Ano,30,Raciocínio Lógico,306,PROF. 3 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,11:05,11:55
+CD,91,1ª A - EM - CD,1ª Série,21,Química 2,84,TATIANA MARQUES - TEEN 2 - 2026,SEG,Segunda,11:05,11:55
+CD,92,1ª B - EM - CD,1ª Série,11,Geografia,298,ARIANE SILVA - TEEN 2 - 2026,SEG,Segunda,11:05,11:55
+CD,93,1ª C - EM - CD,1ª Série,14,Filosofia,288,ANILTON SANTOS - TEEN 2 - 2026,SEG,Segunda,11:05,11:55
+CD,94,2ª A - EM - CD,2ª Série,3,Arte,125,WILLIAM MACIEL - TEEN 2 - 2026,SEG,Segunda,11:05,11:55
+CD,95,2ª B - EM - CD,2ª Série,4,Educação Física,267,CAIO FELLYPE - TEEN 2 - 2026,SEG,Segunda,11:05,11:55
+CD,96,2ª C - EM - CD,2ª Série,26,Matemática 2,304,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,11:05,11:55
+CD,97,3ª A - EM - CD,3ª Série,19,Biologia 2,86,ANA CAROLINA MATOS - TEEN 2 - 2026,SEG,Segunda,11:05,11:55
+CD,98,3ª B - EM - CD,3ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,SEG,Segunda,11:05,11:55
+CD,99,3ª C - EM - CD,3ª Série,18,Projeto de Vida,308,PROJETO DE VIDA - TEEN 2 - 2026,SEG,Segunda,11:05,11:55
+CD,78,6° AM - CD,6º Ano,11,Geografia,59,FAGNER CARDOSO - TEEN 1 - 2026,SEG,Segunda,11:55,12:45
+CD,79,6° BM - CD,6º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,SEG,Segunda,11:55,12:45
+CD,91,1ª A - EM - CD,1ª Série,26,Matemática 2,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,11:55,12:45
+CD,92,1ª B - EM - CD,1ª Série,14,Filosofia,288,ANILTON SANTOS - TEEN 2 - 2026,SEG,Segunda,11:55,12:45
+CD,93,1ª C - EM - CD,1ª Série,3,Arte,307,ARTE - TEEN 2 - 2026,SEG,Segunda,11:55,12:45
+CD,94,2ª A - EM - CD,2ª Série,26,Matemática 2,304,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,SEG,Segunda,11:55,12:45
+CD,95,2ª B - EM - CD,2ª Série,3,Arte,125,WILLIAM MACIEL - TEEN 2 - 2026,SEG,Segunda,11:55,12:45
+CD,96,2ª C - EM - CD,2ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,SEG,Segunda,11:55,12:45
+CD,97,3ª A - EM - CD,3ª Série,21,Química 2,84,TATIANA MARQUES - TEEN 2 - 2026,SEG,Segunda,11:55,12:45
+CD,98,3ª B - EM - CD,3ª Série,39,Geografia 1,298,ARIANE SILVA - TEEN 2 - 2026,SEG,Segunda,11:55,12:45
+CD,99,3ª C - EM - CD,3ª Série,19,Biologia 2,86,ANA CAROLINA MATOS - TEEN 2 - 2026,SEG,Segunda,11:55,12:45
+CD,80,6° AT - CD,6º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,SEG,Segunda,13:15,14:05
+CD,84,7° AT - CD,7º Ano,11,Geografia,59,FAGNER CARDOSO - TEEN 1 - 2026,SEG,Segunda,13:15,14:05
+CD,87,8° AT - CD,8º Ano,44,Língua Portuguesa,38,NATÁLIA OLIVEIRA - TEEN 1 - 2026,SEG,Segunda,13:15,14:05
+CD,80,6° AT - CD,6º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,SEG,Segunda,14:05,14:55
+CD,84,7° AT - CD,7º Ano,44,Língua Portuguesa,38,NATÁLIA OLIVEIRA - TEEN 1 - 2026,SEG,Segunda,14:05,14:55
+CD,87,8° AT - CD,8º Ano,2,Matemática,266,VICTOR CALDAS - TEEN 1 - 2026,SEG,Segunda,14:05,14:55
+CD,80,6° AT - CD,6º Ano,11,Geografia,59,FAGNER CARDOSO - TEEN 1 - 2026,SEG,Segunda,15:15,16:05
+CD,84,7° AT - CD,7º Ano,2,Matemática,266,VICTOR CALDAS - TEEN 1 - 2026,SEG,Segunda,15:15,16:05
+CD,87,8° AT - CD,8º Ano,44,Língua Portuguesa,38,NATÁLIA OLIVEIRA - TEEN 1 - 2026,SEG,Segunda,15:15,16:05
+CD,80,6° AT - CD,6º Ano,44,Língua Portuguesa,38,NATÁLIA OLIVEIRA - TEEN 1 - 2026,SEG,Segunda,16:05,16:55
+CD,84,7° AT - CD,7º Ano,2,Matemática,266,VICTOR CALDAS - TEEN 1 - 2026,SEG,Segunda,16:05,16:55
+CD,87,8° AT - CD,8º Ano,39,Geografia 1,59,FAGNER CARDOSO - TEEN 1 - 2026,SEG,Segunda,16:05,16:55
+CD,80,6° AT - CD,6º Ano,11,Geografia,59,FAGNER CARDOSO - TEEN 1 - 2026,SEG,Segunda,16:55,17:45
+CD,84,7° AT - CD,7º Ano,44,Língua Portuguesa,38,NATÁLIA OLIVEIRA - TEEN 1 - 2026,SEG,Segunda,16:55,17:45
+CD,87,8° AT - CD,8º Ano,2,Matemática,266,VICTOR CALDAS - TEEN 1 - 2026,SEG,Segunda,16:55,17:45
+CD,80,6° AT - CD,6º Ano,44,Língua Portuguesa,38,NATÁLIA OLIVEIRA - TEEN 1 - 2026,SEG,Segunda,17:45,18:35
+CD,85,8° AM - CD,8º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,TER,Terça,07:15,08:05
+CD,86,8° BM - CD,8º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,TER,Terça,07:15,08:05
+CD,88,9° AM - CD,9º Ano,46,Língua Portuguesa 2,263,LILIANE TAVEIROS - TEEN 2 - 2026,TER,Terça,07:15,08:05
+CD,89,9° BM - CD,9º Ano,12,História,99,WILLIAMS RODRIGUES - TEEN 2 - 2026,TER,Terça,07:15,08:05
+CD,90,9° CM - CD,9º Ano,8,Química,44,EUCLIDES GARCIA - TEEN 2 - 2026,TER,Terça,07:15,08:05
+CD,91,1ª A - EM - CD,1ª Série,4,Educação Física,267,CAIO FELLYPE - TEEN 2 - 2026,TER,Terça,07:15,08:05
+CD,92,1ª B - EM - CD,1ª Série,21,Química 2,84,TATIANA MARQUES - TEEN 2 - 2026,TER,Terça,07:15,08:05
+CD,93,1ª C - EM - CD,1ª Série,13,Redação,299,LEILA FERNANDA - TEEN 2 - 2026,TER,Terça,07:15,08:05
+CD,94,2ª A - EM - CD,2ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,TER,Terça,07:15,08:05
+CD,95,2ª B - EM - CD,2ª Série,14,Filosofia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,TER,Terça,07:15,08:05
+CD,96,2ª C - EM - CD,2ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,TER,Terça,07:15,08:05
+CD,97,3ª A - EM - CD,3ª Série,24,Física 2,290,WELLINGTON JESUS - TEEN 2 - 2026,TER,Terça,07:15,08:05
+CD,98,3ª B - EM - CD,3ª Série,36,História 1,301,DIOGO BARRETO - TEEN 2 - 2026,TER,Terça,07:15,08:05
+CD,99,3ª C - EM - CD,3ª Série,12,História,269,FÁBIO EMMANUEL - TEEN 2 - 2026,TER,Terça,07:15,08:05
+CD,85,8° AM - CD,8º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,TER,Terça,08:05,08:55
+CD,86,8° BM - CD,8º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,TER,Terça,08:05,08:55
+CD,88,9° AM - CD,9º Ano,4,Educação Física,267,CAIO FELLYPE - TEEN 2 - 2026,TER,Terça,08:05,08:55
+CD,89,9° BM - CD,9º Ano,8,Química,44,EUCLIDES GARCIA - TEEN 2 - 2026,TER,Terça,08:05,08:55
+CD,90,9° CM - CD,9º Ano,12,História,99,WILLIAMS RODRIGUES - TEEN 2 - 2026,TER,Terça,08:05,08:55
+CD,91,1ª A - EM - CD,1ª Série,35,História 2,269,FÁBIO EMMANUEL - TEEN 2 - 2026,TER,Terça,08:05,08:55
+CD,92,1ª B - EM - CD,1ª Série,13,Redação,299,LEILA FERNANDA - TEEN 2 - 2026,TER,Terça,08:05,08:55
+CD,93,1ª C - EM - CD,1ª Série,21,Química 2,84,TATIANA MARQUES - TEEN 2 - 2026,TER,Terça,08:05,08:55
+CD,94,2ª A - EM - CD,2ª Série,14,Filosofia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,TER,Terça,08:05,08:55
+CD,95,2ª B - EM - CD,2ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,TER,Terça,08:05,08:55
+CD,96,2ª C - EM - CD,2ª Série,24,Física 2,290,WELLINGTON JESUS - TEEN 2 - 2026,TER,Terça,08:05,08:55
+CD,97,3ª A - EM - CD,3ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,TER,Terça,08:05,08:55
+CD,98,3ª B - EM - CD,3ª Série,36,História 1,301,DIOGO BARRETO - TEEN 2 - 2026,TER,Terça,08:05,08:55
+CD,99,3ª C - EM - CD,3ª Série,43,Redação,263,LILIANE TAVEIROS - TEEN 2 - 2026,TER,Terça,08:05,08:55
+CD,81,7° AM - CD,7º Ano,14,Filosofia,203,ADRIANO DO NASCIMENTO - TEEN 1 - 2026,TER,Terça,08:55,09:45
+CD,83,7° BM - CD,7º Ano,13,Redação,264,RISELDA BARRETO - TEEN 1 - 2026,TER,Terça,08:55,09:45
+CD,85,8° AM - CD,8º Ano,4,Educação Física,297,ED. FÍSICA - TEEN 1 - 2026,TER,Terça,08:55,09:45
+CD,86,8° BM - CD,8º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,TER,Terça,08:55,09:45
+CD,88,9° AM - CD,9º Ano,8,Química,44,EUCLIDES GARCIA - TEEN 2 - 2026,TER,Terça,08:55,09:45
+CD,89,9° BM - CD,9º Ano,12,História,99,WILLIAMS RODRIGUES - TEEN 2 - 2026,TER,Terça,08:55,09:45
+CD,90,9° CM - CD,9º Ano,46,Língua Portuguesa 2,263,LILIANE TAVEIROS - TEEN 2 - 2026,TER,Terça,08:55,09:45
+CD,91,1ª A - EM - CD,1ª Série,13,Redação,299,LEILA FERNANDA - TEEN 2 - 2026,TER,Terça,08:55,09:45
+CD,92,1ª B - EM - CD,1ª Série,35,História 2,269,FÁBIO EMMANUEL - TEEN 2 - 2026,TER,Terça,08:55,09:45
+CD,93,1ª C - EM - CD,1ª Série,24,Física 2,290,WELLINGTON JESUS - TEEN 2 - 2026,TER,Terça,08:55,09:45
+CD,94,2ª A - EM - CD,2ª Série,18,Projeto de Vida,308,PROJETO DE VIDA - TEEN 2 - 2026,TER,Terça,08:55,09:45
+CD,95,2ª B - EM - CD,2ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,TER,Terça,08:55,09:45
+CD,96,2ª C - EM - CD,2ª Série,21,Química 2,84,TATIANA MARQUES - TEEN 2 - 2026,TER,Terça,08:55,09:45
+CD,97,3ª A - EM - CD,3ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,TER,Terça,08:55,09:45
+CD,98,3ª B - EM - CD,3ª Série,15,Sociologia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,TER,Terça,08:55,09:45
+CD,99,3ª C - EM - CD,3ª Série,36,História 1,301,DIOGO BARRETO - TEEN 2 - 2026,TER,Terça,08:55,09:45
+CD,78,6° AM - CD,6º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,TER,Terça,09:25,10:15
+CD,79,6° BM - CD,6º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,TER,Terça,09:25,10:15
+CD,94,2ª A - EM - CD,2ª Série,19,Biologia 2,300,SANDRO CORDEIRO - TEEN 2 - 2026,TER,Terça,09:45,10:35
+CD,95,2ª B - EM - CD,2ª Série,24,Física 2,290,WELLINGTON JESUS - TEEN 2 - 2026,TER,Terça,09:45,10:35
+CD,96,2ª C - EM - CD,2ª Série,14,Filosofia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,TER,Terça,09:45,10:35
+CD,97,3ª A - EM - CD,3ª Série,36,História 1,301,DIOGO BARRETO - TEEN 2 - 2026,TER,Terça,09:45,10:35
+CD,98,3ª B - EM - CD,3ª Série,21,Química 2,84,TATIANA MARQUES - TEEN 2 - 2026,TER,Terça,09:45,10:35
+CD,99,3ª C - EM - CD,3ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,TER,Terça,09:45,10:35
+CD,78,6° AM - CD,6º Ano,14,Filosofia,203,ADRIANO DO NASCIMENTO - TEEN 1 - 2026,TER,Terça,10:15,11:05
+CD,79,6° BM - CD,6º Ano,29,Projeto de Vida,265,VANESSA CASSIMIRO - TEEN 1 - 2026,TER,Terça,10:15,11:05
+CD,81,7° AM - CD,7º Ano,13,Redação,264,RISELDA BARRETO - TEEN 1 - 2026,TER,Terça,10:15,11:05
+CD,83,7° BM - CD,7º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,TER,Terça,10:15,11:05
+CD,85,8° AM - CD,8º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,TER,Terça,10:15,11:05
+CD,86,8° BM - CD,8º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,TER,Terça,10:15,11:05
+CD,88,9° AM - CD,9º Ano,46,Língua Portuguesa 2,263,LILIANE TAVEIROS - TEEN 2 - 2026,TER,Terça,10:15,11:05
+CD,89,9° BM - CD,9º Ano,4,Educação Física,267,CAIO FELLYPE - TEEN 2 - 2026,TER,Terça,10:15,11:05
+CD,90,9° CM - CD,9º Ano,12,História,99,WILLIAMS RODRIGUES - TEEN 2 - 2026,TER,Terça,10:15,11:05
+CD,91,1ª A - EM - CD,1ª Série,13,Redação,299,LEILA FERNANDA - TEEN 2 - 2026,TER,Terça,10:15,11:05
+CD,92,1ª B - EM - CD,1ª Série,18,Projeto de Vida,308,PROJETO DE VIDA - TEEN 2 - 2026,TER,Terça,10:15,11:05
+CD,93,1ª C - EM - CD,1ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,TER,Terça,10:15,11:05
+CD,78,6° AM - CD,6º Ano,29,Projeto de Vida,265,VANESSA CASSIMIRO - TEEN 1 - 2026,TER,Terça,11:05,11:55
+CD,79,6° BM - CD,6º Ano,14,Filosofia,203,ADRIANO DO NASCIMENTO - TEEN 1 - 2026,TER,Terça,11:05,11:55
+CD,81,7° AM - CD,7º Ano,13,Redação,264,RISELDA BARRETO - TEEN 1 - 2026,TER,Terça,11:05,11:55
+CD,83,7° BM - CD,7º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,TER,Terça,11:05,11:55
+CD,85,8° AM - CD,8º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,TER,Terça,11:05,11:55
+CD,86,8° BM - CD,8º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,TER,Terça,11:05,11:55
+CD,88,9° AM - CD,9º Ano,12,História,99,WILLIAMS RODRIGUES - TEEN 2 - 2026,TER,Terça,11:05,11:55
+CD,89,9° BM - CD,9º Ano,46,Língua Portuguesa 2,263,LILIANE TAVEIROS - TEEN 2 - 2026,TER,Terça,11:05,11:55
+CD,90,9° CM - CD,9º Ano,4,Educação Física,267,CAIO FELLYPE - TEEN 2 - 2026,TER,Terça,11:05,11:55
+CD,91,1ª A - EM - CD,1ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,TER,Terça,11:05,11:55
+CD,92,1ª B - EM - CD,1ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,TER,Terça,11:05,11:55
+CD,93,1ª C - EM - CD,1ª Série,13,Redação,299,LEILA FERNANDA - TEEN 2 - 2026,TER,Terça,11:05,11:55
+CD,94,2ª A - EM - CD,2ª Série,24,Física 2,290,WELLINGTON JESUS - TEEN 2 - 2026,TER,Terça,11:05,11:55
+CD,95,2ª B - EM - CD,2ª Série,21,Química 2,84,TATIANA MARQUES - TEEN 2 - 2026,TER,Terça,11:05,11:55
+CD,96,2ª C - EM - CD,2ª Série,19,Biologia 2,300,SANDRO CORDEIRO - TEEN 2 - 2026,TER,Terça,11:05,11:55
+CD,97,3ª A - EM - CD,3ª Série,12,História,269,FÁBIO EMMANUEL - TEEN 2 - 2026,TER,Terça,11:05,11:55
+CD,98,3ª B - EM - CD,3ª Série,18,Projeto de Vida,308,PROJETO DE VIDA - TEEN 2 - 2026,TER,Terça,11:05,11:55
+CD,99,3ª C - EM - CD,3ª Série,14,Filosofia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,TER,Terça,11:05,11:55
+CD,81,7° AM - CD,7º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,TER,Terça,11:55,12:45
+CD,83,7° BM - CD,7º Ano,14,Filosofia,203,ADRIANO DO NASCIMENTO - TEEN 1 - 2026,TER,Terça,11:55,12:45
+CD,91,1ª A - EM - CD,1ª Série,18,Projeto de Vida,308,PROJETO DE VIDA - TEEN 2 - 2026,TER,Terça,11:55,12:45
+CD,92,1ª B - EM - CD,1ª Série,13,Redação,299,LEILA FERNANDA - TEEN 2 - 2026,TER,Terça,11:55,12:45
+CD,93,1ª C - EM - CD,1ª Série,35,História 2,269,FÁBIO EMMANUEL - TEEN 2 - 2026,TER,Terça,11:55,12:45
+CD,94,2ª A - EM - CD,2ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,TER,Terça,11:55,12:45
+CD,95,2ª B - EM - CD,2ª Série,19,Biologia 2,300,SANDRO CORDEIRO - TEEN 2 - 2026,TER,Terça,11:55,12:45
+CD,96,2ª C - EM - CD,2ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,TER,Terça,11:55,12:45
+CD,97,3ª A - EM - CD,3ª Série,43,Redação,263,LILIANE TAVEIROS - TEEN 2 - 2026,TER,Terça,11:55,12:45
+CD,98,3ª B - EM - CD,3ª Série,21,Química 2,84,TATIANA MARQUES - TEEN 2 - 2026,TER,Terça,11:55,12:45
+CD,99,3ª C - EM - CD,3ª Série,24,Física 2,290,WELLINGTON JESUS - TEEN 2 - 2026,TER,Terça,11:55,12:45
+CD,87,8° AT - CD,8º Ano,2,Matemática,266,VICTOR CALDAS - TEEN 1 - 2026,TER,Terça,13:15,14:05
+CD,87,8° AT - CD,8º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,TER,Terça,14:05,14:55
+CD,80,6° AT - CD,6º Ano,29,Projeto de Vida,265,VANESSA CASSIMIRO - TEEN 1 - 2026,TER,Terça,15:15,16:05
+CD,84,7° AT - CD,7º Ano,2,Matemática,266,VICTOR CALDAS - TEEN 1 - 2026,TER,Terça,15:15,16:05
+CD,87,8° AT - CD,8º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,TER,Terça,15:15,16:05
+CD,80,6° AT - CD,6º Ano,14,Filosofia,203,ADRIANO DO NASCIMENTO - TEEN 1 - 2026,TER,Terça,16:05,16:55
+CD,84,7° AT - CD,7º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,TER,Terça,16:05,16:55
+CD,87,8° AT - CD,8º Ano,2,Matemática,266,VICTOR CALDAS - TEEN 1 - 2026,TER,Terça,16:05,16:55
+CD,80,6° AT - CD,6º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,TER,Terça,16:55,17:45
+CD,84,7° AT - CD,7º Ano,2,Matemática,266,VICTOR CALDAS - TEEN 1 - 2026,TER,Terça,16:55,17:45
+CD,87,8° AT - CD,8º Ano,14,Filosofia,203,ADRIANO DO NASCIMENTO - TEEN 1 - 2026,TER,Terça,16:55,17:45
+CD,84,7° AT - CD,7º Ano,14,Filosofia,203,ADRIANO DO NASCIMENTO - TEEN 1 - 2026,TER,Terça,17:45,18:35
+CD,78,6° AM - CD,6º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUA,Quarta,07:15,08:05
+CD,79,6° BM - CD,6º Ano,44,Língua Portuguesa,293,POLLYANA ROSA - TEEN 1 - 2026,QUA,Quarta,07:15,08:05
+CD,81,7° AM - CD,7º Ano,5,Ciências Naturais,51,BARTIRA ROCHA - TEEN 1 - 2026,QUA,Quarta,07:15,08:05
+CD,83,7° BM - CD,7º Ano,2,Matemática,295,ORLANDO ALVINO - TEEN 1 - 2026,QUA,Quarta,07:15,08:05
+CD,91,1ª A - EM - CD,1ª Série,10,Língua Estrangeira Inglês,75,ELIANE SERRA - TEEN 2 - 2026,QUA,Quarta,07:15,08:05
+CD,92,1ª B - EM - CD,1ª Série,26,Matemática 2,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,QUA,Quarta,07:15,08:05
+CD,93,1ª C - EM - CD,1ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,QUA,Quarta,07:15,08:05
+CD,94,2ª A - EM - CD,2ª Série,4,Educação Física,267,CAIO FELLYPE - TEEN 2 - 2026,QUA,Quarta,07:15,08:05
+CD,95,2ª B - EM - CD,2ª Série,36,História 1,78,DIEGO RODRIGUES - TEEN 2 - 2026,QUA,Quarta,07:15,08:05
+CD,96,2ª C - EM - CD,2ª Série,11,Geografia,302,FÁBIO MOTTA - TEEN 2 - 2026,QUA,Quarta,07:15,08:05
+CD,97,3ª A - EM - CD,3ª Série,13,Redação,85,VERIDIANA ROCHA - TEEN 2 - 2026,QUA,Quarta,07:15,08:05
+CD,98,3ª B - EM - CD,3ª Série,40,Geografia 2,122,FAGNER CARDOSO - TEEN 2 - 2026,QUA,Quarta,07:15,08:05
+CD,99,3ª C - EM - CD,3ª Série,39,Geografia 1,298,ARIANE SILVA - TEEN 2 - 2026,QUA,Quarta,07:15,08:05
+CD,78,6° AM - CD,6º Ano,44,Língua Portuguesa,293,POLLYANA ROSA - TEEN 1 - 2026,QUA,Quarta,08:05,08:55
+CD,79,6° BM - CD,6º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUA,Quarta,08:05,08:55
+CD,81,7° AM - CD,7º Ano,2,Matemática,295,ORLANDO ALVINO - TEEN 1 - 2026,QUA,Quarta,08:05,08:55
+CD,83,7° BM - CD,7º Ano,13,Redação,264,RISELDA BARRETO - TEEN 1 - 2026,QUA,Quarta,08:05,08:55
+CD,91,1ª A - EM - CD,1ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,QUA,Quarta,08:05,08:55
+CD,92,1ª B - EM - CD,1ª Série,10,Língua Estrangeira Inglês,75,ELIANE SERRA - TEEN 2 - 2026,QUA,Quarta,08:05,08:55
+CD,93,1ª C - EM - CD,1ª Série,26,Matemática 2,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,QUA,Quarta,08:05,08:55
+CD,94,2ª A - EM - CD,2ª Série,11,Geografia,302,FÁBIO MOTTA - TEEN 2 - 2026,QUA,Quarta,08:05,08:55
+CD,95,2ª B - EM - CD,2ª Série,13,Redação,85,VERIDIANA ROCHA - TEEN 2 - 2026,QUA,Quarta,08:05,08:55
+CD,96,2ª C - EM - CD,2ª Série,36,História 1,78,DIEGO RODRIGUES - TEEN 2 - 2026,QUA,Quarta,08:05,08:55
+CD,97,3ª A - EM - CD,3ª Série,40,Geografia 2,122,FAGNER CARDOSO - TEEN 2 - 2026,QUA,Quarta,08:05,08:55
+CD,98,3ª B - EM - CD,3ª Série,39,Geografia 1,298,ARIANE SILVA - TEEN 2 - 2026,QUA,Quarta,08:05,08:55
+CD,99,3ª C - EM - CD,3ª Série,4,Educação Física,267,CAIO FELLYPE - TEEN 2 - 2026,QUA,Quarta,08:05,08:55
+CD,81,7° AM - CD,7º Ano,44,Língua Portuguesa,260,ARLINE VASCONCELOS - TEEN 1 - 2026,QUA,Quarta,08:55,09:45
+CD,83,7° BM - CD,7º Ano,30,Raciocínio Lógico,295,ORLANDO ALVINO - TEEN 1 - 2026,QUA,Quarta,08:55,09:45
+CD,85,8° AM - CD,8º Ano,44,Língua Portuguesa,264,RISELDA BARRETO - TEEN 1 - 2026,QUA,Quarta,08:55,09:45
+CD,86,8° BM - CD,8º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUA,Quarta,08:55,09:45
+CD,88,9° AM - CD,9º Ano,11,Geografia,122,FAGNER CARDOSO - TEEN 2 - 2026,QUA,Quarta,08:55,09:45
+CD,89,9° BM - CD,9º Ano,12,História,99,WILLIAMS RODRIGUES - TEEN 2 - 2026,QUA,Quarta,08:55,09:45
+CD,90,9° CM - CD,9º Ano,13,Redação,256,DIELLEN - TEEN 2 - 2026,QUA,Quarta,08:55,09:45
+CD,91,1ª A - EM - CD,1ª Série,11,Geografia,298,ARIANE SILVA - TEEN 2 - 2026,QUA,Quarta,08:55,09:45
+CD,92,1ª B - EM - CD,1ª Série,4,Educação Física,267,CAIO FELLYPE - TEEN 2 - 2026,QUA,Quarta,08:55,09:45
+CD,93,1ª C - EM - CD,1ª Série,26,Matemática 2,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,QUA,Quarta,08:55,09:45
+CD,94,2ª A - EM - CD,2ª Série,13,Redação,85,VERIDIANA ROCHA - TEEN 2 - 2026,QUA,Quarta,08:55,09:45
+CD,95,2ª B - EM - CD,2ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,QUA,Quarta,08:55,09:45
+CD,96,2ª C - EM - CD,2ª Série,11,Geografia,302,FÁBIO MOTTA - TEEN 2 - 2026,QUA,Quarta,08:55,09:45
+CD,97,3ª A - EM - CD,3ª Série,35,História 2,78,DIEGO RODRIGUES - TEEN 2 - 2026,QUA,Quarta,08:55,09:45
+CD,98,3ª B - EM - CD,3ª Série,10,Língua Estrangeira Inglês,75,ELIANE SERRA - TEEN 2 - 2026,QUA,Quarta,08:55,09:45
+CD,99,3ª C - EM - CD,3ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,QUA,Quarta,08:55,09:45
+CD,78,6° AM - CD,6º Ano,44,Língua Portuguesa,293,POLLYANA ROSA - TEEN 1 - 2026,QUA,Quarta,09:25,10:15
+CD,79,6° BM - CD,6º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,QUA,Quarta,09:25,10:15
+CD,94,2ª A - EM - CD,2ª Série,6,Biologia 1,96,BARTIRA ROCHA - TEEN 2 - 2026,QUA,Quarta,09:45,10:35
+CD,95,2ª B - EM - CD,2ª Série,11,Geografia,302,FÁBIO MOTTA - TEEN 2 - 2026,QUA,Quarta,09:45,10:35
+CD,96,2ª C - EM - CD,2ª Série,10,Língua Estrangeira Inglês,75,ELIANE SERRA - TEEN 2 - 2026,QUA,Quarta,09:45,10:35
+CD,97,3ª A - EM - CD,3ª Série,39,Geografia 1,298,ARIANE SILVA - TEEN 2 - 2026,QUA,Quarta,09:45,10:35
+CD,98,3ª B - EM - CD,3ª Série,13,Redação,85,VERIDIANA ROCHA - TEEN 2 - 2026,QUA,Quarta,09:45,10:35
+CD,99,3ª C - EM - CD,3ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,QUA,Quarta,09:45,10:35
+CD,78,6° AM - CD,6º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,QUA,Quarta,10:15,11:05
+CD,79,6° BM - CD,6º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUA,Quarta,10:15,11:05
+CD,81,7° AM - CD,7º Ano,2,Matemática,295,ORLANDO ALVINO - TEEN 1 - 2026,QUA,Quarta,10:15,11:05
+CD,83,7° BM - CD,7º Ano,44,Língua Portuguesa,260,ARLINE VASCONCELOS - TEEN 1 - 2026,QUA,Quarta,10:15,11:05
+CD,85,8° AM - CD,8º Ano,13,Redação,293,POLLYANA ROSA - TEEN 1 - 2026,QUA,Quarta,10:15,11:05
+CD,86,8° BM - CD,8º Ano,44,Língua Portuguesa,264,RISELDA BARRETO - TEEN 1 - 2026,QUA,Quarta,10:15,11:05
+CD,88,9° AM - CD,9º Ano,12,História,99,WILLIAMS RODRIGUES - TEEN 2 - 2026,QUA,Quarta,10:15,11:05
+CD,89,9° BM - CD,9º Ano,13,Redação,256,DIELLEN - TEEN 2 - 2026,QUA,Quarta,10:15,11:05
+CD,90,9° CM - CD,9º Ano,11,Geografia,122,FAGNER CARDOSO - TEEN 2 - 2026,QUA,Quarta,10:15,11:05
+CD,91,1ª A - EM - CD,1ª Série,26,Matemática 2,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,QUA,Quarta,10:15,11:05
+CD,92,1ª B - EM - CD,1ª Série,36,História 1,78,DIEGO RODRIGUES - TEEN 2 - 2026,QUA,Quarta,10:15,11:05
+CD,93,1ª C - EM - CD,1ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,QUA,Quarta,10:15,11:05
+CD,78,6° AM - CD,6º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUA,Quarta,11:05,11:55
+CD,79,6° BM - CD,6º Ano,44,Língua Portuguesa,293,POLLYANA ROSA - TEEN 1 - 2026,QUA,Quarta,11:05,11:55
+CD,81,7° AM - CD,7º Ano,44,Língua Portuguesa,260,ARLINE VASCONCELOS - TEEN 1 - 2026,QUA,Quarta,11:05,11:55
+CD,83,7° BM - CD,7º Ano,2,Matemática,295,ORLANDO ALVINO - TEEN 1 - 2026,QUA,Quarta,11:05,11:55
+CD,85,8° AM - CD,8º Ano,44,Língua Portuguesa,264,RISELDA BARRETO - TEEN 1 - 2026,QUA,Quarta,11:05,11:55
+CD,86,8° BM - CD,8º Ano,14,Filosofia,210,ANILTON SANTOS - TEEN 1 - 2026,QUA,Quarta,11:05,11:55
+CD,88,9° AM - CD,9º Ano,13,Redação,256,DIELLEN - TEEN 2 - 2026,QUA,Quarta,11:05,11:55
+CD,89,9° BM - CD,9º Ano,33,Matemática 3,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,QUA,Quarta,11:05,11:55
+CD,90,9° CM - CD,9º Ano,12,História,99,WILLIAMS RODRIGUES - TEEN 2 - 2026,QUA,Quarta,11:05,11:55
+CD,91,1ª A - EM - CD,1ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,QUA,Quarta,11:05,11:55
+CD,92,1ª B - EM - CD,1ª Série,11,Geografia,298,ARIANE SILVA - TEEN 2 - 2026,QUA,Quarta,11:05,11:55
+CD,93,1ª C - EM - CD,1ª Série,36,História 1,78,DIEGO RODRIGUES - TEEN 2 - 2026,QUA,Quarta,11:05,11:55
+CD,94,2ª A - EM - CD,2ª Série,11,Geografia,302,FÁBIO MOTTA - TEEN 2 - 2026,QUA,Quarta,11:05,11:55
+CD,95,2ª B - EM - CD,2ª Série,6,Biologia 1,96,BARTIRA ROCHA - TEEN 2 - 2026,QUA,Quarta,11:05,11:55
+CD,96,2ª C - EM - CD,2ª Série,13,Redação,85,VERIDIANA ROCHA - TEEN 2 - 2026,QUA,Quarta,11:05,11:55
+CD,97,3ª A - EM - CD,3ª Série,10,Língua Estrangeira Inglês,75,ELIANE SERRA - TEEN 2 - 2026,QUA,Quarta,11:05,11:55
+CD,98,3ª B - EM - CD,3ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,QUA,Quarta,11:05,11:55
+CD,99,3ª C - EM - CD,3ª Série,40,Geografia 2,122,FAGNER CARDOSO - TEEN 2 - 2026,QUA,Quarta,11:05,11:55
+CD,85,8° AM - CD,8º Ano,14,Filosofia,210,ANILTON SANTOS - TEEN 1 - 2026,QUA,Quarta,11:55,12:45
+CD,86,8° BM - CD,8º Ano,13,Redação,293,POLLYANA ROSA - TEEN 1 - 2026,QUA,Quarta,11:55,12:45
+CD,88,9° AM - CD,9º Ano,12,História,99,WILLIAMS RODRIGUES - TEEN 2 - 2026,QUA,Quarta,11:55,12:45
+CD,89,9° BM - CD,9º Ano,11,Geografia,122,FAGNER CARDOSO - TEEN 2 - 2026,QUA,Quarta,11:55,12:45
+CD,90,9° CM - CD,9º Ano,13,Redação,256,DIELLEN - TEEN 2 - 2026,QUA,Quarta,11:55,12:45
+CD,91,1ª A - EM - CD,1ª Série,36,História 1,78,DIEGO RODRIGUES - TEEN 2 - 2026,QUA,Quarta,11:55,12:45
+CD,92,1ª B - EM - CD,1ª Série,26,Matemática 2,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,QUA,Quarta,11:55,12:45
+CD,93,1ª C - EM - CD,1ª Série,11,Geografia,298,ARIANE SILVA - TEEN 2 - 2026,QUA,Quarta,11:55,12:45
+CD,94,2ª A - EM - CD,2ª Série,10,Língua Estrangeira Inglês,75,ELIANE SERRA - TEEN 2 - 2026,QUA,Quarta,11:55,12:45
+CD,95,2ª B - EM - CD,2ª Série,11,Geografia,302,FÁBIO MOTTA - TEEN 2 - 2026,QUA,Quarta,11:55,12:45
+CD,96,2ª C - EM - CD,2ª Série,6,Biologia 1,96,BARTIRA ROCHA - TEEN 2 - 2026,QUA,Quarta,11:55,12:45
+CD,97,3ª A - EM - CD,3ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,QUA,Quarta,11:55,12:45
+CD,98,3ª B - EM - CD,3ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,QUA,Quarta,11:55,12:45
+CD,99,3ª C - EM - CD,3ª Série,13,Redação,85,VERIDIANA ROCHA - TEEN 2 - 2026,QUA,Quarta,11:55,12:45
+CD,80,6° AT - CD,6º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,QUA,Quarta,13:15,14:05
+CD,84,7° AT - CD,7º Ano,44,Língua Portuguesa,38,NATÁLIA OLIVEIRA - TEEN 1 - 2026,QUA,Quarta,13:15,14:05
+CD,80,6° AT - CD,6º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,QUA,Quarta,14:05,14:55
+CD,84,7° AT - CD,7º Ano,44,Língua Portuguesa,38,NATÁLIA OLIVEIRA - TEEN 1 - 2026,QUA,Quarta,14:05,14:55
+CD,80,6° AT - CD,6º Ano,44,Língua Portuguesa,38,NATÁLIA OLIVEIRA - TEEN 1 - 2026,QUA,Quarta,15:15,16:05
+CD,84,7° AT - CD,7º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUA,Quarta,15:15,16:05
+CD,87,8° AT - CD,8º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUA,Quarta,15:15,16:05
+CD,80,6° AT - CD,6º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUA,Quarta,16:05,16:55
+CD,84,7° AT - CD,7º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUA,Quarta,16:05,16:55
+CD,87,8° AT - CD,8º Ano,44,Língua Portuguesa,38,NATÁLIA OLIVEIRA - TEEN 1 - 2026,QUA,Quarta,16:05,16:55
+CD,80,6° AT - CD,6º Ano,44,Língua Portuguesa,38,NATÁLIA OLIVEIRA - TEEN 1 - 2026,QUA,Quarta,16:55,17:45
+CD,84,7° AT - CD,7º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUA,Quarta,16:55,17:45
+CD,87,8° AT - CD,8º Ano,2,Matemática,266,VICTOR CALDAS - TEEN 1 - 2026,QUA,Quarta,16:55,17:45
+CD,87,8° AT - CD,8º Ano,44,Língua Portuguesa,38,NATÁLIA OLIVEIRA - TEEN 1 - 2026,QUA,Quarta,17:45,18:35
+CD,78,6° AM - CD,6º Ano,44,Língua Portuguesa,293,POLLYANA ROSA - TEEN 1 - 2026,QUI,Quinta,07:15,08:05
+CD,79,6° BM - CD,6º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,QUI,Quinta,07:15,08:05
+CD,81,7° AM - CD,7º Ano,2,Matemática,295,ORLANDO ALVINO - TEEN 1 - 2026,QUI,Quinta,07:15,08:05
+CD,83,7° BM - CD,7º Ano,11,Geografia,59,FAGNER CARDOSO - TEEN 1 - 2026,QUI,Quinta,07:15,08:05
+CD,85,8° AM - CD,8º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUI,Quinta,07:15,08:05
+CD,86,8° BM - CD,8º Ano,3,Arte,291,SAMARA VASCONCELOS - TEEN 1 - 2026,QUI,Quinta,07:15,08:05
+CD,88,9° AM - CD,9º Ano,13,Redação,256,DIELLEN - TEEN 2 - 2026,QUI,Quinta,07:15,08:05
+CD,89,9° BM - CD,9º Ano,45,Língua Portuguesa 1,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,QUI,Quinta,07:15,08:05
+CD,90,9° CM - CD,9º Ano,46,Língua Portuguesa 2,263,LILIANE TAVEIROS - TEEN 2 - 2026,QUI,Quinta,07:15,08:05
+CD,91,1ª A - EM - CD,1ª Série,23,Física 1,270,MÁRCIO PEREIRA - TEEN 2 - 2026,QUI,Quinta,07:15,08:05
+CD,92,1ª B - EM - CD,1ª Série,6,Biologia 1,289,FILIPE ALBERTO - TEEN 2 - 2026,QUI,Quinta,07:15,08:05
+CD,93,1ª C - EM - CD,1ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,QUI,Quinta,07:15,08:05
+CD,94,2ª A - EM - CD,2ª Série,36,História 1,78,DIEGO RODRIGUES - TEEN 2 - 2026,QUI,Quinta,07:15,08:05
+CD,95,2ª B - EM - CD,2ª Série,16,Literatura,309,JULIANA CHAGAS - TEEN 2 - 2026,QUI,Quinta,07:15,08:05
+CD,96,2ª C - EM - CD,2ª Série,15,Sociologia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,QUI,Quinta,07:15,08:05
+CD,97,3ª A - EM - CD,3ª Série,23,Física 1,77,TIAGO AUGUSTO - TEEN 2 - 2026,QUI,Quinta,07:15,08:05
+CD,98,3ª B - EM - CD,3ª Série,6,Biologia 1,49,FERNANDA ALDA - TEEN 2 - 2026,QUI,Quinta,07:15,08:05
+CD,99,3ª C - EM - CD,3ª Série,26,Matemática 2,304,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,QUI,Quinta,07:15,08:05
+CD,78,6° AM - CD,6º Ano,11,Geografia,59,FAGNER CARDOSO - TEEN 1 - 2026,QUI,Quinta,08:05,08:55
+CD,79,6° BM - CD,6º Ano,44,Língua Portuguesa,293,POLLYANA ROSA - TEEN 1 - 2026,QUI,Quinta,08:05,08:55
+CD,81,7° AM - CD,7º Ano,3,Arte,291,SAMARA VASCONCELOS - TEEN 1 - 2026,QUI,Quinta,08:05,08:55
+CD,83,7° BM - CD,7º Ano,2,Matemática,295,ORLANDO ALVINO - TEEN 1 - 2026,QUI,Quinta,08:05,08:55
+CD,85,8° AM - CD,8º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,QUI,Quinta,08:05,08:55
+CD,86,8° BM - CD,8º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUI,Quinta,08:05,08:55
+CD,88,9° AM - CD,9º Ano,45,Língua Portuguesa 1,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,QUI,Quinta,08:05,08:55
+CD,89,9° BM - CD,9º Ano,29,Projeto de Vida,256,DIELLEN - TEEN 2 - 2026,QUI,Quinta,08:05,08:55
+CD,90,9° CM - CD,9º Ano,7,Física,270,MÁRCIO PEREIRA - TEEN 2 - 2026,QUI,Quinta,08:05,08:55
+CD,91,1ª A - EM - CD,1ª Série,24,Física 2,77,TIAGO AUGUSTO - TEEN 2 - 2026,QUI,Quinta,08:05,08:55
+CD,92,1ª B - EM - CD,1ª Série,15,Sociologia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,QUI,Quinta,08:05,08:55
+CD,93,1ª C - EM - CD,1ª Série,6,Biologia 1,289,FILIPE ALBERTO - TEEN 2 - 2026,QUI,Quinta,08:05,08:55
+CD,94,2ª A - EM - CD,2ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,QUI,Quinta,08:05,08:55
+CD,95,2ª B - EM - CD,2ª Série,35,História 2,78,DIEGO RODRIGUES - TEEN 2 - 2026,QUI,Quinta,08:05,08:55
+CD,96,2ª C - EM - CD,2ª Série,16,Literatura,309,JULIANA CHAGAS - TEEN 2 - 2026,QUI,Quinta,08:05,08:55
+CD,97,3ª A - EM - CD,3ª Série,26,Matemática 2,304,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,QUI,Quinta,08:05,08:55
+CD,98,3ª B - EM - CD,3ª Série,43,Redação,263,LILIANE TAVEIROS - TEEN 2 - 2026,QUI,Quinta,08:05,08:55
+CD,99,3ª C - EM - CD,3ª Série,6,Biologia 1,49,FERNANDA ALDA - TEEN 2 - 2026,QUI,Quinta,08:05,08:55
+CD,81,7° AM - CD,7º Ano,30,Raciocínio Lógico,295,ORLANDO ALVINO - TEEN 1 - 2026,QUI,Quinta,08:55,09:45
+CD,83,7° BM - CD,7º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUI,Quinta,08:55,09:45
+CD,85,8° AM - CD,8º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUI,Quinta,08:55,09:45
+CD,86,8° BM - CD,8º Ano,13,Redação,293,POLLYANA ROSA - TEEN 1 - 2026,QUI,Quinta,08:55,09:45
+CD,88,9° AM - CD,9º Ano,7,Física,270,MÁRCIO PEREIRA - TEEN 2 - 2026,QUI,Quinta,08:55,09:45
+CD,89,9° BM - CD,9º Ano,46,Língua Portuguesa 2,263,LILIANE TAVEIROS - TEEN 2 - 2026,QUI,Quinta,08:55,09:45
+CD,90,9° CM - CD,9º Ano,29,Projeto de Vida,256,DIELLEN - TEEN 2 - 2026,QUI,Quinta,08:55,09:45
+CD,91,1ª A - EM - CD,1ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,QUI,Quinta,08:55,09:45
+CD,92,1ª B - EM - CD,1ª Série,6,Biologia 1,289,FILIPE ALBERTO - TEEN 2 - 2026,QUI,Quinta,08:55,09:45
+CD,93,1ª C - EM - CD,1ª Série,23,Física 1,77,TIAGO AUGUSTO - TEEN 2 - 2026,QUI,Quinta,08:55,09:45
+CD,94,2ª A - EM - CD,2ª Série,35,História 2,78,DIEGO RODRIGUES - TEEN 2 - 2026,QUI,Quinta,08:55,09:45
+CD,95,2ª B - EM - CD,2ª Série,16,Literatura,309,JULIANA CHAGAS - TEEN 2 - 2026,QUI,Quinta,08:55,09:45
+CD,96,2ª C - EM - CD,2ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,QUI,Quinta,08:55,09:45
+CD,97,3ª A - EM - CD,3ª Série,26,Matemática 2,304,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,QUI,Quinta,08:55,09:45
+CD,98,3ª B - EM - CD,3ª Série,14,Filosofia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,QUI,Quinta,08:55,09:45
+CD,99,3ª C - EM - CD,3ª Série,6,Biologia 1,49,FERNANDA ALDA - TEEN 2 - 2026,QUI,Quinta,08:55,09:45
+CD,78,6° AM - CD,6º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,QUI,Quinta,09:25,10:15
+CD,79,6° BM - CD,6º Ano,3,Arte,291,SAMARA VASCONCELOS - TEEN 1 - 2026,QUI,Quinta,09:25,10:15
+CD,94,2ª A - EM - CD,2ª Série,15,Sociologia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,QUI,Quinta,09:45,10:35
+CD,95,2ª B - EM - CD,2ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,QUI,Quinta,09:45,10:35
+CD,96,2ª C - EM - CD,2ª Série,35,História 2,78,DIEGO RODRIGUES - TEEN 2 - 2026,QUI,Quinta,09:45,10:35
+CD,97,3ª A - EM - CD,3ª Série,6,Biologia 1,49,FERNANDA ALDA - TEEN 2 - 2026,QUI,Quinta,09:45,10:35
+CD,98,3ª B - EM - CD,3ª Série,26,Matemática 2,304,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,QUI,Quinta,09:45,10:35
+CD,99,3ª C - EM - CD,3ª Série,10,Língua Estrangeira Inglês,75,ELIANE SERRA - TEEN 2 - 2026,QUI,Quinta,09:45,10:35
+CD,78,6° AM - CD,6º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUI,Quinta,10:15,11:05
+CD,79,6° BM - CD,6º Ano,44,Língua Portuguesa,293,POLLYANA ROSA - TEEN 1 - 2026,QUI,Quinta,10:15,11:05
+CD,81,7° AM - CD,7º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUI,Quinta,10:15,11:05
+CD,83,7° BM - CD,7º Ano,2,Matemática,295,ORLANDO ALVINO - TEEN 1 - 2026,QUI,Quinta,10:15,11:05
+CD,85,8° AM - CD,8º Ano,3,Arte,291,SAMARA VASCONCELOS - TEEN 1 - 2026,QUI,Quinta,10:15,11:05
+CD,86,8° BM - CD,8º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,QUI,Quinta,10:15,11:05
+CD,88,9° AM - CD,9º Ano,29,Projeto de Vida,256,DIELLEN - TEEN 2 - 2026,QUI,Quinta,10:15,11:05
+CD,89,9° BM - CD,9º Ano,11,Geografia,122,FAGNER CARDOSO - TEEN 2 - 2026,QUI,Quinta,10:15,11:05
+CD,90,9° CM - CD,9º Ano,45,Língua Portuguesa 1,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,QUI,Quinta,10:15,11:05
+CD,91,1ª A - EM - CD,1ª Série,6,Biologia 1,289,FILIPE ALBERTO - TEEN 2 - 2026,QUI,Quinta,10:15,11:05
+CD,92,1ª B - EM - CD,1ª Série,24,Física 2,270,MÁRCIO PEREIRA - TEEN 2 - 2026,QUI,Quinta,10:15,11:05
+CD,93,1ª C - EM - CD,1ª Série,23,Física 1,77,TIAGO AUGUSTO - TEEN 2 - 2026,QUI,Quinta,10:15,11:05
+CD,78,6° AM - CD,6º Ano,44,Língua Portuguesa,293,POLLYANA ROSA - TEEN 1 - 2026,QUI,Quinta,11:05,11:55
+CD,79,6° BM - CD,6º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,QUI,Quinta,11:05,11:55
+CD,81,7° AM - CD,7º Ano,2,Matemática,295,ORLANDO ALVINO - TEEN 1 - 2026,QUI,Quinta,11:05,11:55
+CD,83,7° BM - CD,7º Ano,3,Arte,291,SAMARA VASCONCELOS - TEEN 1 - 2026,QUI,Quinta,11:05,11:55
+CD,85,8° AM - CD,8º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUI,Quinta,11:05,11:55
+CD,86,8° BM - CD,8º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUI,Quinta,11:05,11:55
+CD,88,9° AM - CD,9º Ano,45,Língua Portuguesa 1,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,QUI,Quinta,11:05,11:55
+CD,89,9° BM - CD,9º Ano,7,Física,270,MÁRCIO PEREIRA - TEEN 2 - 2026,QUI,Quinta,11:05,11:55
+CD,90,9° CM - CD,9º Ano,11,Geografia,122,FAGNER CARDOSO - TEEN 2 - 2026,QUI,Quinta,11:05,11:55
+CD,91,1ª A - EM - CD,1ª Série,6,Biologia 1,289,FILIPE ALBERTO - TEEN 2 - 2026,QUI,Quinta,11:05,11:55
+CD,92,1ª B - EM - CD,1ª Série,23,Física 1,77,TIAGO AUGUSTO - TEEN 2 - 2026,QUI,Quinta,11:05,11:55
+CD,93,1ª C - EM - CD,1ª Série,10,Língua Estrangeira Inglês,75,ELIANE SERRA - TEEN 2 - 2026,QUI,Quinta,11:05,11:55
+CD,94,2ª A - EM - CD,2ª Série,16,Literatura,309,JULIANA CHAGAS - TEEN 2 - 2026,QUI,Quinta,11:05,11:55
+CD,95,2ª B - EM - CD,2ª Série,26,Matemática 2,304,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,QUI,Quinta,11:05,11:55
+CD,96,2ª C - EM - CD,2ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,QUI,Quinta,11:05,11:55
+CD,97,3ª A - EM - CD,3ª Série,6,Biologia 1,49,FERNANDA ALDA - TEEN 2 - 2026,QUI,Quinta,11:05,11:55
+CD,98,3ª B - EM - CD,3ª Série,35,História 2,78,DIEGO RODRIGUES - TEEN 2 - 2026,QUI,Quinta,11:05,11:55
+CD,99,3ª C - EM - CD,3ª Série,15,Sociologia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,QUI,Quinta,11:05,11:55
+CD,85,8° AM - CD,8º Ano,13,Redação,293,POLLYANA ROSA - TEEN 1 - 2026,QUI,Quinta,11:55,12:45
+CD,86,8° BM - CD,8º Ano,2,Matemática,207,MAURICIO BRANQUINHO - TEEN 1 - 2026,QUI,Quinta,11:55,12:45
+CD,88,9° AM - CD,9º Ano,11,Geografia,122,FAGNER CARDOSO - TEEN 2 - 2026,QUI,Quinta,11:55,12:45
+CD,89,9° BM - CD,9º Ano,13,Redação,256,DIELLEN - TEEN 2 - 2026,QUI,Quinta,11:55,12:45
+CD,90,9° CM - CD,9º Ano,45,Língua Portuguesa 1,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,QUI,Quinta,11:55,12:45
+CD,91,1ª A - EM - CD,1ª Série,23,Física 1,270,MÁRCIO PEREIRA - TEEN 2 - 2026,QUI,Quinta,11:55,12:45
+CD,92,1ª B - EM - CD,1ª Série,23,Física 1,77,TIAGO AUGUSTO - TEEN 2 - 2026,QUI,Quinta,11:55,12:45
+CD,93,1ª C - EM - CD,1ª Série,6,Biologia 1,289,FILIPE ALBERTO - TEEN 2 - 2026,QUI,Quinta,11:55,12:45
+CD,94,2ª A - EM - CD,2ª Série,36,História 1,78,DIEGO RODRIGUES - TEEN 2 - 2026,QUI,Quinta,11:55,12:45
+CD,95,2ª B - EM - CD,2ª Série,10,Língua Estrangeira Inglês,75,ELIANE SERRA - TEEN 2 - 2026,QUI,Quinta,11:55,12:45
+CD,96,2ª C - EM - CD,2ª Série,26,Matemática 2,304,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,QUI,Quinta,11:55,12:45
+CD,97,3ª A - EM - CD,3ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,QUI,Quinta,11:55,12:45
+CD,98,3ª B - EM - CD,3ª Série,6,Biologia 1,49,FERNANDA ALDA - TEEN 2 - 2026,QUI,Quinta,11:55,12:45
+CD,99,3ª C - EM - CD,3ª Série,16,Literatura,309,JULIANA CHAGAS - TEEN 2 - 2026,QUI,Quinta,11:55,12:45
+CD,80,6° AT - CD,6º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUI,Quinta,13:15,14:05
+CD,84,7° AT - CD,7º Ano,11,Geografia,59,FAGNER CARDOSO - TEEN 1 - 2026,QUI,Quinta,13:15,14:05
+CD,87,8° AT - CD,8º Ano,3,Arte,291,SAMARA VASCONCELOS - TEEN 1 - 2026,QUI,Quinta,13:15,14:05
+CD,80,6° AT - CD,6º Ano,13,Redação,311,REDAÇÃO - TARDE - TEEN 1 - 2026,QUI,Quinta,14:05,14:55
+CD,84,7° AT - CD,7º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUI,Quinta,14:05,14:55
+CD,87,8° AT - CD,8º Ano,40,Geografia 2,291,SAMARA VASCONCELOS - TEEN 1 - 2026,QUI,Quinta,14:05,14:55
+CD,97,3ª A - EM - CD,3ª Série,23,Física 1,77,TIAGO AUGUSTO - TEEN 2 - 2026,QUI,Quinta,14:05,14:55
+CD,98,3ª B - EM - CD,3ª Série,16,Literatura,309,JULIANA CHAGAS - TEEN 2 - 2026,QUI,Quinta,14:05,14:55
+CD,99,3ª C - EM - CD,3ª Série,33,Matemática 3,98,VICTOR CALDAS - TEEN 2 - 2026,QUI,Quinta,14:05,14:55
+CD,97,3ª A - EM - CD,3ª Série,33,Matemática 3,98,VICTOR CALDAS - TEEN 2 - 2026,QUI,Quinta,14:55,15:45
+CD,98,3ª B - EM - CD,3ª Série,16,Literatura,309,JULIANA CHAGAS - TEEN 2 - 2026,QUI,Quinta,14:55,15:45
+CD,99,3ª C - EM - CD,3ª Série,23,Física 1,77,TIAGO AUGUSTO - TEEN 2 - 2026,QUI,Quinta,14:55,15:45
+CD,80,6° AT - CD,6º Ano,13,Redação,311,REDAÇÃO - TARDE - TEEN 1 - 2026,QUI,Quinta,15:15,16:05
+CD,84,7° AT - CD,7º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUI,Quinta,15:15,16:05
+CD,87,8° AT - CD,8º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUI,Quinta,15:15,16:05
+CD,97,3ª A - EM - CD,3ª Série,16,Literatura,309,JULIANA CHAGAS - TEEN 2 - 2026,QUI,Quinta,15:45,16:35
+CD,98,3ª B - EM - CD,3ª Série,33,Matemática 3,98,VICTOR CALDAS - TEEN 2 - 2026,QUI,Quinta,15:45,16:35
+CD,99,3ª C - EM - CD,3ª Série,23,Física 1,77,TIAGO AUGUSTO - TEEN 2 - 2026,QUI,Quinta,15:45,16:35
+CD,80,6° AT - CD,6º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUI,Quinta,16:05,16:55
+CD,84,7° AT - CD,7º Ano,13,Redação,311,REDAÇÃO - TARDE - TEEN 1 - 2026,QUI,Quinta,16:05,16:55
+CD,87,8° AT - CD,8º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUI,Quinta,16:05,16:55
+CD,80,6° AT - CD,6º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUI,Quinta,16:55,17:45
+CD,84,7° AT - CD,7º Ano,13,Redação,311,REDAÇÃO - TARDE - TEEN 1 - 2026,QUI,Quinta,16:55,17:45
+CD,87,8° AT - CD,8º Ano,10,Língua Estrangeira Inglês,40,LEONARDO JOSÉ - TEEN 1 - 2026,QUI,Quinta,16:55,17:45
+CD,97,3ª A - EM - CD,3ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,QUI,Quinta,16:55,17:45
+CD,98,3ª B - EM - CD,3ª Série,23,Física 1,77,TIAGO AUGUSTO - TEEN 2 - 2026,QUI,Quinta,16:55,17:45
+CD,99,3ª C - EM - CD,3ª Série,16,Literatura,309,JULIANA CHAGAS - TEEN 2 - 2026,QUI,Quinta,16:55,17:45
+CD,87,8° AT - CD,8º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,QUI,Quinta,17:45,18:35
+CD,97,3ª A - EM - CD,3ª Série,16,Literatura,309,JULIANA CHAGAS - TEEN 2 - 2026,QUI,Quinta,17:45,18:35
+CD,98,3ª B - EM - CD,3ª Série,23,Física 1,77,TIAGO AUGUSTO - TEEN 2 - 2026,QUI,Quinta,17:45,18:35
+CD,99,3ª C - EM - CD,3ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,QUI,Quinta,17:45,18:35
+CD,78,6° AM - CD,6º Ano,30,Raciocínio Lógico,296,RACIOCÍNIO LÓGICO - TEEN 1 - 2026,SEX,Sexta,07:15,08:05
+CD,79,6° BM - CD,6º Ano,13,Redação,294,REDAÇÃO - TEEN 1 - 2026,SEX,Sexta,07:15,08:05
+CD,81,7° AM - CD,7º Ano,44,Língua Portuguesa,260,ARLINE VASCONCELOS - TEEN 1 - 2026,SEX,Sexta,07:15,08:05
+CD,83,7° BM - CD,7º Ano,4,Educação Física,297,ED. FÍSICA - TEEN 1 - 2026,SEX,Sexta,07:15,08:05
+CD,85,8° AM - CD,8º Ano,11,Geografia,291,SAMARA VASCONCELOS - TEEN 1 - 2026,SEX,Sexta,07:15,08:05
+CD,86,8° BM - CD,8º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,SEX,Sexta,07:15,08:05
+CD,88,9° AM - CD,9º Ano,10,Língua Estrangeira Inglês,102,LEONARDO JOSE - TEEN 2 - 2026,SEX,Sexta,07:15,08:05
+CD,89,9° BM - CD,9º Ano,26,Matemática 2,168,MAURICIO BRANQUINHO - TEEN 2 - 2026,SEX,Sexta,07:15,08:05
+CD,90,9° CM - CD,9º Ano,20,Biologia,96,BARTIRA ROCHA - TEEN 2 - 2026,SEX,Sexta,07:15,08:05
+CD,91,1ª A - EM - CD,1ª Série,36,História 1,78,DIEGO RODRIGUES - TEEN 2 - 2026,SEX,Sexta,07:15,08:05
+CD,92,1ª B - EM - CD,1ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,SEX,Sexta,07:15,08:05
+CD,93,1ª C - EM - CD,1ª Série,16,Literatura,125,WILLIAM MACIEL - TEEN 2 - 2026,SEX,Sexta,07:15,08:05
+CD,94,2ª A - EM - CD,2ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,SEX,Sexta,07:15,08:05
+CD,95,2ª B - EM - CD,2ª Série,15,Sociologia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,SEX,Sexta,07:15,08:05
+CD,96,2ª C - EM - CD,2ª Série,23,Física 1,270,MÁRCIO PEREIRA - TEEN 2 - 2026,SEX,Sexta,07:15,08:05
+CD,97,3ª A - EM - CD,3ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,SEX,Sexta,07:15,08:05
+CD,98,3ª B - EM - CD,3ª Série,24,Física 2,290,WELLINGTON JESUS - TEEN 2 - 2026,SEX,Sexta,07:15,08:05
+CD,99,3ª C - EM - CD,3ª Série,13,Redação,85,VERIDIANA ROCHA - TEEN 2 - 2026,SEX,Sexta,07:15,08:05
+CD,78,6° AM - CD,6º Ano,13,Redação,294,REDAÇÃO - TEEN 1 - 2026,SEX,Sexta,08:05,08:55
+CD,79,6° BM - CD,6º Ano,30,Raciocínio Lógico,296,RACIOCÍNIO LÓGICO - TEEN 1 - 2026,SEX,Sexta,08:05,08:55
+CD,81,7° AM - CD,7º Ano,4,Educação Física,297,ED. FÍSICA - TEEN 1 - 2026,SEX,Sexta,08:05,08:55
+CD,83,7° BM - CD,7º Ano,44,Língua Portuguesa,260,ARLINE VASCONCELOS - TEEN 1 - 2026,SEX,Sexta,08:05,08:55
+CD,85,8° AM - CD,8º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,SEX,Sexta,08:05,08:55
+CD,86,8° BM - CD,8º Ano,11,Geografia,291,SAMARA VASCONCELOS - TEEN 1 - 2026,SEX,Sexta,08:05,08:55
+CD,88,9° AM - CD,9º Ano,20,Biologia,96,BARTIRA ROCHA - TEEN 2 - 2026,SEX,Sexta,08:05,08:55
+CD,89,9° BM - CD,9º Ano,10,Língua Estrangeira Inglês,102,LEONARDO JOSE - TEEN 2 - 2026,SEX,Sexta,08:05,08:55
+CD,90,9° CM - CD,9º Ano,26,Matemática 2,168,MAURICIO BRANQUINHO - TEEN 2 - 2026,SEX,Sexta,08:05,08:55
+CD,91,1ª A - EM - CD,1ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,SEX,Sexta,08:05,08:55
+CD,92,1ª B - EM - CD,1ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,SEX,Sexta,08:05,08:55
+CD,93,1ª C - EM - CD,1ª Série,15,Sociologia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,SEX,Sexta,08:05,08:55
+CD,94,2ª A - EM - CD,2ª Série,23,Física 1,270,MÁRCIO PEREIRA - TEEN 2 - 2026,SEX,Sexta,08:05,08:55
+CD,95,2ª B - EM - CD,2ª Série,36,História 1,78,DIEGO RODRIGUES - TEEN 2 - 2026,SEX,Sexta,08:05,08:55
+CD,96,2ª C - EM - CD,2ª Série,13,Redação,85,VERIDIANA ROCHA - TEEN 2 - 2026,SEX,Sexta,08:05,08:55
+CD,97,3ª A - EM - CD,3ª Série,3,Arte,125,WILLIAM MACIEL - TEEN 2 - 2026,SEX,Sexta,08:05,08:55
+CD,98,3ª B - EM - CD,3ª Série,24,Física 2,290,WELLINGTON JESUS - TEEN 2 - 2026,SEX,Sexta,08:05,08:55
+CD,99,3ª C - EM - CD,3ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,SEX,Sexta,08:05,08:55
+CD,81,7° AM - CD,7º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,SEX,Sexta,08:55,09:45
+CD,83,7° BM - CD,7º Ano,44,Língua Portuguesa,260,ARLINE VASCONCELOS - TEEN 1 - 2026,SEX,Sexta,08:55,09:45
+CD,85,8° AM - CD,8º Ano,30,Raciocínio Lógico,296,RACIOCÍNIO LÓGICO - TEEN 1 - 2026,SEX,Sexta,08:55,09:45
+CD,86,8° BM - CD,8º Ano,11,Geografia,291,SAMARA VASCONCELOS - TEEN 1 - 2026,SEX,Sexta,08:55,09:45
+CD,88,9° AM - CD,9º Ano,26,Matemática 2,168,MAURICIO BRANQUINHO - TEEN 2 - 2026,SEX,Sexta,08:55,09:45
+CD,89,9° BM - CD,9º Ano,20,Biologia,96,BARTIRA ROCHA - TEEN 2 - 2026,SEX,Sexta,08:55,09:45
+CD,90,9° CM - CD,9º Ano,10,Língua Estrangeira Inglês,102,LEONARDO JOSE - TEEN 2 - 2026,SEX,Sexta,08:55,09:45
+CD,91,1ª A - EM - CD,1ª Série,16,Literatura,125,WILLIAM MACIEL - TEEN 2 - 2026,SEX,Sexta,08:55,09:45
+CD,92,1ª B - EM - CD,1ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,SEX,Sexta,08:55,09:45
+CD,93,1ª C - EM - CD,1ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,SEX,Sexta,08:55,09:45
+CD,94,2ª A - EM - CD,2ª Série,23,Física 1,270,MÁRCIO PEREIRA - TEEN 2 - 2026,SEX,Sexta,08:55,09:45
+CD,95,2ª B - EM - CD,2ª Série,13,Redação,85,VERIDIANA ROCHA - TEEN 2 - 2026,SEX,Sexta,08:55,09:45
+CD,96,2ª C - EM - CD,2ª Série,36,História 1,78,DIEGO RODRIGUES - TEEN 2 - 2026,SEX,Sexta,08:55,09:45
+CD,97,3ª A - EM - CD,3ª Série,14,Filosofia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,SEX,Sexta,08:55,09:45
+CD,98,3ª B - EM - CD,3ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,SEX,Sexta,08:55,09:45
+CD,99,3ª C - EM - CD,3ª Série,24,Física 2,290,WELLINGTON JESUS - TEEN 2 - 2026,SEX,Sexta,08:55,09:45
+CD,78,6° AM - CD,6º Ano,13,Redação,294,REDAÇÃO - TEEN 1 - 2026,SEX,Sexta,09:25,10:15
+CD,79,6° BM - CD,6º Ano,4,Educação Física,297,ED. FÍSICA - TEEN 1 - 2026,SEX,Sexta,09:25,10:15
+CD,94,2ª A - EM - CD,2ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,SEX,Sexta,09:45,10:35
+CD,95,2ª B - EM - CD,2ª Série,23,Física 1,270,MÁRCIO PEREIRA - TEEN 2 - 2026,SEX,Sexta,09:45,10:35
+CD,96,2ª C - EM - CD,2ª Série,6,Biologia 1,96,BARTIRA ROCHA - TEEN 2 - 2026,SEX,Sexta,09:45,10:35
+CD,97,3ª A - EM - CD,3ª Série,13,Redação,85,VERIDIANA ROCHA - TEEN 2 - 2026,SEX,Sexta,09:45,10:35
+CD,98,3ª B - EM - CD,3ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,SEX,Sexta,09:45,10:35
+CD,99,3ª C - EM - CD,3ª Série,35,História 2,78,DIEGO RODRIGUES - TEEN 2 - 2026,SEX,Sexta,09:45,10:35
+CD,78,6° AM - CD,6º Ano,4,Educação Física,297,ED. FÍSICA - TEEN 1 - 2026,SEX,Sexta,10:15,11:05
+CD,79,6° BM - CD,6º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,SEX,Sexta,10:15,11:05
+CD,81,7° AM - CD,7º Ano,44,Língua Portuguesa,260,ARLINE VASCONCELOS - TEEN 1 - 2026,SEX,Sexta,10:15,11:05
+CD,83,7° BM - CD,7º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,SEX,Sexta,10:15,11:05
+CD,85,8° AM - CD,8º Ano,11,Geografia,291,SAMARA VASCONCELOS - TEEN 1 - 2026,SEX,Sexta,10:15,11:05
+CD,86,8° BM - CD,8º Ano,30,Raciocínio Lógico,296,RACIOCÍNIO LÓGICO - TEEN 1 - 2026,SEX,Sexta,10:15,11:05
+CD,88,9° AM - CD,9º Ano,25,Matemática 1,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,SEX,Sexta,10:15,11:05
+CD,89,9° BM - CD,9º Ano,10,Língua Estrangeira Inglês,102,LEONARDO JOSE - TEEN 2 - 2026,SEX,Sexta,10:15,11:05
+CD,90,9° CM - CD,9º Ano,26,Matemática 2,168,MAURICIO BRANQUINHO - TEEN 2 - 2026,SEX,Sexta,10:15,11:05
+CD,91,1ª A - EM - CD,1ª Série,15,Sociologia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,SEX,Sexta,10:15,11:05
+CD,92,1ª B - EM - CD,1ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,SEX,Sexta,10:15,11:05
+CD,93,1ª C - EM - CD,1ª Série,16,Literatura,125,WILLIAM MACIEL - TEEN 2 - 2026,SEX,Sexta,10:15,11:05
+CD,78,6° AM - CD,6º Ano,3,Arte,291,SAMARA VASCONCELOS - TEEN 1 - 2026,SEX,Sexta,11:05,11:55
+CD,79,6° BM - CD,6º Ano,13,Redação,294,REDAÇÃO - TEEN 1 - 2026,SEX,Sexta,11:05,11:55
+CD,81,7° AM - CD,7º Ano,12,História,65,WILLIAMS RODRIGUES - TEEN 1 - 2026,SEX,Sexta,11:05,11:55
+CD,83,7° BM - CD,7º Ano,44,Língua Portuguesa,260,ARLINE VASCONCELOS - TEEN 1 - 2026,SEX,Sexta,11:05,11:55
+CD,85,8° AM - CD,8º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,SEX,Sexta,11:05,11:55
+CD,86,8° BM - CD,8º Ano,4,Educação Física,297,ED. FÍSICA - TEEN 1 - 2026,SEX,Sexta,11:05,11:55
+CD,88,9° AM - CD,9º Ano,26,Matemática 2,168,MAURICIO BRANQUINHO - TEEN 2 - 2026,SEX,Sexta,11:05,11:55
+CD,89,9° BM - CD,9º Ano,25,Matemática 1,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,SEX,Sexta,11:05,11:55
+CD,90,9° CM - CD,9º Ano,10,Língua Estrangeira Inglês,102,LEONARDO JOSE - TEEN 2 - 2026,SEX,Sexta,11:05,11:55
+CD,91,1ª A - EM - CD,1ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,SEX,Sexta,11:05,11:55
+CD,92,1ª B - EM - CD,1ª Série,36,História 1,78,DIEGO RODRIGUES - TEEN 2 - 2026,SEX,Sexta,11:05,11:55
+CD,93,1ª C - EM - CD,1ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,SEX,Sexta,11:05,11:55
+CD,94,2ª A - EM - CD,2ª Série,13,Redação,85,VERIDIANA ROCHA - TEEN 2 - 2026,SEX,Sexta,11:05,11:55
+CD,95,2ª B - EM - CD,2ª Série,6,Biologia 1,96,BARTIRA ROCHA - TEEN 2 - 2026,SEX,Sexta,11:05,11:55
+CD,96,2ª C - EM - CD,2ª Série,23,Física 1,270,MÁRCIO PEREIRA - TEEN 2 - 2026,SEX,Sexta,11:05,11:55
+CD,97,3ª A - EM - CD,3ª Série,15,Sociologia,81,JOSÉ ROBERTO SENA - TEEN 2 - 2026,SEX,Sexta,11:05,11:55
+CD,98,3ª B - EM - CD,3ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,SEX,Sexta,11:05,11:55
+CD,99,3ª C - EM - CD,3ª Série,3,Arte,125,WILLIAM MACIEL - TEEN 2 - 2026,SEX,Sexta,11:05,11:55
+CD,88,9° AM - CD,9º Ano,10,Língua Estrangeira Inglês,102,LEONARDO JOSE - TEEN 2 - 2026,SEX,Sexta,11:55,12:45
+CD,89,9° BM - CD,9º Ano,26,Matemática 2,168,MAURICIO BRANQUINHO - TEEN 2 - 2026,SEX,Sexta,11:55,12:45
+CD,90,9° CM - CD,9º Ano,25,Matemática 1,312,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,SEX,Sexta,11:55,12:45
+CD,91,1ª A - EM - CD,1ª Série,16,Literatura,125,WILLIAM MACIEL - TEEN 2 - 2026,SEX,Sexta,11:55,12:45
+CD,92,1ª B - EM - CD,1ª Série,17,Gramática,100,NATÁLIA OLIVEIRA - TEEN 2 - 2026,SEX,Sexta,11:55,12:45
+CD,93,1ª C - EM - CD,1ª Série,36,História 1,78,DIEGO RODRIGUES - TEEN 2 - 2026,SEX,Sexta,11:55,12:45
+CD,94,2ª A - EM - CD,2ª Série,6,Biologia 1,96,BARTIRA ROCHA - TEEN 2 - 2026,SEX,Sexta,11:55,12:45
+CD,95,2ª B - EM - CD,2ª Série,23,Física 1,270,MÁRCIO PEREIRA - TEEN 2 - 2026,SEX,Sexta,11:55,12:45
+CD,96,2ª C - EM - CD,2ª Série,25,Matemática 1,98,VICTOR CALDAS - TEEN 2 - 2026,SEX,Sexta,11:55,12:45
+CD,97,3ª A - EM - CD,3ª Série,24,Física 2,290,WELLINGTON JESUS - TEEN 2 - 2026,SEX,Sexta,11:55,12:45
+CD,98,3ª B - EM - CD,3ª Série,13,Redação,85,VERIDIANA ROCHA - TEEN 2 - 2026,SEX,Sexta,11:55,12:45
+CD,99,3ª C - EM - CD,3ª Série,22,Química 1,201,LEONARDO BORBA - TEEN 2 - 2026,SEX,Sexta,11:55,12:45
+CD,80,6° AT - CD,6º Ano,3,Arte,291,SAMARA VASCONCELOS - TEEN 1 - 2026,SEX,Sexta,13:15,14:05
+CD,84,7° AT - CD,7º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,SEX,Sexta,13:15,14:05
+CD,87,8° AT - CD,8º Ano,13,Redação,292,WILLIAM MACIEL - TEEN 1 - 2026,SEX,Sexta,13:15,14:05
+CD,80,6° AT - CD,6º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,SEX,Sexta,14:05,14:55
+CD,84,7° AT - CD,7º Ano,3,Arte,291,SAMARA VASCONCELOS - TEEN 1 - 2026,SEX,Sexta,14:05,14:55
+CD,87,8° AT - CD,8º Ano,13,Redação,292,WILLIAM MACIEL - TEEN 1 - 2026,SEX,Sexta,14:05,14:55
+CD,80,6° AT - CD,6º Ano,30,Raciocínio Lógico,296,RACIOCÍNIO LÓGICO - TEEN 1 - 2026,SEX,Sexta,15:15,16:05
+CD,84,7° AT - CD,7º Ano,4,Educação Física,297,ED. FÍSICA - TEEN 1 - 2026,SEX,Sexta,15:15,16:05
+CD,87,8° AT - CD,8º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,SEX,Sexta,15:15,16:05
+CD,80,6° AT - CD,6º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,SEX,Sexta,16:05,16:55
+CD,84,7° AT - CD,7º Ano,30,Raciocínio Lógico,296,RACIOCÍNIO LÓGICO - TEEN 1 - 2026,SEX,Sexta,16:05,16:55
+CD,87,8° AT - CD,8º Ano,4,Educação Física,297,ED. FÍSICA - TEEN 1 - 2026,SEX,Sexta,16:05,16:55
+CD,80,6° AT - CD,6º Ano,4,Educação Física,297,ED. FÍSICA - TEEN 1 - 2026,SEX,Sexta,16:55,17:45
+CD,84,7° AT - CD,7º Ano,5,Ciências Naturais,58,JOSÉ CARLOS - TEEN 1 - 2026,SEX,Sexta,16:55,17:45
+CD,87,8° AT - CD,8º Ano,30,Raciocínio Lógico,296,RACIOCÍNIO LÓGICO - TEEN 1 - 2026,SEX,Sexta,16:55,17:45
+JG,78,6° AM - JG,6º Ano,44,Língua Portuguesa,223,EMANUEL MACHADO - JG - 2026,SEG,Segunda,07:15,08:05
+JG,79,6° BM - JG,6º Ano,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,SEG,Segunda,07:15,08:05
+JG,81,7° AM - JG,7º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEG,Segunda,07:15,08:05
+JG,83,7° BM - JG,7º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEG,Segunda,07:15,08:05
+JG,86,8° AM - JG,8º Ano,5,Ciências Naturais,222,RENATA MIRANDA - JG - 2026,SEG,Segunda,07:15,08:05
+JG,87,8° BM - JG,8º Ano,12,História,231,RAFAEL ELOI - JG - 2026,SEG,Segunda,07:15,08:05
+JG,88,9° AM - JG,9º Ano,12,História,271,JOANA CRISTINA - JG - 2026,SEG,Segunda,07:15,08:05
+JG,89,9° BM - JG,9º Ano,13,Redação,355,REDAÇÃO - JG - 2026,SEG,Segunda,07:15,08:05
+JG,91,1ª A - EM - JG,1ª Série,17,Gramática,226,MARIA DAS GRAÇAS - JG - 2026,SEG,Segunda,07:15,08:05
+JG,100,1° B - EM - JG,1ª Série,36,História 1,274,JOÃO NICÁCIO - JG - 2026,SEG,Segunda,07:15,08:05
+JG,94,2ª A - EM - JG,2ª Série,26,Matemática 2,225,JAMES MÁRCIO - JG - 2026,SEG,Segunda,07:15,08:05
+JG,101,2° B - EM - JG,2ª Série,22,Química 1,224,VALDÉRIO ALEXANDRE - JG - 2026,SEG,Segunda,07:15,08:05
+JG,97,3ª A - EM - JG,3ª Série,23,Física 1,217,THIAGO CASTILHO - JG - 2026,SEG,Segunda,07:15,08:05
+JG,78,6° AM - JG,6º Ano,12,História,231,RAFAEL ELOI - JG - 2026,SEG,Segunda,08:05,08:55
+JG,79,6° BM - JG,6º Ano,44,Língua Portuguesa,223,EMANUEL MACHADO - JG - 2026,SEG,Segunda,08:05,08:55
+JG,81,7° AM - JG,7º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEG,Segunda,08:05,08:55
+JG,83,7° BM - JG,7º Ano,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,SEG,Segunda,08:05,08:55
+JG,86,8° AM - JG,8º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEG,Segunda,08:05,08:55
+JG,87,8° BM - JG,8º Ano,5,Ciências Naturais,222,RENATA MIRANDA - JG - 2026,SEG,Segunda,08:05,08:55
+JG,88,9° AM - JG,9º Ano,3,Arte,274,JOÃO NICÁCIO - JG - 2026,SEG,Segunda,08:05,08:55
+JG,89,9° BM - JG,9º Ano,29,Projeto de Vida,271,JOANA CRISTINA - JG - 2026,SEG,Segunda,08:05,08:55
+JG,91,1ª A - EM - JG,1ª Série,22,Química 1,224,VALDÉRIO ALEXANDRE - JG - 2026,SEG,Segunda,08:05,08:55
+JG,100,1° B - EM - JG,1ª Série,24,Física 2,217,THIAGO CASTILHO - JG - 2026,SEG,Segunda,08:05,08:55
+JG,94,2ª A - EM - JG,2ª Série,17,Gramática,226,MARIA DAS GRAÇAS - JG - 2026,SEG,Segunda,08:05,08:55
+JG,101,2° B - EM - JG,2ª Série,26,Matemática 2,225,JAMES MÁRCIO - JG - 2026,SEG,Segunda,08:05,08:55
+JG,97,3ª A - EM - JG,3ª Série,3,Arte,355,REDAÇÃO - JG - 2026,SEG,Segunda,08:05,08:55
+JG,86,8° AM - JG,8º Ano,13,Redação,226,MARIA DAS GRAÇAS - JG - 2026,SEG,Segunda,08:55,09:45
+JG,87,8° BM - JG,8º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEG,Segunda,08:55,09:45
+JG,88,9° AM - JG,9º Ano,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,SEG,Segunda,08:55,09:45
+JG,89,9° BM - JG,9º Ano,13,Redação,355,REDAÇÃO - JG - 2026,SEG,Segunda,08:55,09:45
+JG,91,1ª A - EM - JG,1ª Série,18,Projeto de Vida,271,JOANA CRISTINA - JG - 2026,SEG,Segunda,08:55,09:45
+JG,100,1° B - EM - JG,1ª Série,25,Matemática 1,225,JAMES MÁRCIO - JG - 2026,SEG,Segunda,08:55,09:45
+JG,94,2ª A - EM - JG,2ª Série,23,Física 1,217,THIAGO CASTILHO - JG - 2026,SEG,Segunda,08:55,09:45
+JG,101,2° B - EM - JG,2ª Série,18,Projeto de Vida,274,JOÃO NICÁCIO - JG - 2026,SEG,Segunda,08:55,09:45
+JG,97,3ª A - EM - JG,3ª Série,21,Química 2,224,VALDÉRIO ALEXANDRE - JG - 2026,SEG,Segunda,08:55,09:45
+JG,78,6° AM - JG,6º Ano,12,História,231,RAFAEL ELOI - JG - 2026,SEG,Segunda,09:25,10:15
+JG,79,6° BM - JG,6º Ano,44,Língua Portuguesa,223,EMANUEL MACHADO - JG - 2026,SEG,Segunda,09:25,10:15
+JG,81,7° AM - JG,7º Ano,5,Ciências Naturais,222,RENATA MIRANDA - JG - 2026,SEG,Segunda,09:25,10:15
+JG,83,7° BM - JG,7º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEG,Segunda,09:25,10:15
+JG,91,1ª A - EM - JG,1ª Série,21,Química 2,224,VALDÉRIO ALEXANDRE - JG - 2026,SEG,Segunda,09:45,10:35
+JG,100,1° B - EM - JG,1ª Série,23,Física 1,217,THIAGO CASTILHO - JG - 2026,SEG,Segunda,09:45,10:35
+JG,94,2ª A - EM - JG,2ª Série,16,Literatura,226,MARIA DAS GRAÇAS - JG - 2026,SEG,Segunda,09:45,10:35
+JG,101,2° B - EM - JG,2ª Série,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,SEG,Segunda,09:45,10:35
+JG,97,3ª A - EM - JG,3ª Série,13,Redação,355,REDAÇÃO - JG - 2026,SEG,Segunda,09:45,10:35
+JG,78,6° AM - JG,6º Ano,44,Língua Portuguesa,223,EMANUEL MACHADO - JG - 2026,SEG,Segunda,10:15,11:05
+JG,79,6° BM - JG,6º Ano,12,História,231,RAFAEL ELOI - JG - 2026,SEG,Segunda,10:15,11:05
+JG,81,7° AM - JG,7º Ano,12,História,271,JOANA CRISTINA - JG - 2026,SEG,Segunda,10:15,11:05
+JG,83,7° BM - JG,7º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEG,Segunda,10:15,11:05
+JG,86,8° AM - JG,8º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEG,Segunda,10:15,11:05
+JG,87,8° BM - JG,8º Ano,5,Ciências Naturais,222,RENATA MIRANDA - JG - 2026,SEG,Segunda,10:15,11:05
+JG,88,9° AM - JG,9º Ano,2,Matemática,225,JAMES MÁRCIO - JG - 2026,SEG,Segunda,10:15,11:05
+JG,89,9° BM - JG,9º Ano,14,Filosofia,274,JOÃO NICÁCIO - JG - 2026,SEG,Segunda,10:15,11:05
+JG,78,6° AM - JG,6º Ano,44,Língua Portuguesa,223,EMANUEL MACHADO - JG - 2026,SEG,Segunda,11:05,11:55
+JG,79,6° BM - JG,6º Ano,14,Filosofia,274,JOÃO NICÁCIO - JG - 2026,SEG,Segunda,11:05,11:55
+JG,81,7° AM - JG,7º Ano,5,Ciências Naturais,222,RENATA MIRANDA - JG - 2026,SEG,Segunda,11:05,11:55
+JG,83,7° BM - JG,7º Ano,12,História,271,JOANA CRISTINA - JG - 2026,SEG,Segunda,11:05,11:55
+JG,86,8° AM - JG,8º Ano,12,História,231,RAFAEL ELOI - JG - 2026,SEG,Segunda,11:05,11:55
+JG,87,8° BM - JG,8º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEG,Segunda,11:05,11:55
+JG,88,9° AM - JG,9º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEG,Segunda,11:05,11:55
+JG,89,9° BM - JG,9º Ano,2,Matemática,225,JAMES MÁRCIO - JG - 2026,SEG,Segunda,11:05,11:55
+JG,91,1ª A - EM - JG,1ª Série,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,SEG,Segunda,11:05,11:55
+JG,100,1° B - EM - JG,1ª Série,21,Química 2,224,VALDÉRIO ALEXANDRE - JG - 2026,SEG,Segunda,11:05,11:55
+JG,94,2ª A - EM - JG,2ª Série,16,Literatura,226,MARIA DAS GRAÇAS - JG - 2026,SEG,Segunda,11:05,11:55
+JG,101,2° B - EM - JG,2ª Série,23,Física 1,217,THIAGO CASTILHO - JG - 2026,SEG,Segunda,11:05,11:55
+JG,97,3ª A - EM - JG,3ª Série,13,Redação,355,REDAÇÃO - JG - 2026,SEG,Segunda,11:05,11:55
+JG,78,6° AM - JG,6º Ano,14,Filosofia,274,JOÃO NICÁCIO - JG - 2026,SEG,Segunda,11:55,12:45
+JG,79,6° BM - JG,6º Ano,44,Língua Portuguesa,223,EMANUEL MACHADO - JG - 2026,SEG,Segunda,11:55,12:45
+JG,91,1ª A - EM - JG,1ª Série,22,Química 1,224,VALDÉRIO ALEXANDRE - JG - 2026,SEG,Segunda,11:55,12:45
+JG,100,1° B - EM - JG,1ª Série,26,Matemática 2,225,JAMES MÁRCIO - JG - 2026,SEG,Segunda,11:55,12:45
+JG,94,2ª A - EM - JG,2ª Série,23,Física 1,217,THIAGO CASTILHO - JG - 2026,SEG,Segunda,11:55,12:45
+JG,101,2° B - EM - JG,2ª Série,17,Gramática,226,MARIA DAS GRAÇAS - JG - 2026,SEG,Segunda,11:55,12:45
+JG,97,3ª A - EM - JG,3ª Série,18,Projeto de Vida,271,JOANA CRISTINA - JG - 2026,SEG,Segunda,11:55,12:45
+JG,102,6° AT - JG,6º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEG,Segunda,13:15,14:05
+JG,104,8° AT - JG,8º Ano,30,Raciocínio Lógico,273,LEONARDO MENDES - JG - 2026,SEG,Segunda,13:15,14:05
+JG,102,6° AT - JG,6º Ano,2,Matemática,273,LEONARDO MENDES - JG - 2026,SEG,Segunda,14:05,14:55
+JG,104,8° AT - JG,8º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEG,Segunda,14:05,14:55
+JG,102,6° AT - JG,6º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEG,Segunda,15:15,16:05
+JG,104,8° AT - JG,8º Ano,2,Matemática,273,LEONARDO MENDES - JG - 2026,SEG,Segunda,15:15,16:05
+JG,102,6° AT - JG,6º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEG,Segunda,16:05,16:55
+JG,104,8° AT - JG,8º Ano,2,Matemática,273,LEONARDO MENDES - JG - 2026,SEG,Segunda,16:05,16:55
+JG,102,6° AT - JG,6º Ano,30,Raciocínio Lógico,273,LEONARDO MENDES - JG - 2026,SEG,Segunda,16:55,17:45
+JG,104,8° AT - JG,8º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEG,Segunda,16:55,17:45
+JG,102,6° AT - JG,6º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEG,Segunda,17:45,18:35
+JG,86,8° AM - JG,8º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,TER,Terça,07:15,08:05
+JG,87,8° BM - JG,8º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,TER,Terça,07:15,08:05
+JG,88,9° AM - JG,9º Ano,13,Redação,355,REDAÇÃO - JG - 2026,TER,Terça,07:15,08:05
+JG,89,9° BM - JG,9º Ano,12,História,271,JOANA CRISTINA - JG - 2026,TER,Terça,07:15,08:05
+JG,91,1ª A - EM - JG,1ª Série,16,Literatura,226,MARIA DAS GRAÇAS - JG - 2026,TER,Terça,07:15,08:05
+JG,100,1° B - EM - JG,1ª Série,35,História 2,274,JOÃO NICÁCIO - JG - 2026,TER,Terça,07:15,08:05
+JG,94,2ª A - EM - JG,2ª Série,22,Química 1,224,VALDÉRIO ALEXANDRE - JG - 2026,TER,Terça,07:15,08:05
+JG,101,2° B - EM - JG,2ª Série,14,Filosofia,221,ANILTON SANTOS - JG - 2026,TER,Terça,07:15,08:05
+JG,97,3ª A - EM - JG,3ª Série,25,Matemática 1,225,JAMES MÁRCIO - JG - 2026,TER,Terça,07:15,08:05
+JG,86,8° AM - JG,8º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,TER,Terça,08:05,08:55
+JG,87,8° BM - JG,8º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,TER,Terça,08:05,08:55
+JG,88,9° AM - JG,9º Ano,14,Filosofia,274,JOÃO NICÁCIO - JG - 2026,TER,Terça,08:05,08:55
+JG,89,9° BM - JG,9º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,TER,Terça,08:05,08:55
+JG,91,1ª A - EM - JG,1ª Série,3,Arte,271,JOANA CRISTINA - JG - 2026,TER,Terça,08:05,08:55
+JG,100,1° B - EM - JG,1ª Série,22,Química 1,224,VALDÉRIO ALEXANDRE - JG - 2026,TER,Terça,08:05,08:55
+JG,94,2ª A - EM - JG,2ª Série,15,Sociologia,221,ANILTON SANTOS - JG - 2026,TER,Terça,08:05,08:55
+JG,101,2° B - EM - JG,2ª Série,25,Matemática 1,225,JAMES MÁRCIO - JG - 2026,TER,Terça,08:05,08:55
+JG,97,3ª A - EM - JG,3ª Série,17,Gramática,226,MARIA DAS GRAÇAS - JG - 2026,TER,Terça,08:05,08:55
+JG,86,8° AM - JG,8º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,TER,Terça,08:55,09:45
+JG,87,8° BM - JG,8º Ano,14,Filosofia,274,JOÃO NICÁCIO - JG - 2026,TER,Terça,08:55,09:45
+JG,88,9° AM - JG,9º Ano,44,Língua Portuguesa,226,MARIA DAS GRAÇAS - JG - 2026,TER,Terça,08:55,09:45
+JG,89,9° BM - JG,9º Ano,8,Química,224,VALDÉRIO ALEXANDRE - JG - 2026,TER,Terça,08:55,09:45
+JG,91,1ª A - EM - JG,1ª Série,25,Matemática 1,225,JAMES MÁRCIO - JG - 2026,TER,Terça,08:55,09:45
+JG,100,1° B - EM - JG,1ª Série,15,Sociologia,221,ANILTON SANTOS - JG - 2026,TER,Terça,08:55,09:45
+JG,94,2ª A - EM - JG,2ª Série,11,Geografia,276,LOURIVAL LUIZ - JG - 2026,TER,Terça,08:55,09:45
+JG,101,2° B - EM - JG,2ª Série,35,História 2,216,ANDRÉ LUIZ - JG - 2026,TER,Terça,08:55,09:45
+JG,97,3ª A - EM - JG,3ª Série,43,Redação,355,REDAÇÃO - JG - 2026,TER,Terça,08:55,09:45
+JG,78,6° AM - JG,6º Ano,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,TER,Terça,09:25,10:15
+JG,79,6° BM - JG,6º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,TER,Terça,09:25,10:15
+JG,81,7° AM - JG,7º Ano,12,História,271,JOANA CRISTINA - JG - 2026,TER,Terça,09:25,10:15
+JG,83,7° BM - JG,7º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,TER,Terça,09:25,10:15
+JG,91,1ª A - EM - JG,1ª Série,11,Geografia,276,LOURIVAL LUIZ - JG - 2026,TER,Terça,09:45,10:35
+JG,100,1° B - EM - JG,1ª Série,16,Literatura,226,MARIA DAS GRAÇAS - JG - 2026,TER,Terça,09:45,10:35
+JG,94,2ª A - EM - JG,2ª Série,36,História 1,216,ANDRÉ LUIZ - JG - 2026,TER,Terça,09:45,10:35
+JG,101,2° B - EM - JG,2ª Série,21,Química 2,224,VALDÉRIO ALEXANDRE - JG - 2026,TER,Terça,09:45,10:35
+JG,97,3ª A - EM - JG,3ª Série,15,Sociologia,221,ANILTON SANTOS - JG - 2026,TER,Terça,09:45,10:35
+JG,78,6° AM - JG,6º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,TER,Terça,10:15,11:05
+JG,79,6° BM - JG,6º Ano,44,Língua Portuguesa,223,EMANUEL MACHADO - JG - 2026,TER,Terça,10:15,11:05
+JG,81,7° AM - JG,7º Ano,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,TER,Terça,10:15,11:05
+JG,83,7° BM - JG,7º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,TER,Terça,10:15,11:05
+JG,86,8° AM - JG,8º Ano,14,Filosofia,274,JOÃO NICÁCIO - JG - 2026,TER,Terça,10:15,11:05
+JG,87,8° BM - JG,8º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,TER,Terça,10:15,11:05
+JG,88,9° AM - JG,9º Ano,13,Redação,355,REDAÇÃO - JG - 2026,TER,Terça,10:15,11:05
+JG,89,9° BM - JG,9º Ano,2,Matemática,225,JAMES MÁRCIO - JG - 2026,TER,Terça,10:15,11:05
+JG,78,6° AM - JG,6º Ano,44,Língua Portuguesa,223,EMANUEL MACHADO - JG - 2026,TER,Terça,11:05,11:55
+JG,79,6° BM - JG,6º Ano,5,Ciências Naturais,229,DULCIMAR MODESTO - JG - 2026,TER,Terça,11:05,11:55
+JG,81,7° AM - JG,7º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,TER,Terça,11:05,11:55
+JG,83,7° BM - JG,7º Ano,14,Filosofia,274,JOÃO NICÁCIO - JG - 2026,TER,Terça,11:05,11:55
+JG,86,8° AM - JG,8º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,TER,Terça,11:05,11:55
+JG,87,8° BM - JG,8º Ano,13,Redação,226,MARIA DAS GRAÇAS - JG - 2026,TER,Terça,11:05,11:55
+JG,88,9° AM - JG,9º Ano,2,Matemática,225,JAMES MÁRCIO - JG - 2026,TER,Terça,11:05,11:55
+JG,89,9° BM - JG,9º Ano,11,Geografia,276,LOURIVAL LUIZ - JG - 2026,TER,Terça,11:05,11:55
+JG,91,1ª A - EM - JG,1ª Série,14,Filosofia,221,ANILTON SANTOS - JG - 2026,TER,Terça,11:05,11:55
+JG,100,1° B - EM - JG,1ª Série,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,TER,Terça,11:05,11:55
+JG,94,2ª A - EM - JG,2ª Série,21,Química 2,224,VALDÉRIO ALEXANDRE - JG - 2026,TER,Terça,11:05,11:55
+JG,101,2° B - EM - JG,2ª Série,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,TER,Terça,11:05,11:55
+JG,97,3ª A - EM - JG,3ª Série,12,História,216,ANDRÉ LUIZ - JG - 2026,TER,Terça,11:05,11:55
+JG,81,7° AM - JG,7º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,TER,Terça,11:55,12:45
+JG,83,7° BM - JG,7º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,TER,Terça,11:55,12:45
+JG,91,1ª A - EM - JG,1ª Série,36,História 1,274,JOÃO NICÁCIO - JG - 2026,TER,Terça,11:55,12:45
+JG,100,1° B - EM - JG,1ª Série,17,Gramática,226,MARIA DAS GRAÇAS - JG - 2026,TER,Terça,11:55,12:45
+JG,94,2ª A - EM - JG,2ª Série,6,Biologia 1,229,DULCIMAR MODESTO - JG - 2026,TER,Terça,11:55,12:45
+JG,101,2° B - EM - JG,2ª Série,36,História 1,216,ANDRÉ LUIZ - JG - 2026,TER,Terça,11:55,12:45
+JG,97,3ª A - EM - JG,3ª Série,22,Química 1,224,VALDÉRIO ALEXANDRE - JG - 2026,TER,Terça,11:55,12:45
+JG,104,8° AT - JG,8º Ano,13,Redação,223,EMANUEL MACHADO - JG - 2026,TER,Terça,13:15,14:05
+JG,104,8° AT - JG,8º Ano,14,Filosofia,216,ANDRÉ LUIZ - JG - 2026,TER,Terça,14:05,14:55
+JG,102,6° AT - JG,6º Ano,14,Filosofia,216,ANDRÉ LUIZ - JG - 2026,TER,Terça,15:15,16:05
+JG,104,8° AT - JG,8º Ano,13,Redação,223,EMANUEL MACHADO - JG - 2026,TER,Terça,15:15,16:05
+JG,102,6° AT - JG,6º Ano,13,Redação,223,EMANUEL MACHADO - JG - 2026,TER,Terça,16:05,16:55
+JG,104,8° AT - JG,8º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,TER,Terça,16:05,16:55
+JG,102,6° AT - JG,6º Ano,13,Redação,223,EMANUEL MACHADO - JG - 2026,TER,Terça,16:55,17:45
+JG,104,8° AT - JG,8º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,TER,Terça,16:55,17:45
+JG,78,6° AM - JG,6º Ano,5,Ciências Naturais,229,DULCIMAR MODESTO - JG - 2026,QUA,Quarta,07:15,08:05
+JG,79,6° BM - JG,6º Ano,13,Redação,275,PRISCILA BARROS - JG - 2026,QUA,Quarta,07:15,08:05
+JG,81,7° AM - JG,7º Ano,11,Geografia,233,ANDERSON MORAIS - JG - 2026,QUA,Quarta,07:15,08:05
+JG,83,7° BM - JG,7º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,QUA,Quarta,07:15,08:05
+JG,91,1ª A - EM - JG,1ª Série,26,Matemática 2,225,JAMES MÁRCIO - JG - 2026,QUA,Quarta,07:15,08:05
+JG,100,1° B - EM - JG,1ª Série,11,Geografia,276,LOURIVAL LUIZ - JG - 2026,QUA,Quarta,07:15,08:05
+JG,94,2ª A - EM - JG,2ª Série,3,Arte,271,JOANA CRISTINA - JG - 2026,QUA,Quarta,07:15,08:05
+JG,101,2° B - EM - JG,2ª Série,17,Gramática,226,MARIA DAS GRAÇAS - JG - 2026,QUA,Quarta,07:15,08:05
+JG,97,3ª A - EM - JG,3ª Série,14,Filosofia,221,ANILTON SANTOS - JG - 2026,QUA,Quarta,07:15,08:05
+JG,78,6° AM - JG,6º Ano,5,Ciências Naturais,229,DULCIMAR MODESTO - JG - 2026,QUA,Quarta,08:05,08:55
+JG,79,6° BM - JG,6º Ano,13,Redação,275,PRISCILA BARROS - JG - 2026,QUA,Quarta,08:05,08:55
+JG,81,7° AM - JG,7º Ano,11,Geografia,233,ANDERSON MORAIS - JG - 2026,QUA,Quarta,08:05,08:55
+JG,83,7° BM - JG,7º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,QUA,Quarta,08:05,08:55
+JG,91,1ª A - EM - JG,1ª Série,17,Gramática,226,MARIA DAS GRAÇAS - JG - 2026,QUA,Quarta,08:05,08:55
+JG,100,1° B - EM - JG,1ª Série,18,Projeto de Vida,271,JOANA CRISTINA - JG - 2026,QUA,Quarta,08:05,08:55
+JG,94,2ª A - EM - JG,2ª Série,14,Filosofia,221,ANILTON SANTOS - JG - 2026,QUA,Quarta,08:05,08:55
+JG,101,2° B - EM - JG,2ª Série,26,Matemática 2,225,JAMES MÁRCIO - JG - 2026,QUA,Quarta,08:05,08:55
+JG,97,3ª A - EM - JG,3ª Série,40,Geografia 2,276,LOURIVAL LUIZ - JG - 2026,QUA,Quarta,08:05,08:55
+JG,86,8° AM - JG,8º Ano,11,Geografia,233,ANDERSON MORAIS - JG - 2026,QUA,Quarta,08:55,09:45
+JG,87,8° BM - JG,8º Ano,5,Ciências Naturais,222,RENATA MIRANDA - JG - 2026,QUA,Quarta,08:55,09:45
+JG,88,9° AM - JG,9º Ano,11,Geografia,276,LOURIVAL LUIZ - JG - 2026,QUA,Quarta,08:55,09:45
+JG,89,9° BM - JG,9º Ano,44,Língua Portuguesa,226,MARIA DAS GRAÇAS - JG - 2026,QUA,Quarta,08:55,09:45
+JG,91,1ª A - EM - JG,1ª Série,19,Biologia 2,229,DULCIMAR MODESTO - JG - 2026,QUA,Quarta,08:55,09:45
+JG,100,1° B - EM - JG,1ª Série,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,QUA,Quarta,08:55,09:45
+JG,94,2ª A - EM - JG,2ª Série,18,Projeto de Vida,274,JOÃO NICÁCIO - JG - 2026,QUA,Quarta,08:55,09:45
+JG,101,2° B - EM - JG,2ª Série,15,Sociologia,221,ANILTON SANTOS - JG - 2026,QUA,Quarta,08:55,09:45
+JG,97,3ª A - EM - JG,3ª Série,33,Matemática 3,225,JAMES MÁRCIO - JG - 2026,QUA,Quarta,08:55,09:45
+JG,78,6° AM - JG,6º Ano,13,Redação,275,PRISCILA BARROS - JG - 2026,QUA,Quarta,09:25,10:15
+JG,79,6° BM - JG,6º Ano,2,Matemática,353,ALISON LOPES - JG - 2026,QUA,Quarta,09:25,10:15
+JG,81,7° AM - JG,7º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,QUA,Quarta,09:25,10:15
+JG,83,7° BM - JG,7º Ano,12,História,271,JOANA CRISTINA - JG - 2026,QUA,Quarta,09:25,10:15
+JG,91,1ª A - EM - JG,1ª Série,35,História 2,274,JOÃO NICÁCIO - JG - 2026,QUA,Quarta,09:45,10:35
+JG,100,1° B - EM - JG,1ª Série,14,Filosofia,221,ANILTON SANTOS - JG - 2026,QUA,Quarta,09:45,10:35
+JG,94,2ª A - EM - JG,2ª Série,25,Matemática 1,225,JAMES MÁRCIO - JG - 2026,QUA,Quarta,09:45,10:35
+JG,101,2° B - EM - JG,2ª Série,11,Geografia,276,LOURIVAL LUIZ - JG - 2026,QUA,Quarta,09:45,10:35
+JG,97,3ª A - EM - JG,3ª Série,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,QUA,Quarta,09:45,10:35
+JG,78,6° AM - JG,6º Ano,2,Matemática,353,ALISON LOPES - JG - 2026,QUA,Quarta,10:15,11:05
+JG,79,6° BM - JG,6º Ano,29,Projeto de Vida,275,PRISCILA BARROS - JG - 2026,QUA,Quarta,10:15,11:05
+JG,81,7° AM - JG,7º Ano,5,Ciências Naturais,222,RENATA MIRANDA - JG - 2026,QUA,Quarta,10:15,11:05
+JG,83,7° BM - JG,7º Ano,12,História,271,JOANA CRISTINA - JG - 2026,QUA,Quarta,10:15,11:05
+JG,86,8° AM - JG,8º Ano,11,Geografia,233,ANDERSON MORAIS - JG - 2026,QUA,Quarta,10:15,11:05
+JG,87,8° BM - JG,8º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,QUA,Quarta,10:15,11:05
+JG,88,9° AM - JG,9º Ano,44,Língua Portuguesa,226,MARIA DAS GRAÇAS - JG - 2026,QUA,Quarta,10:15,11:05
+JG,89,9° BM - JG,9º Ano,20,Biologia,229,DULCIMAR MODESTO - JG - 2026,QUA,Quarta,10:15,11:05
+JG,78,6° AM - JG,6º Ano,30,Raciocínio Lógico,232,JORGE LUIZ - JG - 2026,QUA,Quarta,11:05,11:55
+JG,79,6° BM - JG,6º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,QUA,Quarta,11:05,11:55
+JG,81,7° AM - JG,7º Ano,14,Filosofia,274,JOÃO NICÁCIO - JG - 2026,QUA,Quarta,11:05,11:55
+JG,83,7° BM - JG,7º Ano,30,Raciocínio Lógico,353,ALISON LOPES - JG - 2026,QUA,Quarta,11:05,11:55
+JG,86,8° AM - JG,8º Ano,5,Ciências Naturais,222,RENATA MIRANDA - JG - 2026,QUA,Quarta,11:05,11:55
+JG,87,8° BM - JG,8º Ano,11,Geografia,233,ANDERSON MORAIS - JG - 2026,QUA,Quarta,11:05,11:55
+JG,88,9° AM - JG,9º Ano,2,Matemática,225,JAMES MÁRCIO - JG - 2026,QUA,Quarta,11:05,11:55
+JG,89,9° BM - JG,9º Ano,12,História,271,JOANA CRISTINA - JG - 2026,QUA,Quarta,11:05,11:55
+JG,91,1ª A - EM - JG,1ª Série,15,Sociologia,221,ANILTON SANTOS - JG - 2026,QUA,Quarta,11:05,11:55
+JG,100,1° B - EM - JG,1ª Série,19,Biologia 2,229,DULCIMAR MODESTO - JG - 2026,QUA,Quarta,11:05,11:55
+JG,94,2ª A - EM - JG,2ª Série,13,Redação,275,PRISCILA BARROS - JG - 2026,QUA,Quarta,11:05,11:55
+JG,101,2° B - EM - JG,2ª Série,16,Literatura,226,MARIA DAS GRAÇAS - JG - 2026,QUA,Quarta,11:05,11:55
+JG,97,3ª A - EM - JG,3ª Série,39,Geografia 1,276,LOURIVAL LUIZ - JG - 2026,QUA,Quarta,11:05,11:55
+JG,86,8° AM - JG,8º Ano,5,Ciências Naturais,222,RENATA MIRANDA - JG - 2026,QUA,Quarta,11:55,12:45
+JG,87,8° BM - JG,8º Ano,11,Geografia,233,ANDERSON MORAIS - JG - 2026,QUA,Quarta,11:55,12:45
+JG,88,9° AM - JG,9º Ano,12,História,271,JOANA CRISTINA - JG - 2026,QUA,Quarta,11:55,12:45
+JG,89,9° BM - JG,9º Ano,2,Matemática,225,JAMES MÁRCIO - JG - 2026,QUA,Quarta,11:55,12:45
+JG,91,1ª A - EM - JG,1ª Série,13,Redação,275,PRISCILA BARROS - JG - 2026,QUA,Quarta,11:55,12:45
+JG,100,1° B - EM - JG,1ª Série,36,História 1,274,JOÃO NICÁCIO - JG - 2026,QUA,Quarta,11:55,12:45
+JG,94,2ª A - EM - JG,2ª Série,11,Geografia,276,LOURIVAL LUIZ - JG - 2026,QUA,Quarta,11:55,12:45
+JG,101,2° B - EM - JG,2ª Série,6,Biologia 1,229,DULCIMAR MODESTO - JG - 2026,QUA,Quarta,11:55,12:45
+JG,97,3ª A - EM - JG,3ª Série,16,Literatura,226,MARIA DAS GRAÇAS - JG - 2026,QUA,Quarta,11:55,12:45
+JG,102,6° AT - JG,6º Ano,5,Ciências Naturais,229,DULCIMAR MODESTO - JG - 2026,QUA,Quarta,13:15,14:05
+JG,102,6° AT - JG,6º Ano,5,Ciências Naturais,229,DULCIMAR MODESTO - JG - 2026,QUA,Quarta,14:05,14:55
+JG,102,6° AT - JG,6º Ano,5,Ciências Naturais,229,DULCIMAR MODESTO - JG - 2026,QUA,Quarta,15:15,16:05
+JG,104,8° AT - JG,8º Ano,2,Matemática,273,LEONARDO MENDES - JG - 2026,QUA,Quarta,15:15,16:05
+JG,102,6° AT - JG,6º Ano,2,Matemática,273,LEONARDO MENDES - JG - 2026,QUA,Quarta,16:05,16:55
+JG,104,8° AT - JG,8º Ano,5,Ciências Naturais,222,RENATA MIRANDA - JG - 2026,QUA,Quarta,16:05,16:55
+JG,102,6° AT - JG,6º Ano,2,Matemática,273,LEONARDO MENDES - JG - 2026,QUA,Quarta,16:55,17:45
+JG,104,8° AT - JG,8º Ano,5,Ciências Naturais,222,RENATA MIRANDA - JG - 2026,QUA,Quarta,16:55,17:45
+JG,104,8° AT - JG,8º Ano,5,Ciências Naturais,222,RENATA MIRANDA - JG - 2026,QUA,Quarta,17:45,18:35
+JG,78,6° AM - JG,6º Ano,2,Matemática,353,ALISON LOPES - JG - 2026,QUI,Quinta,07:15,08:05
+JG,79,6° BM - JG,6º Ano,5,Ciências Naturais,229,DULCIMAR MODESTO - JG - 2026,QUI,Quinta,07:15,08:05
+JG,81,7° AM - JG,7º Ano,12,História,271,JOANA CRISTINA - JG - 2026,QUI,Quinta,07:15,08:05
+JG,83,7° BM - JG,7º Ano,11,Geografia,219,SÔNIA MARIA - JG - 2026,QUI,Quinta,07:15,08:05
+JG,86,8° AM - JG,8º Ano,12,História,231,RAFAEL ELOI - JG - 2026,QUI,Quinta,07:15,08:05
+JG,87,8° BM - JG,8º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,QUI,Quinta,07:15,08:05
+JG,88,9° AM - JG,9º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,QUI,Quinta,07:15,08:05
+JG,89,9° BM - JG,9º Ano,44,Língua Portuguesa,226,MARIA DAS GRAÇAS - JG - 2026,QUI,Quinta,07:15,08:05
+JG,91,1ª A - EM - JG,1ª Série,25,Matemática 1,225,JAMES MÁRCIO - JG - 2026,QUI,Quinta,07:15,08:05
+JG,100,1° B - EM - JG,1ª Série,23,Física 1,217,THIAGO CASTILHO - JG - 2026,QUI,Quinta,07:15,08:05
+JG,94,2ª A - EM - JG,2ª Série,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,QUI,Quinta,07:15,08:05
+JG,101,2° B - EM - JG,2ª Série,13,Redação,275,PRISCILA BARROS - JG - 2026,QUI,Quinta,07:15,08:05
+JG,97,3ª A - EM - JG,3ª Série,22,Química 1,224,VALDÉRIO ALEXANDRE - JG - 2026,QUI,Quinta,07:15,08:05
+JG,78,6° AM - JG,6º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,QUI,Quinta,08:05,08:55
+JG,79,6° BM - JG,6º Ano,30,Raciocínio Lógico,353,ALISON LOPES - JG - 2026,QUI,Quinta,08:05,08:55
+JG,81,7° AM - JG,7º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,QUI,Quinta,08:05,08:55
+JG,83,7° BM - JG,7º Ano,13,Redação,275,PRISCILA BARROS - JG - 2026,QUI,Quinta,08:05,08:55
+JG,86,8° AM - JG,8º Ano,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,QUI,Quinta,08:05,08:55
+JG,87,8° BM - JG,8º Ano,12,História,231,RAFAEL ELOI - JG - 2026,QUI,Quinta,08:05,08:55
+JG,88,9° AM - JG,9º Ano,29,Projeto de Vida,271,JOANA CRISTINA - JG - 2026,QUI,Quinta,08:05,08:55
+JG,89,9° BM - JG,9º Ano,3,Arte,274,JOÃO NICÁCIO - JG - 2026,QUI,Quinta,08:05,08:55
+JG,91,1ª A - EM - JG,1ª Série,16,Literatura,226,MARIA DAS GRAÇAS - JG - 2026,QUI,Quinta,08:05,08:55
+JG,100,1° B - EM - JG,1ª Série,26,Matemática 2,225,JAMES MÁRCIO - JG - 2026,QUI,Quinta,08:05,08:55
+JG,94,2ª A - EM - JG,2ª Série,22,Química 1,224,VALDÉRIO ALEXANDRE - JG - 2026,QUI,Quinta,08:05,08:55
+JG,101,2° B - EM - JG,2ª Série,19,Biologia 2,229,DULCIMAR MODESTO - JG - 2026,QUI,Quinta,08:05,08:55
+JG,97,3ª A - EM - JG,3ª Série,24,Física 2,217,THIAGO CASTILHO - JG - 2026,QUI,Quinta,08:05,08:55
+JG,86,8° AM - JG,8º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,QUI,Quinta,08:55,09:45
+JG,87,8° BM - JG,8º Ano,13,Redação,226,MARIA DAS GRAÇAS - JG - 2026,QUI,Quinta,08:55,09:45
+JG,88,9° AM - JG,9º Ano,7,Física,217,THIAGO CASTILHO - JG - 2026,QUI,Quinta,08:55,09:45
+JG,89,9° BM - JG,9º Ano,2,Matemática,225,JAMES MÁRCIO - JG - 2026,QUI,Quinta,08:55,09:45
+JG,91,1ª A - EM - JG,1ª Série,36,História 1,274,JOÃO NICÁCIO - JG - 2026,QUI,Quinta,08:55,09:45
+JG,100,1° B - EM - JG,1ª Série,3,Arte,271,JOANA CRISTINA - JG - 2026,QUI,Quinta,08:55,09:45
+JG,94,2ª A - EM - JG,2ª Série,6,Biologia 1,229,DULCIMAR MODESTO - JG - 2026,QUI,Quinta,08:55,09:45
+JG,101,2° B - EM - JG,2ª Série,22,Química 1,224,VALDÉRIO ALEXANDRE - JG - 2026,QUI,Quinta,08:55,09:45
+JG,97,3ª A - EM - JG,3ª Série,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,QUI,Quinta,08:55,09:45
+JG,78,6° AM - JG,6º Ano,3,Arte,245,MÔNICA LA SALVIA - JG - 2026,QUI,Quinta,09:25,10:15
+JG,79,6° BM - JG,6º Ano,12,História,231,RAFAEL ELOI - JG - 2026,QUI,Quinta,09:25,10:15
+JG,81,7° AM - JG,7º Ano,30,Raciocínio Lógico,353,ALISON LOPES - JG - 2026,QUI,Quinta,09:25,10:15
+JG,83,7° BM - JG,7º Ano,13,Redação,275,PRISCILA BARROS - JG - 2026,QUI,Quinta,09:25,10:15
+JG,91,1ª A - EM - JG,1ª Série,6,Biologia 1,229,DULCIMAR MODESTO - JG - 2026,QUI,Quinta,09:45,10:35
+JG,100,1° B - EM - JG,1ª Série,25,Matemática 1,225,JAMES MÁRCIO - JG - 2026,QUI,Quinta,09:45,10:35
+JG,94,2ª A - EM - JG,2ª Série,17,Gramática,226,MARIA DAS GRAÇAS - JG - 2026,QUI,Quinta,09:45,10:35
+JG,101,2° B - EM - JG,2ª Série,3,Arte,271,JOANA CRISTINA - JG - 2026,QUI,Quinta,09:45,10:35
+JG,97,3ª A - EM - JG,3ª Série,32,Física 3,217,THIAGO CASTILHO - JG - 2026,QUI,Quinta,09:45,10:35
+JG,78,6° AM - JG,6º Ano,29,Projeto de Vida,275,PRISCILA BARROS - JG - 2026,QUI,Quinta,10:15,11:05
+JG,79,6° BM - JG,6º Ano,2,Matemática,353,ALISON LOPES - JG - 2026,QUI,Quinta,10:15,11:05
+JG,81,7° AM - JG,7º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,QUI,Quinta,10:15,11:05
+JG,83,7° BM - JG,7º Ano,3,Arte,274,JOÃO NICÁCIO - JG - 2026,QUI,Quinta,10:15,11:05
+JG,86,8° AM - JG,8º Ano,3,Arte,245,MÔNICA LA SALVIA - JG - 2026,QUI,Quinta,10:15,11:05
+JG,87,8° BM - JG,8º Ano,12,História,231,RAFAEL ELOI - JG - 2026,QUI,Quinta,10:15,11:05
+JG,88,9° AM - JG,9º Ano,8,Química,224,VALDÉRIO ALEXANDRE - JG - 2026,QUI,Quinta,10:15,11:05
+JG,89,9° BM - JG,9º Ano,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,QUI,Quinta,10:15,11:05
+JG,78,6° AM - JG,6º Ano,2,Matemática,353,ALISON LOPES - JG - 2026,QUI,Quinta,11:05,11:55
+JG,79,6° BM - JG,6º Ano,3,Arte,245,MÔNICA LA SALVIA - JG - 2026,QUI,Quinta,11:05,11:55
+JG,81,7° AM - JG,7º Ano,3,Arte,274,JOÃO NICÁCIO - JG - 2026,QUI,Quinta,11:05,11:55
+JG,83,7° BM - JG,7º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,QUI,Quinta,11:05,11:55
+JG,86,8° AM - JG,8º Ano,12,História,231,RAFAEL ELOI - JG - 2026,QUI,Quinta,11:05,11:55
+JG,87,8° BM - JG,8º Ano,4,Educação Física,230,ELIAS GABRIEL - JG - 2026,QUI,Quinta,11:05,11:55
+JG,88,9° AM - JG,9º Ano,12,História,271,JOANA CRISTINA - JG - 2026,QUI,Quinta,11:05,11:55
+JG,89,9° BM - JG,9º Ano,2,Matemática,225,JAMES MÁRCIO - JG - 2026,QUI,Quinta,11:05,11:55
+JG,91,1ª A - EM - JG,1ª Série,13,Redação,275,PRISCILA BARROS - JG - 2026,QUI,Quinta,11:05,11:55
+JG,100,1° B - EM - JG,1ª Série,17,Gramática,226,MARIA DAS GRAÇAS - JG - 2026,QUI,Quinta,11:05,11:55
+JG,94,2ª A - EM - JG,2ª Série,19,Biologia 2,229,DULCIMAR MODESTO - JG - 2026,QUI,Quinta,11:05,11:55
+JG,101,2° B - EM - JG,2ª Série,24,Física 2,217,THIAGO CASTILHO - JG - 2026,QUI,Quinta,11:05,11:55
+JG,97,3ª A - EM - JG,3ª Série,28,Química 3,224,VALDÉRIO ALEXANDRE - JG - 2026,QUI,Quinta,11:05,11:55
+JG,86,8° AM - JG,8º Ano,13,Redação,226,MARIA DAS GRAÇAS - JG - 2026,QUI,Quinta,11:55,12:45
+JG,87,8° BM - JG,8º Ano,3,Arte,245,MÔNICA LA SALVIA - JG - 2026,QUI,Quinta,11:55,12:45
+JG,88,9° AM - JG,9º Ano,30,Raciocínio Lógico,353,ALISON LOPES - JG - 2026,QUI,Quinta,11:55,12:45
+JG,89,9° BM - JG,9º Ano,12,História,271,JOANA CRISTINA - JG - 2026,QUI,Quinta,11:55,12:45
+JG,91,1ª A - EM - JG,1ª Série,6,Biologia 1,229,DULCIMAR MODESTO - JG - 2026,QUI,Quinta,11:55,12:45
+JG,100,1° B - EM - JG,1ª Série,22,Química 1,224,VALDÉRIO ALEXANDRE - JG - 2026,QUI,Quinta,11:55,12:45
+JG,94,2ª A - EM - JG,2ª Série,26,Matemática 2,225,JAMES MÁRCIO - JG - 2026,QUI,Quinta,11:55,12:45
+JG,101,2° B - EM - JG,2ª Série,13,Redação,275,PRISCILA BARROS - JG - 2026,QUI,Quinta,11:55,12:45
+JG,97,3ª A - EM - JG,3ª Série,23,Física 1,217,THIAGO CASTILHO - JG - 2026,QUI,Quinta,11:55,12:45
+JG,102,6° AT - JG,6º Ano,29,Projeto de Vida,275,PRISCILA BARROS - JG - 2026,QUI,Quinta,13:15,14:05
+JG,104,8° AT - JG,8º Ano,12,História,231,RAFAEL ELOI - JG - 2026,QUI,Quinta,13:15,14:05
+JG,97,3ª A - EM - JG,3ª Série,16,Literatura,226,MARIA DAS GRAÇAS - JG - 2026,QUI,Quinta,14:00,14:50
+JG,102,6° AT - JG,6º Ano,12,História,231,RAFAEL ELOI - JG - 2026,QUI,Quinta,14:05,14:55
+JG,104,8° AT - JG,8º Ano,3,Arte,245,MÔNICA LA SALVIA - JG - 2026,QUI,Quinta,14:05,14:55
+JG,97,3ª A - EM - JG,3ª Série,17,Gramática,226,MARIA DAS GRAÇAS - JG - 2026,QUI,Quinta,14:50,15:40
+JG,102,6° AT - JG,6º Ano,3,Arte,245,MÔNICA LA SALVIA - JG - 2026,QUI,Quinta,15:15,16:05
+JG,104,8° AT - JG,8º Ano,12,História,231,RAFAEL ELOI - JG - 2026,QUI,Quinta,15:15,16:05
+JG,97,3ª A - EM - JG,3ª Série,25,Matemática 1,225,JAMES MÁRCIO - JG - 2026,QUI,Quinta,15:55,16:45
+JG,102,6° AT - JG,6º Ano,2,Matemática,273,LEONARDO MENDES - JG - 2026,QUI,Quinta,16:05,16:55
+JG,104,8° AT - JG,8º Ano,12,História,231,RAFAEL ELOI - JG - 2026,QUI,Quinta,16:05,16:55
+JG,97,3ª A - EM - JG,3ª Série,26,Matemática 2,225,JAMES MÁRCIO - JG - 2026,QUI,Quinta,16:45,17:35
+JG,102,6° AT - JG,6º Ano,12,História,231,RAFAEL ELOI - JG - 2026,QUI,Quinta,16:55,17:45
+JG,104,8° AT - JG,8º Ano,2,Matemática,273,LEONARDO MENDES - JG - 2026,QUI,Quinta,16:55,17:45
+JG,97,3ª A - EM - JG,3ª Série,26,Matemática 2,225,JAMES MÁRCIO - JG - 2026,QUI,Quinta,17:35,18:25
+JG,104,8° AT - JG,8º Ano,2,Matemática,273,LEONARDO MENDES - JG - 2026,QUI,Quinta,17:45,18:35
+JG,78,6° AM - JG,6º Ano,11,Geografia,219,SÔNIA MARIA - JG - 2026,SEX,Sexta,07:15,08:05
+JG,79,6° BM - JG,6º Ano,2,Matemática,353,ALISON LOPES - JG - 2026,SEX,Sexta,07:15,08:05
+JG,81,7° AM - JG,7º Ano,13,Redação,275,PRISCILA BARROS - JG - 2026,SEX,Sexta,07:15,08:05
+JG,83,7° BM - JG,7º Ano,5,Ciências Naturais,357,BIOLOGIA - JG - 2026,SEX,Sexta,07:15,08:05
+JG,86,8° AM - JG,8º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,SEX,Sexta,07:15,08:05
+JG,87,8° BM - JG,8º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEX,Sexta,07:15,08:05
+JG,88,9° AM - JG,9º Ano,2,Matemática,225,JAMES MÁRCIO - JG - 2026,SEX,Sexta,07:15,08:05
+JG,89,9° BM - JG,9º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEX,Sexta,07:15,08:05
+JG,91,1ª A - EM - JG,1ª Série,23,Física 1,217,THIAGO CASTILHO - JG - 2026,SEX,Sexta,07:15,08:05
+JG,100,1° B - EM - JG,1ª Série,6,Biologia 1,229,DULCIMAR MODESTO - JG - 2026,SEX,Sexta,07:15,08:05
+JG,94,2ª A - EM - JG,2ª Série,36,História 1,216,ANDRÉ LUIZ - JG - 2026,SEX,Sexta,07:15,08:05
+JG,101,2° B - EM - JG,2ª Série,16,Literatura,226,MARIA DAS GRAÇAS - JG - 2026,SEX,Sexta,07:15,08:05
+JG,97,3ª A - EM - JG,3ª Série,39,Geografia 1,276,LOURIVAL LUIZ - JG - 2026,SEX,Sexta,07:15,08:05
+JG,78,6° AM - JG,6º Ano,11,Geografia,219,SÔNIA MARIA - JG - 2026,SEX,Sexta,08:05,08:55
+JG,79,6° BM - JG,6º Ano,2,Matemática,353,ALISON LOPES - JG - 2026,SEX,Sexta,08:05,08:55
+JG,81,7° AM - JG,7º Ano,13,Redação,275,PRISCILA BARROS - JG - 2026,SEX,Sexta,08:05,08:55
+JG,83,7° BM - JG,7º Ano,5,Ciências Naturais,357,BIOLOGIA - JG - 2026,SEX,Sexta,08:05,08:55
+JG,86,8° AM - JG,8º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEX,Sexta,08:05,08:55
+JG,87,8° BM - JG,8º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,SEX,Sexta,08:05,08:55
+JG,88,9° AM - JG,9º Ano,20,Biologia,229,DULCIMAR MODESTO - JG - 2026,SEX,Sexta,08:05,08:55
+JG,89,9° BM - JG,9º Ano,7,Física,217,THIAGO CASTILHO - JG - 2026,SEX,Sexta,08:05,08:55
+JG,91,1ª A - EM - JG,1ª Série,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEX,Sexta,08:05,08:55
+JG,100,1° B - EM - JG,1ª Série,16,Literatura,226,MARIA DAS GRAÇAS - JG - 2026,SEX,Sexta,08:05,08:55
+JG,94,2ª A - EM - JG,2ª Série,25,Matemática 1,225,JAMES MÁRCIO - JG - 2026,SEX,Sexta,08:05,08:55
+JG,101,2° B - EM - JG,2ª Série,11,Geografia,276,LOURIVAL LUIZ - JG - 2026,SEX,Sexta,08:05,08:55
+JG,97,3ª A - EM - JG,3ª Série,35,História 2,216,ANDRÉ LUIZ - JG - 2026,SEX,Sexta,08:05,08:55
+JG,86,8° AM - JG,8º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,SEX,Sexta,08:55,09:45
+JG,87,8° BM - JG,8º Ano,30,Raciocínio Lógico,353,ALISON LOPES - JG - 2026,SEX,Sexta,08:55,09:45
+JG,88,9° AM - JG,9º Ano,11,Geografia,276,LOURIVAL LUIZ - JG - 2026,SEX,Sexta,08:55,09:45
+JG,89,9° BM - JG,9º Ano,44,Língua Portuguesa,226,MARIA DAS GRAÇAS - JG - 2026,SEX,Sexta,08:55,09:45
+JG,91,1ª A - EM - JG,1ª Série,24,Física 2,217,THIAGO CASTILHO - JG - 2026,SEX,Sexta,08:55,09:45
+JG,100,1° B - EM - JG,1ª Série,13,Redação,275,PRISCILA BARROS - JG - 2026,SEX,Sexta,08:55,09:45
+JG,94,2ª A - EM - JG,2ª Série,35,História 2,216,ANDRÉ LUIZ - JG - 2026,SEX,Sexta,08:55,09:45
+JG,101,2° B - EM - JG,2ª Série,25,Matemática 1,225,JAMES MÁRCIO - JG - 2026,SEX,Sexta,08:55,09:45
+JG,97,3ª A - EM - JG,3ª Série,6,Biologia 1,357,BIOLOGIA - JG - 2026,SEX,Sexta,08:55,09:45
+JG,78,6° AM - JG,6º Ano,5,Ciências Naturais,229,DULCIMAR MODESTO - JG - 2026,SEX,Sexta,09:25,10:15
+JG,79,6° BM - JG,6º Ano,11,Geografia,219,SÔNIA MARIA - JG - 2026,SEX,Sexta,09:25,10:15
+JG,81,7° AM - JG,7º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEX,Sexta,09:25,10:15
+JG,83,7° BM - JG,7º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEX,Sexta,09:25,10:15
+JG,91,1ª A - EM - JG,1ª Série,26,Matemática 2,225,JAMES MÁRCIO - JG - 2026,SEX,Sexta,09:45,10:35
+JG,100,1° B - EM - JG,1ª Série,13,Redação,275,PRISCILA BARROS - JG - 2026,SEX,Sexta,09:45,10:35
+JG,94,2ª A - EM - JG,2ª Série,24,Física 2,217,THIAGO CASTILHO - JG - 2026,SEX,Sexta,09:45,10:35
+JG,101,2° B - EM - JG,2ª Série,36,História 1,216,ANDRÉ LUIZ - JG - 2026,SEX,Sexta,09:45,10:35
+JG,97,3ª A - EM - JG,3ª Série,6,Biologia 1,357,BIOLOGIA - JG - 2026,SEX,Sexta,09:45,10:35
+JG,78,6° AM - JG,6º Ano,2,Matemática,353,ALISON LOPES - JG - 2026,SEX,Sexta,10:15,11:05
+JG,79,6° BM - JG,6º Ano,5,Ciências Naturais,229,DULCIMAR MODESTO - JG - 2026,SEX,Sexta,10:15,11:05
+JG,81,7° AM - JG,7º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEX,Sexta,10:15,11:05
+JG,83,7° BM - JG,7º Ano,11,Geografia,219,SÔNIA MARIA - JG - 2026,SEX,Sexta,10:15,11:05
+JG,86,8° AM - JG,8º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,SEX,Sexta,10:15,11:05
+JG,87,8° BM - JG,8º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEX,Sexta,10:15,11:05
+JG,88,9° AM - JG,9º Ano,44,Língua Portuguesa,226,MARIA DAS GRAÇAS - JG - 2026,SEX,Sexta,10:15,11:05
+JG,89,9° BM - JG,9º Ano,11,Geografia,276,LOURIVAL LUIZ - JG - 2026,SEX,Sexta,10:15,11:05
+JG,78,6° AM - JG,6º Ano,13,Redação,275,PRISCILA BARROS - JG - 2026,SEX,Sexta,11:05,11:55
+JG,79,6° BM - JG,6º Ano,11,Geografia,219,SÔNIA MARIA - JG - 2026,SEX,Sexta,11:05,11:55
+JG,81,7° AM - JG,7º Ano,2,Matemática,232,JORGE LUIZ - JG - 2026,SEX,Sexta,11:05,11:55
+JG,83,7° BM - JG,7º Ano,5,Ciências Naturais,357,BIOLOGIA - JG - 2026,SEX,Sexta,11:05,11:55
+JG,86,8° AM - JG,8º Ano,30,Raciocínio Lógico,353,ALISON LOPES - JG - 2026,SEX,Sexta,11:05,11:55
+JG,87,8° BM - JG,8º Ano,44,Língua Portuguesa,227,BRUNA ISABELLE - JG - 2026,SEX,Sexta,11:05,11:55
+JG,88,9° AM - JG,9º Ano,2,Matemática,225,JAMES MÁRCIO - JG - 2026,SEX,Sexta,11:05,11:55
+JG,89,9° BM - JG,9º Ano,44,Língua Portuguesa,226,MARIA DAS GRAÇAS - JG - 2026,SEX,Sexta,11:05,11:55
+JG,91,1ª A - EM - JG,1ª Série,23,Física 1,217,THIAGO CASTILHO - JG - 2026,SEX,Sexta,11:05,11:55
+JG,100,1° B - EM - JG,1ª Série,11,Geografia,276,LOURIVAL LUIZ - JG - 2026,SEX,Sexta,11:05,11:55
+JG,94,2ª A - EM - JG,2ª Série,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEX,Sexta,11:05,11:55
+JG,101,2° B - EM - JG,2ª Série,6,Biologia 1,229,DULCIMAR MODESTO - JG - 2026,SEX,Sexta,11:05,11:55
+JG,97,3ª A - EM - JG,3ª Série,36,História 1,216,ANDRÉ LUIZ - JG - 2026,SEX,Sexta,11:05,11:55
+JG,88,9° AM - JG,9º Ano,44,Língua Portuguesa,226,MARIA DAS GRAÇAS - JG - 2026,SEX,Sexta,11:55,12:45
+JG,89,9° BM - JG,9º Ano,30,Raciocínio Lógico,353,ALISON LOPES - JG - 2026,SEX,Sexta,11:55,12:45
+JG,91,1ª A - EM - JG,1ª Série,11,Geografia,276,LOURIVAL LUIZ - JG - 2026,SEX,Sexta,11:55,12:45
+JG,100,1° B - EM - JG,1ª Série,6,Biologia 1,229,DULCIMAR MODESTO - JG - 2026,SEX,Sexta,11:55,12:45
+JG,94,2ª A - EM - JG,2ª Série,13,Redação,275,PRISCILA BARROS - JG - 2026,SEX,Sexta,11:55,12:45
+JG,101,2° B - EM - JG,2ª Série,23,Física 1,217,THIAGO CASTILHO - JG - 2026,SEX,Sexta,11:55,12:45
+JG,97,3ª A - EM - JG,3ª Série,19,Biologia 2,357,BIOLOGIA - JG - 2026,SEX,Sexta,11:55,12:45
+JG,102,6° AT - JG,6º Ano,4,Educação Física,356,ADRIANO NUNES - JG - 2026,SEX,Sexta,13:15,14:05
+JG,104,8° AT - JG,8º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEX,Sexta,13:15,14:05
+JG,102,6° AT - JG,6º Ano,11,Geografia,228,FLÁVIO VASCONCELOS - JG - 2026,SEX,Sexta,14:05,14:55
+JG,104,8° AT - JG,8º Ano,4,Educação Física,356,ADRIANO NUNES - JG - 2026,SEX,Sexta,14:05,14:55
+JG,102,6° AT - JG,6º Ano,11,Geografia,228,FLÁVIO VASCONCELOS - JG - 2026,SEX,Sexta,15:15,16:05
+JG,104,8° AT - JG,8º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEX,Sexta,15:15,16:05
+JG,102,6° AT - JG,6º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEX,Sexta,16:05,16:55
+JG,104,8° AT - JG,8º Ano,11,Geografia,228,FLÁVIO VASCONCELOS - JG - 2026,SEX,Sexta,16:05,16:55
+JG,102,6° AT - JG,6º Ano,10,Língua Estrangeira Inglês,236,JOSÉ MARLISON - JG - 2025,SEX,Sexta,16:55,17:45
+JG,104,8° AT - JG,8º Ano,11,Geografia,228,FLÁVIO VASCONCELOS - JG - 2026,SEX,Sexta,16:55,17:45
+CDR,78,6° AM - CORD.,6º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,SEG,Segunda,07:15,08:05
+CDR,79,6° BM - CORD.,6º Ano,13,Redação,334,LUIZ CARLOS FLORO - CORD - 2026,SEG,Segunda,07:15,08:05
+CDR,81,7° AM - CORD.,7º Ano,44,Língua Portuguesa,190,MABÍLIA - CORD - 2026,SEG,Segunda,07:15,08:05
+CDR,83,7° BM - CORD.,7º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,SEG,Segunda,07:15,08:05
+CDR,85,7° CM - CORD.,7º Ano,10,Língua Estrangeira Inglês,335,LARISSA OLIVEIRA - CORD - 2026,SEG,Segunda,07:15,08:05
+CDR,86,8° AM - CORD.,8º Ano,30,Raciocínio Lógico,351,RACIOCÍNIO LÓGICO - CORD - 2026,SEG,Segunda,07:15,08:05
+CDR,87,8° BM - CORD.,8º Ano,2,Matemática,348,JOÃO ARTHUR - CORD - 2026,SEG,Segunda,07:15,08:05
+CDR,88,9° AM - CORD.,9º Ano,10,Língua Estrangeira Inglês,152,ANDRÉ LACERDA - CORD - 2026,SEG,Segunda,07:15,08:05
+CDR,89,9° BM - CORD.,9º Ano,13,Redação,349,JOÃO ANTÔNIO - CORD - 2026,SEG,Segunda,07:15,08:05
+CDR,91,1ª A - EM - CORD.,1ª Série,22,Química 1,158,MARIA DAIANE - CORD - 2026,SEG,Segunda,07:15,08:05
+CDR,94,2ª A - EM - CORD.,2ª Série,36,História 1,178,BARTOLOMEU JOSÉ - CORD - 2025,SEG,Segunda,07:15,08:05
+CDR,97,3ª A - EM - CORD.,3ª Série,15,Sociologia,157,ADRIANO RODRIGUES - CORD - 2026,SEG,Segunda,07:15,08:05
+CDR,78,6° AM - CORD.,6º Ano,14,Filosofia,157,ADRIANO RODRIGUES - CORD - 2026,SEG,Segunda,08:05,08:55
+CDR,79,6° BM - CORD.,6º Ano,13,Redação,334,LUIZ CARLOS FLORO - CORD - 2026,SEG,Segunda,08:05,08:55
+CDR,81,7° AM - CORD.,7º Ano,10,Língua Estrangeira Inglês,335,LARISSA OLIVEIRA - CORD - 2026,SEG,Segunda,08:05,08:55
+CDR,83,7° BM - CORD.,7º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,SEG,Segunda,08:05,08:55
+CDR,85,7° CM - CORD.,7º Ano,44,Língua Portuguesa,190,MABÍLIA - CORD - 2026,SEG,Segunda,08:05,08:55
+CDR,86,8° AM - CORD.,8º Ano,2,Matemática,348,JOÃO ARTHUR - CORD - 2026,SEG,Segunda,08:05,08:55
+CDR,87,8° BM - CORD.,8º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,SEG,Segunda,08:05,08:55
+CDR,88,9° AM - CORD.,9º Ano,30,Raciocínio Lógico,351,RACIOCÍNIO LÓGICO - CORD - 2026,SEG,Segunda,08:05,08:55
+CDR,89,9° BM - CORD.,9º Ano,13,Redação,349,JOÃO ANTÔNIO - CORD - 2026,SEG,Segunda,08:05,08:55
+CDR,91,1ª A - EM - CORD.,1ª Série,35,História 2,178,BARTOLOMEU JOSÉ - CORD - 2025,SEG,Segunda,08:05,08:55
+CDR,94,2ª A - EM - CORD.,2ª Série,22,Química 1,158,MARIA DAIANE - CORD - 2026,SEG,Segunda,08:05,08:55
+CDR,97,3ª A - EM - CORD.,3ª Série,10,Língua Estrangeira Inglês,152,ANDRÉ LACERDA - CORD - 2026,SEG,Segunda,08:05,08:55
+CDR,88,9° AM - CORD.,9º Ano,10,Língua Estrangeira Inglês,152,ANDRÉ LACERDA - CORD - 2026,SEG,Segunda,08:55,09:45
+CDR,89,9° BM - CORD.,9º Ano,14,Filosofia,157,ADRIANO RODRIGUES - CORD - 2026,SEG,Segunda,08:55,09:45
+CDR,91,1ª A - EM - CORD.,1ª Série,22,Química 1,158,MARIA DAIANE - CORD - 2026,SEG,Segunda,08:55,09:45
+CDR,94,2ª A - EM - CORD.,2ª Série,35,História 2,178,BARTOLOMEU JOSÉ - CORD - 2025,SEG,Segunda,08:55,09:45
+CDR,97,3ª A - EM - CORD.,3ª Série,13,Redação,349,JOÃO ANTÔNIO - CORD - 2026,SEG,Segunda,08:55,09:45
+CDR,78,6° AM - CORD.,6º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,SEG,Segunda,09:25,10:15
+CDR,79,6° BM - CORD.,6º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,SEG,Segunda,09:25,10:15
+CDR,81,7° AM - CORD.,7º Ano,30,Raciocínio Lógico,351,RACIOCÍNIO LÓGICO - CORD - 2026,SEG,Segunda,09:25,10:15
+CDR,83,7° BM - CORD.,7º Ano,44,Língua Portuguesa,190,MABÍLIA - CORD - 2026,SEG,Segunda,09:25,10:15
+CDR,85,7° CM - CORD.,7º Ano,10,Língua Estrangeira Inglês,335,LARISSA OLIVEIRA - CORD - 2026,SEG,Segunda,09:25,10:15
+CDR,86,8° AM - CORD.,8º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,SEG,Segunda,09:25,10:15
+CDR,87,8° BM - CORD.,8º Ano,2,Matemática,348,JOÃO ARTHUR - CORD - 2026,SEG,Segunda,09:25,10:15
+CDR,78,6° AM - CORD.,6º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,SEG,Segunda,10:15,11:05
+CDR,79,6° BM - CORD.,6º Ano,10,Língua Estrangeira Inglês,335,LARISSA OLIVEIRA - CORD - 2026,SEG,Segunda,10:15,11:05
+CDR,81,7° AM - CORD.,7º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,SEG,Segunda,10:15,11:05
+CDR,83,7° BM - CORD.,7º Ano,30,Raciocínio Lógico,351,RACIOCÍNIO LÓGICO - CORD - 2026,SEG,Segunda,10:15,11:05
+CDR,85,7° CM - CORD.,7º Ano,44,Língua Portuguesa,190,MABÍLIA - CORD - 2026,SEG,Segunda,10:15,11:05
+CDR,86,8° AM - CORD.,8º Ano,2,Matemática,348,JOÃO ARTHUR - CORD - 2026,SEG,Segunda,10:15,11:05
+CDR,87,8° BM - CORD.,8º Ano,13,Redação,334,LUIZ CARLOS FLORO - CORD - 2026,SEG,Segunda,10:15,11:05
+CDR,88,9° AM - CORD.,9º Ano,8,Química,158,MARIA DAIANE - CORD - 2026,SEG,Segunda,10:15,11:05
+CDR,89,9° BM - CORD.,9º Ano,10,Língua Estrangeira Inglês,152,ANDRÉ LACERDA - CORD - 2026,SEG,Segunda,10:15,11:05
+CDR,91,1ª A - EM - CORD.,1ª Série,36,História 1,178,BARTOLOMEU JOSÉ - CORD - 2025,SEG,Segunda,10:15,11:05
+CDR,94,2ª A - EM - CORD.,2ª Série,15,Sociologia,157,ADRIANO RODRIGUES - CORD - 2026,SEG,Segunda,10:15,11:05
+CDR,97,3ª A - EM - CORD.,3ª Série,13,Redação,349,JOÃO ANTÔNIO - CORD - 2026,SEG,Segunda,10:15,11:05
+CDR,78,6° AM - CORD.,6º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,SEG,Segunda,11:05,11:55
+CDR,79,6° BM - CORD.,6º Ano,12,História,178,BARTOLOMEU JOSÉ - CORD - 2025,SEG,Segunda,11:05,11:55
+CDR,81,7° AM - CORD.,7º Ano,10,Língua Estrangeira Inglês,335,LARISSA OLIVEIRA - CORD - 2026,SEG,Segunda,11:05,11:55
+CDR,83,7° BM - CORD.,7º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,SEG,Segunda,11:05,11:55
+CDR,85,7° CM - CORD.,7º Ano,44,Língua Portuguesa,190,MABÍLIA - CORD - 2026,SEG,Segunda,11:05,11:55
+CDR,86,8° AM - CORD.,8º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,SEG,Segunda,11:05,11:55
+CDR,87,8° BM - CORD.,8º Ano,2,Matemática,348,JOÃO ARTHUR - CORD - 2026,SEG,Segunda,11:05,11:55
+CDR,88,9° AM - CORD.,9º Ano,13,Redação,349,JOÃO ANTÔNIO - CORD - 2026,SEG,Segunda,11:05,11:55
+CDR,89,9° BM - CORD.,9º Ano,30,Raciocínio Lógico,351,RACIOCÍNIO LÓGICO - CORD - 2026,SEG,Segunda,11:05,11:55
+CDR,91,1ª A - EM - CORD.,1ª Série,15,Sociologia,157,ADRIANO RODRIGUES - CORD - 2026,SEG,Segunda,11:05,11:55
+CDR,94,2ª A - EM - CORD.,2ª Série,10,Língua Estrangeira Inglês,152,ANDRÉ LACERDA - CORD - 2026,SEG,Segunda,11:05,11:55
+CDR,97,3ª A - EM - CORD.,3ª Série,22,Química 1,158,MARIA DAIANE - CORD - 2026,SEG,Segunda,11:05,11:55
+CDR,78,6° AM - CORD.,6º Ano,10,Língua Estrangeira Inglês,335,LARISSA OLIVEIRA - CORD - 2026,SEG,Segunda,11:55,12:45
+CDR,79,6° BM - CORD.,6º Ano,30,Raciocínio Lógico,351,RACIOCÍNIO LÓGICO - CORD - 2026,SEG,Segunda,11:55,12:45
+CDR,91,1ª A - EM - CORD.,1ª Série,36,História 1,178,BARTOLOMEU JOSÉ - CORD - 2025,SEG,Segunda,11:55,12:45
+CDR,94,2ª A - EM - CORD.,2ª Série,13,Redação,349,JOÃO ANTÔNIO - CORD - 2026,SEG,Segunda,11:55,12:45
+CDR,97,3ª A - EM - CORD.,3ª Série,22,Química 1,158,MARIA DAIANE - CORD - 2026,SEG,Segunda,11:55,12:45
+CDR,86,8° AM - CORD.,8º Ano,13,Redação,334,LUIZ CARLOS FLORO - CORD - 2026,TER,Terça,07:15,08:05
+CDR,87,8° BM - CORD.,8º Ano,12,História,179,FILIPE SILAS - CORD - 2026,TER,Terça,07:15,08:05
+CDR,88,9° AM - CORD.,9º Ano,11,Geografia,344,LUCAS SENA - CORD - 2026,TER,Terça,07:15,08:05
+CDR,89,9° BM - CORD.,9º Ano,4,Educação Física,342,ELINALDO SOARES - CORD - 2026,TER,Terça,07:15,08:05
+CDR,91,1ª A - EM - CORD.,1ª Série,6,Biologia 1,187,DANIEL SENNA - CORD - 2026,TER,Terça,07:15,08:05
+CDR,94,2ª A - EM - CORD.,2ª Série,13,Redação,349,JOÃO ANTÔNIO - CORD - 2026,TER,Terça,07:15,08:05
+CDR,97,3ª A - EM - CORD.,3ª Série,16,Literatura,331,BÁRBARA FÉLIX - CORD - 2026,TER,Terça,07:15,08:05
+CDR,86,8° AM - CORD.,8º Ano,4,Educação Física,342,ELINALDO SOARES - CORD - 2026,TER,Terça,08:05,08:55
+CDR,87,8° BM - CORD.,8º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,TER,Terça,08:05,08:55
+CDR,88,9° AM - CORD.,9º Ano,44,Língua Portuguesa,331,BÁRBARA FÉLIX - CORD - 2026,TER,Terça,08:05,08:55
+CDR,89,9° BM - CORD.,9º Ano,11,Geografia,344,LUCAS SENA - CORD - 2026,TER,Terça,08:05,08:55
+CDR,91,1ª A - EM - CORD.,1ª Série,13,Redação,349,JOÃO ANTÔNIO - CORD - 2026,TER,Terça,08:05,08:55
+CDR,94,2ª A - EM - CORD.,2ª Série,19,Biologia 2,187,DANIEL SENNA - CORD - 2026,TER,Terça,08:05,08:55
+CDR,97,3ª A - EM - CORD.,3ª Série,12,História,179,FILIPE SILAS - CORD - 2026,TER,Terça,08:05,08:55
+CDR,88,9° AM - CORD.,9º Ano,11,Geografia,344,LUCAS SENA - CORD - 2026,TER,Terça,08:55,09:45
+CDR,89,9° BM - CORD.,9º Ano,20,Biologia,187,DANIEL SENNA - CORD - 2026,TER,Terça,08:55,09:45
+CDR,91,1ª A - EM - CORD.,1ª Série,16,Literatura,331,BÁRBARA FÉLIX - CORD - 2026,TER,Terça,08:55,09:45
+CDR,94,2ª A - EM - CORD.,2ª Série,4,Educação Física,342,ELINALDO SOARES - CORD - 2026,TER,Terça,08:55,09:45
+CDR,97,3ª A - EM - CORD.,3ª Série,43,Redação,349,JOÃO ANTÔNIO - CORD - 2026,TER,Terça,08:55,09:45
+CDR,78,6° AM - CORD.,6º Ano,13,Redação,334,LUIZ CARLOS FLORO - CORD - 2026,TER,Terça,09:25,10:15
+CDR,79,6° BM - CORD.,6º Ano,2,Matemática,350,CLÁUDIA BEZERRA -  CORD - 2026,TER,Terça,09:25,10:15
+CDR,81,7° AM - CORD.,7º Ano,44,Língua Portuguesa,190,MABÍLIA - CORD - 2026,TER,Terça,09:25,10:15
+CDR,83,7° BM - CORD.,7º Ano,10,Língua Estrangeira Inglês,335,LARISSA OLIVEIRA - CORD - 2026,TER,Terça,09:25,10:15
+CDR,85,7° CM - CORD.,7º Ano,2,Matemática,346,JÉSSICA FERREIRA - CORD - 2026,TER,Terça,09:25,10:15
+CDR,86,8° AM - CORD.,8º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,TER,Terça,09:25,10:15
+CDR,87,8° BM - CORD.,8º Ano,12,História,179,FILIPE SILAS - CORD - 2026,TER,Terça,09:25,10:15
+CDR,78,6° AM - CORD.,6º Ano,10,Língua Estrangeira Inglês,335,LARISSA OLIVEIRA - CORD - 2026,TER,Terça,10:15,11:05
+CDR,79,6° BM - CORD.,6º Ano,2,Matemática,350,CLÁUDIA BEZERRA -  CORD - 2026,TER,Terça,10:15,11:05
+CDR,81,7° AM - CORD.,7º Ano,4,Educação Física,342,ELINALDO SOARES - CORD - 2026,TER,Terça,10:15,11:05
+CDR,83,7° BM - CORD.,7º Ano,2,Matemática,346,JÉSSICA FERREIRA - CORD - 2026,TER,Terça,10:15,11:05
+CDR,85,7° CM - CORD.,7º Ano,13,Redação,190,MABÍLIA - CORD - 2026,TER,Terça,10:15,11:05
+CDR,86,8° AM - CORD.,8º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,TER,Terça,10:15,11:05
+CDR,87,8° BM - CORD.,8º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,TER,Terça,10:15,11:05
+CDR,88,9° AM - CORD.,9º Ano,20,Biologia,187,DANIEL SENNA - CORD - 2026,TER,Terça,10:15,11:05
+CDR,89,9° BM - CORD.,9º Ano,44,Língua Portuguesa,331,BÁRBARA FÉLIX - CORD - 2026,TER,Terça,10:15,11:05
+CDR,91,1ª A - EM - CORD.,1ª Série,13,Redação,349,JOÃO ANTÔNIO - CORD - 2026,TER,Terça,10:15,11:05
+CDR,94,2ª A - EM - CORD.,2ª Série,24,Física 2,343,THIAGO CASTILHO - CORD - 2026,TER,Terça,10:15,11:05
+CDR,97,3ª A - EM - CORD.,3ª Série,36,História 1,179,FILIPE SILAS - CORD - 2026,TER,Terça,10:15,11:05
+CDR,78,6° AM - CORD.,6º Ano,2,Matemática,350,CLÁUDIA BEZERRA -  CORD - 2026,TER,Terça,11:05,11:55
+CDR,79,6° BM - CORD.,6º Ano,10,Língua Estrangeira Inglês,335,LARISSA OLIVEIRA - CORD - 2026,TER,Terça,11:05,11:55
+CDR,81,7° AM - CORD.,7º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,TER,Terça,11:05,11:55
+CDR,83,7° BM - CORD.,7º Ano,13,Redação,190,MABÍLIA - CORD - 2026,TER,Terça,11:05,11:55
+CDR,85,7° CM - CORD.,7º Ano,2,Matemática,346,JÉSSICA FERREIRA - CORD - 2026,TER,Terça,11:05,11:55
+CDR,86,8° AM - CORD.,8º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,TER,Terça,11:05,11:55
+CDR,87,8° BM - CORD.,8º Ano,12,História,179,FILIPE SILAS - CORD - 2026,TER,Terça,11:05,11:55
+CDR,88,9° AM - CORD.,9º Ano,13,Redação,349,JOÃO ANTÔNIO - CORD - 2026,TER,Terça,11:05,11:55
+CDR,89,9° BM - CORD.,9º Ano,11,Geografia,344,LUCAS SENA - CORD - 2026,TER,Terça,11:05,11:55
+CDR,91,1ª A - EM - CORD.,1ª Série,19,Biologia 2,187,DANIEL SENNA - CORD - 2026,TER,Terça,11:05,11:55
+CDR,94,2ª A - EM - CORD.,2ª Série,16,Literatura,331,BÁRBARA FÉLIX - CORD - 2026,TER,Terça,11:05,11:55
+CDR,97,3ª A - EM - CORD.,3ª Série,32,Física 3,343,THIAGO CASTILHO - CORD - 2026,TER,Terça,11:05,11:55
+CDR,81,7° AM - CORD.,7º Ano,2,Matemática,346,JÉSSICA FERREIRA - CORD - 2026,TER,Terça,11:55,12:45
+CDR,83,7° BM - CORD.,7º Ano,10,Língua Estrangeira Inglês,335,LARISSA OLIVEIRA - CORD - 2026,TER,Terça,11:55,12:45
+CDR,85,7° CM - CORD.,7º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,TER,Terça,11:55,12:45
+CDR,91,1ª A - EM - CORD.,1ª Série,24,Física 2,343,THIAGO CASTILHO - CORD - 2026,TER,Terça,11:55,12:45
+CDR,94,2ª A - EM - CORD.,2ª Série,16,Literatura,331,BÁRBARA FÉLIX - CORD - 2026,TER,Terça,11:55,12:45
+CDR,97,3ª A - EM - CORD.,3ª Série,35,História 2,179,FILIPE SILAS - CORD - 2026,TER,Terça,11:55,12:45
+CDR,78,6° AM - CORD.,6º Ano,2,Matemática,350,CLÁUDIA BEZERRA -  CORD - 2026,QUA,Quarta,07:15,08:05
+CDR,79,6° BM - CORD.,6º Ano,12,História,178,BARTOLOMEU JOSÉ - CORD - 2025,QUA,Quarta,07:15,08:05
+CDR,81,7° AM - CORD.,7º Ano,13,Redação,190,MABÍLIA - CORD - 2026,QUA,Quarta,07:15,08:05
+CDR,83,7° BM - CORD.,7º Ano,14,Filosofia,157,ADRIANO RODRIGUES - CORD - 2026,QUA,Quarta,07:15,08:05
+CDR,85,7° CM - CORD.,7º Ano,2,Matemática,346,JÉSSICA FERREIRA - CORD - 2026,QUA,Quarta,07:15,08:05
+CDR,91,1ª A - EM - CORD.,1ª Série,4,Educação Física,342,ELINALDO SOARES - CORD - 2026,QUA,Quarta,07:15,08:05
+CDR,94,2ª A - EM - CORD.,2ª Série,11,Geografia,189,FLÁVIO NASCIMENTO - CORD - 2026,QUA,Quarta,07:15,08:05
+CDR,97,3ª A - EM - CORD.,3ª Série,25,Matemática 1,333,DOUGLAS MENDES - CORD - 2026,QUA,Quarta,07:15,08:05
+CDR,78,6° AM - CORD.,6º Ano,2,Matemática,350,CLÁUDIA BEZERRA -  CORD - 2026,QUA,Quarta,08:05,08:55
+CDR,79,6° BM - CORD.,6º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,QUA,Quarta,08:05,08:55
+CDR,81,7° AM - CORD.,7º Ano,2,Matemática,346,JÉSSICA FERREIRA - CORD - 2026,QUA,Quarta,08:05,08:55
+CDR,83,7° BM - CORD.,7º Ano,4,Educação Física,342,ELINALDO SOARES - CORD - 2026,QUA,Quarta,08:05,08:55
+CDR,85,7° CM - CORD.,7º Ano,44,Língua Portuguesa,190,MABÍLIA - CORD - 2026,QUA,Quarta,08:05,08:55
+CDR,91,1ª A - EM - CORD.,1ª Série,26,Matemática 2,333,DOUGLAS MENDES - CORD - 2026,QUA,Quarta,08:05,08:55
+CDR,94,2ª A - EM - CORD.,2ª Série,36,História 1,178,BARTOLOMEU JOSÉ - CORD - 2025,QUA,Quarta,08:05,08:55
+CDR,97,3ª A - EM - CORD.,3ª Série,14,Filosofia,157,ADRIANO RODRIGUES - CORD - 2026,QUA,Quarta,08:05,08:55
+CDR,88,9° AM - CORD.,9º Ano,29,Projeto de Vida,341,ADRIANA RODRIGUES - CORD - 2026,QUA,Quarta,08:55,09:45
+CDR,89,9° BM - CORD.,9º Ano,10,Língua Estrangeira Inglês,152,ANDRÉ LACERDA - CORD - 2026,QUA,Quarta,08:55,09:45
+CDR,91,1ª A - EM - CORD.,1ª Série,14,Filosofia,157,ADRIANO RODRIGUES - CORD - 2026,QUA,Quarta,08:55,09:45
+CDR,94,2ª A - EM - CORD.,2ª Série,25,Matemática 1,333,DOUGLAS MENDES - CORD - 2026,QUA,Quarta,08:55,09:45
+CDR,97,3ª A - EM - CORD.,3ª Série,40,Geografia 2,189,FLÁVIO NASCIMENTO - CORD - 2026,QUA,Quarta,08:55,09:45
+CDR,78,6° AM - CORD.,6º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,QUA,Quarta,09:25,10:15
+CDR,79,6° BM - CORD.,6º Ano,2,Matemática,350,CLÁUDIA BEZERRA -  CORD - 2026,QUA,Quarta,09:25,10:15
+CDR,81,7° AM - CORD.,7º Ano,2,Matemática,346,JÉSSICA FERREIRA - CORD - 2026,QUA,Quarta,09:25,10:15
+CDR,83,7° BM - CORD.,7º Ano,44,Língua Portuguesa,190,MABÍLIA - CORD - 2026,QUA,Quarta,09:25,10:15
+CDR,85,7° CM - CORD.,7º Ano,4,Educação Física,342,ELINALDO SOARES - CORD - 2026,QUA,Quarta,09:25,10:15
+CDR,86,8° AM - CORD.,8º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,QUA,Quarta,09:25,10:15
+CDR,87,8° BM - CORD.,8º Ano,13,Redação,334,LUIZ CARLOS FLORO - CORD - 2026,QUA,Quarta,09:25,10:15
+CDR,78,6° AM - CORD.,6º Ano,2,Matemática,350,CLÁUDIA BEZERRA -  CORD - 2026,QUA,Quarta,10:15,11:05
+CDR,79,6° BM - CORD.,6º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,QUA,Quarta,10:15,11:05
+CDR,81,7° AM - CORD.,7º Ano,44,Língua Portuguesa,190,MABÍLIA - CORD - 2026,QUA,Quarta,10:15,11:05
+CDR,83,7° BM - CORD.,7º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,QUA,Quarta,10:15,11:05
+CDR,85,7° CM - CORD.,7º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,QUA,Quarta,10:15,11:05
+CDR,86,8° AM - CORD.,8º Ano,14,Filosofia,157,ADRIANO RODRIGUES - CORD - 2026,QUA,Quarta,10:15,11:05
+CDR,87,8° BM - CORD.,8º Ano,4,Educação Física,342,ELINALDO SOARES - CORD - 2026,QUA,Quarta,10:15,11:05
+CDR,88,9° AM - CORD.,9º Ano,44,Língua Portuguesa,331,BÁRBARA FÉLIX - CORD - 2026,QUA,Quarta,10:15,11:05
+CDR,89,9° BM - CORD.,9º Ano,29,Projeto de Vida,341,ADRIANA RODRIGUES - CORD - 2026,QUA,Quarta,10:15,11:05
+CDR,91,1ª A - EM - CORD.,1ª Série,10,Língua Estrangeira Inglês,152,ANDRÉ LACERDA - CORD - 2026,QUA,Quarta,10:15,11:05
+CDR,94,2ª A - EM - CORD.,2ª Série,11,Geografia,189,FLÁVIO NASCIMENTO - CORD - 2026,QUA,Quarta,10:15,11:05
+CDR,97,3ª A - EM - CORD.,3ª Série,26,Matemática 2,333,DOUGLAS MENDES - CORD - 2026,QUA,Quarta,10:15,11:05
+CDR,78,6° AM - CORD.,6º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,QUA,Quarta,11:05,11:55
+CDR,79,6° BM - CORD.,6º Ano,2,Matemática,350,CLÁUDIA BEZERRA -  CORD - 2026,QUA,Quarta,11:05,11:55
+CDR,81,7° AM - CORD.,7º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,QUA,Quarta,11:05,11:55
+CDR,83,7° BM - CORD.,7º Ano,44,Língua Portuguesa,190,MABÍLIA - CORD - 2026,QUA,Quarta,11:05,11:55
+CDR,85,7° CM - CORD.,7º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,QUA,Quarta,11:05,11:55
+CDR,86,8° AM - CORD.,8º Ano,10,Língua Estrangeira Inglês,152,ANDRÉ LACERDA - CORD - 2026,QUA,Quarta,11:05,11:55
+CDR,87,8° BM - CORD.,8º Ano,14,Filosofia,157,ADRIANO RODRIGUES - CORD - 2026,QUA,Quarta,11:05,11:55
+CDR,88,9° AM - CORD.,9º Ano,4,Educação Física,342,ELINALDO SOARES - CORD - 2026,QUA,Quarta,11:05,11:55
+CDR,89,9° BM - CORD.,9º Ano,44,Língua Portuguesa,331,BÁRBARA FÉLIX - CORD - 2026,QUA,Quarta,11:05,11:55
+CDR,91,1ª A - EM - CORD.,1ª Série,11,Geografia,189,FLÁVIO NASCIMENTO - CORD - 2026,QUA,Quarta,11:05,11:55
+CDR,94,2ª A - EM - CORD.,2ª Série,26,Matemática 2,333,DOUGLAS MENDES - CORD - 2026,QUA,Quarta,11:05,11:55
+CDR,97,3ª A - EM - CORD.,3ª Série,18,Projeto de Vida,341,ADRIANA RODRIGUES - CORD - 2026,QUA,Quarta,11:05,11:55
+CDR,86,8° AM - CORD.,8º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,QUA,Quarta,11:55,12:45
+CDR,87,8° BM - CORD.,8º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,QUA,Quarta,11:55,12:45
+CDR,88,9° AM - CORD.,9º Ano,14,Filosofia,157,ADRIANO RODRIGUES - CORD - 2026,QUA,Quarta,11:55,12:45
+CDR,89,9° BM - CORD.,9º Ano,44,Língua Portuguesa,331,BÁRBARA FÉLIX - CORD - 2026,QUA,Quarta,11:55,12:45
+CDR,91,1ª A - EM - CORD.,1ª Série,11,Geografia,189,FLÁVIO NASCIMENTO - CORD - 2026,QUA,Quarta,11:55,12:45
+CDR,94,2ª A - EM - CORD.,2ª Série,18,Projeto de Vida,341,ADRIANA RODRIGUES - CORD - 2026,QUA,Quarta,11:55,12:45
+CDR,97,3ª A - EM - CORD.,3ª Série,4,Educação Física,342,ELINALDO SOARES - CORD - 2026,QUA,Quarta,11:55,12:45
+CDR,78,6° AM - CORD.,6º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,QUI,Quinta,07:15,08:05
+CDR,79,6° BM - CORD.,6º Ano,4,Educação Física,342,ELINALDO SOARES - CORD - 2026,QUI,Quinta,07:15,08:05
+CDR,81,7° AM - CORD.,7º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,QUI,Quinta,07:15,08:05
+CDR,83,7° BM - CORD.,7º Ano,2,Matemática,346,JÉSSICA FERREIRA - CORD - 2026,QUI,Quinta,07:15,08:05
+CDR,85,7° CM - CORD.,7º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,QUI,Quinta,07:15,08:05
+CDR,86,8° AM - CORD.,8º Ano,2,Matemática,348,JOÃO ARTHUR - CORD - 2026,QUI,Quinta,07:15,08:05
+CDR,87,8° BM - CORD.,8º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,QUI,Quinta,07:15,08:05
+CDR,88,9° AM - CORD.,9º Ano,2,Matemática,347,TEDMILSON - CORD - 2026,QUI,Quinta,07:15,08:05
+CDR,89,9° BM - CORD.,9º Ano,8,Química,158,MARIA DAIANE - CORD - 2026,QUI,Quinta,07:15,08:05
+CDR,91,1ª A - EM - CORD.,1ª Série,17,Gramática,156,GABRIELA MEDEIROS - CORD -2025,QUI,Quinta,07:15,08:05
+CDR,94,2ª A - EM - CORD.,2ª Série,23,Física 1,188,WENDELL ROMELL - CORD - 2026,QUI,Quinta,07:15,08:05
+CDR,97,3ª A - EM - CORD.,3ª Série,26,Matemática 2,333,DOUGLAS MENDES - CORD - 2026,QUI,Quinta,07:15,08:05
+CDR,78,6° AM - CORD.,6º Ano,4,Educação Física,342,ELINALDO SOARES - CORD - 2026,QUI,Quinta,08:05,08:55
+CDR,79,6° BM - CORD.,6º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,QUI,Quinta,08:05,08:55
+CDR,81,7° AM - CORD.,7º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,QUI,Quinta,08:05,08:55
+CDR,83,7° BM - CORD.,7º Ano,2,Matemática,346,JÉSSICA FERREIRA - CORD - 2026,QUI,Quinta,08:05,08:55
+CDR,85,7° CM - CORD.,7º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,QUI,Quinta,08:05,08:55
+CDR,86,8° AM - CORD.,8º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,QUI,Quinta,08:05,08:55
+CDR,87,8° BM - CORD.,8º Ano,2,Matemática,348,JOÃO ARTHUR - CORD - 2026,QUI,Quinta,08:05,08:55
+CDR,88,9° AM - CORD.,9º Ano,7,Física,188,WENDELL ROMELL - CORD - 2026,QUI,Quinta,08:05,08:55
+CDR,89,9° BM - CORD.,9º Ano,2,Matemática,347,TEDMILSON - CORD - 2026,QUI,Quinta,08:05,08:55
+CDR,91,1ª A - EM - CORD.,1ª Série,26,Matemática 2,333,DOUGLAS MENDES - CORD - 2026,QUI,Quinta,08:05,08:55
+CDR,94,2ª A - EM - CORD.,2ª Série,17,Gramática,156,GABRIELA MEDEIROS - CORD -2025,QUI,Quinta,08:05,08:55
+CDR,97,3ª A - EM - CORD.,3ª Série,21,Química 2,158,MARIA DAIANE - CORD - 2026,QUI,Quinta,08:05,08:55
+CDR,88,9° AM - CORD.,9º Ano,2,Matemática,347,TEDMILSON - CORD - 2026,QUI,Quinta,08:55,09:45
+CDR,89,9° BM - CORD.,9º Ano,7,Física,188,WENDELL ROMELL - CORD - 2026,QUI,Quinta,08:55,09:45
+CDR,91,1ª A - EM - CORD.,1ª Série,21,Química 2,158,MARIA DAIANE - CORD - 2026,QUI,Quinta,08:55,09:45
+CDR,94,2ª A - EM - CORD.,2ª Série,17,Gramática,156,GABRIELA MEDEIROS - CORD -2025,QUI,Quinta,08:55,09:45
+CDR,97,3ª A - EM - CORD.,3ª Série,33,Matemática 3,333,DOUGLAS MENDES - CORD - 2026,QUI,Quinta,08:55,09:45
+CDR,78,6° AM - CORD.,6º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,QUI,Quinta,09:25,10:15
+CDR,79,6° BM - CORD.,6º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,QUI,Quinta,09:25,10:15
+CDR,81,7° AM - CORD.,7º Ano,2,Matemática,346,JÉSSICA FERREIRA - CORD - 2026,QUI,Quinta,09:25,10:15
+CDR,83,7° BM - CORD.,7º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,QUI,Quinta,09:25,10:15
+CDR,85,7° CM - CORD.,7º Ano,3,Arte,341,ADRIANA RODRIGUES - CORD - 2026,QUI,Quinta,09:25,10:15
+CDR,86,8° AM - CORD.,8º Ano,2,Matemática,348,JOÃO ARTHUR - CORD - 2026,QUI,Quinta,09:25,10:15
+CDR,87,8° BM - CORD.,8º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,QUI,Quinta,09:25,10:15
+CDR,78,6° AM - CORD.,6º Ano,13,Redação,334,LUIZ CARLOS FLORO - CORD - 2026,QUI,Quinta,10:15,11:05
+CDR,79,6° BM - CORD.,6º Ano,29,Projeto de Vida,341,ADRIANA RODRIGUES - CORD - 2026,QUI,Quinta,10:15,11:05
+CDR,81,7° AM - CORD.,7º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,QUI,Quinta,10:15,11:05
+CDR,83,7° BM - CORD.,7º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,QUI,Quinta,10:15,11:05
+CDR,85,7° CM - CORD.,7º Ano,2,Matemática,346,JÉSSICA FERREIRA - CORD - 2026,QUI,Quinta,10:15,11:05
+CDR,86,8° AM - CORD.,8º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,QUI,Quinta,10:15,11:05
+CDR,87,8° BM - CORD.,8º Ano,2,Matemática,348,JOÃO ARTHUR - CORD - 2026,QUI,Quinta,10:15,11:05
+CDR,88,9° AM - CORD.,9º Ano,44,Língua Portuguesa,331,BÁRBARA FÉLIX - CORD - 2026,QUI,Quinta,10:15,11:05
+CDR,89,9° BM - CORD.,9º Ano,2,Matemática,347,TEDMILSON - CORD - 2026,QUI,Quinta,10:15,11:05
+CDR,91,1ª A - EM - CORD.,1ª Série,23,Física 1,188,WENDELL ROMELL - CORD - 2026,QUI,Quinta,10:15,11:05
+CDR,94,2ª A - EM - CORD.,2ª Série,21,Química 2,158,MARIA DAIANE - CORD - 2026,QUI,Quinta,10:15,11:05
+CDR,97,3ª A - EM - CORD.,3ª Série,17,Gramática,156,GABRIELA MEDEIROS - CORD -2025,QUI,Quinta,10:15,11:05
+CDR,78,6° AM - CORD.,6º Ano,29,Projeto de Vida,341,ADRIANA RODRIGUES - CORD - 2026,QUI,Quinta,11:05,11:55
+CDR,79,6° BM - CORD.,6º Ano,11,Geografia,161,GERLY SANDRA - CORD - 2026,QUI,Quinta,11:05,11:55
+CDR,81,7° AM - CORD.,7º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,QUI,Quinta,11:05,11:55
+CDR,83,7° BM - CORD.,7º Ano,2,Matemática,346,JÉSSICA FERREIRA - CORD - 2026,QUI,Quinta,11:05,11:55
+CDR,85,7° CM - CORD.,7º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,QUI,Quinta,11:05,11:55
+CDR,86,8° AM - CORD.,8º Ano,2,Matemática,348,JOÃO ARTHUR - CORD - 2026,QUI,Quinta,11:05,11:55
+CDR,87,8° BM - CORD.,8º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,QUI,Quinta,11:05,11:55
+CDR,88,9° AM - CORD.,9º Ano,2,Matemática,347,TEDMILSON - CORD - 2026,QUI,Quinta,11:05,11:55
+CDR,89,9° BM - CORD.,9º Ano,44,Língua Portuguesa,331,BÁRBARA FÉLIX - CORD - 2026,QUI,Quinta,11:05,11:55
+CDR,91,1ª A - EM - CORD.,1ª Série,17,Gramática,156,GABRIELA MEDEIROS - CORD -2025,QUI,Quinta,11:05,11:55
+CDR,94,2ª A - EM - CORD.,2ª Série,23,Física 1,188,WENDELL ROMELL - CORD - 2026,QUI,Quinta,11:05,11:55
+CDR,97,3ª A - EM - CORD.,3ª Série,28,Química 3,158,MARIA DAIANE - CORD - 2026,QUI,Quinta,11:05,11:55
+CDR,86,8° AM - CORD.,8º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,QUI,Quinta,11:55,12:45
+CDR,87,8° BM - CORD.,8º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,QUI,Quinta,11:55,12:45
+CDR,88,9° AM - CORD.,9º Ano,44,Língua Portuguesa,331,BÁRBARA FÉLIX - CORD - 2026,QUI,Quinta,11:55,12:45
+CDR,89,9° BM - CORD.,9º Ano,2,Matemática,347,TEDMILSON - CORD - 2026,QUI,Quinta,11:55,12:45
+CDR,91,1ª A - EM - CORD.,1ª Série,23,Física 1,188,WENDELL ROMELL - CORD - 2026,QUI,Quinta,11:55,12:45
+CDR,94,2ª A - EM - CORD.,2ª Série,22,Química 1,158,MARIA DAIANE - CORD - 2026,QUI,Quinta,11:55,12:45
+CDR,97,3ª A - EM - CORD.,3ª Série,17,Gramática,156,GABRIELA MEDEIROS - CORD -2025,QUI,Quinta,11:55,12:45
+CDR,97,3ª A - EM - CORD.,3ª Série,24,Física 2,188,WENDELL ROMELL - CORD - 2026,QUI,Quinta,13:45,14:35
+CDR,97,3ª A - EM - CORD.,3ª Série,23,Física 1,188,WENDELL ROMELL - CORD - 2026,QUI,Quinta,14:35,15:25
+CDR,97,3ª A - EM - CORD.,3ª Série,23,Física 1,188,WENDELL ROMELL - CORD - 2026,QUI,Quinta,15:25,16:15
+CDR,97,3ª A - EM - CORD.,3ª Série,39,Geografia 1,189,FLÁVIO NASCIMENTO - CORD - 2026,QUI,Quinta,16:35,17:25
+CDR,97,3ª A - EM - CORD.,3ª Série,39,Geografia 1,189,FLÁVIO NASCIMENTO - CORD - 2026,QUI,Quinta,17:25,18:15
+CDR,78,6° AM - CORD.,6º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,SEX,Sexta,07:15,08:05
+CDR,79,6° BM - CORD.,6º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,SEX,Sexta,07:15,08:05
+CDR,81,7° AM - CORD.,7º Ano,3,Arte,341,ADRIANA RODRIGUES - CORD - 2026,SEX,Sexta,07:15,08:05
+CDR,83,7° BM - CORD.,7º Ano,13,Redação,190,MABÍLIA - CORD - 2026,SEX,Sexta,07:15,08:05
+CDR,85,7° CM - CORD.,7º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,SEX,Sexta,07:15,08:05
+CDR,86,8° AM - CORD.,8º Ano,10,Língua Estrangeira Inglês,152,ANDRÉ LACERDA - CORD - 2026,SEX,Sexta,07:15,08:05
+CDR,87,8° BM - CORD.,8º Ano,3,Arte,186,CARLITOS - CORD - 2025,SEX,Sexta,07:15,08:05
+CDR,88,9° AM - CORD.,9º Ano,12,História,352,HISTÓRIA - CORD - 2026,SEX,Sexta,07:15,08:05
+CDR,89,9° BM - CORD.,9º Ano,2,Matemática,347,TEDMILSON - CORD - 2026,SEX,Sexta,07:15,08:05
+CDR,91,1ª A - EM - CORD.,1ª Série,16,Literatura,331,BÁRBARA FÉLIX - CORD - 2026,SEX,Sexta,07:15,08:05
+CDR,94,2ª A - EM - CORD.,2ª Série,26,Matemática 2,333,DOUGLAS MENDES - CORD - 2026,SEX,Sexta,07:15,08:05
+CDR,97,3ª A - EM - CORD.,3ª Série,6,Biologia 1,187,DANIEL SENNA - CORD - 2026,SEX,Sexta,07:15,08:05
+CDR,78,6° AM - CORD.,6º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,SEX,Sexta,08:05,08:55
+CDR,79,6° BM - CORD.,6º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,SEX,Sexta,08:05,08:55
+CDR,81,7° AM - CORD.,7º Ano,13,Redação,190,MABÍLIA - CORD - 2026,SEX,Sexta,08:05,08:55
+CDR,83,7° BM - CORD.,7º Ano,3,Arte,341,ADRIANA RODRIGUES - CORD - 2026,SEX,Sexta,08:05,08:55
+CDR,85,7° CM - CORD.,7º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,SEX,Sexta,08:05,08:55
+CDR,86,8° AM - CORD.,8º Ano,3,Arte,186,CARLITOS - CORD - 2025,SEX,Sexta,08:05,08:55
+CDR,87,8° BM - CORD.,8º Ano,10,Língua Estrangeira Inglês,152,ANDRÉ LACERDA - CORD - 2026,SEX,Sexta,08:05,08:55
+CDR,88,9° AM - CORD.,9º Ano,2,Matemática,347,TEDMILSON - CORD - 2026,SEX,Sexta,08:05,08:55
+CDR,89,9° BM - CORD.,9º Ano,12,História,352,HISTÓRIA - CORD - 2026,SEX,Sexta,08:05,08:55
+CDR,91,1ª A - EM - CORD.,1ª Série,25,Matemática 1,333,DOUGLAS MENDES - CORD - 2026,SEX,Sexta,08:05,08:55
+CDR,94,2ª A - EM - CORD.,2ª Série,6,Biologia 1,187,DANIEL SENNA - CORD - 2026,SEX,Sexta,08:05,08:55
+CDR,97,3ª A - EM - CORD.,3ª Série,16,Literatura,331,BÁRBARA FÉLIX - CORD - 2026,SEX,Sexta,08:05,08:55
+CDR,88,9° AM - CORD.,9º Ano,3,Arte,186,CARLITOS - CORD - 2025,SEX,Sexta,08:55,09:45
+CDR,89,9° BM - CORD.,9º Ano,12,História,352,HISTÓRIA - CORD - 2026,SEX,Sexta,08:55,09:45
+CDR,91,1ª A - EM - CORD.,1ª Série,6,Biologia 1,187,DANIEL SENNA - CORD - 2026,SEX,Sexta,08:55,09:45
+CDR,94,2ª A - EM - CORD.,2ª Série,3,Arte,341,ADRIANA RODRIGUES - CORD - 2026,SEX,Sexta,08:55,09:45
+CDR,97,3ª A - EM - CORD.,3ª Série,25,Matemática 1,333,DOUGLAS MENDES - CORD - 2026,SEX,Sexta,08:55,09:45
+CDR,78,6° AM - CORD.,6º Ano,30,Raciocínio Lógico,351,RACIOCÍNIO LÓGICO - CORD - 2026,SEX,Sexta,09:25,10:15
+CDR,79,6° BM - CORD.,6º Ano,14,Filosofia,157,ADRIANO RODRIGUES - CORD - 2026,SEX,Sexta,09:25,10:15
+CDR,81,7° AM - CORD.,7º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,SEX,Sexta,09:25,10:15
+CDR,83,7° BM - CORD.,7º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,SEX,Sexta,09:25,10:15
+CDR,85,7° CM - CORD.,7º Ano,13,Redação,190,MABÍLIA - CORD - 2026,SEX,Sexta,09:25,10:15
+CDR,86,8° AM - CORD.,8º Ano,13,Redação,334,LUIZ CARLOS FLORO - CORD - 2026,SEX,Sexta,09:25,10:15
+CDR,87,8° BM - CORD.,8º Ano,10,Língua Estrangeira Inglês,152,ANDRÉ LACERDA - CORD - 2026,SEX,Sexta,09:25,10:15
+CDR,78,6° AM - CORD.,6º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,SEX,Sexta,10:15,11:05
+CDR,79,6° BM - CORD.,6º Ano,3,Arte,186,CARLITOS - CORD - 2025,SEX,Sexta,10:15,11:05
+CDR,81,7° AM - CORD.,7º Ano,14,Filosofia,157,ADRIANO RODRIGUES - CORD - 2026,SEX,Sexta,10:15,11:05
+CDR,83,7° BM - CORD.,7º Ano,44,Língua Portuguesa,190,MABÍLIA - CORD - 2026,SEX,Sexta,10:15,11:05
+CDR,85,7° CM - CORD.,7º Ano,30,Raciocínio Lógico,351,RACIOCÍNIO LÓGICO - CORD - 2026,SEX,Sexta,10:15,11:05
+CDR,86,8° AM - CORD.,8º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,SEX,Sexta,10:15,11:05
+CDR,87,8° BM - CORD.,8º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,SEX,Sexta,10:15,11:05
+CDR,88,9° AM - CORD.,9º Ano,2,Matemática,347,TEDMILSON - CORD - 2026,SEX,Sexta,10:15,11:05
+CDR,89,9° BM - CORD.,9º Ano,12,História,352,HISTÓRIA - CORD - 2026,SEX,Sexta,10:15,11:05
+CDR,91,1ª A - EM - CORD.,1ª Série,3,Arte,341,ADRIANA RODRIGUES - CORD - 2026,SEX,Sexta,10:15,11:05
+CDR,94,2ª A - EM - CORD.,2ª Série,25,Matemática 1,333,DOUGLAS MENDES - CORD - 2026,SEX,Sexta,10:15,11:05
+CDR,97,3ª A - EM - CORD.,3ª Série,19,Biologia 2,187,DANIEL SENNA - CORD - 2026,SEX,Sexta,10:15,11:05
+CDR,78,6° AM - CORD.,6º Ano,3,Arte,186,CARLITOS - CORD - 2025,SEX,Sexta,11:05,11:55
+CDR,79,6° BM - CORD.,6º Ano,44,Língua Portuguesa,334,LUIZ CARLOS FLORO - CORD - 2026,SEX,Sexta,11:05,11:55
+CDR,81,7° AM - CORD.,7º Ano,44,Língua Portuguesa,190,MABÍLIA - CORD - 2026,SEX,Sexta,11:05,11:55
+CDR,83,7° BM - CORD.,7º Ano,5,Ciências Naturais,160,FABIANE ANDREZA - CORD - 2025,SEX,Sexta,11:05,11:55
+CDR,85,7° CM - CORD.,7º Ano,14,Filosofia,157,ADRIANO RODRIGUES - CORD - 2026,SEX,Sexta,11:05,11:55
+CDR,86,8° AM - CORD.,8º Ano,12,História,336,ADRIANO DO NASCIMENTO - CORD - 2026,SEX,Sexta,11:05,11:55
+CDR,87,8° BM - CORD.,8º Ano,30,Raciocínio Lógico,351,RACIOCÍNIO LÓGICO - CORD - 2026,SEX,Sexta,11:05,11:55
+CDR,88,9° AM - CORD.,9º Ano,12,História,352,HISTÓRIA - CORD - 2026,SEX,Sexta,11:05,11:55
+CDR,89,9° BM - CORD.,9º Ano,2,Matemática,347,TEDMILSON - CORD - 2026,SEX,Sexta,11:05,11:55
+CDR,91,1ª A - EM - CORD.,1ª Série,25,Matemática 1,333,DOUGLAS MENDES - CORD - 2026,SEX,Sexta,11:05,11:55
+CDR,94,2ª A - EM - CORD.,2ª Série,6,Biologia 1,187,DANIEL SENNA - CORD - 2026,SEX,Sexta,11:05,11:55
+CDR,97,3ª A - EM - CORD.,3ª Série,3,Arte,341,ADRIANA RODRIGUES - CORD - 2026,SEX,Sexta,11:05,11:55
+CDR,88,9° AM - CORD.,9º Ano,12,História,352,HISTÓRIA - CORD - 2026,SEX,Sexta,11:55,12:45
+CDR,89,9° BM - CORD.,9º Ano,3,Arte,186,CARLITOS - CORD - 2025,SEX,Sexta,11:55,12:45
+CDR,91,1ª A - EM - CORD.,1ª Série,18,Projeto de Vida,341,ADRIANA RODRIGUES - CORD - 2026,SEX,Sexta,11:55,12:45
+CDR,94,2ª A - EM - CORD.,2ª Série,14,Filosofia,157,ADRIANO RODRIGUES - CORD - 2026,SEX,Sexta,11:55,12:45
+CDR,97,3ª A - EM - CORD.,3ª Série,6,Biologia 1,187,DANIEL SENNA - CORD - 2026,SEX,Sexta,11:55,12:45

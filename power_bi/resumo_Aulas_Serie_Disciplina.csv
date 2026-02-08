@@ -1,0 +1,460 @@
+﻿unidade,serie,disciplina,aulas_semana
+BV,1ª Série,Arte,3
+BV,1ª Série,Biologia 1,6
+BV,1ª Série,Biologia 2,3
+BV,1ª Série,Educação Física,3
+BV,1ª Série,Filosofia,3
+BV,1ª Série,Física 1,6
+BV,1ª Série,Física 2,3
+BV,1ª Série,Geografia,6
+BV,1ª Série,Gramática,6
+BV,1ª Série,História 1,6
+BV,1ª Série,História 2,3
+BV,1ª Série,Literatura,6
+BV,1ª Série,Língua Estrangeira Inglês,3
+BV,1ª Série,Matemática 1,6
+BV,1ª Série,Matemática 2,6
+BV,1ª Série,Projeto de Vida,3
+BV,1ª Série,Química 1,6
+BV,1ª Série,Química 2,3
+BV,1ª Série,Redação,6
+BV,1ª Série,Sociologia,3
+BV,2ª Série,Arte,3
+BV,2ª Série,Biologia 1,6
+BV,2ª Série,Biologia 2,3
+BV,2ª Série,Educação Física,3
+BV,2ª Série,Filosofia,3
+BV,2ª Série,Física 1,6
+BV,2ª Série,Física 2,3
+BV,2ª Série,Geografia,6
+BV,2ª Série,Gramática,6
+BV,2ª Série,História 1,6
+BV,2ª Série,História 2,3
+BV,2ª Série,Literatura,6
+BV,2ª Série,Língua Estrangeira Inglês,3
+BV,2ª Série,Matemática 1,6
+BV,2ª Série,Matemática 2,6
+BV,2ª Série,Projeto de Vida,3
+BV,2ª Série,Química 1,6
+BV,2ª Série,Química 2,3
+BV,2ª Série,Redação,6
+BV,2ª Série,Sociologia,3
+BV,3ª Série,Arte,2
+BV,3ª Série,Biologia 1,4
+BV,3ª Série,Biologia 2,2
+BV,3ª Série,Educação Física,2
+BV,3ª Série,Filosofia,2
+BV,3ª Série,Física 1,4
+BV,3ª Série,Física 2,2
+BV,3ª Série,Física 3,2
+BV,3ª Série,Geografia 1,4
+BV,3ª Série,Geografia 2,2
+BV,3ª Série,Gramática,4
+BV,3ª Série,História,2
+BV,3ª Série,História 1,2
+BV,3ª Série,História 2,2
+BV,3ª Série,Literatura,4
+BV,3ª Série,Língua Estrangeira Inglês,2
+BV,3ª Série,Matemática 1,4
+BV,3ª Série,Matemática 2,4
+BV,3ª Série,Matemática 3,2
+BV,3ª Série,Projeto de Vida,2
+BV,3ª Série,Química 1,4
+BV,3ª Série,Química 2,2
+BV,3ª Série,Química 3,2
+BV,3ª Série,Redação,6
+BV,3ª Série,Sociologia,2
+BV,6º Ano,Arte,3
+BV,6º Ano,Ciências Naturais,9
+BV,6º Ano,Educação Física,3
+BV,6º Ano,Filosofia,3
+BV,6º Ano,Geografia,6
+BV,6º Ano,História,6
+BV,6º Ano,Língua Estrangeira Inglês,6
+BV,6º Ano,Língua Portuguesa,12
+BV,6º Ano,Matemática,12
+BV,6º Ano,Projeto de Vida,3
+BV,6º Ano,Raciocínio Lógico,3
+BV,6º Ano,Redação,6
+BV,7º Ano,Arte,3
+BV,7º Ano,Ciências Naturais,9
+BV,7º Ano,Educação Física,3
+BV,7º Ano,Filosofia,3
+BV,7º Ano,Geografia,6
+BV,7º Ano,História,9
+BV,7º Ano,Língua Estrangeira Inglês,6
+BV,7º Ano,Língua Portuguesa,12
+BV,7º Ano,Matemática,12
+BV,7º Ano,Raciocínio Lógico,3
+BV,7º Ano,Redação,6
+BV,8º Ano,Arte,3
+BV,8º Ano,Ciências Naturais,9
+BV,8º Ano,Educação Física,3
+BV,8º Ano,Filosofia,3
+BV,8º Ano,Geografia,6
+BV,8º Ano,História,9
+BV,8º Ano,Língua Estrangeira Inglês,6
+BV,8º Ano,Língua Portuguesa,12
+BV,8º Ano,Matemática,5
+BV,8º Ano,Matemática 1,6
+BV,8º Ano,Matemática 2,4
+BV,8º Ano,Raciocínio Lógico,3
+BV,8º Ano,Redação,6
+BV,9º Ano,Arte,3
+BV,9º Ano,Biologia,3
+BV,9º Ano,Educação Física,3
+BV,9º Ano,Filosofia,3
+BV,9º Ano,Física,3
+BV,9º Ano,Geografia,6
+BV,9º Ano,História,9
+BV,9º Ano,Língua Estrangeira Inglês,6
+BV,9º Ano,Língua Portuguesa,12
+BV,9º Ano,Matemática,5
+BV,9º Ano,Matemática 1,6
+BV,9º Ano,Matemática 2,4
+BV,9º Ano,Projeto de Vida,3
+BV,9º Ano,Química,3
+BV,9º Ano,Raciocínio Lógico,3
+BV,9º Ano,Redação,6
+CD,1ª Série,Arte,3
+CD,1ª Série,Biologia 1,6
+CD,1ª Série,Biologia 2,3
+CD,1ª Série,Educação Física,3
+CD,1ª Série,Filosofia,3
+CD,1ª Série,Física 1,6
+CD,1ª Série,Física 2,3
+CD,1ª Série,Geografia,6
+CD,1ª Série,Gramática,6
+CD,1ª Série,História 1,6
+CD,1ª Série,História 2,3
+CD,1ª Série,Literatura,6
+CD,1ª Série,Língua Estrangeira Inglês,3
+CD,1ª Série,Matemática 1,6
+CD,1ª Série,Matemática 2,6
+CD,1ª Série,Projeto de Vida,3
+CD,1ª Série,Química 1,6
+CD,1ª Série,Química 2,3
+CD,1ª Série,Redação,6
+CD,1ª Série,Sociologia,3
+CD,2ª Série,Arte,3
+CD,2ª Série,Biologia 1,6
+CD,2ª Série,Biologia 2,3
+CD,2ª Série,Educação Física,3
+CD,2ª Série,Filosofia,3
+CD,2ª Série,Física 1,6
+CD,2ª Série,Física 2,3
+CD,2ª Série,Geografia,6
+CD,2ª Série,Gramática,6
+CD,2ª Série,História 1,6
+CD,2ª Série,História 2,3
+CD,2ª Série,Literatura,6
+CD,2ª Série,Língua Estrangeira Inglês,3
+CD,2ª Série,Matemática 1,6
+CD,2ª Série,Matemática 2,6
+CD,2ª Série,Projeto de Vida,3
+CD,2ª Série,Química 1,6
+CD,2ª Série,Química 2,3
+CD,2ª Série,Redação,6
+CD,2ª Série,Sociologia,3
+CD,3ª Série,Arte,3
+CD,3ª Série,Biologia 1,6
+CD,3ª Série,Biologia 2,3
+CD,3ª Série,Educação Física,3
+CD,3ª Série,Filosofia,3
+CD,3ª Série,Física 1,6
+CD,3ª Série,Física 2,6
+CD,3ª Série,Geografia 1,6
+CD,3ª Série,Geografia 2,3
+CD,3ª Série,Gramática,6
+CD,3ª Série,História,2
+CD,3ª Série,História 1,4
+CD,3ª Série,História 2,3
+CD,3ª Série,Literatura,6
+CD,3ª Série,Língua Estrangeira Inglês,3
+CD,3ª Série,Matemática 1,6
+CD,3ª Série,Matemática 2,6
+CD,3ª Série,Matemática 3,3
+CD,3ª Série,Projeto de Vida,3
+CD,3ª Série,Química 1,6
+CD,3ª Série,Química 2,6
+CD,3ª Série,Redação,9
+CD,3ª Série,Sociologia,3
+CD,6º Ano,Arte,3
+CD,6º Ano,Ciências Naturais,9
+CD,6º Ano,Educação Física,3
+CD,6º Ano,Filosofia,3
+CD,6º Ano,Geografia,6
+CD,6º Ano,História,6
+CD,6º Ano,Língua Estrangeira Inglês,6
+CD,6º Ano,Língua Portuguesa,12
+CD,6º Ano,Matemática,12
+CD,6º Ano,Projeto de Vida,3
+CD,6º Ano,Raciocínio Lógico,3
+CD,6º Ano,Redação,6
+CD,7º Ano,Arte,3
+CD,7º Ano,Ciências Naturais,9
+CD,7º Ano,Educação Física,3
+CD,7º Ano,Filosofia,3
+CD,7º Ano,Geografia,6
+CD,7º Ano,História,9
+CD,7º Ano,Língua Estrangeira Inglês,6
+CD,7º Ano,Língua Portuguesa,12
+CD,7º Ano,Matemática,12
+CD,7º Ano,Raciocínio Lógico,3
+CD,7º Ano,Redação,6
+CD,8º Ano,Arte,3
+CD,8º Ano,Ciências Naturais,9
+CD,8º Ano,Educação Física,3
+CD,8º Ano,Filosofia,3
+CD,8º Ano,Geografia,4
+CD,8º Ano,Geografia 1,1
+CD,8º Ano,Geografia 2,1
+CD,8º Ano,História,9
+CD,8º Ano,Língua Estrangeira Inglês,6
+CD,8º Ano,Língua Portuguesa,12
+CD,8º Ano,Matemática,15
+CD,8º Ano,Raciocínio Lógico,3
+CD,8º Ano,Redação,6
+CD,9º Ano,Arte,3
+CD,9º Ano,Biologia,3
+CD,9º Ano,Educação Física,3
+CD,9º Ano,Filosofia,3
+CD,9º Ano,Física,3
+CD,9º Ano,Geografia,6
+CD,9º Ano,História,9
+CD,9º Ano,Língua Estrangeira Inglês,6
+CD,9º Ano,Língua Portuguesa 1,6
+CD,9º Ano,Língua Portuguesa 2,6
+CD,9º Ano,Matemática 1,6
+CD,9º Ano,Matemática 2,6
+CD,9º Ano,Matemática 3,3
+CD,9º Ano,Projeto de Vida,3
+CD,9º Ano,Química,3
+CD,9º Ano,Raciocínio Lógico,3
+CD,9º Ano,Redação,6
+CDR,1ª Série,Arte,1
+CDR,1ª Série,Biologia 1,2
+CDR,1ª Série,Biologia 2,1
+CDR,1ª Série,Educação Física,1
+CDR,1ª Série,Filosofia,1
+CDR,1ª Série,Física 1,2
+CDR,1ª Série,Física 2,1
+CDR,1ª Série,Geografia,2
+CDR,1ª Série,Gramática,2
+CDR,1ª Série,História 1,2
+CDR,1ª Série,História 2,1
+CDR,1ª Série,Literatura,2
+CDR,1ª Série,Língua Estrangeira Inglês,1
+CDR,1ª Série,Matemática 1,2
+CDR,1ª Série,Matemática 2,2
+CDR,1ª Série,Projeto de Vida,1
+CDR,1ª Série,Química 1,2
+CDR,1ª Série,Química 2,1
+CDR,1ª Série,Redação,2
+CDR,1ª Série,Sociologia,1
+CDR,2ª Série,Arte,1
+CDR,2ª Série,Biologia 1,2
+CDR,2ª Série,Biologia 2,1
+CDR,2ª Série,Educação Física,1
+CDR,2ª Série,Filosofia,1
+CDR,2ª Série,Física 1,2
+CDR,2ª Série,Física 2,1
+CDR,2ª Série,Geografia,2
+CDR,2ª Série,Gramática,2
+CDR,2ª Série,História 1,2
+CDR,2ª Série,História 2,1
+CDR,2ª Série,Literatura,2
+CDR,2ª Série,Língua Estrangeira Inglês,1
+CDR,2ª Série,Matemática 1,2
+CDR,2ª Série,Matemática 2,2
+CDR,2ª Série,Projeto de Vida,1
+CDR,2ª Série,Química 1,2
+CDR,2ª Série,Química 2,1
+CDR,2ª Série,Redação,2
+CDR,2ª Série,Sociologia,1
+CDR,3ª Série,Arte,1
+CDR,3ª Série,Biologia 1,2
+CDR,3ª Série,Biologia 2,1
+CDR,3ª Série,Educação Física,1
+CDR,3ª Série,Filosofia,1
+CDR,3ª Série,Física 1,2
+CDR,3ª Série,Física 2,1
+CDR,3ª Série,Física 3,1
+CDR,3ª Série,Geografia 1,2
+CDR,3ª Série,Geografia 2,1
+CDR,3ª Série,Gramática,2
+CDR,3ª Série,História,1
+CDR,3ª Série,História 1,1
+CDR,3ª Série,História 2,1
+CDR,3ª Série,Literatura,2
+CDR,3ª Série,Língua Estrangeira Inglês,1
+CDR,3ª Série,Matemática 1,2
+CDR,3ª Série,Matemática 2,2
+CDR,3ª Série,Matemática 3,1
+CDR,3ª Série,Projeto de Vida,1
+CDR,3ª Série,Química 1,2
+CDR,3ª Série,Química 2,1
+CDR,3ª Série,Química 3,1
+CDR,3ª Série,Redação,3
+CDR,3ª Série,Sociologia,1
+CDR,6º Ano,Arte,2
+CDR,6º Ano,Ciências Naturais,6
+CDR,6º Ano,Educação Física,2
+CDR,6º Ano,Filosofia,2
+CDR,6º Ano,Geografia,4
+CDR,6º Ano,História,4
+CDR,6º Ano,Língua Estrangeira Inglês,4
+CDR,6º Ano,Língua Portuguesa,8
+CDR,6º Ano,Matemática,8
+CDR,6º Ano,Projeto de Vida,2
+CDR,6º Ano,Raciocínio Lógico,2
+CDR,6º Ano,Redação,4
+CDR,7º Ano,Arte,3
+CDR,7º Ano,Ciências Naturais,9
+CDR,7º Ano,Educação Física,3
+CDR,7º Ano,Filosofia,3
+CDR,7º Ano,Geografia,6
+CDR,7º Ano,História,9
+CDR,7º Ano,Língua Estrangeira Inglês,6
+CDR,7º Ano,Língua Portuguesa,12
+CDR,7º Ano,Matemática,12
+CDR,7º Ano,Raciocínio Lógico,3
+CDR,7º Ano,Redação,6
+CDR,8º Ano,Arte,2
+CDR,8º Ano,Ciências Naturais,6
+CDR,8º Ano,Educação Física,2
+CDR,8º Ano,Filosofia,2
+CDR,8º Ano,Geografia,4
+CDR,8º Ano,História,6
+CDR,8º Ano,Língua Estrangeira Inglês,4
+CDR,8º Ano,Língua Portuguesa,8
+CDR,8º Ano,Matemática,10
+CDR,8º Ano,Raciocínio Lógico,2
+CDR,8º Ano,Redação,4
+CDR,9º Ano,Arte,2
+CDR,9º Ano,Biologia,2
+CDR,9º Ano,Educação Física,2
+CDR,9º Ano,Filosofia,2
+CDR,9º Ano,Física,2
+CDR,9º Ano,Geografia,4
+CDR,9º Ano,História,6
+CDR,9º Ano,Língua Estrangeira Inglês,4
+CDR,9º Ano,Língua Portuguesa,8
+CDR,9º Ano,Matemática,10
+CDR,9º Ano,Projeto de Vida,2
+CDR,9º Ano,Química,2
+CDR,9º Ano,Raciocínio Lógico,2
+CDR,9º Ano,Redação,4
+JG,1ª Série,Arte,2
+JG,1ª Série,Biologia 1,4
+JG,1ª Série,Biologia 2,2
+JG,1ª Série,Educação Física,2
+JG,1ª Série,Filosofia,2
+JG,1ª Série,Física 1,4
+JG,1ª Série,Física 2,2
+JG,1ª Série,Geografia,4
+JG,1ª Série,Gramática,4
+JG,1ª Série,História 1,4
+JG,1ª Série,História 2,2
+JG,1ª Série,Literatura,4
+JG,1ª Série,Língua Estrangeira Inglês,2
+JG,1ª Série,Matemática 1,4
+JG,1ª Série,Matemática 2,4
+JG,1ª Série,Projeto de Vida,2
+JG,1ª Série,Química 1,4
+JG,1ª Série,Química 2,2
+JG,1ª Série,Redação,4
+JG,1ª Série,Sociologia,2
+JG,2ª Série,Arte,2
+JG,2ª Série,Biologia 1,4
+JG,2ª Série,Biologia 2,2
+JG,2ª Série,Educação Física,2
+JG,2ª Série,Filosofia,2
+JG,2ª Série,Física 1,4
+JG,2ª Série,Física 2,2
+JG,2ª Série,Geografia,4
+JG,2ª Série,Gramática,4
+JG,2ª Série,História 1,4
+JG,2ª Série,História 2,2
+JG,2ª Série,Literatura,4
+JG,2ª Série,Língua Estrangeira Inglês,2
+JG,2ª Série,Matemática 1,4
+JG,2ª Série,Matemática 2,4
+JG,2ª Série,Projeto de Vida,2
+JG,2ª Série,Química 1,4
+JG,2ª Série,Química 2,2
+JG,2ª Série,Redação,4
+JG,2ª Série,Sociologia,2
+JG,3ª Série,Arte,1
+JG,3ª Série,Biologia 1,2
+JG,3ª Série,Biologia 2,1
+JG,3ª Série,Educação Física,1
+JG,3ª Série,Filosofia,1
+JG,3ª Série,Física 1,2
+JG,3ª Série,Física 2,1
+JG,3ª Série,Física 3,1
+JG,3ª Série,Geografia 1,2
+JG,3ª Série,Geografia 2,1
+JG,3ª Série,Gramática,2
+JG,3ª Série,História,1
+JG,3ª Série,História 1,1
+JG,3ª Série,História 2,1
+JG,3ª Série,Literatura,2
+JG,3ª Série,Língua Estrangeira Inglês,1
+JG,3ª Série,Matemática 1,2
+JG,3ª Série,Matemática 2,2
+JG,3ª Série,Matemática 3,1
+JG,3ª Série,Projeto de Vida,1
+JG,3ª Série,Química 1,2
+JG,3ª Série,Química 2,1
+JG,3ª Série,Química 3,1
+JG,3ª Série,Redação,3
+JG,3ª Série,Sociologia,1
+JG,6º Ano,Arte,3
+JG,6º Ano,Ciências Naturais,9
+JG,6º Ano,Educação Física,3
+JG,6º Ano,Filosofia,3
+JG,6º Ano,Geografia,6
+JG,6º Ano,História,6
+JG,6º Ano,Língua Estrangeira Inglês,6
+JG,6º Ano,Língua Portuguesa,12
+JG,6º Ano,Matemática,12
+JG,6º Ano,Projeto de Vida,3
+JG,6º Ano,Raciocínio Lógico,3
+JG,6º Ano,Redação,6
+JG,7º Ano,Arte,2
+JG,7º Ano,Ciências Naturais,6
+JG,7º Ano,Educação Física,2
+JG,7º Ano,Filosofia,2
+JG,7º Ano,Geografia,4
+JG,7º Ano,História,6
+JG,7º Ano,Língua Estrangeira Inglês,4
+JG,7º Ano,Língua Portuguesa,8
+JG,7º Ano,Matemática,8
+JG,7º Ano,Raciocínio Lógico,2
+JG,7º Ano,Redação,4
+JG,8º Ano,Arte,3
+JG,8º Ano,Ciências Naturais,9
+JG,8º Ano,Educação Física,3
+JG,8º Ano,Filosofia,3
+JG,8º Ano,Geografia,6
+JG,8º Ano,História,9
+JG,8º Ano,Língua Estrangeira Inglês,6
+JG,8º Ano,Língua Portuguesa,12
+JG,8º Ano,Matemática,15
+JG,8º Ano,Raciocínio Lógico,3
+JG,8º Ano,Redação,6
+JG,9º Ano,Arte,2
+JG,9º Ano,Biologia,2
+JG,9º Ano,Educação Física,2
+JG,9º Ano,Filosofia,2
+JG,9º Ano,Física,2
+JG,9º Ano,Geografia,4
+JG,9º Ano,História,6
+JG,9º Ano,Língua Estrangeira Inglês,4
+JG,9º Ano,Língua Portuguesa,8
+JG,9º Ano,Matemática,10
+JG,9º Ano,Projeto de Vida,2
+JG,9º Ano,Química,2
+JG,9º Ano,Raciocínio Lógico,2
+JG,9º Ano,Redação,4

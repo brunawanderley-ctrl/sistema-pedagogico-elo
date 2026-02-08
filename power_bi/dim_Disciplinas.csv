@@ -1,0 +1,36 @@
+﻿disciplina_id,disciplina,disciplina_grupo,aulas_semana,capitulos_ano,area,segmento
+1,Matemática,Matemática,5,12,Matemática,Fund II
+2,Língua Portuguesa,Língua Portuguesa,5,12,Linguagens,Fund II
+3,História,História,3,12,Humanas,Fund II
+4,Geografia,Geografia,3,12,Humanas,Fund II
+5,Ciências Naturais,Ciências Naturais,3,12,Natureza,Fund II
+6,Língua Estrangeira Inglês,Língua Estrangeira Inglês,2,12,Linguagens,Fund II
+7,Arte,Arte,1,12,Linguagens,Fund II
+8,Filosofia,Filosofia,1,12,Humanas,Fund II
+9,Redação,Redação,2,12,Linguagens,Fund II
+10,Gramática,Gramática,2,12,Linguagens,Fund II
+11,Literatura,Literatura,2,12,Linguagens,Fund II
+12,Educação Física,Educação Física,2,0,Linguagens,Fund II
+13,Raciocínio Lógico,Raciocínio Lógico,1,0,Matemática,Fund II
+14,Projeto de Vida,Projeto de Vida,1,0,Itinerário,Fund II
+15,Biologia,Biologia,2,12,Natureza,Médio
+16,Física,Física,2,12,Natureza,Médio
+17,Química,Química,2,12,Natureza,Médio
+18,Sociologia,Sociologia,1,12,Humanas,Médio
+19,Matemática 1,Matemática,2,12,Matemática,Médio
+20,Matemática 2,Matemática,2,12,Matemática,Médio
+21,Matemática 3,Matemática,1,12,Matemática,Médio
+22,Biologia 1,Biologia,2,12,Natureza,Médio
+23,Biologia 2,Biologia,1,12,Natureza,Médio
+24,Física 1,Física,2,12,Natureza,Médio
+25,Física 2,Física,1,12,Natureza,Médio
+26,Física 3,Física,1,12,Natureza,Médio
+27,Química 1,Química,2,12,Natureza,Médio
+28,Química 2,Química,1,12,Natureza,Médio
+29,Química 3,Química,1,12,Natureza,Médio
+30,História 1,História,2,12,Humanas,Médio
+31,História 2,História,1,12,Humanas,Médio
+32,Geografia 1,Geografia,2,12,Humanas,Médio
+33,Geografia 2,Geografia,1,12,Humanas,Médio
+34,Língua Portuguesa 1,Língua Portuguesa,2,12,Linguagens,Médio
+35,Língua Portuguesa 2,Língua Portuguesa,1,12,Linguagens,Médio

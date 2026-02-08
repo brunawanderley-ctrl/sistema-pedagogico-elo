@@ -1,0 +1,396 @@
+﻿unidade,disciplina,dia_semana_nome,aulas_esperadas
+BV,Arte,Quarta,6
+BV,Arte,Quinta,4
+BV,Arte,Segunda,7
+BV,Arte,Terça,3
+BV,Biologia,Quarta,1
+BV,Biologia,Segunda,1
+BV,Biologia,Terça,1
+BV,Biologia 1,Quarta,9
+BV,Biologia 1,Quinta,1
+BV,Biologia 1,Sexta,6
+BV,Biologia 2,Quarta,3
+BV,Biologia 2,Quinta,2
+BV,Biologia 2,Segunda,3
+BV,Ciências Naturais,Quarta,5
+BV,Ciências Naturais,Quinta,6
+BV,Ciências Naturais,Segunda,4
+BV,Ciências Naturais,Sexta,9
+BV,Ciências Naturais,Terça,3
+BV,Educação Física,Quinta,8
+BV,Educação Física,Sexta,5
+BV,Educação Física,Terça,7
+BV,Filosofia,Quarta,3
+BV,Filosofia,Quinta,4
+BV,Filosofia,Segunda,13
+BV,Física,Sexta,3
+BV,Física 1,Quarta,2
+BV,Física 1,Sexta,10
+BV,Física 1,Terça,4
+BV,Física 2,Quarta,4
+BV,Física 2,Sexta,4
+BV,Física 3,Quarta,2
+BV,Geografia,Quarta,9
+BV,Geografia,Quinta,6
+BV,Geografia,Segunda,17
+BV,Geografia,Terça,4
+BV,Geografia 1,Sexta,4
+BV,Geografia 2,Sexta,2
+BV,Gramática,Quarta,4
+BV,Gramática,Quinta,9
+BV,Gramática,Terça,3
+BV,História,Quarta,6
+BV,História,Quinta,10
+BV,História,Segunda,1
+BV,História,Sexta,7
+BV,História,Terça,11
+BV,História 1,Quarta,2
+BV,História 1,Quinta,2
+BV,História 1,Sexta,7
+BV,História 1,Terça,3
+BV,História 2,Segunda,5
+BV,História 2,Terça,3
+BV,Literatura,Quarta,12
+BV,Literatura,Quinta,4
+BV,Língua Estrangeira Inglês,Quarta,3
+BV,Língua Estrangeira Inglês,Quinta,2
+BV,Língua Estrangeira Inglês,Segunda,5
+BV,Língua Estrangeira Inglês,Sexta,11
+BV,Língua Estrangeira Inglês,Terça,11
+BV,Língua Portuguesa,Quarta,12
+BV,Língua Portuguesa,Quinta,8
+BV,Língua Portuguesa,Segunda,14
+BV,Língua Portuguesa,Sexta,9
+BV,Língua Portuguesa,Terça,5
+BV,Matemática,Quarta,7
+BV,Matemática,Quinta,18
+BV,Matemática,Segunda,1
+BV,Matemática,Sexta,3
+BV,Matemática,Terça,5
+BV,Matemática 1,Quarta,4
+BV,Matemática 1,Segunda,9
+BV,Matemática 1,Sexta,4
+BV,Matemática 1,Terça,11
+BV,Matemática 2,Quarta,1
+BV,Matemática 2,Quinta,16
+BV,Matemática 2,Sexta,1
+BV,Matemática 2,Terça,6
+BV,Matemática 3,Quinta,2
+BV,Projeto de Vida,Segunda,2
+BV,Projeto de Vida,Sexta,8
+BV,Projeto de Vida,Terça,4
+BV,Química,Quarta,1
+BV,Química,Segunda,1
+BV,Química,Terça,1
+BV,Química 1,Quarta,5
+BV,Química 1,Quinta,5
+BV,Química 1,Segunda,3
+BV,Química 1,Sexta,2
+BV,Química 1,Terça,1
+BV,Química 2,Quarta,1
+BV,Química 2,Quinta,1
+BV,Química 2,Segunda,2
+BV,Química 2,Terça,4
+BV,Química 3,Quarta,2
+BV,Raciocínio Lógico,Quinta,1
+BV,Raciocínio Lógico,Sexta,7
+BV,Raciocínio Lógico,Terça,4
+BV,Redação,Quarta,3
+BV,Redação,Quinta,3
+BV,Redação,Segunda,20
+BV,Redação,Sexta,9
+BV,Redação,Terça,7
+BV,Sociologia,Quarta,3
+BV,Sociologia,Quinta,2
+BV,Sociologia,Segunda,3
+CD,Arte,Quinta,6
+CD,Arte,Segunda,10
+CD,Arte,Sexta,5
+CD,Biologia,Sexta,3
+CD,Biologia 1,Quarta,3
+CD,Biologia 1,Quinta,12
+CD,Biologia 1,Sexta,3
+CD,Biologia 2,Segunda,6
+CD,Biologia 2,Terça,3
+CD,Ciências Naturais,Quarta,1
+CD,Ciências Naturais,Segunda,10
+CD,Ciências Naturais,Sexta,7
+CD,Ciências Naturais,Terça,9
+CD,Educação Física,Quarta,3
+CD,Educação Física,Segunda,5
+CD,Educação Física,Sexta,8
+CD,Educação Física,Terça,5
+CD,Filosofia,Quarta,2
+CD,Filosofia,Quinta,1
+CD,Filosofia,Segunda,6
+CD,Filosofia,Sexta,1
+CD,Filosofia,Terça,11
+CD,Física,Quinta,3
+CD,Física 1,Quinta,12
+CD,Física 1,Sexta,6
+CD,Física 2,Quinta,2
+CD,Física 2,Sexta,4
+CD,Física 2,Terça,6
+CD,Geografia,Quarta,12
+CD,Geografia,Quinta,6
+CD,Geografia,Segunda,12
+CD,Geografia,Sexta,4
+CD,Geografia 1,Quarta,3
+CD,Geografia 1,Segunda,4
+CD,Geografia 2,Quarta,3
+CD,Geografia 2,Quinta,1
+CD,Gramática,Quarta,6
+CD,Gramática,Quinta,1
+CD,Gramática,Segunda,5
+CD,Gramática,Sexta,6
+CD,História,Quarta,6
+CD,História,Quinta,11
+CD,História,Segunda,6
+CD,História,Sexta,5
+CD,História,Terça,7
+CD,História 1,Quarta,5
+CD,História 1,Quinta,2
+CD,História 1,Sexta,5
+CD,História 1,Terça,4
+CD,História 2,Quarta,1
+CD,História 2,Quinta,4
+CD,História 2,Sexta,1
+CD,História 2,Terça,3
+CD,Literatura,Quinta,10
+CD,Literatura,Segunda,4
+CD,Literatura,Sexta,4
+CD,Língua Estrangeira Inglês,Quarta,14
+CD,Língua Estrangeira Inglês,Quinta,9
+CD,Língua Estrangeira Inglês,Sexta,6
+CD,Língua Estrangeira Inglês,Terça,4
+CD,Língua Portuguesa,Quarta,16
+CD,Língua Portuguesa,Quinta,4
+CD,Língua Portuguesa,Segunda,11
+CD,Língua Portuguesa,Sexta,5
+CD,Língua Portuguesa 1,Quinta,5
+CD,Língua Portuguesa 1,Segunda,1
+CD,Língua Portuguesa 2,Quinta,2
+CD,Língua Portuguesa 2,Terça,4
+CD,Matemática,Quarta,9
+CD,Matemática,Quinta,10
+CD,Matemática,Segunda,11
+CD,Matemática,Terça,9
+CD,Matemática 1,Quarta,4
+CD,Matemática 1,Quinta,2
+CD,Matemática 1,Segunda,3
+CD,Matemática 1,Sexta,9
+CD,Matemática 1,Terça,6
+CD,Matemática 2,Quarta,5
+CD,Matemática 2,Quinta,6
+CD,Matemática 2,Segunda,7
+CD,Matemática 2,Sexta,6
+CD,Matemática 3,Quarta,1
+CD,Matemática 3,Quinta,3
+CD,Matemática 3,Segunda,2
+CD,Projeto de Vida,Quinta,3
+CD,Projeto de Vida,Segunda,5
+CD,Projeto de Vida,Terça,7
+CD,Química,Terça,3
+CD,Química 1,Quinta,6
+CD,Química 1,Sexta,6
+CD,Química 1,Terça,6
+CD,Química 2,Segunda,6
+CD,Química 2,Terça,6
+CD,Raciocínio Lógico,Quarta,1
+CD,Raciocínio Lógico,Quinta,1
+CD,Raciocínio Lógico,Segunda,3
+CD,Raciocínio Lógico,Sexta,7
+CD,Redação,Quarta,13
+CD,Redação,Quinta,9
+CD,Redação,Sexta,12
+CD,Redação,Terça,11
+CD,Sociologia,Quinta,4
+CD,Sociologia,Sexta,4
+CD,Sociologia,Terça,1
+CDR,Arte,Quinta,1
+CDR,Arte,Sexta,11
+CDR,Biologia,Terça,2
+CDR,Biologia 1,Sexta,5
+CDR,Biologia 1,Terça,1
+CDR,Biologia 2,Sexta,1
+CDR,Biologia 2,Terça,2
+CDR,Ciências Naturais,Quarta,5
+CDR,Ciências Naturais,Quinta,6
+CDR,Ciências Naturais,Segunda,5
+CDR,Ciências Naturais,Sexta,5
+CDR,Educação Física,Quarta,6
+CDR,Educação Física,Quinta,2
+CDR,Educação Física,Terça,4
+CDR,Filosofia,Quarta,6
+CDR,Filosofia,Segunda,2
+CDR,Filosofia,Sexta,4
+CDR,Física,Quinta,2
+CDR,Física 1,Quinta,6
+CDR,Física 2,Quinta,1
+CDR,Física 2,Terça,2
+CDR,Física 3,Terça,1
+CDR,Geografia,Quarta,4
+CDR,Geografia,Quinta,5
+CDR,Geografia,Segunda,5
+CDR,Geografia,Terça,8
+CDR,Geografia 1,Quinta,2
+CDR,Geografia 2,Quarta,1
+CDR,Gramática,Quinta,6
+CDR,História,Quarta,4
+CDR,História,Quinta,6
+CDR,História,Segunda,1
+CDR,História,Sexta,11
+CDR,História,Terça,4
+CDR,História 1,Quarta,1
+CDR,História 1,Segunda,3
+CDR,História 1,Terça,1
+CDR,História 2,Segunda,2
+CDR,História 2,Terça,1
+CDR,Literatura,Sexta,2
+CDR,Literatura,Terça,4
+CDR,Língua Estrangeira Inglês,Quarta,3
+CDR,Língua Estrangeira Inglês,Segunda,11
+CDR,Língua Estrangeira Inglês,Sexta,3
+CDR,Língua Estrangeira Inglês,Terça,4
+CDR,Língua Portuguesa,Quarta,10
+CDR,Língua Portuguesa,Quinta,7
+CDR,Língua Portuguesa,Segunda,7
+CDR,Língua Portuguesa,Sexta,6
+CDR,Língua Portuguesa,Terça,6
+CDR,Matemática,Quarta,8
+CDR,Matemática,Quinta,16
+CDR,Matemática,Segunda,5
+CDR,Matemática,Sexta,4
+CDR,Matemática,Terça,7
+CDR,Matemática 1,Quarta,2
+CDR,Matemática 1,Sexta,4
+CDR,Matemática 2,Quarta,3
+CDR,Matemática 2,Quinta,2
+CDR,Matemática 2,Sexta,1
+CDR,Matemática 3,Quinta,1
+CDR,Projeto de Vida,Quarta,4
+CDR,Projeto de Vida,Quinta,2
+CDR,Projeto de Vida,Sexta,1
+CDR,Química,Quinta,1
+CDR,Química,Segunda,1
+CDR,Química 1,Quinta,1
+CDR,Química 1,Segunda,5
+CDR,Química 2,Quinta,3
+CDR,Química 3,Quinta,1
+CDR,Raciocínio Lógico,Segunda,6
+CDR,Raciocínio Lógico,Sexta,3
+CDR,Redação,Quarta,2
+CDR,Redação,Quinta,1
+CDR,Redação,Segunda,9
+CDR,Redação,Sexta,4
+CDR,Redação,Terça,9
+CDR,Sociologia,Segunda,3
+JG,Arte,Quarta,1
+JG,Arte,Quinta,11
+JG,Arte,Segunda,2
+JG,Arte,Terça,1
+JG,Biologia,Quarta,1
+JG,Biologia,Sexta,1
+JG,Biologia 1,Quarta,1
+JG,Biologia 1,Quinta,3
+JG,Biologia 1,Sexta,5
+JG,Biologia 1,Terça,1
+JG,Biologia 2,Quarta,2
+JG,Biologia 2,Quinta,2
+JG,Biologia 2,Sexta,1
+JG,Ciências Naturais,Quarta,12
+JG,Ciências Naturais,Quinta,1
+JG,Ciências Naturais,Segunda,5
+JG,Ciências Naturais,Sexta,5
+JG,Ciências Naturais,Terça,1
+JG,Educação Física,Quinta,5
+JG,Educação Física,Segunda,5
+JG,Educação Física,Sexta,2
+JG,Educação Física,Terça,3
+JG,Filosofia,Quarta,4
+JG,Filosofia,Segunda,3
+JG,Filosofia,Terça,8
+JG,Física,Quinta,1
+JG,Física,Sexta,1
+JG,Física 1,Quinta,2
+JG,Física 1,Segunda,5
+JG,Física 1,Sexta,3
+JG,Física 2,Quinta,2
+JG,Física 2,Segunda,1
+JG,Física 2,Sexta,2
+JG,Física 3,Quinta,1
+JG,Geografia,Quarta,10
+JG,Geografia,Quinta,1
+JG,Geografia,Sexta,14
+JG,Geografia,Terça,3
+JG,Geografia 1,Quarta,1
+JG,Geografia 1,Sexta,1
+JG,Geografia 2,Quarta,1
+JG,Gramática,Quarta,2
+JG,Gramática,Quinta,3
+JG,Gramática,Segunda,3
+JG,Gramática,Terça,2
+JG,História,Quarta,4
+JG,História,Quinta,13
+JG,História,Segunda,8
+JG,História,Terça,3
+JG,História 1,Quarta,1
+JG,História 1,Quinta,1
+JG,História 1,Segunda,1
+JG,História 1,Sexta,3
+JG,História 1,Terça,3
+JG,História 2,Quarta,1
+JG,História 2,Sexta,2
+JG,História 2,Terça,2
+JG,Literatura,Quarta,2
+JG,Literatura,Quinta,2
+JG,Literatura,Segunda,2
+JG,Literatura,Sexta,2
+JG,Literatura,Terça,2
+JG,Língua Estrangeira Inglês,Quarta,3
+JG,Língua Estrangeira Inglês,Quinta,2
+JG,Língua Estrangeira Inglês,Segunda,5
+JG,Língua Estrangeira Inglês,Sexta,9
+JG,Língua Estrangeira Inglês,Terça,6
+JG,Língua Portuguesa,Quarta,2
+JG,Língua Portuguesa,Quinta,1
+JG,Língua Portuguesa,Segunda,17
+JG,Língua Portuguesa,Sexta,9
+JG,Língua Portuguesa,Terça,11
+JG,Matemática,Quarta,11
+JG,Matemática,Quinta,13
+JG,Matemática,Segunda,5
+JG,Matemática,Sexta,10
+JG,Matemática,Terça,6
+JG,Matemática 1,Quarta,1
+JG,Matemática 1,Quinta,3
+JG,Matemática 1,Segunda,1
+JG,Matemática 1,Sexta,2
+JG,Matemática 1,Terça,3
+JG,Matemática 2,Quarta,2
+JG,Matemática 2,Quinta,4
+JG,Matemática 2,Segunda,3
+JG,Matemática 2,Sexta,1
+JG,Matemática 3,Quarta,1
+JG,Projeto de Vida,Quarta,3
+JG,Projeto de Vida,Quinta,3
+JG,Projeto de Vida,Segunda,4
+JG,Química,Quinta,1
+JG,Química,Terça,1
+JG,Química 1,Quinta,4
+JG,Química 1,Segunda,3
+JG,Química 1,Terça,3
+JG,Química 2,Segunda,3
+JG,Química 2,Terça,2
+JG,Química 3,Quinta,1
+JG,Raciocínio Lógico,Quarta,2
+JG,Raciocínio Lógico,Quinta,3
+JG,Raciocínio Lógico,Segunda,2
+JG,Raciocínio Lógico,Sexta,3
+JG,Redação,Quarta,5
+JG,Redação,Quinta,7
+JG,Redação,Segunda,5
+JG,Redação,Sexta,6
+JG,Redação,Terça,8
+JG,Sociologia,Quarta,2
+JG,Sociologia,Terça,3

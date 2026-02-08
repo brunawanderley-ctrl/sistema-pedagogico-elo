@@ -1,0 +1,80 @@
+{
+  "coordenadores": [
+    {
+      "nome": "Bruna Vitória",
+      "unidade": "BV",
+      "series": ["6º Ano", "7º Ano", "8º Ano", "9º Ano"]
+    },
+    {
+      "nome": "Gilberto Santos",
+      "unidade": "BV",
+      "series": ["1ª Série", "2ª Série", "3ª Série"]
+    },
+    {
+      "nome": "Alline",
+      "unidade": "CD",
+      "series": ["9º Ano", "1ª Série", "2ª Série", "3ª Série"]
+    },
+    {
+      "nome": "Elisângela Luiz",
+      "unidade": "CD",
+      "series": ["6º Ano"]
+    },
+    {
+      "nome": "Vanessa",
+      "unidade": "CD",
+      "series": ["7º Ano", "8º Ano"]
+    },
+    {
+      "nome": "Ana Cláudia",
+      "unidade": "CDR",
+      "series": ["9º Ano", "1ª Série", "2ª Série", "3ª Série"]
+    },
+    {
+      "nome": "Vanessa",
+      "unidade": "CDR",
+      "series": ["6º Ano", "7º Ano", "8º Ano"]
+    },
+    {
+      "nome": "Lecinane",
+      "unidade": "JG",
+      "series": ["6º Ano", "7º Ano", "8º Ano"]
+    },
+    {
+      "nome": "Pietro",
+      "unidade": "JG",
+      "series": ["9º Ano", "1ª Série", "2ª Série", "3ª Série"]
+    }
+  ],
+  "periodos_feedback": [
+    {
+      "bimestre": 1,
+      "nome": "1º Bimestre",
+      "inicio": "2026-01-26",
+      "fim": "2026-03-31",
+      "deadline_feedback": "2026-04-10"
+    },
+    {
+      "bimestre": 2,
+      "nome": "2º Bimestre",
+      "inicio": "2026-04-01",
+      "fim": "2026-05-31",
+      "deadline_feedback": "2026-06-10"
+    },
+    {
+      "bimestre": 3,
+      "nome": "3º Bimestre",
+      "inicio": "2026-08-01",
+      "fim": "2026-09-30",
+      "deadline_feedback": "2026-10-10"
+    },
+    {
+      "bimestre": 4,
+      "nome": "4º Bimestre",
+      "inicio": "2026-10-01",
+      "fim": "2026-11-30",
+      "deadline_feedback": "2026-12-10"
+    }
+  ],
+  "atualizado_em": "2026-02-05"
+}
