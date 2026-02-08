@@ -49,6 +49,7 @@ def extrair_capitulo(texto):
     return None
 
 
+@st.cache_data(ttl=300)
 def calcular_saude_turma(df_turma, df_horario, semana, unidade, serie):
     """Calcula score de saude da turma (0-100)."""
     score = 0

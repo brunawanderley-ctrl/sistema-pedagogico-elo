@@ -163,7 +163,7 @@ def main():
                     'nivel': 'CRÍTICO',
                     'tipo': 'Disciplina sem registro',
                     'detalhe': f'{disc} - {serie} ({un})',
-                    'acao': 'Verificar se professor esta alocado e orientar sobre registro'
+                    'acao': 'Verificar se professor está alocado e orientar sobre registro'
                 })
 
         # 2. Conformidade por unidade (usando data máxima de cada unidade)
@@ -547,7 +547,7 @@ def main():
                 )
 
     else:
-        st.warning("Dados não carregados. Execute a extração do SIGA primeiro.")
+        st.warning("Dados não disponíveis. Execute a extração do SIGA e do horário esperado para visualizar os alertas.")
 
 if __name__ == "__main__":
     main()

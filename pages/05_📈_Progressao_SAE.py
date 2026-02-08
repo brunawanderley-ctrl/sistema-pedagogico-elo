@@ -22,7 +22,7 @@ from utils import (
     SERIES_FUND_II, SERIES_EM
 )
 
-st.set_page_config(page_title="Progressao SAE", page_icon="📈", layout="wide")
+st.set_page_config(page_title="Progressão SAE", page_icon="📈", layout="wide")
 from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
@@ -164,7 +164,7 @@ def main():
         st.markdown(f"""
         <div class="prog-card prog-azul">
             <h2 style="margin:0; border:none; color:white;">{cap_esperado}/12</h2>
-            <p style="margin:0;">Capitulo Esperado</p>
+            <p style="margin:0;">Capítulo Esperado</p>
         </div>""", unsafe_allow_html=True)
     with col3:
         st.markdown(f"""
@@ -198,7 +198,7 @@ def main():
     df_horario = carregar_horario_esperado()
 
     if df_aulas.empty:
-        st.warning("Dados do SIGA nao carregados. Execute a extracao primeiro.")
+        st.warning("Dados do SIGA não carregados. Execute a extração primeiro.")
         _mostrar_referencia(semana_atual, cap_esperado)
         return
 
@@ -278,7 +278,7 @@ def main():
         st.markdown(f"""
         <div class="prog-card" style="background: #9E9E9E;">
             <h2 style="margin:0; border:none; color:white;">{n_sem}</h2>
-            <p style="margin:0;">Sem dados de capitulo</p>
+            <p style="margin:0;">Sem dados de capítulo</p>
         </div>""", unsafe_allow_html=True)
 
     # ========== TABELA DETALHADA ==========
@@ -386,7 +386,7 @@ def main():
     if not df_no_match.empty:
         disc_no_sae = sorted(df_no_match['disciplina'].unique())
         with st.expander(f"Disciplinas sem material SAE ({len(disc_no_sae)})"):
-            st.caption("Estas disciplinas nao possuem livro/capitulos SAE e nao entram na analise de progressao:")
+            st.caption("Estas disciplinas não possuem livro/capítulos SAE e não entram na análise de progressão:")
             for d in disc_no_sae:
                 n = len(df_no_match[df_no_match['disciplina'] == d])
                 st.markdown(f"- **{d}**: {n} aulas registradas")
@@ -442,7 +442,7 @@ def main():
         # CSV detalhado
         csv_data = df_status.to_csv(index=False)
         st.download_button(
-            "Baixar Progressao (CSV)",
+            "Baixar Progressão (CSV)",
             csv_data,
             f"progressao_sae_{un_sel}_{datetime.now().strftime('%Y%m%d')}.csv",
             "text/csv"
@@ -452,7 +452,7 @@ def main():
         # Resumo TXT
         linhas = [
             f"PROGRESSÃO SAE - {un_sel} - Semana {semana_atual}",
-            f"Capitulo esperado: {cap_esperado}/12 | {trimestre}º Trimestre",
+            f"Capítulo esperado: {cap_esperado}/12 | {trimestre}º Trimestre",
             f"Data: {datetime.now().strftime('%d/%m/%Y')}",
             "=" * 60,
             "",

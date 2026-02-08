@@ -101,6 +101,7 @@ TIPOS_ALERTA = {
 }
 
 
+@st.cache_data(ttl=300)
 def detectar_alertas(df_aulas, df_horario, semana_atual):
     """Detecta todos os 5 tipos de alerta usando fato_Aulas como base."""
     hoje = _hoje()
@@ -230,6 +231,7 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
     return pd.DataFrame(alertas)
 
 
+@st.cache_data(ttl=300)
 def calcular_score_risco(df_aulas, df_horario, semana_atual):
     """Calcula Score de Risco do Professor (0-100, quanto MENOR pior).
     Usa fato_Aulas como base e calcula esperado via (unidade, serie, disciplina).
@@ -349,6 +351,10 @@ def main():
     elif filtro_seg == 'Ensino Medio':
         df_hor_f = df_hor_f[df_hor_f['serie'].isin(SERIES_EM)]
         df_aulas_f = df_aulas_f[df_aulas_f['serie'].isin(SERIES_EM)]
+
+    if df_aulas_f.empty:
+        st.info("Nenhum dado encontrado para os filtros selecionados.")
+        return
 
     # ========== LEGENDA ==========
     st.markdown("---")

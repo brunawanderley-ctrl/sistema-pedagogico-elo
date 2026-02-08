@@ -144,6 +144,19 @@ def diagnosticar_professor(df_prof, df_horario, semana, prof_nome, unidade):
     }
 
 
+@st.cache_data(ttl=300)
+def gerar_diagnosticos_todos(df_aulas, df_horario, semana):
+    """Gera diagnostico para todos os professores (cached)."""
+    diagnosticos = []
+    for prof in df_aulas['professor'].dropna().unique():
+        df_prof = df_aulas[df_aulas['professor'] == prof]
+        un_prof = df_prof['unidade'].iloc[0]
+        diag = diagnosticar_professor(df_prof, df_horario, semana, prof, un_prof)
+        diagnosticos.append(diag)
+    diagnosticos.sort(key=lambda x: (-x['prioridade'], -x['pct_vazio']))
+    return diagnosticos
+
+
 def gerar_acao_recomendada(diag):
     """Gera acao recomendada para o coordenador baseada no diagnostico."""
     p = diag['prioridade']
@@ -241,16 +254,8 @@ def main():
     # ========== DIAGNOSTICO AUTOMATICO ==========
     st.markdown("---")
 
-    # Roda diagnostico para todos os professores
-    diagnosticos = []
-    for prof in df_f['professor'].dropna().unique():
-        df_prof = df_f[df_f['professor'] == prof]
-        un_prof = df_prof['unidade'].iloc[0]
-        diag = diagnosticar_professor(df_prof, df_horario, semana, prof, un_prof)
-        diagnosticos.append(diag)
-
-    # Ordena por prioridade (maior primeiro)
-    diagnosticos.sort(key=lambda x: (-x['prioridade'], -x['pct_vazio']))
+    # Roda diagnostico para todos os professores (cached)
+    diagnosticos = gerar_diagnosticos_todos(df_f, df_horario, semana)
 
     # ========== METRICAS RESUMO ==========
     criticos = sum(1 for d in diagnosticos if d['prioridade'] == 3)

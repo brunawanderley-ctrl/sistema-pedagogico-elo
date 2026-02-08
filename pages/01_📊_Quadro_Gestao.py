@@ -21,7 +21,7 @@ from utils import (
     CONFORMIDADE_BAIXO, CONFORMIDADE_META,
 )
 
-st.set_page_config(page_title="Quadro de Gestao", page_icon="📊", layout="wide")
+st.set_page_config(page_title="Quadro de Gestão", page_icon="📊", layout="wide")
 from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
@@ -107,7 +107,7 @@ def main():
         filtro_serie = st.selectbox("🎓 Série", series_disp)
 
     with col_f4:
-        filtro_periodo = st.selectbox("📅 Periodo", PERIODOS_OPCOES)
+        filtro_periodo = st.selectbox("📅 Período", PERIODOS_OPCOES)
 
     # Aplica filtros
     df = df_aulas.copy()
@@ -120,6 +120,10 @@ def main():
     if filtro_serie != 'TODAS':
         df = df[df['serie'] == filtro_serie]
     df = filtrar_por_periodo(df, filtro_periodo)
+
+    if df.empty:
+        st.info("Nenhum dado encontrado para os filtros selecionados.")
+        return
 
     # ========== MÉTRICAS PRINCIPAIS ==========
     st.markdown("---")
@@ -459,7 +463,7 @@ def main():
                     st.markdown(f"**{row['Professor']}** ({row['Unidade']}) - {row['Disciplinas']} | **{pct:.0f}%**")
 
             with col_r2:
-                st.subheader("🔴 5 que Precisam de Atencao")
+                st.subheader("🔴 5 que Precisam de Atenção")
                 bottom5 = df_rank[df_rank['Conformidade'] < 100].nsmallest(5, 'Conformidade')
                 for _, row in bottom5.iterrows():
                     pct = row['Conformidade']

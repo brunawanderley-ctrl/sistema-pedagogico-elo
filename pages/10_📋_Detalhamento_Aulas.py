@@ -25,7 +25,7 @@ def main():
     df = carregar_fato_aulas()
 
     if df.empty:
-        st.error("Dados nao carregados. Execute a extracao do SIGA.")
+        st.warning("Dados não carregados. Execute a extração do SIGA primeiro.")
         return
 
     # ========== FILTROS NO TOPO ==========
@@ -448,7 +448,7 @@ def main():
                                        f"impressao_geral_{datetime.now().strftime('%Y%m%d')}.txt",
                                        "text/plain", key='imp_busca_geral')
             else:
-                st.warning(f"Nenhum registro encontrado com '{termo_geral}'")
+                st.info(f"Nenhum registro encontrado com '{termo_geral}'.")
 
     with tab_busca1:
         termo_busca = st.text_input("Buscar apenas no campo conteúdo:",
@@ -482,7 +482,7 @@ def main():
                                        f"impressao_conteudo_{datetime.now().strftime('%Y%m%d')}.txt",
                                        "text/plain", key='imp_busca_cont')
             else:
-                st.warning(f"Nenhum registro encontrado com '{termo_busca}'")
+                st.info(f"Nenhum registro encontrado com '{termo_busca}'.")
 
     with tab_busca2:
         termo_tarefa = st.text_input("Digite um termo para buscar nas tarefas registradas:",
@@ -516,7 +516,7 @@ def main():
                                        f"impressao_tarefa_{datetime.now().strftime('%Y%m%d')}.txt",
                                        "text/plain", key='imp_busca_tar')
             else:
-                st.warning(f"Nenhuma tarefa encontrada com '{termo_tarefa}'")
+                st.info(f"Nenhuma tarefa encontrada com '{termo_tarefa}'.")
 
     with tab_busca3:
         st.subheader("📋 Últimas Tarefas Registradas")
@@ -548,7 +548,7 @@ def main():
                                    f"impressao_ultimas_tarefas_{datetime.now().strftime('%Y%m%d')}.txt",
                                    "text/plain", key='imp_ultimas_tar')
         else:
-            st.warning("Nenhuma tarefa registrada nos dados filtrados")
+            st.info("Nenhuma tarefa registrada nos dados filtrados.")
 
 if __name__ == "__main__":
     main()

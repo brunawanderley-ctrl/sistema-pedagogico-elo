@@ -30,6 +30,14 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# ========== SESSION STATE: INICIALIZAÇÃO DE VARIÁVEIS COMUNS ==========
+if 'semana_atual' not in st.session_state:
+    st.session_state.semana_atual = calcular_semana_letiva()
+if 'capitulo_esperado' not in st.session_state:
+    st.session_state.capitulo_esperado = calcular_capitulo_esperado(st.session_state.semana_atual)
+if 'trimestre_atual' not in st.session_state:
+    st.session_state.trimestre_atual = calcular_trimestre(st.session_state.semana_atual)
+
 # Autenticação - bloqueia acesso sem login
 if not check_password():
     st.stop()
