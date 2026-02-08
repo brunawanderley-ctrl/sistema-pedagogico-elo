@@ -10,7 +10,7 @@ from pathlib import Path
 from datetime import datetime
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import carregar_fato_aulas, _hoje
+from utils import carregar_fato_aulas, _hoje, ORDEM_SERIES
 
 st.set_page_config(page_title="Detalhamento de Aulas", page_icon="📋", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -52,9 +52,9 @@ def main():
 
     with col3:
         if filtro_un != 'TODAS':
-            series_disp = ['TODAS'] + sorted(df_seg[df_seg['unidade'] == filtro_un]['serie'].dropna().unique().tolist())
+            series_disp = ['TODAS'] + sorted(df_seg[df_seg['unidade'] == filtro_un]['serie'].dropna().unique().tolist(), key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99)
         else:
-            series_disp = ['TODAS'] + sorted(df_seg['serie'].dropna().unique().tolist())
+            series_disp = ['TODAS'] + sorted(df_seg['serie'].dropna().unique().tolist(), key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99)
         filtro_serie = st.selectbox("📚 Série", series_disp)
 
     with col4:
@@ -310,7 +310,7 @@ def main():
         df_busca_base = df_busca_base[df_busca_base['serie'].str.contains('Série|EM', na=False)]
 
     with cb3:
-        serie_busca_opts = ['TODAS'] + sorted(df_busca_base['serie'].dropna().unique().tolist())
+        serie_busca_opts = ['TODAS'] + sorted(df_busca_base['serie'].dropna().unique().tolist(), key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99)
         serie_busca = st.selectbox("📚 Série", serie_busca_opts, key='busca_serie')
 
     if serie_busca != 'TODAS':

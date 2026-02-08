@@ -12,7 +12,7 @@ from pathlib import Path
 import math
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_horario_esperado, carregar_fato_aulas, filtrar_ate_hoje, DATA_DIR
+from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_horario_esperado, carregar_fato_aulas, filtrar_ate_hoje, DATA_DIR, ORDEM_SERIES
 
 st.set_page_config(page_title="Visao do Professor", page_icon="👨‍🏫", layout="wide")
 from auth import check_password, logout_button
@@ -172,7 +172,7 @@ def main():
             prof_disciplinas = sorted(df_prof['disciplina'].unique())
             prof_turmas = sorted(df_prof['turma'].unique()) if 'turma' in df_prof.columns else []
             if 'serie' in df_prof.columns:
-                prof_series = sorted(df_prof['serie'].unique())
+                prof_series = sorted(df_prof['serie'].unique(), key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99)
 
     with col2:
         if prof_disciplinas:

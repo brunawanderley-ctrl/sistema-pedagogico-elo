@@ -89,7 +89,8 @@ def main():
     turmas_total.columns = ['Unidade', 'Turmas']
     fig = px.bar(turmas_total, x='Unidade', y='Turmas',
                 title='Total de Turmas por Unidade (Fund II + EM)',
-                color='Unidade', text='Turmas')
+                color='Unidade', text='Turmas',
+                color_discrete_map=CORES_UNIDADES)
     fig.update_traces(textposition='outside')
     st.plotly_chart(fig, use_container_width=True)
 
@@ -119,7 +120,7 @@ def main():
     """, unsafe_allow_html=True)
 
     # Seletor de série
-    series_disp = sorted(df['serie'].unique())
+    series_disp = sorted(df['serie'].unique(), key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99)
     serie_sel = st.selectbox("Selecione a série:", series_disp)
 
     # Calcula aulas por turma (média, que deve ser igual)
