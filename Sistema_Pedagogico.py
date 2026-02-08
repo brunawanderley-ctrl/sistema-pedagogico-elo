@@ -19,7 +19,7 @@ from auth import check_password, logout_button
 from utils import (
     DATA_DIR, is_cloud, ultima_atualizacao,
     carregar_fato_aulas, carregar_horario_esperado, carregar_calendario, carregar_progressao_sae,
-    calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, UNIDADES_NOMES
+    calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, filtrar_ate_hoje, UNIDADES_NOMES
 )
 
 # Configuração da página (DEVE ser a primeira chamada Streamlit)
@@ -281,6 +281,7 @@ def main():
     st.header("🏥 Saude da Rede")
 
     df_aulas = carregar_fato_aulas()
+    df_aulas = filtrar_ate_hoje(df_aulas)
     df_horario = carregar_horario_esperado()
     df_cal = carregar_calendario()
     df_prog = carregar_progressao_sae()

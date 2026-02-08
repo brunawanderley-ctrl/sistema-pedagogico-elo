@@ -12,7 +12,7 @@ from pathlib import Path
 import math
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_horario_esperado, carregar_fato_aulas, DATA_DIR
+from utils import calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, carregar_horario_esperado, carregar_fato_aulas, filtrar_ate_hoje, DATA_DIR
 
 st.set_page_config(page_title="Visao do Professor", page_icon="👨‍🏫", layout="wide")
 from auth import check_password, logout_button
@@ -147,7 +147,7 @@ def main():
 
     # Carrega dados
     df_horario = carregar_horario_esperado()
-    df_aulas = carregar_fato_aulas()
+    df_aulas = filtrar_ate_hoje(carregar_fato_aulas())
 
     if not df_horario.empty:
         professores = sorted(df_horario['professor'].unique())

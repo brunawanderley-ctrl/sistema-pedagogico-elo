@@ -9,7 +9,7 @@ import pandas as pd
 from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import carregar_fato_aulas
+from utils import carregar_fato_aulas, filtrar_ate_hoje
 
 st.set_page_config(page_title="Instrumentos Avaliativos", page_icon="📝", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -143,6 +143,7 @@ def main():
     st.header("🔍 Verificação nos Registros do SIGA")
 
     df = carregar_fato_aulas()
+    df = filtrar_ate_hoje(df)
 
     if not df.empty:
 
