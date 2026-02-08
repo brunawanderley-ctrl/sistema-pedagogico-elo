@@ -8,6 +8,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 from pathlib import Path
+import math
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import carregar_calendario, _hoje, calcular_semana_letiva, calcular_capitulo_esperado

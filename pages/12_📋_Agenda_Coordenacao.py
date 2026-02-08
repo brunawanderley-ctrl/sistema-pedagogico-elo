@@ -9,12 +9,11 @@ import streamlit as st
 import pandas as pd
 from pathlib import Path
 from datetime import datetime, timedelta
-import math
 import json
 import subprocess
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from utils import DATA_DIR, is_cloud, ultima_atualizacao, calcular_semana_letiva, calcular_capitulo_esperado, carregar_fato_aulas, _hoje
+from utils import DATA_DIR, is_cloud, ultima_atualizacao, calcular_semana_letiva, calcular_capitulo_esperado, carregar_fato_aulas, filtrar_ate_hoje, _hoje
 from config_cores import CORES_UNIDADES
 
 st.set_page_config(page_title="Agenda Coordenacao", page_icon="📋", layout="wide")
@@ -236,7 +235,7 @@ def main():
         st.error("Dados nao carregados. Execute a extracao do SIGA primeiro.")
         return
 
-    df_aulas = df_aulas[df_aulas['data'] <= hoje].copy()
+    df_aulas = filtrar_ate_hoje(df_aulas)
 
     semana_atual = calcular_semana_letiva(hoje)
     capitulo_esperado = calcular_capitulo_esperado(semana_atual)
