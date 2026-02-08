@@ -19,7 +19,7 @@ from auth import check_password, logout_button
 from utils import (
     DATA_DIR, is_cloud, ultima_atualizacao,
     carregar_fato_aulas, carregar_horario_esperado, carregar_calendario, carregar_progressao_sae,
-    calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, filtrar_ate_hoje, UNIDADES_NOMES
+    calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, filtrar_ate_hoje, _hoje, UNIDADES_NOMES
 )
 
 # Configuração da página (DEVE ser a primeira chamada Streamlit)
@@ -353,17 +353,13 @@ def main():
 
         from auth import get_user_unit
         user_unit = get_user_unit()
-        hoje = datetime.now()
+        hoje = _hoje()
 
         pontos = []
 
         # 1. Disciplinas sem nenhum registro
-        slots_esp = set()
-        for _, r in df_horario.iterrows():
-            slots_esp.add((r.get('unidade',''), r.get('serie',''), r.get('disciplina','')))
-        slots_real = set()
-        for _, r in df_aulas.iterrows():
-            slots_real.add((r.get('unidade',''), r.get('serie',''), r.get('disciplina','')))
+        slots_esp = set(df_horario.groupby(['unidade', 'serie', 'disciplina']).size().index)
+        slots_real = set(df_aulas.groupby(['unidade', 'serie', 'disciplina']).size().index)
         slots_sem = slots_esp - slots_real
         if user_unit:
             slots_sem_un = [s for s in slots_sem if s[0] == user_unit]

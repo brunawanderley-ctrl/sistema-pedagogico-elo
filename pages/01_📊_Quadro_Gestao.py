@@ -97,11 +97,15 @@ def main():
         filtro_seg = st.selectbox("📚 Segmento", segmentos)
 
     with col_f3:
-        series_disp = ['TODAS'] + sorted(df_aulas['serie'].dropna().unique().tolist())
+        series_todas = sorted(
+            df_aulas['serie'].dropna().unique().tolist(),
+            key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99
+        )
+        series_disp = ['TODAS'] + series_todas
         filtro_serie = st.selectbox("🎓 Série", series_disp)
 
     with col_f4:
-        trimestres = ['ATUAL', '1º Trimestre', '2º Trimestre', '3º Trimestre']
+        trimestres = ['TODOS', '1º Trimestre', '2º Trimestre', '3º Trimestre']
         filtro_tri = st.selectbox("📅 Trimestre", trimestres)
 
     # Aplica filtros
@@ -114,6 +118,11 @@ def main():
         df = df[df['serie'].str.contains('Série|EM', na=False)]
     if filtro_serie != 'TODAS':
         df = df[df['serie'] == filtro_serie]
+    # Aplica filtro de trimestre (por semana letiva)
+    if filtro_tri != 'TODOS' and 'semana_letiva' in df.columns:
+        tri_map = {'1º Trimestre': (1, 14), '2º Trimestre': (15, 28), '3º Trimestre': (29, 42)}
+        sem_min, sem_max = tri_map[filtro_tri]
+        df = df[(df['semana_letiva'] >= sem_min) & (df['semana_letiva'] <= sem_max)]
 
     # ========== MÉTRICAS PRINCIPAIS ==========
     st.markdown("---")
