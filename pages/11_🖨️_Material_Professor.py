@@ -74,7 +74,7 @@ def gerar_tabela_semanal(semana_inicio, semana_fim, aulas_por_semana):
     return linhas
 
 def gerar_conteudo_professor(prof_nome, df_aulas_prof, df_horario_prof, semana_atual, visualizacao,
-                              incluir_conteudo=False, incluir_tarefa=False):
+                              incluir_conteudo=False, incluir_tarefa=False, df_horario_un=None):
     """Gera o conteúdo textual do relatório do professor."""
 
     cap_esperado = calcular_capitulo_esperado(semana_atual)
@@ -96,11 +96,20 @@ def gerar_conteudo_professor(prof_nome, df_aulas_prof, df_horario_prof, semana_a
 
     turmas = ', '.join(turmas_list) if len(turmas_list) <= 5 else f"{len(turmas_list)} turmas"
 
-    # Cálculos - usa horário se disponível, senão estima pelos dados
+    # Cálculos - usa horário se disponível, senão calcula via slots
     if len(df_horario_prof) > 0:
         aulas_por_semana = len(df_horario_prof)
+    elif df_horario_un is not None and len(df_aulas_prof) > 0:
+        # Calcula via slots (unidade, serie, disciplina) do horário
+        esp_sem = 0
+        for s in df_aulas_prof['serie'].unique():
+            for d in df_aulas_prof['disciplina'].unique():
+                esp_sem += len(df_horario_un[
+                    (df_horario_un['serie'] == s) &
+                    (df_horario_un['disciplina'] == d)
+                ])
+        aulas_por_semana = esp_sem if esp_sem > 0 else max(1, len(df_aulas_prof) // max(1, semana_atual))
     else:
-        # Estima pela média de aulas registradas
         aulas_por_semana = max(1, len(df_aulas_prof) // max(1, semana_atual))
 
     aulas_esperadas = aulas_por_semana * semana_atual
@@ -574,7 +583,8 @@ def main():
             # Gera relatório
             if tipo_relatorio == '📊 Resumo geral':
                 conteudo = gerar_conteudo_professor(prof_sel, df_aulas_prof_filtrado, df_horario_prof_filtrado,
-                                                    semana_atual, visualizacao, incluir_conteudo, incluir_tarefa)
+                                                    semana_atual, visualizacao, incluir_conteudo, incluir_tarefa,
+                                                    df_horario_un=df_horario_un)
             else:
                 # Por componente curricular
                 conteudo = gerar_relatorio_por_disciplina(prof_sel, df_aulas_prof, df_horario_prof,
@@ -621,7 +631,8 @@ def main():
                     if tipo_relatorio == '📊 Resumo geral':
                         conteudo_rel = gerar_conteudo_professor(prof, df_aulas_prof, df_horario_prof,
                                                                 semana_atual, visualizacao,
-                                                                incluir_conteudo, incluir_tarefa)
+                                                                incluir_conteudo, incluir_tarefa,
+                                                                df_horario_un=df_horario_un)
                     else:
                         conteudo_rel = gerar_relatorio_por_disciplina(prof, df_aulas_prof, df_horario_prof,
                                                                        semana_atual, visualizacao, 'TODAS',
@@ -672,18 +683,24 @@ def main():
         else:
             df_horario_prof = pd.DataFrame()
 
-        # Calcula esperado baseado no horário OU estima pelo número de turmas/disciplinas
+        # Calcula esperado baseado no horário OU via slots (unidade, serie, disciplina)
         if len(df_horario_prof) > 0:
             esperado = len(df_horario_prof) * semana_atual
             disciplinas = ', '.join(df_horario_prof['disciplina'].unique())
             turmas = df_horario_prof['turma'].nunique()
         else:
-            # Sem correspondência no horário - usa dados das aulas
+            # Sem correspondência de nome - calcula via slots do horário
             disciplinas = ', '.join(df_aulas_prof['disciplina'].dropna().unique())
             turmas = df_aulas_prof['turma'].nunique()
-            # Estima: aulas registradas / semana_atual = aulas por semana esperadas
-            aulas_por_semana = max(1, len(df_aulas_prof) // max(1, semana_atual))
-            esperado = aulas_por_semana * semana_atual
+            un = df_aulas_prof['unidade'].iloc[0] if len(df_aulas_prof) > 0 else ''
+            esp_sem = 0
+            for s in df_aulas_prof['serie'].unique():
+                for d in df_aulas_prof['disciplina'].unique():
+                    esp_sem += len(df_horario_un[
+                        (df_horario_un['serie'] == s) &
+                        (df_horario_un['disciplina'] == d)
+                    ])
+            esperado = esp_sem * semana_atual if esp_sem > 0 else len(df_aulas_prof)
 
         registrado = len(df_aulas_prof)
         conf = (registrado / esperado * 100) if esperado > 0 else 0
