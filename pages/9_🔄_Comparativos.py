@@ -143,20 +143,40 @@ def main():
         df_hor_disc = df_hor_seg[df_hor_seg['disciplina'] == disc_sel]
 
         if len(df_disc) > 0:
+            # Calcula aulas esperadas via (unidade, serie, disciplina) slots
+            slots_horario = set()
+            for _, r in df_hor_disc.iterrows():
+                slots_horario.add((r.get('unidade',''), r.get('serie',''), r.get('disciplina','')))
+
             # Agrupa por professor
             profs_comp = []
             for prof in df_disc['professor'].unique():
                 df_prof = df_disc[df_disc['professor'] == prof]
-                df_hor_prof = df_hor_disc[df_hor_disc['professor'] == prof]
 
                 unidades = ', '.join(df_prof['unidade'].unique())
                 turmas = df_prof['turma'].nunique()
                 aulas = len(df_prof)
-                esperado = len(df_hor_prof) * semana
+
+                # Aulas esperadas: conta slots de horário que o professor leciona (por unidade+serie+disciplina)
+                prof_slots = set()
+                for _, r in df_prof.iterrows():
+                    prof_slots.add((r.get('unidade',''), r.get('serie',''), r.get('disciplina','')))
+                # Conta quantos slots/semana este professor tem no horário
+                aulas_sem_prof = 0
+                for slot in prof_slots:
+                    matches = df_hor_seg[
+                        (df_hor_seg['unidade'] == slot[0]) &
+                        (df_hor_seg['serie'] == slot[1]) &
+                        (df_hor_seg['disciplina'] == slot[2])
+                    ]
+                    aulas_sem_prof += len(matches)
+                esperado = aulas_sem_prof * semana
 
                 # Conteúdos únicos
                 conteudos = df_prof['conteudo'].dropna().unique()
                 ultimo_conteudo = conteudos[-1] if len(conteudos) > 0 else '-'
+
+                conf = (aulas / esperado * 100) if esperado > 0 else 0
 
                 profs_comp.append({
                     'Professor': prof,
@@ -164,6 +184,7 @@ def main():
                     'Turmas': turmas,
                     'Aulas Registradas': aulas,
                     'Esperadas': esperado,
+                    'Conformidade': f'{conf:.0f}%',
                     'Último Conteúdo': ultimo_conteudo[:50] + '...' if len(str(ultimo_conteudo)) > 50 else ultimo_conteudo
                 })
 
@@ -216,19 +237,24 @@ def main():
 
         df_series = pd.DataFrame(series_comp)
         if not df_series.empty:
-            df_series = df_series.sort_values('Conformidade', ascending=False)
+            df_series['ordem'] = df_series['Série'].apply(
+                lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99)
+            df_series = df_series.sort_values('ordem')
 
-        # Gráfico
+        # Gráfico com cores por série
         fig = px.bar(df_series, x='Série', y='Conformidade',
                     title='Conformidade por Série',
-                    color='Conformidade', color_continuous_scale='RdYlGn',
-                    range_color=[0, 100])
-        fig.add_hline(y=85, line_dash="dash", line_color="green")
+                    color='Série',
+                    color_discrete_map=CORES_SERIES)
+        fig.add_hline(y=85, line_dash="dash", line_color="green",
+                     annotation_text="Meta 85%")
+        fig.update_layout(showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
 
         # Tabela
         df_series['Conformidade'] = df_series['Conformidade'].apply(lambda x: f'{x:.1f}%')
-        st.dataframe(df_series, use_container_width=True, hide_index=True)
+        df_series_show = df_series.drop(columns=['ordem'], errors='ignore')
+        st.dataframe(df_series_show, use_container_width=True, hide_index=True)
 
         # Comparativo Anos Finais vs Ensino Médio
         st.subheader("📊 Anos Finais vs Ensino Médio")
