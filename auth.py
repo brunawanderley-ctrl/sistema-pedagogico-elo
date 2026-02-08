@@ -55,12 +55,46 @@ def _get_display_name(username):
         return username
 
 
+def get_user_unit():
+    """
+    Retorna a unidade padrao do usuario logado.
+    Lê de st.secrets[credentials][usernames][user][unit].
+    Retorna None se nao configurado.
+    """
+    username = st.session_state.get("username")
+    if not username:
+        return None
+    try:
+        return st.secrets["credentials"]["usernames"][username].get("unit")
+    except (KeyError, FileNotFoundError, AttributeError):
+        return None
+
+
+def get_user_role():
+    """
+    Retorna o perfil do usuario logado (admin, coordenador, diretor).
+    Lê de st.secrets[credentials][usernames][user][role].
+    Retorna 'viewer' se nao configurado.
+    """
+    username = st.session_state.get("username")
+    if not username:
+        return 'viewer'
+    try:
+        return st.secrets["credentials"]["usernames"][username].get("role", "viewer")
+    except (KeyError, FileNotFoundError, AttributeError):
+        return 'viewer'
+
+
 def logout_button():
     """Exibe botão de logout na sidebar."""
     with st.sidebar:
         user = st.session_state.get("user_display", "")
+        unit = get_user_unit()
         if user:
-            st.caption(f"Logado como: **{user}**")
+            label = f"Logado como: **{user}**"
+            if unit:
+                label += f" ({unit})"
+            st.caption(label)
         if st.button("Sair", key="btn_logout"):
             st.session_state["authenticated"] = False
             st.session_state.pop("username", None)

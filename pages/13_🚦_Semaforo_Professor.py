@@ -20,7 +20,7 @@ from utils import (
 )
 
 st.set_page_config(page_title="Semaforo do Professor", page_icon="🚦", layout="wide")
-from auth import check_password, logout_button
+from auth import check_password, logout_button, get_user_unit
 if not check_password():
     st.stop()
 logout_button()
@@ -154,7 +154,9 @@ def main():
 
     with col_f1:
         un_opts = ['TODAS'] + sorted(df_horario['unidade'].unique().tolist())
-        filtro_un = st.selectbox("🏫 Unidade", un_opts)
+        user_unit = get_user_unit()
+        default_un = un_opts.index(user_unit) if user_unit and user_unit in un_opts else 0
+        filtro_un = st.selectbox("🏫 Unidade", un_opts, index=default_un)
 
     with col_f2:
         seg_opts = ['TODOS', 'Anos Finais', 'Ensino Medio']

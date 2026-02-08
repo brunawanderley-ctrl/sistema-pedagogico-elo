@@ -248,6 +248,16 @@ def main():
         </div>
         """, unsafe_allow_html=True)
 
+    # Quarta linha
+    col4a, col4b = st.columns(2)
+    with col4a:
+        st.markdown("""
+        <div class="page-link">
+            <h3>📄 15. Resumo Semanal</h3>
+            <p>Relatorio para reunioes e WhatsApp. Exportavel! <strong>NOVO!</strong></p>
+        </div>
+        """, unsafe_allow_html=True)
+
     st.markdown("---")
 
     # Instruções
