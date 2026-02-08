@@ -86,9 +86,33 @@ def status_conformidade(pct):
 
 
 # ========== NORMALIZACAO DE DISCIPLINAS ==========
-# Corrige nomes de disciplinas do SIGA que nao batem com a progressao SAE
-DISCIPLINA_NORM = {
+
+# Normaliza disciplinas do fato_Aulas (SIGA) → nomes canonicos SAE
+DISCIPLINA_NORM_FATO = {
     'Física 2': 'Física',
+}
+
+# Normaliza disciplinas numeradas do horario → nomes base do SIGA
+# O horario EM divide disciplinas em slots (Matematica 1, 2, 3) mas
+# o SIGA registra apenas o nome base (Matematica)
+DISCIPLINA_NORM_HORARIO = {
+    'Matemática 1': 'Matemática',
+    'Matemática 2': 'Matemática',
+    'Matemática 3': 'Matemática',
+    'Física 1': 'Física',
+    'Física 2': 'Física',
+    'Física 3': 'Física',
+    'Biologia 1': 'Biologia',
+    'Biologia 2': 'Biologia',
+    'Química 1': 'Química',
+    'Química 2': 'Química',
+    'Química 3': 'Química',
+    'História 1': 'História',
+    'História 2': 'História',
+    'Geografia 1': 'Geografia',
+    'Geografia 2': 'Geografia',
+    'Língua Portuguesa 1': 'Língua Portuguesa',
+    'Língua Portuguesa 2': 'Língua Portuguesa',
 }
 
 
@@ -96,15 +120,25 @@ def _normalizar_disciplina_fato(df):
     """Aplica normalizacao de disciplinas e recalcula progressao_key."""
     if 'disciplina' not in df.columns:
         return df
-    mask = df['disciplina'].isin(DISCIPLINA_NORM)
+    mask = df['disciplina'].isin(DISCIPLINA_NORM_FATO)
     if mask.any():
-        df.loc[mask, 'disciplina'] = df.loc[mask, 'disciplina'].map(DISCIPLINA_NORM)
+        df.loc[mask, 'disciplina'] = df.loc[mask, 'disciplina'].map(DISCIPLINA_NORM_FATO)
         if 'progressao_key' in df.columns and 'serie' in df.columns and 'semana_letiva' in df.columns:
             df.loc[mask, 'progressao_key'] = (
                 df.loc[mask, 'disciplina'] + '|' +
                 df.loc[mask, 'serie'] + '|' +
                 df.loc[mask, 'semana_letiva'].astype(str)
             )
+    return df
+
+
+def _normalizar_disciplina_horario(df):
+    """Normaliza disciplinas numeradas do horario (Matematica 1 → Matematica)."""
+    if 'disciplina' not in df.columns:
+        return df
+    mask = df['disciplina'].isin(DISCIPLINA_NORM_HORARIO)
+    if mask.any():
+        df.loc[mask, 'disciplina'] = df.loc[mask, 'disciplina'].map(DISCIPLINA_NORM_HORARIO)
     return df
 
 
@@ -124,11 +158,13 @@ def carregar_fato_aulas():
 
 @st.cache_data(ttl=300)
 def carregar_horario_esperado():
-    """Carrega dim_Horario_Esperado.csv com cache."""
+    """Carrega dim_Horario_Esperado.csv com cache. Normaliza disciplinas numeradas."""
     path = DATA_DIR / "dim_Horario_Esperado.csv"
     if not path.exists():
         return pd.DataFrame()
-    return pd.read_csv(path)
+    df = pd.read_csv(path)
+    df = _normalizar_disciplina_horario(df)
+    return df
 
 
 @st.cache_data(ttl=300)
