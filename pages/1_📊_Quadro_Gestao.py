@@ -16,7 +16,7 @@ from config_cores import CORES_SERIES, CORES_UNIDADES, ORDEM_SERIES
 from utils import (
     calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre,
     status_conformidade, carregar_fato_aulas, carregar_horario_esperado,
-    carregar_calendario, filtrar_ate_hoje, _hoje, DATA_DIR
+    carregar_calendario, filtrar_ate_hoje, _hoje, DATA_DIR, UNIDADES_NOMES
 )
 
 st.set_page_config(page_title="Quadro de Gestao", page_icon="📊", layout="wide")
@@ -336,12 +336,22 @@ def main():
                     color_discrete_map=CORES_SERIES)
         st.plotly_chart(fig, use_container_width=True)
 
-    # Timeline
-    st.subheader("📅 Evolução Temporal")
-    df_dia = df.groupby(df['data'].dt.date).size().reset_index(name='aulas')
-    df_dia.columns = ['Data', 'Aulas']
-    fig = px.area(df_dia, x='Data', y='Aulas', title='Aulas Registradas por Dia')
-    st.plotly_chart(fig, use_container_width=True)
+    # Timeline semanal
+    st.subheader("📅 Evolução Semanal")
+    if 'semana_letiva' in df.columns:
+        df_sem = df.groupby(['semana_letiva', 'unidade']).size().reset_index(name='aulas')
+        fig = px.bar(df_sem, x='semana_letiva', y='aulas', color='unidade',
+                    title='Aulas Registradas por Semana Letiva',
+                    labels={'semana_letiva': 'Semana', 'aulas': 'Aulas'},
+                    barmode='stack',
+                    color_discrete_map=CORES_UNIDADES)
+        fig.update_layout(xaxis=dict(dtick=1))
+        st.plotly_chart(fig, use_container_width=True)
+    else:
+        df_dia = df.groupby(df['data'].dt.date).size().reset_index(name='aulas')
+        df_dia.columns = ['Data', 'Aulas']
+        fig = px.area(df_dia, x='Data', y='Aulas', title='Aulas Registradas por Dia')
+        st.plotly_chart(fig, use_container_width=True)
 
     # ========== TABELA RESUMO ==========
     st.markdown("---")
@@ -383,44 +393,63 @@ def main():
         st.markdown("---")
         st.header("🏆 Ranking de Professores")
 
+        # Calcula conformidade usando fato_Aulas e horario esperado por
+        # (unidade, serie, disciplina) - nao depende de match de nome
         prof_ranking = []
-        for prof in df_horario['professor'].unique():
-            df_prof_hor = df_horario[df_horario['professor'] == prof]
-            df_prof_aulas = df_aulas[df_aulas['professor'] == prof]
-            un = df_prof_hor['unidade'].iloc[0]
-            discs = ', '.join(sorted(df_prof_hor['disciplina'].unique())[:2])
-            esp = len(df_prof_hor) * semana
-            real_p = len(df_prof_aulas)
-            conf_p = (real_p / esp * 100) if esp > 0 else 0
-            nome = prof.split(' - ')[0] if ' - ' in prof else prof
+        for prof in df_aulas['professor'].unique():
+            df_prof = df_aulas[df_aulas['professor'] == prof]
+            un = df_prof['unidade'].iloc[0]
+
+            # Aplica filtros ativos
+            if filtro_un != 'TODAS' and un != filtro_un:
+                continue
+
+            discs = sorted(df_prof['disciplina'].unique())
+            series = df_prof['serie'].unique()
+
+            # Calcula esperado baseado no horario do (unidade, serie, disciplina)
+            esp_total = 0
+            for serie_p in series:
+                for disc_p in discs:
+                    n_hor = len(df_horario[
+                        (df_horario['unidade'] == un) &
+                        (df_horario['serie'] == serie_p) &
+                        (df_horario['disciplina'] == disc_p)
+                    ])
+                    esp_total += n_hor * semana
+
+            real_p = len(df_prof)
+            conf_p = (real_p / esp_total * 100) if esp_total > 0 else 0
+
             prof_ranking.append({
-                'Professor': nome,
+                'Professor': prof,
                 'Unidade': un,
-                'Disciplinas': discs,
+                'Disciplinas': ', '.join(discs[:2]) + ('...' if len(discs) > 2 else ''),
                 'Registrado': real_p,
-                'Esperado': esp,
-                'Conformidade': conf_p,
+                'Esperado': esp_total,
+                'Conformidade': min(conf_p, 200),  # cap at 200% to avoid outliers
             })
 
         df_rank = pd.DataFrame(prof_ranking)
         df_rank = df_rank[df_rank['Esperado'] > 0]
 
-        col_r1, col_r2 = st.columns(2)
+        if not df_rank.empty:
+            col_r1, col_r2 = st.columns(2)
 
-        with col_r1:
-            st.subheader("🟢 Top 5 - Mais em Dia")
-            top5 = df_rank.nlargest(5, 'Conformidade')
-            for _, row in top5.iterrows():
-                pct = row['Conformidade']
-                st.markdown(f"**{row['Professor']}** ({row['Unidade']}) - {row['Disciplinas']} | **{pct:.0f}%**")
+            with col_r1:
+                st.subheader("🟢 Top 5 - Mais em Dia")
+                top5 = df_rank.nlargest(5, 'Conformidade')
+                for _, row in top5.iterrows():
+                    pct = row['Conformidade']
+                    st.markdown(f"**{row['Professor']}** ({row['Unidade']}) - {row['Disciplinas']} | **{pct:.0f}%**")
 
-        with col_r2:
-            st.subheader("🔴 5 que Precisam de Atencao")
-            bottom5 = df_rank[df_rank['Conformidade'] < 100].nsmallest(5, 'Conformidade')
-            for _, row in bottom5.iterrows():
-                pct = row['Conformidade']
-                icon = '🔴' if pct < 60 else '🟡'
-                st.markdown(f"{icon} **{row['Professor']}** ({row['Unidade']}) - {row['Disciplinas']} | **{pct:.0f}%**")
+            with col_r2:
+                st.subheader("🔴 5 que Precisam de Atencao")
+                bottom5 = df_rank[df_rank['Conformidade'] < 100].nsmallest(5, 'Conformidade')
+                for _, row in bottom5.iterrows():
+                    pct = row['Conformidade']
+                    icon = '🔴' if pct < 60 else '🟡'
+                    st.markdown(f"{icon} **{row['Professor']}** ({row['Unidade']}) - {row['Disciplinas']} | **{pct:.0f}%**")
 
 if __name__ == "__main__":
     main()
