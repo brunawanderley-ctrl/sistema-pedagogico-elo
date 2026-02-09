@@ -88,6 +88,15 @@ interceptar_api_siga.py
 interceptar_api_siga_v2.py
 testar_endpoints_descobertos.py
 
+# SAE Digital - scripts de exploracao e resultados
+explorar_sae_digital.py
+explorar_sae_trilhas.py
+explorar_sae_trilhas_v2.py
+explorar_sae_v2.py
+sae_*.json
+sae_*.txt
+.chrome_sae_profile/
+
 # Resultados de exploracao/diagnostico (locais)
 dados_alunos_explorados*.json
 endpoints_descobertos*.json
