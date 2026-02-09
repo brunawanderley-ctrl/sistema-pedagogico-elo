@@ -585,3 +585,73 @@ def ultima_atualizacao():
         mod_time = os.path.getmtime(path)
         return datetime.fromtimestamp(mod_time).strftime("%d/%m/%Y %H:%M")
     return "Dados nao extraidos"
+
+
+# ========== SAE DIGITAL - CARREGAMENTO E NORMALIZACAO ==========
+
+# Grade IDs SAE → Serie canonica
+_GRADE_MAP_SAE = {
+    10: '6\u00ba Ano', 11: '7\u00ba Ano', 12: '8\u00ba Ano', 13: '9\u00ba Ano',
+    14: '1\u00aa S\u00e9rie', 15: '2\u00aa S\u00e9rie', 16: '3\u00aa S\u00e9rie',
+}
+
+# Nomes de disciplina SAE → canonico SIGA
+_DISCIPLINA_SAE_MAP = {
+    'Ci\u00eancias': 'Ci\u00eancias Naturais',
+    'Ci\u00eancias da Natureza': 'Ci\u00eancias Naturais',
+    'Ingl\u00eas': 'L\u00edngua Estrangeira Ingl\u00eas',
+    'L\u00edngua Inglesa': 'L\u00edngua Estrangeira Ingl\u00eas',
+    'Artes': 'Arte',
+}
+
+
+def normalizar_disciplina_sae(nome):
+    """Normaliza nome de disciplina SAE para canonico SIGA.
+    Retorna o nome canonico ou o proprio nome se ja estiver correto."""
+    if not nome:
+        return nome
+    return _DISCIPLINA_SAE_MAP.get(nome, nome)
+
+
+def normalizar_serie_sae(grade_id):
+    """Converte grade_id SAE (10-16) para serie canonica SIGA.
+    Retorna None se grade_id nao reconhecido."""
+    if grade_id is None:
+        return None
+    return _GRADE_MAP_SAE.get(int(grade_id))
+
+
+@st.cache_data(ttl=300)
+def carregar_materiais_sae():
+    """Carrega dim_Materiais_SAE.csv com cache."""
+    path = DATA_DIR / "dim_Materiais_SAE.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(path)
+
+
+@st.cache_data(ttl=300)
+def carregar_alunos_sae():
+    """Carrega dim_Alunos_SAE.csv com cache."""
+    path = DATA_DIR / "dim_Alunos_SAE.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(path)
+
+
+@st.cache_data(ttl=300)
+def carregar_engajamento_sae():
+    """Carrega fato_Engajamento_SAE.csv com cache."""
+    path = DATA_DIR / "fato_Engajamento_SAE.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(path)
+
+
+@st.cache_data(ttl=300)
+def carregar_cruzamento():
+    """Carrega fato_Cruzamento.csv com cache."""
+    path = DATA_DIR / "fato_Cruzamento.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(path)

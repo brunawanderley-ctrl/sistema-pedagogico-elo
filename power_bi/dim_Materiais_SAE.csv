@@ -1,0 +1,98 @@
+material_id,material_nome,disciplina_sae,disciplina,serie,grade_id,colecao,segmento,is_default,total_secoes,capitulos_mapeados
+68dd26dd6c4baa3baa783b0d,Arte,Arte,Arte,6º Ano,10,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26dd6c4baa3baa783add,Ciências,Ciências,Ciências Naturais,6º Ano,10,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26ddea8d6e16559ec775,Educação Física,Educação Física,Educação Física,6º Ano,10,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26ddc2a04f336ffecfc9,Filosofia,Filosofia,Filosofia,6º Ano,10,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26ddc2a04f336ffecf99,Geografia,Geografia,Geografia,6º Ano,10,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26ddea8d6e16559ec75b,História,História,História,6º Ano,10,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68e64857ea8d6e16559ed53d,Ler e produzir,Ler e produzir,Ler e produzir,6º Ano,10,Ler e Produzir: Anos Finais,Ensino Fundamental - Anos Finais,True,0,12
+68dd26ddea8d6e16559ec78b,Língua Inglesa,Língua Inglesa,Língua Estrangeira Inglês,6º Ano,10,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26ddc2a04f336ffecfb3,Língua Portuguesa,Língua Portuguesa,Língua Portuguesa,6º Ano,10,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26dd6c4baa3baa783af7,Matemática,Matemática,Matemática,6º Ano,10,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26dec2a04f336ffed013,Arte,Arte,Arte,7º Ano,11,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26dec2a04f336ffecfe3,Ciências,Ciências,Ciências Naturais,7º Ano,11,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26de6c4baa3baa783b55,Educação Física,Educação Física,Educação Física,7º Ano,11,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26deea8d6e16559ec7d5,Filosofia,Filosofia,Filosofia,7º Ano,11,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26deea8d6e16559ec7a5,Geografia,Geografia,Geografia,7º Ano,11,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26de6c4baa3baa783b3b,História,História,História,7º Ano,11,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68e64857ea8d6e16559ed523,Ler e produzir,Ler e produzir,Ler e produzir,7º Ano,11,Ler e Produzir: Anos Finais,Ensino Fundamental - Anos Finais,True,0,12
+68dd26de6c4baa3baa783b6b,Língua Inglesa,Língua Inglesa,Língua Estrangeira Inglês,7º Ano,11,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26deea8d6e16559ec7bf,Língua Portuguesa,Língua Portuguesa,Língua Portuguesa,7º Ano,11,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26dec2a04f336ffecffd,Matemática,Matemática,Matemática,7º Ano,11,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26deea8d6e16559ec832,Arte,Arte,Arte,8º Ano,12,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26deea8d6e16559ec7ee,Ciências,Ciências,Ciências Naturais,8º Ano,12,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26dec2a04f336ffed05f,Educação Física,Educação Física,Educação Física,8º Ano,12,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26de6c4baa3baa783bc3,Filosofia,Filosofia,Filosofia,8º Ano,12,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26de6c4baa3baa783b8a,Geografia,Geografia,Geografia,8º Ano,12,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26dec2a04f336ffed049,História,História,História,8º Ano,12,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68e6485740d7b11fcd057594,Ler e produzir,Ler e produzir,Ler e produzir,8º Ano,12,Ler e Produzir: Anos Finais,Ensino Fundamental - Anos Finais,True,0,12
+68dd26dec2a04f336ffed079,Língua Inglesa,Língua Inglesa,Língua Estrangeira Inglês,8º Ano,12,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26de6c4baa3baa783bad,Língua Portuguesa,Língua Portuguesa,Língua Portuguesa,8º Ano,12,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26deea8d6e16559ec818,Matemática,Matemática,Matemática,8º Ano,12,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26de6c4baa3baa783c1e,Arte,Arte,Arte,9º Ano,13,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68e64e90ea8d6e16559ed8c3,Biologia,Biologia,Biologia,9º Ano,13,Base AF (Biologia),Ensino Fundamental - Anos Finais,True,0,12
+68dd26de6c4baa3baa783bdd,Ciências,Ciências,Ciências Naturais,9º Ano,13,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26deea8d6e16559ec881,Educação Física,Educação Física,Educação Física,9º Ano,13,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26dec2a04f336ffed0d0,Filosofia,Filosofia,Filosofia,9º Ano,13,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68e64e7c6c4baa3baa784c06,Física,Física,Física,9º Ano,13,Base AF (Física),Ensino Fundamental - Anos Finais,True,0,12
+68dd26dec2a04f336ffed098,Geografia,Geografia,Geografia,9º Ano,13,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26deea8d6e16559ec86b,História,História,História,9º Ano,13,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68e648576c4baa3baa78489b,Ler e produzir,Ler e produzir,Ler e produzir,9º Ano,13,Ler e Produzir: Anos Finais,Ensino Fundamental - Anos Finais,True,0,12
+68dd26deea8d6e16559ec89b,Língua Inglesa,Língua Inglesa,Língua Estrangeira Inglês,9º Ano,13,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26dec2a04f336ffed0ba,Língua Portuguesa,Língua Portuguesa,Língua Portuguesa,9º Ano,13,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68dd26de6c4baa3baa783c04,Matemática,Matemática,Matemática,9º Ano,13,Base AF,Ensino Fundamental - Anos Finais,True,0,12
+68e648206c4baa3baa784881,Química,Química,Química,9º Ano,13,Base AF (Química),Ensino Fundamental - Anos Finais,True,0,12
+68e64a0d40d7b11fcd05776a,Arte,Arte,Arte,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68c1b413232cab0181339c65,Arte,Arte,Arte,1ª Série,14,Base EM,Ensino Médio,True,0,12
+68e64a0d40d7b11fcd057827,Biologia,Biologia,Biologia,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68c1b413232cab0181339c31,Biologia,Biologia,Biologia,1ª Série,14,Base EM,Ensino Médio,True,0,12
+6904b3d0970ad32653c84cee,Cidadania e Direitos Humanos,Cidadania e Direitos Humanos,Cidadania e Direitos Humanos,1ª Série,14,Eletivas PIJ,Ensino Médio,True,0,12
+68c1b413232cab0181339c6e,Conexões e contextos,Conexões e contextos,Conexões e contextos,1ª Série,14,Base EM,Ensino Médio,True,0,12
+68c1b32d232cab0181339ab7,Educação Física,Educação Física,Educação Física,1ª Série,14,Educação Física EM,Ensino Médio,True,0,12
+68c1b413f370121fa541e2fb,Escolas literárias,Escolas literárias,Escolas literárias,1ª Série,14,Base EM,Ensino Médio,True,0,12
+68e64a0d40d7b11fcd057832,Filosofia,Filosofia,Filosofia,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68c1b413232cab0181339c3f,Filosofia,Filosofia,Filosofia,1ª Série,14,Base EM,Ensino Médio,True,0,12
+6904b3d0f0afe000e7743cea,Fundamentos da Cultura Maker,Fundamentos da Cultura Maker,Fundamentos da Cultura Maker,1ª Série,14,Eletivas PIJ,Ensino Médio,True,0,12
+68e64a0d6c4baa3baa784aee,Física,Física,Física,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68c1b413dc51802cb95e713e,Física,Física,Física,1ª Série,14,Base EM,Ensino Médio,True,0,12
+68e64a0d6c4baa3baa784b2a,Geografia,Geografia,Geografia,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68c1b413dc51802cb95e7167,Geografia,Geografia,Geografia,1ª Série,14,Base EM,Ensino Médio,True,0,12
+6904b3eb970ad32653c84d3d,Gestão dos pensamentos e das emoções,Gestão dos pensamentos e das emoções,Gestão dos pensamentos e das emoções,1ª Série,14,Projeto de Vida,Ensino Médio,True,0,12
+68e64a0dea8d6e16559ed7ca,História,História,História,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68c1b413f370121fa541e2df,História,História,História,1ª Série,14,Base EM,Ensino Médio,True,0,12
+68e64a0dea8d6e16559ed72a,Leitura e produção de textos,Leitura e produção de textos,Leitura e produção de textos,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68c1b413dc51802cb95e710d,Literatura,Literatura,Literatura,1ª Série,14,Base EM,Ensino Médio,True,0,12
+68c1b414dc51802cb95e724a,Arte,Arte,Arte,2ª Série,15,Base EM,Ensino Médio,True,0,12
+68e64a0cea8d6e16559ed571,Arte,Arte,Arte,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68e64a0cea8d6e16559ed62e,Biologia,Biologia,Biologia,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68c1b414dc51802cb95e7216,Biologia,Biologia,Biologia,2ª Série,15,Base EM,Ensino Médio,True,0,12
+6904b3d0985278187726aee6,Cidadania e Direitos Humanos,Cidadania e Direitos Humanos,Cidadania e Direitos Humanos,2ª Série,15,Eletivas PIJ,Ensino Médio,True,0,12
+68c1b414dc51802cb95e7253,Conexões e contextos,Conexões e contextos,Conexões e contextos,2ª Série,15,Base EM,Ensino Médio,True,0,12
+68c1b32df370121fa541e174,Educação Física,Educação Física,Educação Física,2ª Série,15,Educação Física EM,Ensino Médio,True,0,12
+68c1b414232cab0181339cf6,Escolas literárias,Escolas literárias,Escolas literárias,2ª Série,15,Base EM,Ensino Médio,True,0,12
+68e64a0dea8d6e16559ed639,Filosofia,Filosofia,Filosofia,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68c1b414dc51802cb95e7224,Filosofia,Filosofia,Filosofia,2ª Série,15,Base EM,Ensino Médio,True,0,12
+6904b3d0970ad32653c84d00,Fundamentos da Cultura Maker,Fundamentos da Cultura Maker,Fundamentos da Cultura Maker,2ª Série,15,Eletivas PIJ,Ensino Médio,True,0,12
+68e64a0c40d7b11fcd057643,Física,Física,Física,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68c1b413f370121fa541e33d,Física,Física,Física,2ª Série,15,Base EM,Ensino Médio,True,0,12
+68e64a0d40d7b11fcd05767f,Geografia,Geografia,Geografia,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68c1b414f370121fa541e366,Geografia,Geografia,Geografia,2ª Série,15,Base EM,Ensino Médio,True,0,12
+6904b3eb985278187726af3e,Gestão dos pensamentos e das emoções,Gestão dos pensamentos e das emoções,Gestão dos pensamentos e das emoções,2ª Série,15,Projeto de Vida,Ensino Médio,True,0,12
+68c1b414232cab0181339cd9,História,História,História,2ª Série,15,Base EM,Ensino Médio,True,0,12
+68e64a0c6c4baa3baa784976,História,História,História,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68e64a0c6c4baa3baa7848d6,Leitura e produção de textos,Leitura e produção de textos,Leitura e produção de textos,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68e64a0cea8d6e16559ed592,Literatura,Literatura,Literatura,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68e64a0d6c4baa3baa784999,Arte,Arte,Arte,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0d6c4baa3baa784a56,Biologia,Biologia,Biologia,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0d6c4baa3baa784a61,Filosofia,Filosofia,Filosofia,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0dea8d6e16559ed6c6,Física,Física,Física,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0dea8d6e16559ed702,Geografia,Geografia,Geografia,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0d40d7b11fcd057747,História,História,História,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0d40d7b11fcd0576a7,Leitura e produção de textos,Leitura e produção de textos,Leitura e produção de textos,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0d6c4baa3baa7849ba,Literatura,Literatura,Literatura,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0d40d7b11fcd0576c6,Língua Espanhola,Língua Espanhola,Língua Espanhola,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0dea8d6e16559ed681,Língua Inglesa,Língua Inglesa,Língua Estrangeira Inglês,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0dea8d6e16559ed65a,Língua Portuguesa,Língua Portuguesa,Língua Portuguesa,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0d6c4baa3baa784a0f,Matemática,Matemática,Matemática,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0d40d7b11fcd05770b,Química,Química,Química,3ª Série,16,SSA EM,Ensino Médio,True,0,12
+68e64a0dea8d6e16559ed711,Sociologia,Sociologia,Sociologia,3ª Série,16,SSA EM,Ensino Médio,True,0,12
