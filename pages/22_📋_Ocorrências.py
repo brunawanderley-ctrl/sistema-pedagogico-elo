@@ -116,39 +116,40 @@ def main():
                     min_value=data_min, max_value=data_max,
                     key='ocorr_periodo')
 
-            unidade_sel = st.selectbox("Unidade:", ['Todas'] + UNIDADES,
-                format_func=lambda x: UNIDADES_NOMES.get(x, x) if x != 'Todas' else 'Todas',
+            unidades_sel = st.multiselect("Unidade:", UNIDADES,
+                default=UNIDADES,
+                format_func=lambda x: UNIDADES_NOMES.get(x, x),
                 key='ocorr_unidade')
 
             segmento_sel = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Médio'],
                 key='ocorr_segmento')
 
             tipos_disp = sorted(df_ocorr['tipo'].unique()) if 'tipo' in df_ocorr.columns else []
-            tipo_sel = st.selectbox("Tipo:", ['Todos'] + tipos_disp, key='ocorr_tipo')
+            tipos_sel = st.multiselect("Tipo:", tipos_disp, default=tipos_disp, key='ocorr_tipo')
 
             grav_sel = st.selectbox("Gravidade:", ['Todas'] + GRAVIDADES, key='ocorr_grav')
 
             categorias_disp = sorted(df_ocorr['categoria'].unique().tolist()) if 'categoria' in df_ocorr.columns else []
-            cat_sel = st.selectbox("Categoria:", ['Todas'] + categorias_disp,
-                index=(['Todas'] + categorias_disp).index('Disciplinar') if 'Disciplinar' in categorias_disp else 0,
+            cats_sel = st.multiselect("Categoria:", categorias_disp,
+                default=categorias_disp,
                 key='ocorr_cat')
 
         # Aplicar filtros
         df = df_ocorr.copy()
         if 'data' in df.columns and isinstance(periodo_range, tuple) and len(periodo_range) == 2:
             df = df[(df['data'].dt.date >= periodo_range[0]) & (df['data'].dt.date <= periodo_range[1])]
-        if unidade_sel != 'Todas' and 'unidade' in df.columns:
-            df = df[df['unidade'] == unidade_sel]
+        if unidades_sel and len(unidades_sel) < len(UNIDADES) and 'unidade' in df.columns:
+            df = df[df['unidade'].isin(unidades_sel)]
         if segmento_sel == 'Anos Finais' and 'serie' in df.columns:
             df = df[df['serie'].isin(SERIES_FUND_II)]
         elif segmento_sel == 'Ensino Médio' and 'serie' in df.columns:
             df = df[df['serie'].isin(SERIES_EM)]
-        if tipo_sel != 'Todos' and 'tipo' in df.columns:
-            df = df[df['tipo'] == tipo_sel]
+        if tipos_sel and len(tipos_sel) < len(tipos_disp) and 'tipo' in df.columns:
+            df = df[df['tipo'].isin(tipos_sel)]
         if grav_sel != 'Todas' and 'gravidade' in df.columns:
             df = df[df['gravidade'] == grav_sel]
-        if cat_sel != 'Todas' and 'categoria' in df.columns:
-            df = df[df['categoria'] == cat_sel]
+        if cats_sel and len(cats_sel) < len(categorias_disp) and 'categoria' in df.columns:
+            df = df[df['categoria'].isin(cats_sel)]
 
         if df.empty:
             with tab_risco:
@@ -526,6 +527,21 @@ def _tab_por_aluno(df):
 def _tab_detalhamento(df):
     """Tab de lista completa com busca."""
     st.subheader("Registro Completo")
+
+    # Contadores resumo por unidade e categoria
+    col_uni, col_cat = st.columns(2)
+    with col_uni:
+        if 'unidade' in df.columns:
+            uni_counts = df['unidade'].value_counts()
+            chips = " · ".join(
+                f"**{UNIDADES_NOMES.get(u, u)}**: {c}" for u, c in uni_counts.items()
+            )
+            st.markdown(f"Por unidade: {chips}")
+    with col_cat:
+        if 'categoria' in df.columns:
+            cat_counts = df['categoria'].value_counts()
+            chips_cat = " · ".join(f"**{c}**: {n}" for c, n in cat_counts.items())
+            st.markdown(f"Por categoria: {chips_cat}")
 
     busca = st.text_input("Buscar:", placeholder="Nome do aluno, tipo de ocorrência...", key='ocorr_busca')
 
