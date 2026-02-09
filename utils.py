@@ -508,7 +508,7 @@ def filtrar_ate_hoje(df, col_data='data'):
 def filtrar_por_periodo(df, periodo, col_data='data', col_semana='semana_letiva'):
     """
     Filtra DataFrame por periodo selecionado.
-    Opcoes: 'Esta Semana', 'Ultimos 7 dias', 'Ultimos 15 dias',
+    Opcoes: 'Ultimos 7 dias', 'Ultimos 15 dias',
             'Este Mes', '1o Trimestre', '2o Trimestre', '3o Trimestre', 'Ano Completo'.
     """
     if periodo == 'Ano Completo':
@@ -519,14 +519,7 @@ def filtrar_por_periodo(df, periodo, col_data='data', col_semana='semana_letiva'
     if col_data not in df.columns:
         return df
 
-    if periodo == 'Esta Semana':
-        semana_atual = calcular_semana_letiva(hoje)
-        if col_semana in df.columns:
-            return df[df[col_semana] == semana_atual]
-        inicio_semana = hoje - pd.Timedelta(days=hoje.weekday())
-        return df[(df[col_data] >= inicio_semana) & (df[col_data] <= hoje)]
-
-    elif periodo == 'Ultimos 7 dias':
+    if periodo == 'Ultimos 7 dias':
         return df[df[col_data] >= (hoje - pd.Timedelta(days=7))]
 
     elif periodo == 'Ultimos 15 dias':
@@ -554,7 +547,7 @@ def filtrar_por_periodo(df, periodo, col_data='data', col_semana='semana_letiva'
 
 
 PERIODOS_OPCOES = [
-    'Ano Completo', 'Esta Semana', 'Ultimos 7 dias', 'Ultimos 15 dias',
+    'Ano Completo', 'Ultimos 7 dias', 'Ultimos 15 dias',
     'Este Mes', '1o Trimestre', '2o Trimestre', '3o Trimestre',
 ]
 
