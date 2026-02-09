@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-PAGINA 16: INTELIGENCIA DE CONTEUDO
-Analise profunda do campo conteudo para extrair capitulos,
+PÁGINA 16: INTELIGÊNCIA DE CONTEÚDO
+Análise profunda do campo conteúdo para extrair capítulos,
 medir qualidade dos registros e detectar alinhamento com SAE.
 """
 

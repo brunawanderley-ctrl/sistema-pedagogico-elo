@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-PAGINA 23: SISTEMA ABC DE ALERTA PRECOCE
+PÁGINA 23: SISTEMA ABC DE ALERTA PRECOCE
 Framework validado internacionalmente: Attendance + Behavior + Coursework.
 Identifica alunos em risco ANTES que fracassem academicamente.
 
@@ -66,9 +66,9 @@ st.markdown("""
 
 # Thresholds ABC (baseados em pesquisa educacional)
 ABC_THRESHOLDS = {
-    'A': {'risco': 85, 'critico': 75},   # Frequencia %
-    'B': {'risco': 2, 'critico': 5},     # Ocorrencias (num)
-    'C': {'risco': 5.0, 'critico': 3.0}, # Media de notas
+    'A': {'risco': 85, 'critico': 75},   # Frequência %
+    'B': {'risco': 2, 'critico': 5},     # Ocorrências (num)
+    'C': {'risco': 5.0, 'critico': 3.0}, # Média de notas
 }
 
 
@@ -192,7 +192,7 @@ def main():
         if aluno_id is None:
             continue
 
-        # A - Frequencia
+        # A - Frequência
         freq_pct = 100
         if tem_freq and 'aluno_id' in df_freq.columns:
             freq_aluno = df_freq[df_freq['aluno_id'] == aluno_id]
@@ -205,7 +205,7 @@ def main():
                 elif 'presente' in freq_aluno.columns:
                     freq_pct = (freq_aluno['presente'].sum() / len(freq_aluno) * 100)
 
-        # B - Ocorrencias (apenas disciplinares para score comportamental)
+        # B - Ocorrências (apenas disciplinares para score comportamental)
         num_ocorr = 0
         if tem_ocorr and 'aluno_id' in df_ocorr.columns:
             ocorr_aluno = df_ocorr[df_ocorr['aluno_id'] == aluno_id]
@@ -214,7 +214,7 @@ def main():
             else:
                 num_ocorr = len(ocorr_aluno)
 
-        # C - Media de notas
+        # C - Média de notas
         media = 7.0  # default se nao tem dados
         if tem_notas and 'aluno_id' in df_notas.columns:
             notas_aluno = df_notas[df_notas['aluno_id'] == aluno_id]
@@ -409,7 +409,7 @@ def main():
     with tab4:
         st.subheader("📈 Correlações entre Dimensões")
 
-        # Scatter: Frequencia x Notas (cor = ocorrencias)
+        # Scatter: Frequência x Notas (cor = ocorrências)
         fig = px.scatter(
             df_abc, x='freq_pct', y='media_notas',
             color='tier_nome',

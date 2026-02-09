@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-PAGINA 22: OCORRENCIAS DISCIPLINARES
-Dashboard de ocorrencias/incidentes de alunos.
-Monitoramento de comportamento, tipos de ocorrencia, turmas criticas.
+PÁGINA 22: OCORRÊNCIAS DISCIPLINARES
+Dashboard de ocorrências/incidentes de alunos.
+Monitoramento de comportamento, tipos de ocorrência, turmas críticas.
 Inclui sistema de registro manual com armazenamento em CSV.
 """
 
@@ -49,7 +49,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Tipos e gravidades padrao
+# Tipos e gravidades padrão
 TIPOS_OCORRENCIA = [
     'Indisciplina',
     'Atraso',

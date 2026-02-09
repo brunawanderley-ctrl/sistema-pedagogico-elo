@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-PAGINA 21: BOLETIM DIGITAL
-Visao do boletim escolar: notas por trimestre, medias, situacao.
+PÁGINA 21: BOLETIM DIGITAL
+Visão do boletim escolar: notas por trimestre, médias, situação.
 Permite visualizar como coordenador ou como se fosse o portal do aluno.
 """
 

@@ -167,7 +167,7 @@ def detectar_alertas(df_aulas, df_horario, semana_atual):
                         'valor': round(queda, 1),
                     })
 
-        # --- ALERTA AZUL: Frequencia Pendente ---
+        # --- ALERTA AZUL: Frequência Pendente ---
         if df_prof_aulas['data'].notna().any():
             ultimo_registro = df_prof_aulas['data'].max()
             dias_sem = (hoje - ultimo_registro).days

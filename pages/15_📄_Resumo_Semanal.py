@@ -125,7 +125,7 @@ def gerar_resumo_texto(semana, cap_esperado, trimestre, df_metricas, df_aulas, d
     linhas.append(f"  Conformidade média: {conf_media:.0f}%")
     linhas.append("")
 
-    # Progressao
+    # Progressão
     if not df_prog.empty and not df_aulas.empty:
         linhas.append("*PROGRESSÃO SAE:*")
         linhas.append(f"  Semana {semana} → Capítulo {cap_esperado}")

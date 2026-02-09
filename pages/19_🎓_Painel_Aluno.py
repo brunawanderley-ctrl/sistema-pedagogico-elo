@@ -169,7 +169,7 @@ def main():
         cor = "#43A047" if media_geral >= 7 else "#FBC02D" if media_geral >= 5 else "#E53935"
         st.metric("Média Geral", f"{media_geral:.1f}", delta=None)
 
-    # Frequencia geral
+    # Frequência geral
     if tem_freq and aluno_id is not None:
         freq_aluno = calcular_frequencia_aluno(df_freq, aluno_id)
         pct_freq = freq_aluno['pct_frequencia'].mean() if not freq_aluno.empty else 0
@@ -181,7 +181,7 @@ def main():
         emoji_freq, label_freq = status_frequencia(pct_freq) if pct_freq > 0 else ('⬜', 'N/A')
         st.metric("Frequência", f"{pct_freq:.1f}%", delta=f"{emoji_freq} {label_freq}")
 
-    # Ocorrencias
+    # Ocorrências
     if tem_ocorr and aluno_id is not None:
         ocorr_aluno = df_ocorr[df_ocorr['aluno_id'] == aluno_id] if 'aluno_id' in df_ocorr.columns else pd.DataFrame()
         if 'categoria' in ocorr_aluno.columns:
@@ -388,7 +388,7 @@ def _mostrar_preview_simulado(trimestre, semana):
     """Mostra preview com dados simulados para demonstrar o layout."""
     import numpy as np
 
-    disciplinas = ['Matematica', 'Portugues', 'Historia', 'Geografia', 'Ciencias', 'Ingles']
+    disciplinas = ['Matemática', 'Português', 'História', 'Geografia', 'Ciências', 'Inglês']
     notas_sim = [np.random.uniform(5, 10) for _ in disciplinas]
 
     st.markdown("""
