@@ -12,6 +12,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
 from datetime import date, datetime
+from datetime import timedelta
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from config_cores import CORES_UNIDADES, CORES_SERIES, ORDEM_SERIES
@@ -111,10 +112,31 @@ def main():
             if 'data' in df_ocorr.columns:
                 data_min = df_ocorr['data'].min()
                 data_max = df_ocorr['data'].max()
-                periodo_range = st.date_input(
-                    "Período:", value=(data_min, data_max),
-                    min_value=data_min, max_value=data_max,
-                    key='ocorr_periodo')
+
+                opcoes_periodo = ['Últimos 7 dias', 'Últimos 30 dias',
+                                  'Este mês', 'Este trimestre', 'Este ano', 'Personalizado']
+                periodo_opcao = st.selectbox("Período:", opcoes_periodo, key='ocorr_periodo_opcao')
+
+                hoje_dt = hoje.date() if hasattr(hoje, 'date') else hoje
+                if periodo_opcao == 'Últimos 7 dias':
+                    periodo_range = (hoje_dt - timedelta(days=7), hoje_dt)
+                elif periodo_opcao == 'Últimos 30 dias':
+                    periodo_range = (hoje_dt - timedelta(days=30), hoje_dt)
+                elif periodo_opcao == 'Este mês':
+                    periodo_range = (hoje_dt.replace(day=1), hoje_dt)
+                elif periodo_opcao == 'Este trimestre':
+                    tri_inicio = {1: 1, 2: 4, 3: 7}
+                    mes_ini = tri_inicio.get(trimestre, 1)
+                    periodo_range = (hoje_dt.replace(month=mes_ini, day=1), hoje_dt)
+                elif periodo_opcao == 'Este ano':
+                    periodo_range = (hoje_dt.replace(month=1, day=1), hoje_dt)
+                else:
+                    periodo_range = st.date_input(
+                        "Intervalo:", value=(data_min.date() if hasattr(data_min, 'date') else data_min,
+                                             data_max.date() if hasattr(data_max, 'date') else data_max),
+                        min_value=data_min.date() if hasattr(data_min, 'date') else data_min,
+                        max_value=data_max.date() if hasattr(data_max, 'date') else data_max,
+                        key='ocorr_periodo')
 
             unidades_sel = st.multiselect("Unidade:", UNIDADES,
                 default=UNIDADES,
@@ -136,6 +158,7 @@ def main():
 
         # Aplicar filtros
         df = df_ocorr.copy()
+        periodo_range = locals().get('periodo_range', None)
         if 'data' in df.columns and isinstance(periodo_range, tuple) and len(periodo_range) == 2:
             df = df[(df['data'].dt.date >= periodo_range[0]) & (df['data'].dt.date <= periodo_range[1])]
         if unidades_sel and len(unidades_sel) < len(UNIDADES) and 'unidade' in df.columns:
@@ -150,6 +173,15 @@ def main():
             df = df[df['gravidade'] == grav_sel]
         if cats_sel and len(cats_sel) < len(categorias_disp) and 'categoria' in df.columns:
             df = df[df['categoria'].isin(cats_sel)]
+
+        # Barra de contexto: período + unidades ativas
+        if isinstance(periodo_range, tuple) and len(periodo_range) == 2:
+            dt_ini = periodo_range[0].strftime('%d/%m/%Y')
+            dt_fim = periodo_range[1].strftime('%d/%m/%Y')
+        else:
+            dt_ini = dt_fim = '—'
+        unidades_label = ', '.join(UNIDADES_NOMES.get(u, u) for u in (unidades_sel or UNIDADES))
+        st.caption(f"Exibindo **{len(df)}** ocorrências de **{dt_ini}** a **{dt_fim}** | {unidades_label}")
 
         if df.empty:
             with tab_risco:
