@@ -22,6 +22,7 @@ def _get_writable_dir():
     """Retorna diretorio gravavel. No Cloud, copia CSVs para /tmp na primeira vez."""
     _is_cloud = os.environ.get('STREAMLIT_SHARING_MODE') == '1' or \
                 os.environ.get('IS_STREAMLIT_CLOUD', '') == '1' or \
+                os.environ.get('RENDER', '') == 'true' or \
                 not Path(__file__).parent.joinpath('atualizar_siga.py').exists()
     if not _is_cloud:
         return DATA_DIR
@@ -555,9 +556,10 @@ PERIODOS_OPCOES = [
 # ========== AMBIENTE ==========
 
 def is_cloud():
-    """Detecta se estamos rodando no Streamlit Cloud."""
+    """Detecta se estamos rodando no Streamlit Cloud ou Render."""
     return os.environ.get('STREAMLIT_SHARING_MODE') == '1' or \
            os.environ.get('IS_STREAMLIT_CLOUD', '') == '1' or \
+           os.environ.get('RENDER', '') == 'true' or \
            not Path(__file__).parent.joinpath('atualizar_siga.py').exists()
 
 

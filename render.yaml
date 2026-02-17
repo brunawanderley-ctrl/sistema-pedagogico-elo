@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: eloapp
+    runtime: docker
+    region: oregon
+    plan: starter
+    envVars:
+      - key: RENDER
+        value: "true"
+      - key: SIGA_SENHA
+        sync: false
+      - key: SIGA_LOGIN
+        value: "bruna"
+      - key: SIGA_INSTITUICAO
+        value: "COLEGIOELO"
+      - key: TZ
+        value: "America/Recife"

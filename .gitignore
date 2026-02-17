@@ -61,7 +61,7 @@ siga_extrator.py
 siga_relatorio.py
 extracao_automatica.py
 extracao_rapida.py
-atualizar_siga.py
+# atualizar_siga.py - NECESSARIO no Render (scheduler)
 descobrir_api.py
 explorar_siga*.py
 extrair_diario_classe.py

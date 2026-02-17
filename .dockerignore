@@ -1,0 +1,97 @@
+# Secrets
+.streamlit/secrets.toml
+.env
+.siga_cookies.json
+.siga02_cookies.json
+.siga02_v2_cookies.json
+
+# Scripts de exploracao (nao necessarios no deploy)
+explorar_*.py
+interceptar_*.py
+testar_endpoints_descobertos.py
+extrair_dados_alunos.py
+explorar_dados_alunos_v2.py
+explorar_api_alunos.py
+
+# Dados temporarios
+extracao_*.json
+extracao_*.csv
+api_*.json
+api_*.csv
+backup_*.json
+debug_*
+*.log
+logs/
+
+# Resultados de exploracao
+dados_alunos_explorados*.json
+endpoints_descobertos*.json
+explorar_api_alunos_resultados*.json
+interceptar_api_resultados*.json
+apis_descobertas.json
+diag_*.json
+diagnostico_*.txt
+diagnostico_*.json
+exploracao_*.html
+exploracao_*.json
+pagina_*.html
+relatorio_*.html
+relatorio_*.json
+resultado_*.html
+resultado_*.txt
+texto_*.txt
+v3_*.html
+sae_*.json
+sae_*.txt
+aulas_*.csv
+aulas_*.json
+diarios_*.csv
+diarios_*.json
+historico_aulas.csv
+
+# SAE Chrome profile
+.chrome_sae_profile/
+
+# Binarios e imagens
+*.pbix
+*.png
+*.jpg
+screenshots/
+
+# OS/IDE
+.DS_Store
+.vscode/
+.idea/
+__pycache__/
+*.py[cod]
+.eggs/
+*.egg-info/
+.venv/
+venv/
+
+# Git
+.git/
+.gitignore
+
+# Docs do Power BI
+power_bi/*.md
+
+# RH/CEO (arquivos separados, nao fazem parte do pedagógico)
+dados_rh/
+Dashboard_CEO.py
+gerar_csvs_powerbi_ceo.py
+extrair_pipefy_rh.py
+explorar_financeiro_siga.py
+processar_rh_powerbi.py
+power_bi/dim_Candidatos.csv
+power_bi/dim_Colaboradores.csv
+power_bi/dim_Empresas_RH.csv
+power_bi/dim_Setores_RH.csv
+power_bi/fato_Admissoes_Pipefy.csv
+power_bi/fato_Desligamentos_Pipefy.csv
+power_bi/fato_Movimentacoes_RH.csv
+power_bi/fato_Quadro_Atual.csv
+power_bi/fato_Solicitacoes_DP.csv
+power_bi/fato_Vagas_RH.csv
+power_bi/resumo_Executivo.csv
+power_bi/resumo_Headcount_Mensal.csv

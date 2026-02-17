@@ -1,297 +1,363 @@
 ﻿professor_id,nome,nome_normalizado,disciplina,unidade,turmas,qtd_aulas_registradas,fonte,status
-1, Ismaelene Maria Souza dos Santos,ISMAELENE MARIA SOUZA DOS SANTOS,Filosofia,CD,"EFII - Candeias Teen I - 8º Ano - Turma     A    Manhã, EFII - Candeias Teen I- 8º Ano  - Turma    B    Manhã",4,diario,Ativo
-2,ADRIANA RODRIGUES,ADRIANA RODRIGUES,Redação,JG,,0,manual,Ativo
-3,ADRIANA RODRIGUES - CORD - 2026,ADRIANA RODRIGUES,,CDR,,0,horario,Ativo
-4,ADRIANO DO NASCIMENTO - BV - 2026,ADRIANO DO NASCIMENTO,,BV,,0,horario,Ativo
-5,ADRIANO DO NASCIMENTO - CORD - 2026,ADRIANO DO NASCIMENTO,,CDR,,0,horario,Ativo
-6,ADRIANO DO NASCIMENTO - TEEN 1 - 2026,ADRIANO DO NASCIMENTO,,CD,,0,horario,Ativo
-7,ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,Filosofia,CD,"EFII - Candeias Teen I - 6º Ano - Turma A Tarde, EFII - Candeias Teen I - 6º Ano - Turma B Manhã, EFII - Candeias Teen I - 7º Ano - Turma   B   Manhã, EFII - Candeias Teen I -7º Ano - Turma   A   Manh",14,diario,Ativo
-8,ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,Sociologia,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma",26,diario,Ativo
-9,ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,Filosofia,BV,9º Ano - Turma A Tarde - Boa Viagem,3,diario,Ativo
-10,ADRIANO NUNES - JG - 2026,ADRIANO NUNES,,JG,,0,horario,Ativo
-11,ADRIANO RODRIGUES - CORD - 2026,ADRIANO RODRIGUES,,CDR,,0,horario,Ativo
-12,ADRIANO RODRIGUES CORREIA,ADRIANO RODRIGUES CORREIA,Sociologia,CDR,"1ª Série - Médio - A Manhã, 2ª Série - Médio - A Manhã, 3ª Série - Médio -  A Manhã, 6º Ano - Turma  A Manhã - Cordeiro, 6º Ano - Turma  B Manhã - Cordeiro, 7º Ano - Turma A Manhã - Cordeiro, 7º Ano -",19,diario,Ativo
-13,ADRIANO RODRIGUES CORREIA,ADRIANO RODRIGUES CORREIA,Filosofia,CDR,"1ª Série - Médio - A Manhã, 2ª Série - Médio - A Manhã, 3ª Série - Médio -  A Manhã, 9º Ano - Turma A Manhã - Cordeiro, 9º Ano - Turma B Manhã - Cordeiro",10,diario,Ativo
-14,ALBA VALÉRIA - BV - 2026,ALBA VALÉRIA,,BV,,0,horario,Ativo
-15,ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,Redação,BV,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",8,diario,Ativo
-16,ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,Língua Portuguesa,BV,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",19,diario,Ativo
-17,ALISON LOPES - JG - 2026,ALISON LOPES,,JG,,0,horario,Ativo
-18,ALYSSON LOPES DO NASCIMENTO,ALYSSON LOPES DO NASCIMENTO,Matemática,JG,"6º Ano A EF2 - M JANGA, 6º Ano B EF2 - M JANGA",16,diario,Ativo
-19,ALYSSON LOPES DO NASCIMENTO,ALYSSON LOPES DO NASCIMENTO,Raciocínio Lógico,JG,"6º Ano B EF2 - M JANGA, 7º Ano A EF2 -  M JANGA, 7º Ano B EF2 -  M JANGA, 8º Ano A EF2 -  M JANGA, 8º Ano B EF2 - M JANGA, 9º Ano EF2 -  MA JANGA, 9º Ano EF2 -  MB JANGA",14,diario,Ativo
-20,ANA CAROLINA MATOS - BV - 2026,ANA CAROLINA MATOS,,BV,,0,horario,Ativo
-21,ANA CAROLINA MATOS - TEEN 2 - 2026,ANA CAROLINA MATOS,,CD,,0,horario,Ativo
-22,ANDERSON MORAIS - JG - 2026,ANDERSON MORAIS,,JG,,0,horario,Ativo
-23,ANDRÉ LACERDA - CORD - 2026,ANDRÉ LACERDA,,CDR,,0,horario,Ativo
-24,ANDRÉ LACERDA BATISTA,ANDRÉ LACERDA BATISTA,Língua Estrangeira Inglês,CDR,"1ª Série - Médio - A Manhã, 2ª Série - Médio - A Manhã, 3ª Série - Médio -  A Manhã, 8º Ano - Turma A Manhã - Cordeiro, 8º Ano - Turma B Manhã - Cordeiro, 9º Ano - Turma A Manhã - Cordeiro, 9º Ano - T",17,diario,Ativo
-25,ANDRÉ LUIZ - JG - 2026,ANDRÉ LUIZ,,JG,,0,horario,Ativo
-26,ANILTON SANTOS - JG - 2026,ANILTON SANTOS,,JG,,0,horario,Ativo
-27,ANILTON SANTOS - TEEN 1 - 2026,ANILTON SANTOS,,CD,,0,horario,Ativo
-28,ANNA GABRIELLY CUNHA,ANNA GABRIELLY CUNHA,Raciocínio Lógico,CDR,,0,manual,Ativo
-29,ARIANE SILVA - TEEN 2 - 2026,ARIANE SILVA,,CD,,0,horario,Ativo
-30,ARLINE VASCONCELOS - BV - 2026,ARLINE VASCONCELOS,,BV,,0,horario,Ativo
-31,ARLINE VASCONCELOS - TEEN 1 - 2026,ARLINE VASCONCELOS,,CD,,0,horario,Ativo
-32,ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,Língua Portuguesa,CD,"EFII - Candeias Teen I - 7º Ano - Turma   B   Manhã, EFII - Candeias Teen I -7º Ano - Turma   A   Manhã",16,diario,Ativo
-33,ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,Redação,BV,"7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem",12,diario,Ativo
-34,ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,Gramática,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem",10,diario,Ativo
-35,ARTE - BV - 2026,ARTE,,BV,,0,horario,Ativo
-36,ARTE - TEEN 2 - 2026,ARTE,,CD,,0,horario,Ativo
-37,Adriana Rodrigues Alves,ADRIANA RODRIGUES ALVES,Arte,CDR,"1ª Série - Médio - A Manhã, 2ª Série - Médio - A Manhã, 3ª Série - Médio -  A Manhã, 7º Ano - Turma A Manhã - Cordeiro, 7º Ano - Turma B Manhã - Cordeiro, 7º Ano - Turma C Manhã - Cordeiro",10,diario,Ativo
-38,Adriana Rodrigues Alves,ADRIANA RODRIGUES ALVES,Projeto de Vida,CDR,"9º Ano - Turma A Manhã - Cordeiro, 9º Ano - Turma B Manhã - Cordeiro",3,diario,Ativo
-39,Adriana Rodrigues Alves,ADRIANA RODRIGUES ALVES,Redação,JG,"3ª Série Médio A Manhã - Janga, 9º Ano EF2 -  MA JANGA, 9º Ano EF2 -  MB JANGA",4,diario,Ativo
-40,Adriano Nunes Da silva Tavares,ADRIANO NUNES DA SILVA TAVARES,Educação Física,JG,"6º Ano A EF2 - T JANGA, 8º Ano A EF2 -  T JANGA",3,diario,Ativo
-41,Adriano do Nascimento Araujo Filho,ADRIANO DO NASCIMENTO ARAUJO FILHO,História,CDR,"6º Ano - Turma  A Manhã - Cordeiro, 7º Ano - Turma A Manhã - Cordeiro, 7º Ano - Turma B Manhã - Cordeiro, 7º Ano - Turma C Manhã - Cordeiro, 8º Ano - Turma A Manhã - Cordeiro",22,diario,Ativo
-42,BARTIRA ROCHA - BV - 2026,BARTIRA ROCHA,,BV,,0,horario,Ativo
-43,BARTIRA ROCHA - TEEN 1 - 2026,BARTIRA ROCHA,,CD,,0,horario,Ativo
-44,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,Ciências Naturais,CD,"EFII - Candeias Teen I - 7º Ano - Turma   B   Manhã, EFII - Candeias Teen I -7º Ano - Turma   A   Manhã",6,diario,Ativo
-45,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,Biologia,CD,"2ª Série - Médio -  Turma B- Manhã - Candeias, 2ª Série - Médio - Turma A - Manhã - Candeias, 2ª Série - Médio - Turma C Manhã - Candeias",9,diario,Ativo
-46,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,Ciências Naturais,BV,"8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem",4,diario,Ativo
-47,BARTOLOMEU JOSÉ - BV - 2026,BARTOLOMEU JOSÉ,,BV,,0,horario,Ativo
-48,BARTOLOMEU JOSÉ - CORD - 2025,BARTOLOMEU JOSÉ,,CDR,,0,horario,Ativo
-49,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,História,CDR,"1ª Série - Médio - A Manhã, 2ª Série - Médio - A Manhã, 6º Ano - Turma  B Manhã - Cordeiro",10,diario,Ativo
-50,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,História,BV,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma B Manh",23,diario,Ativo
-51,BEATRIZ FÉLIX - BV - 2026,BEATRIZ FÉLIX,,BV,,0,horario,Ativo
-52,BEATRIZ MAGALHÃES FÉLIX,BEATRIZ MAGALHÃES FÉLIX,Matemática,BV,"1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 7º Ano - Tu",19,diario,Ativo
-53,BEATRIZ SOUZA  - BV - 2026,BEATRIZ SOUZA,,BV,,0,horario,Ativo
-54,BIOLOGIA - JG - 2026,BIOLOGIA,,JG,,0,horario,Ativo
-55,BRUNA BARROS - BV - 2026,BRUNA BARROS,,BV,,0,horario,Ativo
-56,BRUNA ISABELLE - JG - 2026,BRUNA ISABELLE,,JG,,0,horario,Ativo
-57,Bruna Isabelle Maia Sales,BRUNA ISABELLE MAIA SALES,Língua Portuguesa,JG,"6º Ano A EF2 - T JANGA, 7º Ano A EF2 -  M JANGA, 7º Ano B EF2 -  M JANGA, 8º Ano A EF2 -  M JANGA, 8º Ano A EF2 -  T JANGA, 8º Ano B EF2 - M JANGA",24,diario,Ativo
-58,BÁRBARA FÉLIX - CORD - 2026,BÁRBARA FÉLIX,,CDR,,0,horario,Ativo
-59,Bárbara Felix Correia,BÁRBARA FELIX CORREIA,Língua Portuguesa,CDR,"9º Ano - Turma A Manhã - Cordeiro, 9º Ano - Turma B Manhã - Cordeiro",12,diario,Ativo
-60,Bárbara Felix Correia,BÁRBARA FELIX CORREIA,Literatura,CDR,"1ª Série - Médio - A Manhã, 2ª Série - Médio - A Manhã, 3ª Série - Médio -  A Manhã",5,diario,Ativo
-61,CAIO FELLYPE - TEEN 2 - 2026,CAIO FELLYPE,,CD,,0,horario,Ativo
-62,CARLA VERONICA BELO DE SANTANA,CARLA VERONICA BELO DE SANTANA,Matemática,BV,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",19,diario,Ativo
-63,CARLA VERÔNICA - BV - 2025,CARLA VERÔNICA,,BV,,0,horario,Ativo
-64,CARLITOS - CORD - 2025,CARLITOS,,CDR,,0,horario,Ativo
-65,CLÁUDIA BEZERRA -  CORD - 2026,CLÁUDIA BEZERRA,,CDR,,0,horario,Ativo
-66,DANIEL SENNA - CORD - 2026,DANIEL SENNA,,CDR,,0,horario,Ativo
-67,DANILO LUCENA - BV - 2026,DANILO LUCENA,,BV,,0,horario,Ativo
-68,DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,Redação,BV,"8º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",10,diario,Ativo
-69,DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,Língua Portuguesa,BV,"9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",8,diario,Ativo
-70,DIEGO CALADO - BV - 2026,DIEGO CALADO,,BV,,0,horario,Ativo
-71,DIEGO RODRIGUES - BV - 2026,DIEGO RODRIGUES,,BV,,0,horario,Ativo
-72,DIEGO RODRIGUES - TEEN 2 - 2026,DIEGO RODRIGUES,,CD,,0,horario,Ativo
-73,DIELLEN,DIELLEN,Redação,TEEN 1,,0,manual,Ativo
-74,DIELLEN - BV - 2026,DIELLEN,,BV,,0,horario,Ativo
-75,DIELLEN - TEEN 2 - 2026,DIELLEN,,CD,,0,horario,Ativo
-76,DIELLEN BEATRIZ DE SOUZA MELO,DIELLEN BEATRIZ DE SOUZA MELO,Redação,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",15,diario,Ativo
-77,DIOGO BARRETO - TEEN 2 - 2026,DIOGO BARRETO,,CD,,0,horario,Ativo
-78,DOUGLAS MENDES - CORD - 2026,DOUGLAS MENDES,,CDR,,0,horario,Ativo
-79,DULCIMAR MODESTO - JG - 2026,DULCIMAR MODESTO,,JG,,0,horario,Ativo
-80,Diellen Beatriz de Souza Melo,DIELLEN BEATRIZ DE SOUZA MELO,Redação,CD,"EFII - Candeias Teen I - 6º Ano - Turma A Tarde, EFII - Candeias Teen I- 7º Ano - Turma A Tarde, EFII - Candeias Teen II- 9º Ano - Turma   A -Manhã, EFII - Candeias Teen II- 9º Ano - Turma B - Manhã",16,diario,Ativo
-81,Douglas Mendes de Brito ,DOUGLAS MENDES DE BRITO,Matemática,CDR,"1ª Série - Médio - A Manhã, 2ª Série - Médio - A Manhã, 3ª Série - Médio -  A Manhã",26,diario,Ativo
-82,Dulcimar Modesto de Araújo,DULCIMAR MODESTO DE ARAÚJO,Ciências Naturais,JG,"6º Ano A EF2 - M JANGA, 6º Ano A EF2 - T JANGA, 6º Ano B EF2 - M JANGA",11,diario,Ativo
-83,Dulcimar Modesto de Araújo,DULCIMAR MODESTO DE ARAÚJO,Biologia,JG,"1ª Série Médio A Manhã - Janga, 1ª Série Médio B Manhã - Janga, 2ª Série Médio A Manhã - Janga, 2ª Série Médio B Manhã - Janga, 9º Ano EF2 -  MA JANGA, 9º Ano EF2 -  MB JANGA",17,diario,Ativo
-84,ED. FÍSICA - TEEN 1 - 2026,ED. FÍSICA,,CD,,0,horario,Ativo
-85,EDSON DE ARAÚJO,EDSON DE ARAÚJO,Arte,TEEN 2,,0,manual,Ativo
-86,ELANE SANTOS DE OLIVEIRA,ELANE SANTOS DE OLIVEIRA,Química,BV,9º Ano - Turma A Tarde - Boa Viagem,2,diario,Ativo
-87,ELIANE SERRA - BV - 2026,ELIANE SERRA,,BV,,0,horario,Ativo
-88,ELIANE SERRA - TEEN 2 - 2026,ELIANE SERRA,,CD,,0,horario,Ativo
-89,ELIAS GABRIEL - JG - 2026,ELIAS GABRIEL,,JG,,0,horario,Ativo
-90,ELINALDO SOARES - CORD - 2026,ELINALDO SOARES,,CDR,,0,horario,Ativo
-91,EMANUEL MACHADO - JG - 2026,EMANUEL MACHADO,,JG,,0,horario,Ativo
-92,EMANUEL MACHADO GONÇALVES,EMANUEL MACHADO GONÇALVES,Língua Portuguesa,JG,"6º Ano A EF2 - M JANGA, 6º Ano B EF2 - M JANGA",8,diario,Ativo
-93,EMANUEL MACHADO GONÇALVES,EMANUEL MACHADO GONÇALVES,Redação,JG,"6º Ano A EF2 - T JANGA, 8º Ano A EF2 -  T JANGA",8,diario,Ativo
-94,EUCLIDES GARCIA - TEEN 2 - 2026,EUCLIDES GARCIA,,CD,,0,horario,Ativo
-95,Elias Gabriel Bezerra dos Santos,ELIAS GABRIEL BEZERRA DOS SANTOS,Educação Física,JG,"2ª Série Médio A Manhã - Janga, 2ª Série Médio B Manhã - Janga, 3ª Série Médio A Manhã - Janga, 6º Ano A EF2 - M JANGA, 6º Ano B EF2 - M JANGA, 7º Ano A EF2 -  M JANGA, 8º Ano A EF2 -  M JANGA, 8º Ano",10,diario,Ativo
-96,Elinaldo Soares da Silva Filho,ELINALDO SOARES DA SILVA FILHO,Educação Física,CDR,"6º Ano - Turma  A Manhã - Cordeiro, 6º Ano - Turma  B Manhã - Cordeiro",4,diario,Ativo
-97,FABIANE ANDREZA - CORD - 2025,FABIANE ANDREZA,,CDR,,0,horario,Ativo
-98,FABIANE ANDREZA RODRIGUES DE MORAIS,FABIANE ANDREZA RODRIGUES DE MORAIS,Ciências Naturais,CDR,"6º Ano - Turma  A Manhã - Cordeiro, 6º Ano - Turma  B Manhã - Cordeiro, 7º Ano - Turma A Manhã - Cordeiro, 7º Ano - Turma B Manhã - Cordeiro, 7º Ano - Turma C Manhã - Cordeiro, 8º Ano - Turma A Manhã ",42,diario,Ativo
-99,FAGNER CARDOSO - TEEN 1 - 2026,FAGNER CARDOSO,,CD,,0,horario,Ativo
-100,FAGNER DE PAULA CARDOSO DE FARIAS,FAGNER DE PAULA CARDOSO DE FARIAS,Geografia,CD,"EFII - Candeias Teen I - 6º Ano - Turma A Tarde, EFII - Candeias Teen I - 6º Ano - Turma B Manhã, EFII - Candeias Teen I - 7º Ano - Turma   B   Manhã, EFII - Candeias Teen I -7º Ano - Turma   A   Manh",14,diario,Ativo
-101,FERNANDA ALDA - TEEN 2 - 2026,FERNANDA ALDA,,CD,,0,horario,Ativo
-102,FILIPE ALBERTO - TEEN 2 - 2026,FILIPE ALBERTO,,CD,,0,horario,Ativo
-103,FILIPE SILAS - BV - 2026,FILIPE SILAS,,BV,,0,horario,Ativo
-104,FILIPE SILAS - CORD - 2026,FILIPE SILAS,,CDR,,0,horario,Ativo
-105,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,História,CDR,"3ª Série - Médio -  A Manhã, 8º Ano - Turma B Manhã - Cordeiro",4,diario,Ativo
-106,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Filosofia,BV,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",4,diario,Ativo
-107,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Sociologia,BV,3ª Série - Médio -Turma B Manhã - Boa Viagem,2,diario,Ativo
-108,FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,Geografia,CDR,"1ª Série - Médio - A Manhã, 2ª Série - Médio - A Manhã, 3ª Série - Médio -  A Manhã",12,diario,Ativo
-109,FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,Geografia,BV,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",16,diario,Ativo
-110,FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,Geografia,JG,"6º Ano A EF2 - T JANGA, 8º Ano A EF2 -  T JANGA",8,diario,Ativo
-111,FLÁVIO NASCIMENTO - BV - 2026,FLÁVIO NASCIMENTO,,BV,,0,horario,Ativo
-112,FLÁVIO NASCIMENTO - CORD - 2026,FLÁVIO NASCIMENTO,,CDR,,0,horario,Ativo
-113,FLÁVIO VASCONCELOS - JG - 2026,FLÁVIO VASCONCELOS,,JG,,0,horario,Ativo
-114,Floro Junior,FLORO JUNIOR,Redação,CDR,"6º Ano - Turma  A Manhã - Cordeiro, 6º Ano - Turma  B Manhã - Cordeiro, 8º Ano - Turma A Manhã - Cordeiro, 8º Ano - Turma B Manhã - Cordeiro",99,diario,Ativo
-115,Floro Junior,FLORO JUNIOR,Língua Portuguesa,CDR,"6º Ano - Turma  A Manhã - Cordeiro, 6º Ano - Turma  B Manhã - Cordeiro, 8º Ano - Turma A Manhã - Cordeiro, 8º Ano - Turma B Manhã - Cordeiro",205,diario,Ativo
-116,FÁBIO EMMANUEL - TEEN 2 - 2026,FÁBIO EMMANUEL,,CD,,0,horario,Ativo
-117,FÁBIO MOTTA - TEEN 2 - 2026,FÁBIO MOTTA,,CD,,0,horario,Ativo
-118,GABRIELA MEDEIROS - CORD -2025,GABRIELA MEDEIROS,,CDR,,0,horario,Ativo
-119,GERLY SANDRA - CORD - 2026,GERLY SANDRA,,CDR,,0,horario,Ativo
-120,Gabriela Medeiros,GABRIELA MEDEIROS,Gramática,CDR,"1ª Série - Médio - A Manhã, 2ª Série - Médio - A Manhã, 3ª Série - Médio -  A Manhã",3,diario,Ativo
-121,HENRIQUE HERMÍNIO,HENRIQUE HERMÍNIO,Educação Física,TEEN 1,,0,manual,Ativo
-122,HISTÓRIA - CORD - 2026,HISTÓRIA,,CDR,,0,horario,Ativo
-123,Henrique Hermínio de Oliveira,HENRIQUE HERMÍNIO DE OLIVEIRA,Educação Física,CD,"EFII - Candeias Teen I - 6º Ano - Turma A Tarde, EFII - Candeias Teen I - 6º Ano - Turma B Manhã, EFII - Candeias Teen I - 7º Ano - Turma   B   Manhã, EFII - Candeias Teen I -7º Ano - Turma   A   Manh",16,diario,Ativo
-124,IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,Ciências Naturais,BV,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem",15,diario,Ativo
-125,IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,Biologia,BV,9º Ano - Turma A Tarde - Boa Viagem,2,diario,Ativo
-126,IVALDO SANTOS - BV - 2026,IVALDO SANTOS,,BV,,0,horario,Ativo
-127,IVSON SANTOS,IVSON SANTOS,Geografia,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - M",12,diario,Ativo
-128,IVSON SANTOS - BV - 2026,IVSON SANTOS,,BV,,0,horario,Ativo
-129,JAMES MÁRCIO - JG - 2026,JAMES MÁRCIO,,JG,,0,horario,Ativo
-130,JOANA CRISTINA - JG - 2026,JOANA CRISTINA,,JG,,0,horario,Ativo
-131,JORGE LUIZ - JG - 2026,JORGE LUIZ,,JG,,0,horario,Ativo
-132,JORGE LUIZ ALVES DE SALES,JORGE LUIZ ALVES DE SALES,Raciocínio Lógico,JG,6º Ano A EF2 - M JANGA,2,diario,Ativo
-133,JORGE LUIZ ALVES DE SALES,JORGE LUIZ ALVES DE SALES,Matemática,JG,"7º Ano A EF2 -  M JANGA, 7º Ano B EF2 -  M JANGA, 8º Ano A EF2 -  M JANGA, 8º Ano B EF2 - M JANGA",26,diario,Ativo
-134,JOSAFARY CAMPELO - BV - 2026,JOSAFARY CAMPELO,,BV,,0,horario,Ativo
-135,JOSE CARLOS CAVALCANTI DA SILVA FILHO,JOSE CARLOS CAVALCANTI DA SILVA FILHO,Ciências Naturais,CD,"EFII - Candeias Teen I - 6º Ano - Turma A Tarde, EFII - Candeias Teen I - 6º Ano - Turma B Manhã, EFII - Candeias Teen I - 8º Ano - Turma     A    Manhã, EFII - Candeias Teen I- 7º Ano - Turma A Tarde",4,diario,Ativo
-136,JOSÉ CARLOS - TEEN 1 - 2026,JOSÉ CARLOS,,CD,,0,horario,Ativo
-137,JOSÉ MARLISON - JG - 2025,JOSÉ MARLISON,,JG,,0,horario,Ativo
-138,JOSÉ ROBERTO SENA - BV - 2026,JOSÉ ROBERTO SENA,,BV,,0,horario,Ativo
-139,JOSÉ ROBERTO SENA - TEEN 2 - 2026,JOSÉ ROBERTO SENA,,CD,,0,horario,Ativo
-140,JOÃO ANTÔNIO - CORD - 2026,JOÃO ANTÔNIO,,CDR,,0,horario,Ativo
-141,JOÃO ARTHUR - CORD - 2026,JOÃO ARTHUR,,CDR,,0,horario,Ativo
-142,JOÃO NICÁCIO,JOÃO NICÁCIO,História,CDR,,0,manual,Ativo
-143,JOÃO NICÁCIO - JG - 2026,JOÃO NICÁCIO,,JG,,0,horario,Ativo
-144,JULIANA CHAGAS - BV - 2026,JULIANA CHAGAS,,BV,,0,horario,Ativo
-145,JULIANA CHAGAS - TEEN 2 - 2026,JULIANA CHAGAS,,CD,,0,horario,Ativo
-146,JULIANA CHAGAS DA SILVA,JULIANA CHAGAS DA SILVA,Literatura,BV,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - M",20,diario,Ativo
-147,JULIO - ED. FÍSICA - BV - 2026,JULIO - ED. FÍSICA,,BV,,0,horario,Ativo
-148,James Marcio de Araújo,JAMES MARCIO DE ARAÚJO,Matemática,JG,"1ª Série Médio A Manhã - Janga, 1ª Série Médio B Manhã - Janga, 2ª Série Médio A Manhã - Janga, 2ª Série Médio B Manhã - Janga, 9º Ano EF2 -  MA JANGA, 9º Ano EF2 -  MB JANGA",20,diario,Ativo
-149,Joana Cristina Souza do Nascimento Rosa,JOANA CRISTINA SOUZA DO NASCIMENTO ROSA,História,JG,"7º Ano A EF2 -  M JANGA, 7º Ano B EF2 -  M JANGA, 9º Ano EF2 -  MA JANGA, 9º Ano EF2 -  MB JANGA",15,diario,Ativo
-150,Joana Cristina Souza do Nascimento Rosa,JOANA CRISTINA SOUZA DO NASCIMENTO ROSA,Projeto de Vida,JG,"1ª Série Médio A Manhã - Janga, 1ª Série Médio B Manhã - Janga, 3ª Série Médio A Manhã - Janga, 9º Ano EF2 -  MA JANGA, 9º Ano EF2 -  MB JANGA",9,diario,Ativo
-151,Joana Cristina Souza do Nascimento Rosa,JOANA CRISTINA SOUZA DO NASCIMENTO ROSA,Arte,JG,"1ª Série Médio A Manhã - Janga, 2ª Série Médio A Manhã - Janga, 2ª Série Médio B Manhã - Janga",3,diario,Ativo
-152,Joao Antônio Firmino da Silva ,JOAO ANTÔNIO FIRMINO DA SILVA,Redação,CDR,"1ª Série - Médio - A Manhã, 2ª Série - Médio - A Manhã, 3ª Série - Médio -  A Manhã, 9º Ano - Turma A Manhã - Cordeiro",4,diario,Ativo
-153,José Marlison Silva do Nascimento Lima,JOSÉ MARLISON SILVA DO NASCIMENTO LIMA,Língua Estrangeira Inglês,JG,"1ª Série Médio A Manhã - Janga, 2ª Série Médio A Manhã - Janga, 2ª Série Médio B Manhã - Janga, 3ª Série Médio A Manhã - Janga, 6º Ano A EF2 - M JANGA, 6º Ano A EF2 - T JANGA, 6º Ano B EF2 - M JANGA, ",23,diario,Ativo
-154,João Arthur Barros de Oliveira,JOÃO ARTHUR BARROS DE OLIVEIRA,Matemática,CDR,"8º Ano - Turma A Manhã - Cordeiro, 8º Ano - Turma B Manhã - Cordeiro",6,diario,Ativo
-155,João Nicácio Ferreira de Miranda,JOÃO NICÁCIO FERREIRA DE MIRANDA,História,CDR,"9º Ano - Turma A Manhã - Cordeiro, 9º Ano - Turma B Manhã - Cordeiro",8,diario,Ativo
-156,João Nicácio Ferreira de Miranda,JOÃO NICÁCIO FERREIRA DE MIRANDA,Filosofia,JG,"6º Ano A EF2 - M JANGA, 6º Ano B EF2 - M JANGA, 7º Ano A EF2 -  M JANGA, 8º Ano A EF2 -  M JANGA, 8º Ano B EF2 - M JANGA, 9º Ano EF2 -  MA JANGA, 9º Ano EF2 -  MB JANGA",10,diario,Ativo
-157,João Nicácio Ferreira de Miranda,JOÃO NICÁCIO FERREIRA DE MIRANDA,Arte,JG,"7º Ano A EF2 -  M JANGA, 7º Ano B EF2 -  M JANGA, 9º Ano EF2 -  MA JANGA, 9º Ano EF2 -  MB JANGA",5,diario,Ativo
-158,João Nicácio Ferreira de Miranda,JOÃO NICÁCIO FERREIRA DE MIRANDA,História,JG,"1ª Série Médio A Manhã - Janga, 1ª Série Médio B Manhã - Janga",8,diario,Ativo
-159,João Nicácio Ferreira de Miranda,JOÃO NICÁCIO FERREIRA DE MIRANDA,Projeto de Vida,JG,"2ª Série Médio A Manhã - Janga, 2ª Série Médio B Manhã - Janga",3,diario,Ativo
-160,JÉSSICA FERREIRA - CORD - 2026,JÉSSICA FERREIRA,,CDR,,0,horario,Ativo
-161,KATARINA SILVA - BV - 2026,KATARINA SILVA,,BV,,0,horario,Ativo
-162,KATARINA TAVARES DA SILVA,KATARINA TAVARES DA SILVA,Arte,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma",20,diario,Ativo
-163,LARISSA OLIVEIRA - CORD - 2026,LARISSA OLIVEIRA,,CDR,,0,horario,Ativo
-164,LAURA MARIA - BV - 2026,LAURA MARIA,,BV,,0,horario,Ativo
-165,LAURA MARIA DA HORA ALVES RODRIGUES,LAURA MARIA DA HORA ALVES RODRIGUES,Língua Portuguesa,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem",9,diario,Ativo
-166,LEILA FERNANDA - TEEN 2 - 2026,LEILA FERNANDA,,CD,,0,horario,Ativo
-167,LEONARDO BORBA,LEONARDO BORBA,Matemática,TEEN 2,,0,manual,Ativo
-168,LEONARDO BORBA - TEEN 2 - 2026,LEONARDO BORBA,,CD,,0,horario,Ativo
-169,LEONARDO JOSE - TEEN 2 - 2026,LEONARDO JOSE,,CD,,0,horario,Ativo
-170,LEONARDO JOSE DO NASCIMENTO FILHO,LEONARDO JOSE DO NASCIMENTO FILHO,Língua Estrangeira Inglês,CD,"EFII - Candeias Teen I - 6º Ano - Turma A Tarde, EFII - Candeias Teen I - 6º Ano - Turma B Manhã, EFII - Candeias Teen I - 7º Ano - Turma   B   Manhã, EFII - Candeias Teen I - 8º Ano - Turma     A    ",24,diario,Ativo
-171,LEONARDO JOSÉ - TEEN 1 - 2026,LEONARDO JOSÉ,,CD,,0,horario,Ativo
-172,LEONARDO MENDES - JG - 2026,LEONARDO MENDES,,JG,,0,horario,Ativo
-173,LEONARDO MENDES DE OLIVEIRA,LEONARDO MENDES DE OLIVEIRA,Matemática,JG,"6º Ano A EF2 - T JANGA, 8º Ano A EF2 -  T JANGA",12,diario,Ativo
-174,LEONARDO MENDES DE OLIVEIRA,LEONARDO MENDES DE OLIVEIRA,Raciocínio Lógico,JG,"6º Ano A EF2 - T JANGA, 8º Ano A EF2 -  T JANGA",4,diario,Ativo
-175,LIDIANY MOTA - BV - 2026,LIDIANY MOTA,,BV,,0,horario,Ativo
-176,LIDIANY SOARES MOTA TRAVASSOS,LIDIANY SOARES MOTA TRAVASSOS,Língua Estrangeira Inglês,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem",11,diario,Ativo
-177,LILIANE TAVEIROS - BV  - 2026,LILIANE TAVEIROS,,BV,,0,horario,Ativo
-178,LILIANE TAVEIROS - TEEN 2 - 2026,LILIANE TAVEIROS,,CD,,0,horario,Ativo
-179,LILIANE TAVEIROS DE LIMA,LILIANE TAVEIROS DE LIMA,Língua Portuguesa,BV,"7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem",14,diario,Ativo
-180,LORENA DOS SANTOS OLIVEIRA,LORENA DOS SANTOS OLIVEIRA,História,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tard",39,diario,Ativo
-181,LORENA OLIVEIRA - BV - 2026,LORENA OLIVEIRA,,BV,,0,horario,Ativo
-182,LOURIVAL LUIZ - JG - 2026,LOURIVAL LUIZ,,JG,,0,horario,Ativo
-183,LUANA MARIA - BV - 2026,LUANA MARIA,,BV,,0,horario,Ativo
-184,LUANA MARIA DE ARISTEU VILARIM MORAES,LUANA MARIA DE ARISTEU VILARIM MORAES,Geografia,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma",28,diario,Ativo
-185,LUCAS SENA - CORD - 2026,LUCAS SENA,,CDR,,0,horario,Ativo
-186,LUCIANO LAGOSTA - BV - 2026,LUCIANO LAGOSTA,,BV,,0,horario,Ativo
-187,LUIZ CARLOS FLORO - CORD - 2026,LUIZ CARLOS FLORO,,CDR,,0,horario,Ativo
-188,Larissa Evelyn,LARISSA EVELYN,Língua Estrangeira Inglês,CDR,"6º Ano - Turma  A Manhã - Cordeiro, 6º Ano - Turma  B Manhã - Cordeiro, 7º Ano - Turma A Manhã - Cordeiro, 7º Ano - Turma B Manhã - Cordeiro, 7º Ano - Turma C Manhã - Cordeiro",20,diario,Ativo
-189,MABÍLIA - CORD - 2026,MABÍLIA,,CDR,,0,horario,Ativo
-190,MACILEIDE,MACILEIDE,Redação,TEEN 2,,0,manual,Ativo
-191,MARIA CECÍLIA GUERRA CAL,MARIA CECÍLIA GUERRA CAL,Arte,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",8,diario,Ativo
-192,MARIA DAIANE - CORD - 2026,MARIA DAIANE,,CDR,,0,horario,Ativo
-193,MARIA DAS GRAÇAS - JG - 2026,MARIA DAS GRAÇAS,,JG,,0,horario,Ativo
-194,MAURICIO BRANQUINHO - TEEN 2 - 2026,MAURICIO BRANQUINHO,,CD,,0,horario,Ativo
-195,MONIK - BV - 2026,MONIK,,BV,,0,horario,Ativo
-196,MURILO MONTEIRO,MURILO MONTEIRO,Biologia,JG,,0,manual,Ativo
-197,Mabília Campos Reis,MABÍLIA CAMPOS REIS,Redação,CDR,"7º Ano - Turma A Manhã - Cordeiro, 7º Ano - Turma B Manhã - Cordeiro, 7º Ano - Turma C Manhã - Cordeiro",13,diario,Ativo
-198,Mabília Campos Reis,MABÍLIA CAMPOS REIS,Língua Portuguesa,CDR,"7º Ano - Turma A Manhã - Cordeiro, 7º Ano - Turma B Manhã - Cordeiro, 7º Ano - Turma C Manhã - Cordeiro",24,diario,Ativo
-199,Macicleide Maria da Silva,MACICLEIDE MARIA DA SILVA,Redação,CD,"EFII - Candeias Teen I - 6º Ano - Turma B Manhã, EFII - Candeias Teen I- 6º Ano - Turma A Manhã",8,diario,Ativo
-200,Maria Daiane Monteiro,MARIA DAIANE MONTEIRO,Química,CDR,"1ª Série - Médio - A Manhã, 2ª Série - Médio - A Manhã, 3ª Série - Médio -  A Manhã, 9º Ano - Turma A Manhã - Cordeiro, 9º Ano - Turma B Manhã - Cordeiro",22,diario,Ativo
-201,Maria das Graças de Albuquerque,MARIA DAS GRAÇAS DE ALBUQUERQUE,Redação,JG,"8º Ano A EF2 -  M JANGA, 8º Ano B EF2 - M JANGA",7,diario,Ativo
-202,Maria das Graças de Albuquerque,MARIA DAS GRAÇAS DE ALBUQUERQUE,Língua Portuguesa,JG,"9º Ano EF2 -  MA JANGA, 9º Ano EF2 -  MB JANGA",9,diario,Ativo
-203,Maria das Graças de Albuquerque,MARIA DAS GRAÇAS DE ALBUQUERQUE,Literatura,JG,"1ª Série Médio A Manhã - Janga, 1ª Série Médio B Manhã - Janga, 2ª Série Médio A Manhã - Janga, 2ª Série Médio B Manhã - Janga, 3ª Série Médio A Manhã - Janga",15,diario,Ativo
-204,Maria das Graças de Albuquerque,MARIA DAS GRAÇAS DE ALBUQUERQUE,Gramática,JG,"1ª Série Médio A Manhã - Janga, 1ª Série Médio B Manhã - Janga, 2ª Série Médio A Manhã - Janga, 2ª Série Médio B Manhã - Janga, 3ª Série Médio A Manhã - Janga",21,diario,Ativo
-205,Mauricio Sala Branquinho,MAURICIO SALA BRANQUINHO,Matemática,CD,"EFII - Candeias Teen I - 6º Ano - Turma A Tarde, EFII - Candeias Teen I - 6º Ano - Turma B Manhã, EFII - Candeias Teen I - 8º Ano - Turma     A    Manhã, EFII - Candeias Teen I- 6º Ano - Turma A Manhã",51,diario,Ativo
-206,MÁRCIO PEREIRA - TEEN 2 - 2026,MÁRCIO PEREIRA,,CD,,0,horario,Ativo
-207,MÔNICA BASÍLIO - BV - 2026,MÔNICA BASÍLIO,,BV,,0,horario,Ativo
-208,MÔNICA LA SALVIA - JG - 2026,MÔNICA LA SALVIA,,JG,,0,horario,Ativo
-209,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,Língua Estrangeira Inglês,BV,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",11,diario,Ativo
-210,NATÁLIA MOURA - BV - 2026,NATÁLIA MOURA,,BV,,0,horario,Ativo
-211,NATÁLIA MOURA E SILVA,NATÁLIA MOURA E SILVA,Matemática,BV,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",4,diario,Ativo
-212,NATÁLIA OLIVEIRA - TEEN 1 - 2026,NATÁLIA OLIVEIRA,,CD,,0,horario,Ativo
-213,Natalia da Silva Oliveira,NATALIA DA SILVA OLIVEIRA,Língua Portuguesa,CD,"EFII - Candeias Teen I - 6º Ano - Turma A Tarde, EFII - Candeias Teen I- 7º Ano - Turma A Tarde, EFII - Candeias Teen I- 8º Ano - Turma- A Tarde",9,diario,Ativo
-214,ORDEPE XAVIER - BV - 2026,ORDEPE XAVIER,,BV,,0,horario,Ativo
-215,ORLANDO ALVINO - TEEN 1 - 2026,ORLANDO ALVINO,,CD,,0,horario,Ativo
-216,OTÁVIO MASCENA - BV - 2026,OTÁVIO MASCENA,,BV,,0,horario,Ativo
-217,Orlando Alvino de Lima Filho,ORLANDO ALVINO DE LIMA FILHO,Matemática,CD,"EFII - Candeias Teen I - 7º Ano - Turma   B   Manhã, EFII - Candeias Teen I -7º Ano - Turma   A   Manhã",8,diario,Ativo
-218,PAULINE MARIE,PAULINE MARIE,Projeto de Vida,TEEN 2,,0,manual,Ativo
-219,PAULO RODRIGO - BV - 2026,PAULO RODRIGO,,BV,,0,horario,Ativo
-220,PEDRO COSTA,PEDRO COSTA,Matemática,TEEN 2,,0,manual,Ativo
-221,PEDRO COSTA,PEDRO COSTA,Raciocínio Lógico,TEEN 1,,0,manual,Ativo
-222,POLLYANA ROSA - TEEN 1 - 2026,POLLYANA ROSA,,CD,,0,horario,Ativo
-223,POLLYANNA ROSA DA SILVA,POLLYANNA ROSA DA SILVA,Língua Portuguesa,CD,"EFII - Candeias Teen I - 6º Ano - Turma B Manhã, EFII - Candeias Teen I- 6º Ano - Turma A Manhã",16,diario,Ativo
-224,POLLYANNA ROSA DA SILVA,POLLYANNA ROSA DA SILVA,Redação,CD,"EFII - Candeias Teen I - 8º Ano - Turma     A    Manhã, EFII - Candeias Teen I- 8º Ano  - Turma    B    Manhã",8,diario,Ativo
-225,PRISCILA BARROS,PRISCILA BARROS,Redação,JG,"1ª Série Médio A Manhã - Janga, 1ª Série Médio B Manhã - Janga, 2ª Série Médio A Manhã - Janga, 2ª Série Médio B Manhã - Janga, 6º Ano A EF2 - M JANGA, 6º Ano B EF2 - M JANGA, 7º Ano A EF2 -  M JANGA,",13,diario,Ativo
-226,PRISCILA BARROS,PRISCILA BARROS,Projeto de Vida,JG,"6º Ano A EF2 - M JANGA, 6º Ano A EF2 - T JANGA, 6º Ano B EF2 - M JANGA",3,diario,Ativo
-227,PRISCILA BARROS - JG - 2026,PRISCILA BARROS,,JG,,0,horario,Ativo
-228,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,PROF. 1 - MATEMÁTICA,,CD,,0,horario,Ativo
-229,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,PROF. 2 - MATEMÁTICA,,CD,,0,horario,Ativo
-230,PROF. 3 - MATEMÁTICA - TEEN 2 - 2026,PROF. 3 - MATEMÁTICA,,CD,,0,horario,Ativo
-231,PROJETO DE VIDA - TEEN 2 - 2026,PROJETO DE VIDA,,CD,,0,horario,Ativo
-232,Pedro Henrique Alves da Costa ,PEDRO HENRIQUE ALVES DA COSTA,Raciocínio Lógico,CD,"EFII - Candeias Teen I - 6º Ano - Turma A Tarde, EFII - Candeias Teen I - 6º Ano - Turma B Manhã, EFII - Candeias Teen I - 8º Ano - Turma     A    Manhã, EFII - Candeias Teen I- 6º Ano - Turma A Manhã",12,diario,Ativo
-233,QUIMICA - BV - 2026,QUIMICA,,BV,,0,horario,Ativo
-234,RACIOCÍNIO LÓGICO - CORD - 2026,RACIOCÍNIO LÓGICO,,CDR,,0,horario,Ativo
-235,RACIOCÍNIO LÓGICO - TEEN 1 - 2026,RACIOCÍNIO LÓGICO,,CD,,0,horario,Ativo
-236,RAFAEL ELOI - JG - 2026,RAFAEL ELOI,,JG,,0,horario,Ativo
-237,RAFAEL LEAL - BV - 2025,RAFAEL LEAL,,BV,,0,horario,Ativo
-238,REDAÇÃO - JG - 2026,REDAÇÃO,,JG,,0,horario,Ativo
-239,REDAÇÃO - TARDE - TEEN 1 - 2026,REDAÇÃO - TARDE,,CD,,0,horario,Ativo
-240,REDAÇÃO - TEEN 1 - 2026,REDAÇÃO,,CD,,0,horario,Ativo
-241,RENATA MIRANDA,RENATA MIRANDA,Ciências Naturais,JG,"7º Ano A EF2 -  M JANGA, 8º Ano A EF2 -  M JANGA, 8º Ano A EF2 -  T JANGA",6,diario,Ativo
-242,RENATA MIRANDA - JG - 2026,RENATA MIRANDA,,JG,,0,horario,Ativo
-243,RISELDA BARRETO - TEEN 1 - 2026,RISELDA BARRETO,,CD,,0,horario,Ativo
-244,RISELDA BARRETO DA SILVA,RISELDA BARRETO DA SILVA,Redação,CD,"EFII - Candeias Teen I - 7º Ano - Turma   B   Manhã, EFII - Candeias Teen I -7º Ano - Turma   A   Manhã",7,diario,Ativo
-245,RISELDA BARRETO DA SILVA,RISELDA BARRETO DA SILVA,Língua Portuguesa,CD,"EFII - Candeias Teen I - 8º Ano - Turma     A    Manhã, EFII - Candeias Teen I- 8º Ano  - Turma    B    Manhã",13,diario,Ativo
-246,ROMÁRIO PEREIRA - BV - 2026,ROMÁRIO PEREIRA,,BV,,0,horario,Ativo
-247,RUBEM VITÓRIO  - BV - 2026,RUBEM VITÓRIO,,BV,,0,horario,Ativo
-248,Rafael Otávio Eloi da Hora,RAFAEL OTÁVIO ELOI DA HORA,História,JG,"6º Ano A EF2 - M JANGA, 6º Ano A EF2 - T JANGA, 6º Ano B EF2 - M JANGA, 8º Ano A EF2 -  M JANGA, 8º Ano A EF2 -  T JANGA, 8º Ano B EF2 - M JANGA",25,diario,Ativo
-249,SAMARA VASCONCELOS,SAMARA VASCONCELOS,Arte,CD,"EFII - Candeias Teen I - 6º Ano - Turma A Tarde, EFII - Candeias Teen I - 6º Ano - Turma B Manhã, EFII - Candeias Teen I - 7º Ano - Turma   B   Manhã, EFII - Candeias Teen I - 8º Ano - Turma     A    ",18,diario,Ativo
-250,SAMARA VASCONCELOS,SAMARA VASCONCELOS,Geografia,CD,"EFII - Candeias Teen I - 8º Ano - Turma     A    Manhã, EFII - Candeias Teen I- 8º Ano  - Turma    B    Manhã, EFII - Candeias Teen I- 8º Ano - Turma- A Tarde",4,diario,Ativo
-251,SAMARA VASCONCELOS - TEEN 1 - 2026,SAMARA VASCONCELOS,,CD,,0,horario,Ativo
-252,SANDRO CORDEIRO - BV - 2026,SANDRO CORDEIRO,,BV,,0,horario,Ativo
-253,SANDRO CORDEIRO - TEEN 2 - 2026,SANDRO CORDEIRO,,CD,,0,horario,Ativo
-254,SUELLEN CINTIA - BV - 2026,SUELLEN CINTIA,,BV,,0,horario,Ativo
-255,SUELLEN CINTIA BARBOSA DE OLIVEIRA,SUELLEN CINTIA BARBOSA DE OLIVEIRA,Ciências Naturais,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem",11,diario,Ativo
-256,SÔNIA MARIA - JG - 2026,SÔNIA MARIA,,JG,,0,horario,Ativo
-257,Sônia Maria Ferreira da Silva,SÔNIA MARIA FERREIRA DA SILVA,Geografia,JG,"6º Ano A EF2 - M JANGA, 6º Ano B EF2 - M JANGA, 7º Ano B EF2 -  M JANGA",4,diario,Ativo
-258,TATIANA MARQUES - BV - 2026,TATIANA MARQUES,,BV,,0,horario,Ativo
-259,TATIANA MARQUES - TEEN 2 - 2026,TATIANA MARQUES,,CD,,0,horario,Ativo
-260,TATIANA MARQUES DUARTE,TATIANA MARQUES DUARTE,Química,CD,"1ª Série - Médio  - Turma B Manhã - Candeias, 1ª Série - Médio -  Turma C Manhã - Candeias, 1ª Série - Médio - Turma A Manhã - Candeias, 2ª Série - Médio -  Turma B- Manhã - Candeias, 2ª Série - Médio",24,diario,Ativo
-261,TATIANA MARQUES DUARTE,TATIANA MARQUES DUARTE,Química,BV,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - M",21,diario,Ativo
-262,TEDMILSON - CORD - 2026,TEDMILSON,,CDR,,0,horario,Ativo
-263,THAYS LUANNA SIQUEIRA SANTOS,THAYS LUANNA SIQUEIRA SANTOS,Matemática,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem",12,diario,Ativo
-264,THAYS SANTOS - BV - 2026,THAYS SANTOS,,BV,,0,horario,Ativo
-265,THIAGO CASTILHO - CORD - 2026,THIAGO CASTILHO,,CDR,,0,horario,Ativo
-266,THIAGO CASTILHO - JG - 2026,THIAGO CASTILHO,,JG,,0,horario,Ativo
-267,THIAGO CASTILHO ALFINO,THIAGO CASTILHO ALFINO,Física,CDR,"1ª Série - Médio - A Manhã, 3ª Série - Médio -  A Manhã",2,diario,Ativo
-268,THIAGO CASTILHO ALFINO,THIAGO CASTILHO ALFINO,Física 2,JG,"9º Ano EF2 -  MA JANGA, 9º Ano EF2 -  MB JANGA",4,diario,Ativo
-269,THIAGO CASTILHO ALFINO,THIAGO CASTILHO ALFINO,Física,JG,"1ª Série Médio A Manhã - Janga, 1ª Série Médio B Manhã - Janga, 2ª Série Médio A Manhã - Janga, 2ª Série Médio B Manhã - Janga, 3ª Série Médio A Manhã - Janga",25,diario,Ativo
-270,TIAGO AUGUSTO - BV - 2026,TIAGO AUGUSTO,,BV,,0,horario,Ativo
-271,TIAGO AUGUSTO - TEEN 2 - 2026,TIAGO AUGUSTO,,CD,,0,horario,Ativo
-272,Tedimilson da costa Guimarães Júnior,TEDIMILSON DA COSTA GUIMARÃES JÚNIOR,Matemática,CDR,"9º Ano - Turma A Manhã - Cordeiro, 9º Ano - Turma B Manhã - Cordeiro",20,diario,Ativo
-273,UBIRACIR,UBIRACIR,Matemática,TEEN 2,,0,manual,Ativo
-274,VALDÉRIO ALEXANDRE - JG - 2026,VALDÉRIO ALEXANDRE,,JG,,0,horario,Ativo
-275,VANESSA CASSIMIRO - TEEN 1 - 2026,VANESSA CASSIMIRO,,CD,,0,horario,Ativo
-276,VERIDIANA ROCHA - BV - 2026,VERIDIANA ROCHA,,BV,,0,horario,Ativo
-277,VERIDIANA ROCHA - TEEN 2 - 2026,VERIDIANA ROCHA,,CD,,0,horario,Ativo
-278,VICTOR CALDAS - BV - 2025,VICTOR CALDAS,,BV,,0,horario,Ativo
-279,VICTOR CALDAS - TEEN 2 - 2026,VICTOR CALDAS,,CD,,0,horario,Ativo
-280,VICTOR CALDAS DE CARVALHO,VICTOR CALDAS DE CARVALHO,Matemática,CD,"EFII - Candeias Teen I- 7º Ano - Turma A Tarde, EFII - Candeias Teen I- 8º Ano - Turma- A Tarde",11,diario,Ativo
-281,Valdério Alexandre dos Santos,VALDÉRIO ALEXANDRE DOS SANTOS,Química,JG,"1ª Série Médio A Manhã - Janga, 1ª Série Médio B Manhã - Janga, 2ª Série Médio A Manhã - Janga, 2ª Série Médio B Manhã - Janga, 3ª Série Médio A Manhã - Janga",16,diario,Ativo
-282,WANDRESSON ROCHA - BV - 2026,WANDRESSON ROCHA,,BV,,0,horario,Ativo
-283,WELLINGTON JESUS - TEEN 2 - 2026,WELLINGTON JESUS,,CD,,0,horario,Ativo
-284,WENDELL ROMELL - CORD - 2026,WENDELL ROMELL,,CDR,,0,horario,Ativo
-285,WILLIAM MACIEL - BV - 2026,WILLIAM MACIEL,,BV,,0,horario,Ativo
-286,WILLIAM MACIEL - TEEN 2 - 2026,WILLIAM MACIEL,,CD,,0,horario,Ativo
-287,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Redação,CD,EFII - Candeias Teen I- 8º Ano - Turma- A Tarde,4,diario,Ativo
-288,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Literatura,CD,"1ª Série - Médio  - Turma B Manhã - Candeias, 1ª Série - Médio -  Turma C Manhã - Candeias, 1ª Série - Médio - Turma A Manhã - Candeias",14,diario,Ativo
-289,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Arte,CD,"2ª Série - Médio -  Turma B- Manhã - Candeias, 2ª Série - Médio - Turma A - Manhã - Candeias, 2ª Série - Médio - Turma C Manhã - Candeias, 3ª Série - Médio -  Turma B Manhã - Candeias, 3ª Série - Médi",13,diario,Ativo
-290,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Língua Portuguesa,BV,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",16,diario,Ativo
-291,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Literatura,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem",12,diario,Ativo
-292,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Gramática,BV,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",8,diario,Ativo
-293,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,História,CD,"EFII - Candeias Teen I - 6º Ano - Turma A Tarde, EFII - Candeias Teen I - 6º Ano - Turma B Manhã, EFII - Candeias Teen I - 7º Ano - Turma   B   Manhã, EFII - Candeias Teen I - 8º Ano - Turma     A    ",41,diario,Ativo
-294,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,História,BV,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",11,diario,Ativo
-295,WILLIAMS RODRIGUES - BV - 2026,WILLIAMS RODRIGUES,,BV,,0,horario,Ativo
-296,WILLIAMS RODRIGUES - TEEN 1 - 2026,WILLIAMS RODRIGUES,,CD,,0,horario,Ativo
+1,ADRIANA RODRIGUES,ADRIANA RODRIGUES,Redação,JG,,0,manual,Ativo
+2,ADRIANA RODRIGUES - CORD - 2026,ADRIANA RODRIGUES,,CDR,,0,horario,Ativo
+3,ADRIANO DO NASCIMENTO - BV - 2026,ADRIANO DO NASCIMENTO,,BV,,0,horario,Ativo
+4,ADRIANO DO NASCIMENTO - CORD - 2026,ADRIANO DO NASCIMENTO,,CDR,,0,horario,Ativo
+5,ADRIANO DO NASCIMENTO - TEEN 1 - 2026,ADRIANO DO NASCIMENTO,,CD,,0,horario,Ativo
+6,ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,Sociologia,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma",36,diario,Ativo
+7,ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,Filosofia,BV,9º Ano - Turma A Tarde - Boa Viagem,4,diario,Ativo
+8,ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,Sociologia,CD,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma",36,diario,Ativo
+9,ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,Filosofia,CD,9º Ano - Turma A Tarde - Boa Viagem,4,diario,Ativo
+10,ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,Sociologia,JG,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma",36,diario,Ativo
+11,ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,Filosofia,JG,9º Ano - Turma A Tarde - Boa Viagem,4,diario,Ativo
+12,ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,Sociologia,CDR,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma",36,diario,Ativo
+13,ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,Filosofia,CDR,9º Ano - Turma A Tarde - Boa Viagem,4,diario,Ativo
+14,ADRIANO NUNES - JG - 2026,ADRIANO NUNES,,JG,,0,horario,Ativo
+15,ADRIANO RODRIGUES - CORD - 2026,ADRIANO RODRIGUES,,CDR,,0,horario,Ativo
+16,ALBA VALÉRIA - BV - 2026,ALBA VALÉRIA,,BV,,0,horario,Ativo
+17,ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,Redação,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",16,diario,Ativo
+18,ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,Língua Portuguesa,BV,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",27,diario,Ativo
+19,ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,Redação,CD,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",16,diario,Ativo
+20,ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,Língua Portuguesa,CD,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",27,diario,Ativo
+21,ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,Redação,JG,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",10,diario,Ativo
+22,ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,Língua Portuguesa,JG,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",27,diario,Ativo
+23,ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,Redação,CDR,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",16,diario,Ativo
+24,ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,Língua Portuguesa,CDR,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",27,diario,Ativo
+25,ALISON LOPES - JG - 2026,ALISON LOPES,,JG,,0,horario,Ativo
+26,ANA CAROLINA MATOS - BV - 2026,ANA CAROLINA MATOS,,BV,,0,horario,Ativo
+27,ANA CAROLINA MATOS - TEEN 2 - 2026,ANA CAROLINA MATOS,,CD,,0,horario,Ativo
+28,ANDERSON MORAIS - JG - 2026,ANDERSON MORAIS,,JG,,0,horario,Ativo
+29,ANDRÉ LACERDA - CORD - 2026,ANDRÉ LACERDA,,CDR,,0,horario,Ativo
+30,ANDRÉ LUIZ - JG - 2026,ANDRÉ LUIZ,,JG,,0,horario,Ativo
+31,ANILTON SANTOS - JG - 2026,ANILTON SANTOS,,JG,,0,horario,Ativo
+32,ANILTON SANTOS - TEEN 1 - 2026,ANILTON SANTOS,,CD,,0,horario,Ativo
+33,ANNA GABRIELLY CUNHA,ANNA GABRIELLY CUNHA,Raciocínio Lógico,CDR,,0,manual,Ativo
+34,ARIANE SILVA - TEEN 2 - 2026,ARIANE SILVA,,CD,,0,horario,Ativo
+35,ARLINE VASCONCELOS - BV - 2026,ARLINE VASCONCELOS,,BV,,0,horario,Ativo
+36,ARLINE VASCONCELOS - TEEN 1 - 2026,ARLINE VASCONCELOS,,CD,,0,horario,Ativo
+37,ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,Redação,BV,"7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem",18,diario,Ativo
+38,ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,Gramática,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem",16,diario,Ativo
+39,ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,Redação,CD,"7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem",18,diario,Ativo
+40,ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,Gramática,CD,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem",16,diario,Ativo
+41,ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,Redação,JG,"7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem",18,diario,Ativo
+42,ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,Gramática,JG,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem",16,diario,Ativo
+43,ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,Redação,CDR,"7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem",18,diario,Ativo
+44,ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,Gramática,CDR,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem",16,diario,Ativo
+45,ARTE - BV - 2026,ARTE,,BV,,0,horario,Ativo
+46,ARTE - TEEN 2 - 2026,ARTE,,CD,,0,horario,Ativo
+47,BARTIRA ROCHA - BV - 2026,BARTIRA ROCHA,,BV,,0,horario,Ativo
+48,BARTIRA ROCHA - TEEN 1 - 2026,BARTIRA ROCHA,,CD,,0,horario,Ativo
+49,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,Ciências Naturais,BV,"8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem",6,diario,Ativo
+50,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,Ciências Naturais,CD,"8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem",6,diario,Ativo
+51,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,Ciências Naturais,JG,"8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem",6,diario,Ativo
+52,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,Ciências Naturais,CDR,"8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem",6,diario,Ativo
+53,BARTOLOMEU JOSÉ - BV - 2026,BARTOLOMEU JOSÉ,,BV,,0,horario,Ativo
+54,BARTOLOMEU JOSÉ - CORD - 2025,BARTOLOMEU JOSÉ,,CDR,,0,horario,Ativo
+55,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,História,BV,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma B Manh",34,diario,Ativo
+56,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,História,CD,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma B Manh",34,diario,Ativo
+57,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,História,JG,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma B Manh",34,diario,Ativo
+58,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,História,CDR,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma B Manh",34,diario,Ativo
+59,BEATRIZ FÉLIX - BV - 2026,BEATRIZ FÉLIX,,BV,,0,horario,Ativo
+60,BEATRIZ MAGALHÃES FÉLIX,BEATRIZ MAGALHÃES FÉLIX,Matemática,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",32,diario,Ativo
+61,BEATRIZ MAGALHÃES FÉLIX,BEATRIZ MAGALHÃES FÉLIX,Matemática,CD,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",32,diario,Ativo
+62,BEATRIZ MAGALHÃES FÉLIX,BEATRIZ MAGALHÃES FÉLIX,Matemática,JG,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",32,diario,Ativo
+63,BEATRIZ MAGALHÃES FÉLIX,BEATRIZ MAGALHÃES FÉLIX,Matemática,CDR,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",32,diario,Ativo
+64,BEATRIZ SOUZA  - BV - 2026,BEATRIZ SOUZA,,BV,,0,horario,Ativo
+65,BIOLOGIA - JG - 2026,BIOLOGIA,,JG,,0,horario,Ativo
+66,BRUNA BARROS - BV - 2026,BRUNA BARROS,,BV,,0,horario,Ativo
+67,BRUNA ISABELLE - JG - 2026,BRUNA ISABELLE,,JG,,0,horario,Ativo
+68,BÁRBARA FÉLIX - CORD - 2026,BÁRBARA FÉLIX,,CDR,,0,horario,Ativo
+69,CAIO FELLYPE - TEEN 2 - 2026,CAIO FELLYPE,,CD,,0,horario,Ativo
+70,CARLA VERONICA BELO DE SANTANA,CARLA VERONICA BELO DE SANTANA,Matemática,BV,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",29,diario,Ativo
+71,CARLA VERONICA BELO DE SANTANA,CARLA VERONICA BELO DE SANTANA,Matemática,CD,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",29,diario,Ativo
+72,CARLA VERONICA BELO DE SANTANA,CARLA VERONICA BELO DE SANTANA,Matemática,JG,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",29,diario,Ativo
+73,CARLA VERONICA BELO DE SANTANA,CARLA VERONICA BELO DE SANTANA,Matemática,CDR,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",29,diario,Ativo
+74,CARLA VERÔNICA - BV - 2025,CARLA VERÔNICA,,BV,,0,horario,Ativo
+75,CARLITOS - CORD - 2025,CARLITOS,,CDR,,0,horario,Ativo
+76,CLÁUDIA BEZERRA -  CORD - 2026,CLÁUDIA BEZERRA,,CDR,,0,horario,Ativo
+77,DANIEL SENNA - CORD - 2026,DANIEL SENNA,,CDR,,0,horario,Ativo
+78,DANILO LUCENA - BV - 2026,DANILO LUCENA,,BV,,0,horario,Ativo
+79,DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,Redação,BV,"8º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",15,diario,Ativo
+80,DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,Língua Portuguesa,BV,"9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",14,diario,Ativo
+81,DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,Redação,CD,"8º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",15,diario,Ativo
+82,DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,Língua Portuguesa,CD,9º Ano - Turma B Manhã - Boa Viagem,8,diario,Ativo
+83,DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,Redação,JG,"8º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",15,diario,Ativo
+84,DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,Língua Portuguesa,JG,"9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",14,diario,Ativo
+85,DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,Redação,CDR,"8º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",15,diario,Ativo
+86,DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,Língua Portuguesa,CDR,"9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",14,diario,Ativo
+87,DIEGO CALADO - BV - 2026,DIEGO CALADO,,BV,,0,horario,Ativo
+88,DIEGO RODRIGUES - BV - 2026,DIEGO RODRIGUES,,BV,,0,horario,Ativo
+89,DIEGO RODRIGUES - TEEN 2 - 2026,DIEGO RODRIGUES,,CD,,0,horario,Ativo
+90,DIELLEN,DIELLEN,Redação,TEEN 1,,0,manual,Ativo
+91,DIELLEN - BV - 2026,DIELLEN,,BV,,0,horario,Ativo
+92,DIELLEN - TEEN 2 - 2026,DIELLEN,,CD,,0,horario,Ativo
+93,DIELLEN BEATRIZ DE SOUZA MELO,DIELLEN BEATRIZ DE SOUZA MELO,Redação,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",28,diario,Ativo
+94,DIELLEN BEATRIZ DE SOUZA MELO,DIELLEN BEATRIZ DE SOUZA MELO,Redação,CD,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",28,diario,Ativo
+95,DIELLEN BEATRIZ DE SOUZA MELO,DIELLEN BEATRIZ DE SOUZA MELO,Redação,JG,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",28,diario,Ativo
+96,DIELLEN BEATRIZ DE SOUZA MELO,DIELLEN BEATRIZ DE SOUZA MELO,Redação,CDR,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",28,diario,Ativo
+97,DIOGO BARRETO - TEEN 2 - 2026,DIOGO BARRETO,,CD,,0,horario,Ativo
+98,DOUGLAS MENDES - CORD - 2026,DOUGLAS MENDES,,CDR,,0,horario,Ativo
+99,DULCIMAR MODESTO - JG - 2026,DULCIMAR MODESTO,,JG,,0,horario,Ativo
+100,ED. FÍSICA - TEEN 1 - 2026,ED. FÍSICA,,CD,,0,horario,Ativo
+101,EDSON DE ARAÚJO,EDSON DE ARAÚJO,Arte,TEEN 2,,0,manual,Ativo
+102,ELANE SANTOS DE OLIVEIRA,ELANE SANTOS DE OLIVEIRA,Química,BV,9º Ano - Turma A Tarde - Boa Viagem,2,diario,Ativo
+103,ELANE SANTOS DE OLIVEIRA,ELANE SANTOS DE OLIVEIRA,Química,CD,9º Ano - Turma A Tarde - Boa Viagem,2,diario,Ativo
+104,ELANE SANTOS DE OLIVEIRA,ELANE SANTOS DE OLIVEIRA,Química,JG,9º Ano - Turma A Tarde - Boa Viagem,2,diario,Ativo
+105,ELANE SANTOS DE OLIVEIRA,ELANE SANTOS DE OLIVEIRA,Química,CDR,9º Ano - Turma A Tarde - Boa Viagem,2,diario,Ativo
+106,ELIANE SERRA - BV - 2026,ELIANE SERRA,,BV,,0,horario,Ativo
+107,ELIANE SERRA - TEEN 2 - 2026,ELIANE SERRA,,CD,,0,horario,Ativo
+108,ELIAS GABRIEL - JG - 2026,ELIAS GABRIEL,,JG,,0,horario,Ativo
+109,ELINALDO SOARES - CORD - 2026,ELINALDO SOARES,,CDR,,0,horario,Ativo
+110,EMANUEL MACHADO - JG - 2026,EMANUEL MACHADO,,JG,,0,horario,Ativo
+111,EUCLIDES GARCIA - TEEN 2 - 2026,EUCLIDES GARCIA,,CD,,0,horario,Ativo
+112,FABIANE ANDREZA - CORD - 2025,FABIANE ANDREZA,,CDR,,0,horario,Ativo
+113,FAGNER CARDOSO - TEEN 1 - 2026,FAGNER CARDOSO,,CD,,0,horario,Ativo
+114,FERNANDA ALDA - TEEN 2 - 2026,FERNANDA ALDA,,CD,,0,horario,Ativo
+115,FILIPE ALBERTO - TEEN 2 - 2026,FILIPE ALBERTO,,CD,,0,horario,Ativo
+116,FILIPE SILAS - BV - 2026,FILIPE SILAS,,BV,,0,horario,Ativo
+117,FILIPE SILAS - CORD - 2026,FILIPE SILAS,,CDR,,0,horario,Ativo
+118,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Química 3,BV,3ª Série - Médio -Turma B Manhã - Boa Viagem,2,diario,Ativo
+119,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Sociologia,BV,3ª Série - Médio -Turma B Manhã - Boa Viagem,3,diario,Ativo
+120,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Química 2,BV,3ª Série - Médio Turma A Manhã - Boa Viagem,2,diario,Ativo
+121,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Química 3,CD,3ª Série - Médio -Turma B Manhã - Boa Viagem,2,diario,Ativo
+122,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Sociologia,CD,3ª Série - Médio -Turma B Manhã - Boa Viagem,3,diario,Ativo
+123,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Química 2,CD,3ª Série - Médio Turma A Manhã - Boa Viagem,2,diario,Ativo
+124,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Química 3,JG,3ª Série - Médio -Turma B Manhã - Boa Viagem,2,diario,Ativo
+125,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Sociologia,JG,3ª Série - Médio -Turma B Manhã - Boa Viagem,3,diario,Ativo
+126,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Química 2,JG,3ª Série - Médio Turma A Manhã - Boa Viagem,2,diario,Ativo
+127,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Química 3,CDR,3ª Série - Médio -Turma B Manhã - Boa Viagem,2,diario,Ativo
+128,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Sociologia,CDR,3ª Série - Médio -Turma B Manhã - Boa Viagem,3,diario,Ativo
+129,FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,Química 2,CDR,3ª Série - Médio Turma A Manhã - Boa Viagem,2,diario,Ativo
+130,FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,Geografia,BV,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",24,diario,Ativo
+131,FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,Geografia,CD,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",24,diario,Ativo
+132,FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,Geografia,JG,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",24,diario,Ativo
+133,FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,Geografia,CDR,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",24,diario,Ativo
+134,FLÁVIO NASCIMENTO - BV - 2026,FLÁVIO NASCIMENTO,,BV,,0,horario,Ativo
+135,FLÁVIO NASCIMENTO - CORD - 2026,FLÁVIO NASCIMENTO,,CDR,,0,horario,Ativo
+136,FLÁVIO VASCONCELOS - JG - 2026,FLÁVIO VASCONCELOS,,JG,,0,horario,Ativo
+137,FÁBIO EMMANUEL - TEEN 2 - 2026,FÁBIO EMMANUEL,,CD,,0,horario,Ativo
+138,FÁBIO MOTTA - TEEN 2 - 2026,FÁBIO MOTTA,,CD,,0,horario,Ativo
+139,GABRIELA MEDEIROS - CORD -2025,GABRIELA MEDEIROS,,CDR,,0,horario,Ativo
+140,GERLY SANDRA - CORD - 2026,GERLY SANDRA,,CDR,,0,horario,Ativo
+141,GILMAR ASSUNÇÃO DA SILVA,GILMAR ASSUNÇÃO DA SILVA,Geografia,BV,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",4,diario,Ativo
+142,GILMAR ASSUNÇÃO DA SILVA,GILMAR ASSUNÇÃO DA SILVA,Geografia,CD,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",4,diario,Ativo
+143,GILMAR ASSUNÇÃO DA SILVA,GILMAR ASSUNÇÃO DA SILVA,Geografia,JG,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",4,diario,Ativo
+144,GILMAR ASSUNÇÃO DA SILVA,GILMAR ASSUNÇÃO DA SILVA,Geografia,CDR,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",4,diario,Ativo
+145,HENRIQUE HERMÍNIO,HENRIQUE HERMÍNIO,Educação Física,TEEN 1,,0,manual,Ativo
+146,HISTÓRIA - CORD - 2026,HISTÓRIA,,CDR,,0,horario,Ativo
+147,IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,Ciências Naturais,BV,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem",25,diario,Ativo
+148,IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,Biologia,BV,9º Ano - Turma A Tarde - Boa Viagem,4,diario,Ativo
+149,IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,Ciências Naturais,CD,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",16,diario,Ativo
+150,IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,Biologia,CD,9º Ano - Turma A Tarde - Boa Viagem,4,diario,Ativo
+151,IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,Ciências Naturais,JG,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem",25,diario,Ativo
+152,IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,Biologia,JG,9º Ano - Turma A Tarde - Boa Viagem,4,diario,Ativo
+153,IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,Ciências Naturais,CDR,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem",25,diario,Ativo
+154,IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,Biologia,CDR,9º Ano - Turma A Tarde - Boa Viagem,4,diario,Ativo
+155,IVALDO SANTOS - BV - 2026,IVALDO SANTOS,,BV,,0,horario,Ativo
+156,IVSON SANTOS,IVSON SANTOS,Geografia,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",21,diario,Ativo
+157,IVSON SANTOS,IVSON SANTOS,Geografia,CD,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",24,diario,Ativo
+158,IVSON SANTOS,IVSON SANTOS,Geografia,JG,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",24,diario,Ativo
+159,IVSON SANTOS,IVSON SANTOS,Geografia,CDR,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",24,diario,Ativo
+160,IVSON SANTOS - BV - 2026,IVSON SANTOS,,BV,,0,horario,Ativo
+161,JAMES MÁRCIO - JG - 2026,JAMES MÁRCIO,,JG,,0,horario,Ativo
+162,JOANA CRISTINA - JG - 2026,JOANA CRISTINA,,JG,,0,horario,Ativo
+163,JORGE LUIZ - JG - 2026,JORGE LUIZ,,JG,,0,horario,Ativo
+164,JOSAFARY CAMPELO - BV - 2026,JOSAFARY CAMPELO,,BV,,0,horario,Ativo
+165,JOSAFARY PEREIRA DA SILVA CAMPELO,JOSAFARY PEREIRA DA SILVA CAMPELO,Física,BV,"9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",6,diario,Ativo
+166,JOSAFARY PEREIRA DA SILVA CAMPELO,JOSAFARY PEREIRA DA SILVA CAMPELO,Física 2,BV,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem",4,diario,Ativo
+167,JOSAFARY PEREIRA DA SILVA CAMPELO,JOSAFARY PEREIRA DA SILVA CAMPELO,Física,CD,"9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",6,diario,Ativo
+168,JOSAFARY PEREIRA DA SILVA CAMPELO,JOSAFARY PEREIRA DA SILVA CAMPELO,Física 2,CD,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem",4,diario,Ativo
+169,JOSAFARY PEREIRA DA SILVA CAMPELO,JOSAFARY PEREIRA DA SILVA CAMPELO,Física,JG,"9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",6,diario,Ativo
+170,JOSAFARY PEREIRA DA SILVA CAMPELO,JOSAFARY PEREIRA DA SILVA CAMPELO,Física 2,JG,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem",4,diario,Ativo
+171,JOSAFARY PEREIRA DA SILVA CAMPELO,JOSAFARY PEREIRA DA SILVA CAMPELO,Física,CDR,"9º Ano - Turma A Manhã - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma B Manhã - Boa Viagem",6,diario,Ativo
+172,JOSAFARY PEREIRA DA SILVA CAMPELO,JOSAFARY PEREIRA DA SILVA CAMPELO,Física 2,CDR,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem",4,diario,Ativo
+173,JOSÉ CARLOS - TEEN 1 - 2026,JOSÉ CARLOS,,CD,,0,horario,Ativo
+174,JOSÉ MARLISON - JG - 2025,JOSÉ MARLISON,,JG,,0,horario,Ativo
+175,JOSÉ ROBERTO SENA - BV - 2026,JOSÉ ROBERTO SENA,,BV,,0,horario,Ativo
+176,JOSÉ ROBERTO SENA - TEEN 2 - 2026,JOSÉ ROBERTO SENA,,CD,,0,horario,Ativo
+177,JOÃO ANTÔNIO - CORD - 2026,JOÃO ANTÔNIO,,CDR,,0,horario,Ativo
+178,JOÃO ARTHUR - CORD - 2026,JOÃO ARTHUR,,CDR,,0,horario,Ativo
+179,JOÃO NICÁCIO,JOÃO NICÁCIO,História,CDR,,0,manual,Ativo
+180,JOÃO NICÁCIO - JG - 2026,JOÃO NICÁCIO,,JG,,0,horario,Ativo
+181,JULIANA CHAGAS - BV - 2026,JULIANA CHAGAS,,BV,,0,horario,Ativo
+182,JULIANA CHAGAS - TEEN 2 - 2026,JULIANA CHAGAS,,CD,,0,horario,Ativo
+183,JULIANA CHAGAS DA SILVA,JULIANA CHAGAS DA SILVA,Literatura,BV,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",22,diario,Ativo
+184,JULIANA CHAGAS DA SILVA,JULIANA CHAGAS DA SILVA,Química 2,BV,3ª Série - Médio -Turma B Manhã - Boa Viagem,6,diario,Ativo
+185,JULIANA CHAGAS DA SILVA,JULIANA CHAGAS DA SILVA,Literatura,CD,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",22,diario,Ativo
+186,JULIANA CHAGAS DA SILVA,JULIANA CHAGAS DA SILVA,Química 2,CD,3ª Série - Médio -Turma B Manhã - Boa Viagem,6,diario,Ativo
+187,JULIANA CHAGAS DA SILVA,JULIANA CHAGAS DA SILVA,Literatura,JG,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",22,diario,Ativo
+188,JULIANA CHAGAS DA SILVA,JULIANA CHAGAS DA SILVA,Química 2,JG,3ª Série - Médio -Turma B Manhã - Boa Viagem,6,diario,Ativo
+189,JULIANA CHAGAS DA SILVA,JULIANA CHAGAS DA SILVA,Literatura,CDR,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",22,diario,Ativo
+190,JULIANA CHAGAS DA SILVA,JULIANA CHAGAS DA SILVA,Química 2,CDR,3ª Série - Médio -Turma B Manhã - Boa Viagem,6,diario,Ativo
+191,JULIO - ED. FÍSICA - BV - 2026,JULIO - ED. FÍSICA,,BV,,0,horario,Ativo
+192,JÉSSICA FERREIRA - CORD - 2026,JÉSSICA FERREIRA,,CDR,,0,horario,Ativo
+193,KATARINA SILVA - BV - 2026,KATARINA SILVA,,BV,,0,horario,Ativo
+194,KATARINA TAVARES DA SILVA,KATARINA TAVARES DA SILVA,Arte,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma",30,diario,Ativo
+195,KATARINA TAVARES DA SILVA,KATARINA TAVARES DA SILVA,Arte,CD,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma",30,diario,Ativo
+196,KATARINA TAVARES DA SILVA,KATARINA TAVARES DA SILVA,Arte,JG,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma",30,diario,Ativo
+197,KATARINA TAVARES DA SILVA,KATARINA TAVARES DA SILVA,Arte,CDR,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tarde - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma",30,diario,Ativo
+198,LARISSA OLIVEIRA - CORD - 2026,LARISSA OLIVEIRA,,CDR,,0,horario,Ativo
+199,LAURA MARIA - BV - 2026,LAURA MARIA,,BV,,0,horario,Ativo
+200,LAURA MARIA DA HORA ALVES RODRIGUES,LAURA MARIA DA HORA ALVES RODRIGUES,Língua Portuguesa,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem",13,diario,Ativo
+201,LAURA MARIA DA HORA ALVES RODRIGUES,LAURA MARIA DA HORA ALVES RODRIGUES,Língua Portuguesa,CD,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem",13,diario,Ativo
+202,LAURA MARIA DA HORA ALVES RODRIGUES,LAURA MARIA DA HORA ALVES RODRIGUES,Língua Portuguesa,JG,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem",13,diario,Ativo
+203,LAURA MARIA DA HORA ALVES RODRIGUES,LAURA MARIA DA HORA ALVES RODRIGUES,Língua Portuguesa,CDR,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem",13,diario,Ativo
+204,LEILA FERNANDA - TEEN 2 - 2026,LEILA FERNANDA,,CD,,0,horario,Ativo
+205,LEONARDO BORBA,LEONARDO BORBA,Matemática,TEEN 2,,0,manual,Ativo
+206,LEONARDO BORBA - TEEN 2 - 2026,LEONARDO BORBA,,CD,,0,horario,Ativo
+207,LEONARDO JOSE - TEEN 2 - 2026,LEONARDO JOSE,,CD,,0,horario,Ativo
+208,LEONARDO JOSÉ - TEEN 1 - 2026,LEONARDO JOSÉ,,CD,,0,horario,Ativo
+209,LEONARDO MENDES - JG - 2026,LEONARDO MENDES,,JG,,0,horario,Ativo
+210,LIDIANY MOTA - BV - 2026,LIDIANY MOTA,,BV,,0,horario,Ativo
+211,LIDIANY SOARES MOTA TRAVASSOS,LIDIANY SOARES MOTA TRAVASSOS,Língua Estrangeira Inglês,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem",16,diario,Ativo
+212,LIDIANY SOARES MOTA TRAVASSOS,LIDIANY SOARES MOTA TRAVASSOS,Língua Estrangeira Inglês,CD,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem",16,diario,Ativo
+213,LIDIANY SOARES MOTA TRAVASSOS,LIDIANY SOARES MOTA TRAVASSOS,Língua Estrangeira Inglês,JG,"6º Ano - Turma  A Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem",13,diario,Ativo
+214,LIDIANY SOARES MOTA TRAVASSOS,LIDIANY SOARES MOTA TRAVASSOS,Língua Estrangeira Inglês,CDR,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem",16,diario,Ativo
+215,LILIANE TAVEIROS - BV  - 2026,LILIANE TAVEIROS,,BV,,0,horario,Ativo
+216,LILIANE TAVEIROS - TEEN 2 - 2026,LILIANE TAVEIROS,,CD,,0,horario,Ativo
+217,LILIANE TAVEIROS DE LIMA,LILIANE TAVEIROS DE LIMA,Língua Portuguesa,BV,"7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem",26,diario,Ativo
+218,LILIANE TAVEIROS DE LIMA,LILIANE TAVEIROS DE LIMA,Língua Portuguesa,CD,"7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem",26,diario,Ativo
+219,LILIANE TAVEIROS DE LIMA,LILIANE TAVEIROS DE LIMA,Língua Portuguesa,JG,"7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem",26,diario,Ativo
+220,LILIANE TAVEIROS DE LIMA,LILIANE TAVEIROS DE LIMA,Língua Portuguesa,CDR,"7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem",26,diario,Ativo
+221,LORENA DOS SANTOS OLIVEIRA,LORENA DOS SANTOS OLIVEIRA,História,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tard",57,diario,Ativo
+222,LORENA DOS SANTOS OLIVEIRA,LORENA DOS SANTOS OLIVEIRA,História,CD,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tard",57,diario,Ativo
+223,LORENA DOS SANTOS OLIVEIRA,LORENA DOS SANTOS OLIVEIRA,História,JG,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tard",57,diario,Ativo
+224,LORENA DOS SANTOS OLIVEIRA,LORENA DOS SANTOS OLIVEIRA,História,CDR,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma A Tard",57,diario,Ativo
+225,LORENA OLIVEIRA - BV - 2026,LORENA OLIVEIRA,,BV,,0,horario,Ativo
+226,LOURIVAL LUIZ - JG - 2026,LOURIVAL LUIZ,,JG,,0,horario,Ativo
+227,LUANA MARIA - BV - 2026,LUANA MARIA,,BV,,0,horario,Ativo
+228,LUANA MARIA DE ARISTEU VILARIM MORAES,LUANA MARIA DE ARISTEU VILARIM MORAES,Geografia,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma",32,diario,Ativo
+229,LUANA MARIA DE ARISTEU VILARIM MORAES,LUANA MARIA DE ARISTEU VILARIM MORAES,Geografia,CD,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma",32,diario,Ativo
+230,LUANA MARIA DE ARISTEU VILARIM MORAES,LUANA MARIA DE ARISTEU VILARIM MORAES,Geografia,JG,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma",32,diario,Ativo
+231,LUANA MARIA DE ARISTEU VILARIM MORAES,LUANA MARIA DE ARISTEU VILARIM MORAES,Geografia,CDR,"6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem, 8º Ano - Turma A Manhã - Boa Viagem, 8º Ano - Turma B Manhã - Boa Viagem",27,diario,Ativo
+232,LUCAS SENA - CORD - 2026,LUCAS SENA,,CDR,,0,horario,Ativo
+233,LUCIANO LAGOSTA - BV - 2026,LUCIANO LAGOSTA,,BV,,0,horario,Ativo
+234,LUIZ CARLOS FLORO - CORD - 2026,LUIZ CARLOS FLORO,,CDR,,0,horario,Ativo
+235,MABÍLIA - CORD - 2026,MABÍLIA,,CDR,,0,horario,Ativo
+236,MACILEIDE,MACILEIDE,Redação,TEEN 2,,0,manual,Ativo
+237,MARIA CECÍLIA GUERRA CAL,MARIA CECÍLIA GUERRA CAL,Matemática 2,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",11,diario,Ativo
+238,MARIA CECÍLIA GUERRA CAL,MARIA CECÍLIA GUERRA CAL,Física 2,BV,3ª Série - Médio Turma A Manhã - Boa Viagem,2,diario,Ativo
+239,MARIA CECÍLIA GUERRA CAL,MARIA CECÍLIA GUERRA CAL,Matemática 2,CD,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",11,diario,Ativo
+240,MARIA CECÍLIA GUERRA CAL,MARIA CECÍLIA GUERRA CAL,Física 2,CD,3ª Série - Médio Turma A Manhã - Boa Viagem,2,diario,Ativo
+241,MARIA CECÍLIA GUERRA CAL,MARIA CECÍLIA GUERRA CAL,Matemática 2,JG,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",11,diario,Ativo
+242,MARIA CECÍLIA GUERRA CAL,MARIA CECÍLIA GUERRA CAL,Física 2,JG,3ª Série - Médio Turma A Manhã - Boa Viagem,2,diario,Ativo
+243,MARIA CECÍLIA GUERRA CAL,MARIA CECÍLIA GUERRA CAL,Matemática 2,CDR,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - ",11,diario,Ativo
+244,MARIA CECÍLIA GUERRA CAL,MARIA CECÍLIA GUERRA CAL,Física 2,CDR,3ª Série - Médio Turma A Manhã - Boa Viagem,2,diario,Ativo
+245,MARIA DAIANE - CORD - 2026,MARIA DAIANE,,CDR,,0,horario,Ativo
+246,MARIA DAS GRAÇAS - JG - 2026,MARIA DAS GRAÇAS,,JG,,0,horario,Ativo
+247,MAURICIO BRANQUINHO - TEEN 2 - 2026,MAURICIO BRANQUINHO,,CD,,0,horario,Ativo
+248,MONIK - BV - 2026,MONIK,,BV,,0,horario,Ativo
+249,MURILO MONTEIRO,MURILO MONTEIRO,Biologia,JG,,0,manual,Ativo
+250,MÁRCIO PEREIRA - TEEN 2 - 2026,MÁRCIO PEREIRA,,CD,,0,horario,Ativo
+251,MÔNICA BASÍLIO - BV - 2026,MÔNICA BASÍLIO,,BV,,0,horario,Ativo
+252,MÔNICA LA SALVIA - JG - 2026,MÔNICA LA SALVIA,,JG,,0,horario,Ativo
+253,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,Língua Estrangeira Inglês,BV,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",11,diario,Ativo
+254,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,Língua Estrangeira Inglês,CD,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",11,diario,Ativo
+255,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,Língua Estrangeira Inglês,JG,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",11,diario,Ativo
+256,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,Língua Estrangeira Inglês,CDR,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem, 8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",11,diario,Ativo
+257,NATÁLIA MOURA - BV - 2026,NATÁLIA MOURA,,BV,,0,horario,Ativo
+258,NATÁLIA MOURA E SILVA,NATÁLIA MOURA E SILVA,Matemática,BV,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",8,diario,Ativo
+259,NATÁLIA MOURA E SILVA,NATÁLIA MOURA E SILVA,Matemática,CD,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",8,diario,Ativo
+260,NATÁLIA MOURA E SILVA,NATÁLIA MOURA E SILVA,Matemática,JG,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",8,diario,Ativo
+261,NATÁLIA MOURA E SILVA,NATÁLIA MOURA E SILVA,Matemática,CDR,"6º Ano - Turma A Tarde - Boa Viagem, 7º Ano - Turma A Tarde - Boa Viagem",8,diario,Ativo
+262,NATÁLIA OLIVEIRA - TEEN 1 - 2026,NATÁLIA OLIVEIRA,,CD,,0,horario,Ativo
+263,ORDEPE XAVIER - BV - 2026,ORDEPE XAVIER,,BV,,0,horario,Ativo
+264,ORLANDO ALVINO - TEEN 1 - 2026,ORLANDO ALVINO,,CD,,0,horario,Ativo
+265,OTÁVIO MASCENA - BV - 2026,OTÁVIO MASCENA,,BV,,0,horario,Ativo
+266,PAULINE MARIE,PAULINE MARIE,Projeto de Vida,TEEN 2,,0,manual,Ativo
+267,PAULO RODRIGO - BV - 2026,PAULO RODRIGO,,BV,,0,horario,Ativo
+268,PEDRO COSTA,PEDRO COSTA,Matemática,TEEN 2,,0,manual,Ativo
+269,PEDRO COSTA,PEDRO COSTA,Raciocínio Lógico,TEEN 1,,0,manual,Ativo
+270,POLLYANA ROSA - TEEN 1 - 2026,POLLYANA ROSA,,CD,,0,horario,Ativo
+271,PRISCILA BARROS - JG - 2026,PRISCILA BARROS,,JG,,0,horario,Ativo
+272,PROF. 1 - MATEMÁTICA - TEEN 2 - 2026,PROF. 1 - MATEMÁTICA,,CD,,0,horario,Ativo
+273,PROF. 2 - MATEMÁTICA - TEEN 2 - 2026,PROF. 2 - MATEMÁTICA,,CD,,0,horario,Ativo
+274,PROF. 3 - MATEMÁTICA - TEEN 2 - 2026,PROF. 3 - MATEMÁTICA,,CD,,0,horario,Ativo
+275,PROJETO DE VIDA - TEEN 2 - 2026,PROJETO DE VIDA,,CD,,0,horario,Ativo
+276,QUIMICA - BV - 2026,QUIMICA,,BV,,0,horario,Ativo
+277,RACIOCÍNIO LÓGICO - CORD - 2026,RACIOCÍNIO LÓGICO,,CDR,,0,horario,Ativo
+278,RACIOCÍNIO LÓGICO - TEEN 1 - 2026,RACIOCÍNIO LÓGICO,,CD,,0,horario,Ativo
+279,RAFAEL ELOI - JG - 2026,RAFAEL ELOI,,JG,,0,horario,Ativo
+280,RAFAEL LEAL - BV - 2025,RAFAEL LEAL,,BV,,0,horario,Ativo
+281,REDAÇÃO - JG - 2026,REDAÇÃO,,JG,,0,horario,Ativo
+282,REDAÇÃO - TARDE - TEEN 1 - 2026,REDAÇÃO - TARDE,,CD,,0,horario,Ativo
+283,REDAÇÃO - TEEN 1 - 2026,REDAÇÃO,,CD,,0,horario,Ativo
+284,RENATA MIRANDA - JG - 2026,RENATA MIRANDA,,JG,,0,horario,Ativo
+285,RISELDA BARRETO - TEEN 1 - 2026,RISELDA BARRETO,,CD,,0,horario,Ativo
+286,ROMÁRIO PEREIRA - BV - 2026,ROMÁRIO PEREIRA,,BV,,0,horario,Ativo
+287,RUBEM VITÓRIO  - BV - 2026,RUBEM VITÓRIO,,BV,,0,horario,Ativo
+288,SAMARA VASCONCELOS - TEEN 1 - 2026,SAMARA VASCONCELOS,,CD,,0,horario,Ativo
+289,SANDRO CORDEIRO - BV - 2026,SANDRO CORDEIRO,,BV,,0,horario,Ativo
+290,SANDRO CORDEIRO - TEEN 2 - 2026,SANDRO CORDEIRO,,CD,,0,horario,Ativo
+291,SANDRO JOSE DA SILVA CORDEIRO VIANA,SANDRO JOSE DA SILVA CORDEIRO VIANA,Biologia 2,BV,1ª Série - Médio - Turma A Manhã - Boa Viagem,3,diario,Ativo
+292,SANDRO JOSE DA SILVA CORDEIRO VIANA,SANDRO JOSE DA SILVA CORDEIRO VIANA,Biologia,BV,2ª Série - Médio - Turma C Manhã - Boa Viagem,3,diario,Ativo
+293,SANDRO JOSE DA SILVA CORDEIRO VIANA,SANDRO JOSE DA SILVA CORDEIRO VIANA,Biologia 2,CD,1ª Série - Médio - Turma A Manhã - Boa Viagem,3,diario,Ativo
+294,SANDRO JOSE DA SILVA CORDEIRO VIANA,SANDRO JOSE DA SILVA CORDEIRO VIANA,Biologia,CD,2ª Série - Médio - Turma C Manhã - Boa Viagem,3,diario,Ativo
+295,SANDRO JOSE DA SILVA CORDEIRO VIANA,SANDRO JOSE DA SILVA CORDEIRO VIANA,Biologia 2,JG,1ª Série - Médio - Turma A Manhã - Boa Viagem,3,diario,Ativo
+296,SANDRO JOSE DA SILVA CORDEIRO VIANA,SANDRO JOSE DA SILVA CORDEIRO VIANA,Biologia,JG,2ª Série - Médio - Turma C Manhã - Boa Viagem,3,diario,Ativo
+297,SANDRO JOSE DA SILVA CORDEIRO VIANA,SANDRO JOSE DA SILVA CORDEIRO VIANA,Biologia 2,CDR,1ª Série - Médio - Turma A Manhã - Boa Viagem,3,diario,Ativo
+298,SANDRO JOSE DA SILVA CORDEIRO VIANA,SANDRO JOSE DA SILVA CORDEIRO VIANA,Biologia,CDR,2ª Série - Médio - Turma C Manhã - Boa Viagem,3,diario,Ativo
+299,SUELLEN CINTIA - BV - 2026,SUELLEN CINTIA,,BV,,0,horario,Ativo
+300,SUELLEN CINTIA BARBOSA DE OLIVEIRA,SUELLEN CINTIA BARBOSA DE OLIVEIRA,Ciências Naturais,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem",13,diario,Ativo
+301,SUELLEN CINTIA BARBOSA DE OLIVEIRA,SUELLEN CINTIA BARBOSA DE OLIVEIRA,Ciências Naturais,CD,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem",13,diario,Ativo
+302,SUELLEN CINTIA BARBOSA DE OLIVEIRA,SUELLEN CINTIA BARBOSA DE OLIVEIRA,Ciências Naturais,JG,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem",13,diario,Ativo
+303,SUELLEN CINTIA BARBOSA DE OLIVEIRA,SUELLEN CINTIA BARBOSA DE OLIVEIRA,Ciências Naturais,CDR,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem, 7º Ano - Turma A Manhã - Boa Viagem, 7º Ano - Turma B Manhã - Boa Viagem",13,diario,Ativo
+304,SÔNIA MARIA - JG - 2026,SÔNIA MARIA,,JG,,0,horario,Ativo
+305,TATIANA MARQUES - BV - 2026,TATIANA MARQUES,,BV,,0,horario,Ativo
+306,TATIANA MARQUES - TEEN 2 - 2026,TATIANA MARQUES,,CD,,0,horario,Ativo
+307,TATIANA MARQUES DUARTE,TATIANA MARQUES DUARTE,Química,BV,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - M",39,diario,Ativo
+308,TATIANA MARQUES DUARTE,TATIANA MARQUES DUARTE,Química,CD,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - M",39,diario,Ativo
+309,TATIANA MARQUES DUARTE,TATIANA MARQUES DUARTE,Química,JG,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - M",39,diario,Ativo
+310,TATIANA MARQUES DUARTE,TATIANA MARQUES DUARTE,Química,CDR,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - M",39,diario,Ativo
+311,TEDMILSON - CORD - 2026,TEDMILSON,,CDR,,0,horario,Ativo
+312,THAYS LUANNA SIQUEIRA SANTOS,THAYS LUANNA SIQUEIRA SANTOS,Matemática,BV,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem",20,diario,Ativo
+313,THAYS LUANNA SIQUEIRA SANTOS,THAYS LUANNA SIQUEIRA SANTOS,Matemática,CD,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem",20,diario,Ativo
+314,THAYS LUANNA SIQUEIRA SANTOS,THAYS LUANNA SIQUEIRA SANTOS,Matemática,JG,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem",20,diario,Ativo
+315,THAYS LUANNA SIQUEIRA SANTOS,THAYS LUANNA SIQUEIRA SANTOS,Matemática,CDR,"6º Ano - Turma  A Manhã - Boa Viagem, 6º Ano - Turma B Manhã - Boa Viagem",20,diario,Ativo
+316,THAYS SANTOS - BV - 2026,THAYS SANTOS,,BV,,0,horario,Ativo
+317,THIAGO CASTILHO - CORD - 2026,THIAGO CASTILHO,,CDR,,0,horario,Ativo
+318,THIAGO CASTILHO - JG - 2026,THIAGO CASTILHO,,JG,,0,horario,Ativo
+319,TIAGO AUGUSTO - BV - 2026,TIAGO AUGUSTO,,BV,,0,horario,Ativo
+320,TIAGO AUGUSTO - TEEN 2 - 2026,TIAGO AUGUSTO,,CD,,0,horario,Ativo
+321,TIAGO AUGUSTO DA SILVA FERREIRA,TIAGO AUGUSTO DA SILVA FERREIRA,Física 2,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Mé",15,diario,Ativo
+322,TIAGO AUGUSTO DA SILVA FERREIRA,TIAGO AUGUSTO DA SILVA FERREIRA,Física,BV,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem",15,diario,Ativo
+323,TIAGO AUGUSTO DA SILVA FERREIRA,TIAGO AUGUSTO DA SILVA FERREIRA,Física 2,CD,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Mé",15,diario,Ativo
+324,TIAGO AUGUSTO DA SILVA FERREIRA,TIAGO AUGUSTO DA SILVA FERREIRA,Física,CD,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem",15,diario,Ativo
+325,TIAGO AUGUSTO DA SILVA FERREIRA,TIAGO AUGUSTO DA SILVA FERREIRA,Física 2,JG,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Mé",15,diario,Ativo
+326,TIAGO AUGUSTO DA SILVA FERREIRA,TIAGO AUGUSTO DA SILVA FERREIRA,Física,JG,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem",15,diario,Ativo
+327,TIAGO AUGUSTO DA SILVA FERREIRA,TIAGO AUGUSTO DA SILVA FERREIRA,Física 2,CDR,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem, 3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Mé",15,diario,Ativo
+328,TIAGO AUGUSTO DA SILVA FERREIRA,TIAGO AUGUSTO DA SILVA FERREIRA,Física,CDR,"2ª Série - Médio  - Turma B Manhã - Boa Viagem, 2ª Série - Médio - Turma A Manhã - Boa Viagem, 2ª Série - Médio - Turma C Manhã - Boa Viagem",15,diario,Ativo
+329,UBIRACIR,UBIRACIR,Matemática,TEEN 2,,0,manual,Ativo
+330,VALDÉRIO ALEXANDRE - JG - 2026,VALDÉRIO ALEXANDRE,,JG,,0,horario,Ativo
+331,VANESSA CASSIMIRO - TEEN 1 - 2026,VANESSA CASSIMIRO,,CD,,0,horario,Ativo
+332,VERIDIANA ROCHA - BV - 2026,VERIDIANA ROCHA,,BV,,0,horario,Ativo
+333,VERIDIANA ROCHA - TEEN 2 - 2026,VERIDIANA ROCHA,,CD,,0,horario,Ativo
+334,VICTOR CALDAS - BV - 2025,VICTOR CALDAS,,BV,,0,horario,Ativo
+335,VICTOR CALDAS - TEEN 2 - 2026,VICTOR CALDAS,,CD,,0,horario,Ativo
+336,VICTOR CALDAS DE CARVALHO,VICTOR CALDAS DE CARVALHO,Matemática,BV,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",4,diario,Ativo
+337,VICTOR CALDAS DE CARVALHO,VICTOR CALDAS DE CARVALHO,Matemática,CD,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",4,diario,Ativo
+338,VICTOR CALDAS DE CARVALHO,VICTOR CALDAS DE CARVALHO,Matemática,JG,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",4,diario,Ativo
+339,VICTOR CALDAS DE CARVALHO,VICTOR CALDAS DE CARVALHO,Matemática,CDR,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",4,diario,Ativo
+340,WANDRESSON ROCHA - BV - 2026,WANDRESSON ROCHA,,BV,,0,horario,Ativo
+341,WELLINGTON JESUS - TEEN 2 - 2026,WELLINGTON JESUS,,CD,,0,horario,Ativo
+342,WENDELL ROMELL - CORD - 2026,WENDELL ROMELL,,CDR,,0,horario,Ativo
+343,WILLIAM MACIEL - BV - 2026,WILLIAM MACIEL,,BV,,0,horario,Ativo
+344,WILLIAM MACIEL - TEEN 2 - 2026,WILLIAM MACIEL,,CD,,0,horario,Ativo
+345,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Língua Portuguesa,BV,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",24,diario,Ativo
+346,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Literatura,BV,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem",22,diario,Ativo
+347,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Gramática,BV,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",12,diario,Ativo
+348,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Língua Portuguesa,CD,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",24,diario,Ativo
+349,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Literatura,CD,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem",22,diario,Ativo
+350,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Gramática,CD,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",12,diario,Ativo
+351,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Língua Portuguesa,JG,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",24,diario,Ativo
+352,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Literatura,JG,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem",22,diario,Ativo
+353,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Gramática,JG,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",12,diario,Ativo
+354,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Língua Portuguesa,CDR,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",24,diario,Ativo
+355,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Literatura,CDR,"1ª Série - Médio - Turma A Manhã - Boa Viagem, 1ª Série - Médio - Turma B Manhã - Boa Viagem, 1ª Série - Médio - Turma C Manhã - Boa Viagem",22,diario,Ativo
+356,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,Gramática,CDR,"3ª Série - Médio -Turma B Manhã - Boa Viagem, 3ª Série - Médio Turma A Manhã - Boa Viagem",12,diario,Ativo
+357,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,História,BV,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",14,diario,Ativo
+358,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,História,CD,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",14,diario,Ativo
+359,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,História,JG,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",14,diario,Ativo
+360,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,História,CDR,"8º Ano - Turma A Tarde - Boa Viagem, 9º Ano - Turma A Tarde - Boa Viagem",14,diario,Ativo
+361,WILLIAMS RODRIGUES - BV - 2026,WILLIAMS RODRIGUES,,BV,,0,horario,Ativo
+362,WILLIAMS RODRIGUES - TEEN 1 - 2026,WILLIAMS RODRIGUES,,CD,,0,horario,Ativo

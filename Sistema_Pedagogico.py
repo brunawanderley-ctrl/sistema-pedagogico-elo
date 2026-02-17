@@ -22,6 +22,7 @@ from utils import (
     calcular_semana_letiva, calcular_capitulo_esperado, calcular_trimestre, filtrar_ate_hoje, _hoje, UNIDADES_NOMES
 )
 
+
 # Configuração da página (DEVE ser a primeira chamada Streamlit)
 st.set_page_config(
     page_title="Sistema Pedagógico ELO 2026",
@@ -29,6 +30,19 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+
+# ========== SCHEDULER: ATUALIZAÇÃO AUTOMÁTICA ==========
+@st.cache_resource
+def _iniciar_scheduler():
+    """Inicia o scheduler de atualizacao automatica (roda 1x por processo)."""
+    if os.environ.get("SIGA_SENHA"):
+        from scheduler import iniciar_scheduler
+        iniciar_scheduler()
+        return True
+    return False
+
+_scheduler_ativo = _iniciar_scheduler()
 
 # ========== SESSION STATE: INICIALIZAÇÃO DE VARIÁVEIS COMUNS ==========
 if 'semana_atual' not in st.session_state:
@@ -48,33 +62,72 @@ _aulas_path = DATA_DIR / "fato_Aulas.csv"
 
 with st.sidebar:
     st.subheader("Atualizar Dados")
-    st.caption(f"Última atualização: {ultima_atualizacao()}")
+    st.caption(f"Ultima atualizacao: {ultima_atualizacao()}")
 
-    if not is_cloud():
-        if st.button("Atualizar Diário de Classe", type="primary", key="btn_atualizar_home"):
-            _script_path = Path(__file__).parent / "atualizar_siga.py"
-            _env = os.environ.copy()
-            try:
-                _env["SIGA_SENHA"] = st.secrets["siga"]["senha"]
-            except (KeyError, FileNotFoundError):
-                pass
-            with st.spinner("Atualizando dados do SIGA..."):
-                _result = subprocess.run(
-                    ["python3", str(_script_path)],
-                    capture_output=True,
-                    text=True,
-                    timeout=300,
-                    cwd=str(Path(__file__).parent),
-                    env=_env,
-                )
-            if _result.returncode == 0:
-                st.success("Dados atualizados com sucesso!")
-                st.rerun()
+    # Botao de atualizacao manual (funciona local E no Render)
+    _tem_senha = bool(os.environ.get("SIGA_SENHA"))
+    if not _tem_senha:
+        try:
+            _tem_senha = bool(st.secrets.get("siga", {}).get("senha"))
+        except (FileNotFoundError, AttributeError):
+            pass
+
+    if _tem_senha:
+        if not is_cloud():
+            # Local: roda via subprocess (como antes)
+            if st.button("Atualizar Diario de Classe", type="primary", key="btn_atualizar_home"):
+                _script_path = Path(__file__).parent / "atualizar_siga.py"
+                _env = os.environ.copy()
+                try:
+                    _env["SIGA_SENHA"] = st.secrets["siga"]["senha"]
+                except (KeyError, FileNotFoundError):
+                    pass
+                with st.spinner("Atualizando dados do SIGA..."):
+                    _result = subprocess.run(
+                        ["python3", str(_script_path)],
+                        capture_output=True,
+                        text=True,
+                        timeout=300,
+                        cwd=str(Path(__file__).parent),
+                        env=_env,
+                    )
+                if _result.returncode == 0:
+                    st.success("Dados atualizados com sucesso!")
+                    st.rerun()
+                else:
+                    st.error("Erro na atualizacao:")
+                    st.code(_result.stderr or _result.stdout, language="text")
+        else:
+            # Render/Cloud: roda via scheduler em thread
+            from scheduler import executar_agora, is_running, ultimo_resultado, proxima_execucao
+
+            if is_running():
+                st.info("Atualizacao em andamento...")
             else:
-                st.error("Erro na atualização:")
-                st.code(_result.stderr or _result.stdout, language="text")
+                if st.button("Atualizar Diario de Classe", type="primary", key="btn_atualizar_home"):
+                    if executar_agora():
+                        st.success("Atualizacao iniciada! Aguarde ~2 min e recarregue a pagina.")
+                    else:
+                        st.warning("Ja existe uma atualizacao em andamento.")
+
+            # Status do scheduler
+            _ult = ultimo_resultado()
+            if _ult.get("timestamp"):
+                _ts = _ult["timestamp"].strftime("%d/%m %H:%M")
+                if _ult["ok"]:
+                    st.caption(f"Ultima auto: {_ts} ({_ult['total']} aulas)")
+                else:
+                    st.caption(f"Ultima auto: {_ts} (ERRO: {_ult.get('erro', '?')})")
+
+            _prox = proxima_execucao()
+            if _prox:
+                st.caption(f"Proxima auto: {_prox.strftime('%H:%M')}")
     else:
-        st.info("Atualização de dados disponível apenas localmente.")
+        st.info("Configure SIGA_SENHA para habilitar atualizacoes.")
+
+    # Indicador do scheduler
+    if _scheduler_ativo:
+        st.caption("Scheduler ativo: 8h, 12h, 18h, 20h")
 
     st.markdown("---")
 
