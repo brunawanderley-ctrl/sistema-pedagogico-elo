@@ -2,9 +2,9 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Instala dependencias Python
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Instala dependencias Python (Render usa requirements-render.txt com playwright)
+COPY requirements-render.txt .
+RUN pip install --no-cache-dir -r requirements-render.txt
 
 # Instala Chromium + dependencias de sistema para Playwright
 RUN playwright install --with-deps chromium
