@@ -1,0 +1,282 @@
+﻿professor_normalizado,professor_nome,unidade,disciplina,serie,aulas_registradas,aulas_esperadas_semana,aulas_esperadas_ate_agora,pct_conformidade,pct_qualidade_conteudo,pct_uso_tarefas,cap_mais_recente,tem_sae,gap_alinhamento,pct_alinhamento,score_composto,classificacao,quadrante
+ADRIANA RODRIGUES ALVES,Adriana Rodrigues Alves,CDR,Arte,1ª Série,1,1.0,4.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+ADRIANA RODRIGUES ALVES,Adriana Rodrigues Alves,CDR,Arte,2ª Série,2,1.0,4.0,50.0,100.0,100.0,1.0,True,-1.0,75.0,73.8,Bom,Q2 - Registra pouco
+ADRIANA RODRIGUES ALVES,Adriana Rodrigues Alves,CDR,Arte,3ª Série,1,1.0,4.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+ADRIANA RODRIGUES ALVES,Adriana Rodrigues Alves,CDR,Arte,7º Ano,6,3.0,12.0,50.0,100.0,100.0,1.0,True,-1.0,75.0,73.8,Bom,Q2 - Registra pouco
+ADRIANA RODRIGUES ALVES,Adriana Rodrigues Alves,CDR,Projeto de Vida,9º Ano,3,2.0,8.0,37.5,100.0,100.0,,False,,,59.4,Atenção,Q2 - Registra pouco
+ADRIANA RODRIGUES ALVES,Adriana Rodrigues Alves,JG,Redação,3ª Série,2,3.0,12.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+ADRIANA RODRIGUES ALVES,Adriana Rodrigues Alves,JG,Redação,9º Ano,2,4.0,16.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+ADRIANO DO NASCIMENTO ARAUJO FILHO,Adriano do Nascimento Araujo Filho,CDR,História,6º Ano,2,4.0,16.0,12.5,100.0,100.0,1.0,True,-1.0,75.0,58.8,Atenção,Q2 - Registra pouco
+ADRIANO DO NASCIMENTO ARAUJO FILHO,Adriano do Nascimento Araujo Filho,CDR,História,7º Ano,15,9.0,36.0,41.7,100.0,100.0,1.0,True,-1.0,75.0,70.4,Bom,Q2 - Registra pouco
+ADRIANO DO NASCIMENTO ARAUJO FILHO,Adriano do Nascimento Araujo Filho,CDR,História,8º Ano,5,6.0,24.0,20.8,100.0,100.0,1.0,True,-1.0,75.0,62.1,Atenção,Q2 - Registra pouco
+ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,BV,Filosofia,6º Ano,9,3.0,12.0,75.0,100.0,100.0,1.0,True,-1.0,75.0,83.8,Bom,Q1 - Excelente
+ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,BV,Filosofia,7º Ano,9,3.0,12.0,75.0,100.0,100.0,,True,,,83.8,Bom,Q1 - Excelente
+ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,BV,Filosofia,8º Ano,8,3.0,12.0,66.7,100.0,100.0,1.0,True,-1.0,75.0,80.4,Bom,Q2 - Registra pouco
+ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,BV,Filosofia,9º Ano,3,3.0,12.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,CD,Filosofia,6º Ano,6,3.0,12.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,CD,Filosofia,7º Ano,6,3.0,12.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+ADRIANO DO NASCIMENTO ARAÚJO FILHO,ADRIANO DO NASCIMENTO ARAÚJO FILHO,CD,Filosofia,8º Ano,2,3.0,12.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+ADRIANO NUNES DA SILVA TAVARES,Adriano Nunes Da silva Tavares,JG,Educação Física,6º Ano,2,3.0,12.0,16.7,100.0,100.0,,False,,,45.8,Crítico,Q2 - Registra pouco
+ADRIANO NUNES DA SILVA TAVARES,Adriano Nunes Da silva Tavares,JG,Educação Física,8º Ano,1,3.0,12.0,8.3,100.0,100.0,,False,,,40.4,Crítico,Q2 - Registra pouco
+ADRIANO RODRIGUES CORREIA,ADRIANO RODRIGUES CORREIA,CDR,Filosofia,1ª Série,2,1.0,4.0,50.0,100.0,0.0,,True,,,52.5,Atenção,Q2 - Registra pouco
+ADRIANO RODRIGUES CORREIA,ADRIANO RODRIGUES CORREIA,CDR,Filosofia,2ª Série,2,1.0,4.0,50.0,100.0,0.0,1.0,True,-1.0,75.0,58.8,Atenção,Q2 - Registra pouco
+ADRIANO RODRIGUES CORREIA,ADRIANO RODRIGUES CORREIA,CDR,Filosofia,3ª Série,2,1.0,4.0,50.0,100.0,0.0,,True,,,52.5,Atenção,Q2 - Registra pouco
+ADRIANO RODRIGUES CORREIA,ADRIANO RODRIGUES CORREIA,CDR,Filosofia,6º Ano,4,2.0,8.0,50.0,100.0,0.0,1.0,True,-1.0,75.0,58.8,Atenção,Q2 - Registra pouco
+ADRIANO RODRIGUES CORREIA,ADRIANO RODRIGUES CORREIA,CDR,Filosofia,7º Ano,6,3.0,12.0,50.0,100.0,50.0,1.0,True,-1.0,75.0,66.2,Atenção,Q2 - Registra pouco
+ADRIANO RODRIGUES CORREIA,ADRIANO RODRIGUES CORREIA,CDR,Filosofia,8º Ano,4,2.0,8.0,50.0,100.0,25.0,1.0,True,-1.0,75.0,62.5,Atenção,Q2 - Registra pouco
+ADRIANO RODRIGUES CORREIA,ADRIANO RODRIGUES CORREIA,CDR,Filosofia,9º Ano,4,2.0,8.0,50.0,100.0,0.0,1.0,True,-1.0,75.0,58.8,Atenção,Q2 - Registra pouco
+ADRIANO RODRIGUES CORREIA,ADRIANO RODRIGUES CORREIA,CDR,Sociologia,1ª Série,2,1.0,4.0,50.0,100.0,0.0,,True,,,52.5,Atenção,Q2 - Registra pouco
+ADRIANO RODRIGUES CORREIA,ADRIANO RODRIGUES CORREIA,CDR,Sociologia,2ª Série,2,1.0,4.0,50.0,100.0,0.0,1.0,True,-1.0,75.0,58.8,Atenção,Q2 - Registra pouco
+ADRIANO RODRIGUES CORREIA,ADRIANO RODRIGUES CORREIA,CDR,Sociologia,3ª Série,1,1.0,4.0,25.0,100.0,0.0,1.0,True,-1.0,75.0,48.8,Crítico,Q2 - Registra pouco
+ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,BV,Língua Portuguesa,6º Ano,10,12.0,48.0,20.8,100.0,100.0,1.0,True,-1.0,75.0,62.1,Atenção,Q2 - Registra pouco
+ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,BV,Língua Portuguesa,7º Ano,9,12.0,48.0,18.8,100.0,100.0,,True,,,47.2,Crítico,Q2 - Registra pouco
+ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,BV,Redação,6º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+ALBA VALÉRIA BARBOSA GOMES,ALBA VALÉRIA BARBOSA GOMES,BV,Redação,7º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+ALYSSON LOPES DO NASCIMENTO,ALYSSON LOPES DO NASCIMENTO,JG,Matemática,6º Ano,16,12.0,48.0,33.3,100.0,87.5,,True,,,54.8,Atenção,Q2 - Registra pouco
+ALYSSON LOPES DO NASCIMENTO,ALYSSON LOPES DO NASCIMENTO,JG,Raciocínio Lógico,6º Ano,2,3.0,12.0,16.7,100.0,50.0,,False,,,38.3,Crítico,Q2 - Registra pouco
+ALYSSON LOPES DO NASCIMENTO,ALYSSON LOPES DO NASCIMENTO,JG,Raciocínio Lógico,7º Ano,4,2.0,8.0,50.0,100.0,0.0,,False,,,52.5,Atenção,Q2 - Registra pouco
+ALYSSON LOPES DO NASCIMENTO,ALYSSON LOPES DO NASCIMENTO,JG,Raciocínio Lógico,8º Ano,4,3.0,12.0,33.3,100.0,0.0,,False,,,41.7,Crítico,Q2 - Registra pouco
+ALYSSON LOPES DO NASCIMENTO,ALYSSON LOPES DO NASCIMENTO,JG,Raciocínio Lógico,9º Ano,4,2.0,8.0,50.0,100.0,0.0,,False,,,52.5,Atenção,Q2 - Registra pouco
+ANDRÉ LACERDA BATISTA,ANDRÉ LACERDA BATISTA,CDR,Língua Estrangeira Inglês,1ª Série,2,1.0,4.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+ANDRÉ LACERDA BATISTA,ANDRÉ LACERDA BATISTA,CDR,Língua Estrangeira Inglês,2ª Série,2,1.0,4.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+ANDRÉ LACERDA BATISTA,ANDRÉ LACERDA BATISTA,CDR,Língua Estrangeira Inglês,3ª Série,1,1.0,4.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+ANDRÉ LACERDA BATISTA,ANDRÉ LACERDA BATISTA,CDR,Língua Estrangeira Inglês,8º Ano,6,4.0,16.0,37.5,100.0,100.0,,True,,,59.4,Atenção,Q2 - Registra pouco
+ANDRÉ LACERDA BATISTA,ANDRÉ LACERDA BATISTA,CDR,Língua Estrangeira Inglês,9º Ano,6,4.0,16.0,37.5,100.0,100.0,,True,,,59.4,Atenção,Q2 - Registra pouco
+ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,BV,Gramática,1ª Série,10,6.0,24.0,41.7,100.0,100.0,1.0,True,-1.0,75.0,70.4,Bom,Q2 - Registra pouco
+ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,BV,Redação,7º Ano,8,6.0,24.0,33.3,100.0,100.0,1.0,True,-1.0,75.0,67.1,Atenção,Q2 - Registra pouco
+ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,BV,Redação,8º Ano,4,6.0,24.0,16.7,100.0,100.0,1.0,True,-1.0,75.0,60.4,Atenção,Q2 - Registra pouco
+ARLINE WILMA VASCONCELOS,ARLINE WILMA VASCONCELOS,CD,Língua Portuguesa,7º Ano,16,12.0,48.0,33.3,100.0,100.0,1.0,True,-1.0,75.0,67.1,Atenção,Q2 - Registra pouco
+BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,BV,Ciências Naturais,8º Ano,4,9.0,36.0,11.1,100.0,100.0,,True,,,42.2,Crítico,Q2 - Registra pouco
+BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,CD,Biologia,2ª Série,9,9.0,36.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,BARTIRA VICTORIA DANTAS DA ROCHA BARBOSA,CD,Ciências Naturais,7º Ano,6,9.0,36.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BV,História,2ª Série,12,9.0,36.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BV,História,9º Ano,11,9.0,36.0,30.6,100.0,100.0,,True,,,54.9,Atenção,Q2 - Registra pouco
+BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,CDR,História,1ª Série,2,3.0,12.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,CDR,História,2ª Série,4,3.0,12.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,BARTOLOMEU JOSÉ DOS SANTOS JÚNIOR,CDR,História,6º Ano,4,4.0,16.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+BEATRIZ MAGALHÃES FÉLIX,BEATRIZ MAGALHÃES FÉLIX,BV,Matemática,1ª Série,2,12.0,48.0,4.2,100.0,100.0,,True,,,37.7,Crítico,Q2 - Registra pouco
+BEATRIZ MAGALHÃES FÉLIX,BEATRIZ MAGALHÃES FÉLIX,BV,Matemática,2ª Série,3,12.0,48.0,6.2,100.0,100.0,,True,,,39.1,Crítico,Q2 - Registra pouco
+BEATRIZ MAGALHÃES FÉLIX,BEATRIZ MAGALHÃES FÉLIX,BV,Matemática,7º Ano,11,12.0,48.0,22.9,100.0,100.0,2.0,True,0.0,100.0,69.2,Atenção,Q2 - Registra pouco
+BEATRIZ MAGALHÃES FÉLIX,BEATRIZ MAGALHÃES FÉLIX,BV,Matemática,9º Ano,3,5.0,20.0,15.0,100.0,100.0,,True,,,44.8,Crítico,Q2 - Registra pouco
+BRUNA ISABELLE MAIA SALES,Bruna Isabelle Maia Sales,JG,Língua Portuguesa,6º Ano,4,12.0,48.0,8.3,100.0,100.0,,True,,,40.4,Crítico,Q2 - Registra pouco
+BRUNA ISABELLE MAIA SALES,Bruna Isabelle Maia Sales,JG,Língua Portuguesa,7º Ano,9,8.0,32.0,28.1,100.0,100.0,,True,,,53.3,Atenção,Q2 - Registra pouco
+BRUNA ISABELLE MAIA SALES,Bruna Isabelle Maia Sales,JG,Língua Portuguesa,8º Ano,11,12.0,48.0,22.9,100.0,100.0,,True,,,49.9,Crítico,Q2 - Registra pouco
+BÁRBARA FELIX CORREIA,Bárbara Felix Correia,CDR,Literatura,1ª Série,1,2.0,8.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+BÁRBARA FELIX CORREIA,Bárbara Felix Correia,CDR,Literatura,2ª Série,2,2.0,8.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+BÁRBARA FELIX CORREIA,Bárbara Felix Correia,CDR,Literatura,3ª Série,2,2.0,8.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+BÁRBARA FELIX CORREIA,Bárbara Felix Correia,CDR,Língua Portuguesa,9º Ano,12,8.0,32.0,37.5,100.0,100.0,,True,,,59.4,Atenção,Q2 - Registra pouco
+CARLA VERONICA BELO DE SANTANA,CARLA VERONICA BELO DE SANTANA,BV,Matemática,8º Ano,9,5.0,20.0,45.0,100.0,100.0,,True,,,64.2,Atenção,Q2 - Registra pouco
+CARLA VERONICA BELO DE SANTANA,CARLA VERONICA BELO DE SANTANA,BV,Matemática,9º Ano,10,5.0,20.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,BV,Língua Portuguesa,9º Ano,8,12.0,48.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,BV,Redação,8º Ano,6,6.0,24.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+DANILO LUCENA CHAGAS,DANILO LUCENA CHAGAS,BV,Redação,9º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+DIELLEN BEATRIZ DE SOUZA MELO,DIELLEN BEATRIZ DE SOUZA MELO,BV,Redação,1ª Série,11,6.0,24.0,45.8,100.0,100.0,,True,,,64.8,Atenção,Q2 - Registra pouco
+DIELLEN BEATRIZ DE SOUZA MELO,DIELLEN BEATRIZ DE SOUZA MELO,BV,Redação,2ª Série,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+DIELLEN BEATRIZ DE SOUZA MELO,Diellen Beatriz de Souza Melo,CD,Redação,6º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+DIELLEN BEATRIZ DE SOUZA MELO,Diellen Beatriz de Souza Melo,CD,Redação,7º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+DIELLEN BEATRIZ DE SOUZA MELO,Diellen Beatriz de Souza Melo,CD,Redação,9º Ano,8,6.0,24.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+DOUGLAS MENDES DE BRITO,Douglas Mendes de Brito ,CDR,Matemática,1ª Série,8,4.0,16.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+DOUGLAS MENDES DE BRITO,Douglas Mendes de Brito ,CDR,Matemática,2ª Série,8,4.0,16.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+DOUGLAS MENDES DE BRITO,Douglas Mendes de Brito ,CDR,Matemática,3ª Série,10,5.0,20.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+DULCIMAR MODESTO DE ARAÚJO,Dulcimar Modesto de Araújo,JG,Biologia,1ª Série,6,6.0,24.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+DULCIMAR MODESTO DE ARAÚJO,Dulcimar Modesto de Araújo,JG,Biologia,2ª Série,8,6.0,24.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+DULCIMAR MODESTO DE ARAÚJO,Dulcimar Modesto de Araújo,JG,Biologia,9º Ano,3,2.0,8.0,37.5,100.0,100.0,,True,,,59.4,Atenção,Q2 - Registra pouco
+DULCIMAR MODESTO DE ARAÚJO,Dulcimar Modesto de Araújo,JG,Ciências Naturais,6º Ano,11,9.0,36.0,30.6,100.0,100.0,1.0,True,-1.0,75.0,66.0,Atenção,Q2 - Registra pouco
+ELANE SANTOS DE OLIVEIRA,ELANE SANTOS DE OLIVEIRA,BV,Química,9º Ano,2,3.0,12.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+ELIAS GABRIEL BEZERRA DOS SANTOS,Elias Gabriel Bezerra dos Santos,JG,Educação Física,2ª Série,2,2.0,8.0,25.0,100.0,100.0,,False,,,51.2,Atenção,Q2 - Registra pouco
+ELIAS GABRIEL BEZERRA DOS SANTOS,Elias Gabriel Bezerra dos Santos,JG,Educação Física,3ª Série,1,1.0,4.0,25.0,100.0,100.0,,False,,,51.2,Atenção,Q2 - Registra pouco
+ELIAS GABRIEL BEZERRA DOS SANTOS,Elias Gabriel Bezerra dos Santos,JG,Educação Física,6º Ano,2,3.0,12.0,16.7,100.0,100.0,,False,,,45.8,Crítico,Q2 - Registra pouco
+ELIAS GABRIEL BEZERRA DOS SANTOS,Elias Gabriel Bezerra dos Santos,JG,Educação Física,7º Ano,1,2.0,8.0,12.5,100.0,100.0,,False,,,43.1,Crítico,Q2 - Registra pouco
+ELIAS GABRIEL BEZERRA DOS SANTOS,Elias Gabriel Bezerra dos Santos,JG,Educação Física,8º Ano,2,3.0,12.0,16.7,100.0,100.0,,False,,,45.8,Crítico,Q2 - Registra pouco
+ELIAS GABRIEL BEZERRA DOS SANTOS,Elias Gabriel Bezerra dos Santos,JG,Educação Física,9º Ano,2,2.0,8.0,25.0,100.0,100.0,,False,,,51.2,Atenção,Q2 - Registra pouco
+ELINALDO SOARES DA SILVA FILHO,Elinaldo Soares da Silva Filho,CDR,Educação Física,6º Ano,4,2.0,8.0,50.0,100.0,100.0,,False,,,67.5,Atenção,Q2 - Registra pouco
+EMANUEL MACHADO GONÇALVES,EMANUEL MACHADO GONÇALVES,JG,Língua Portuguesa,6º Ano,8,12.0,48.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+EMANUEL MACHADO GONÇALVES,EMANUEL MACHADO GONÇALVES,JG,Redação,6º Ano,3,6.0,24.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+EMANUEL MACHADO GONÇALVES,EMANUEL MACHADO GONÇALVES,JG,Redação,8º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+FABIANE ANDREZA RODRIGUES DE MORAIS,FABIANE ANDREZA RODRIGUES DE MORAIS,CDR,Ciências Naturais,6º Ano,12,6.0,24.0,50.0,100.0,8.3,,True,,,53.7,Atenção,Q2 - Registra pouco
+FABIANE ANDREZA RODRIGUES DE MORAIS,FABIANE ANDREZA RODRIGUES DE MORAIS,CDR,Ciências Naturais,7º Ano,18,9.0,36.0,50.0,100.0,0.0,,True,,,52.5,Atenção,Q2 - Registra pouco
+FABIANE ANDREZA RODRIGUES DE MORAIS,FABIANE ANDREZA RODRIGUES DE MORAIS,CDR,Ciências Naturais,8º Ano,12,6.0,24.0,50.0,100.0,0.0,,True,,,52.5,Atenção,Q2 - Registra pouco
+FAGNER DE PAULA CARDOSO DE FARIAS,FAGNER DE PAULA CARDOSO DE FARIAS,CD,Geografia,6º Ano,6,6.0,24.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+FAGNER DE PAULA CARDOSO DE FARIAS,FAGNER DE PAULA CARDOSO DE FARIAS,CD,Geografia,7º Ano,7,6.0,24.0,29.2,100.0,100.0,,True,,,54.0,Atenção,Q2 - Registra pouco
+FAGNER DE PAULA CARDOSO DE FARIAS,FAGNER DE PAULA CARDOSO DE FARIAS,CD,Geografia,8º Ano,1,4.0,16.0,6.2,100.0,100.0,,True,,,39.1,Crítico,Q2 - Registra pouco
+FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,BV,Filosofia,3ª Série,4,2.0,8.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,BV,Sociologia,3ª Série,2,2.0,8.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,CDR,História,3ª Série,2,1.0,4.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+FILIPE SILAS DO NASCIMENTO CARVALHO,FILIPE SILAS DO NASCIMENTO CARVALHO,CDR,História,8º Ano,2,6.0,24.0,8.3,100.0,100.0,,True,,,40.4,Crítico,Q2 - Registra pouco
+FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,BV,Geografia,6º Ano,2,6.0,24.0,8.3,100.0,100.0,,True,,,40.4,Crítico,Q2 - Registra pouco
+FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,BV,Geografia,7º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,BV,Geografia,8º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,BV,Geografia,9º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,CDR,Geografia,1ª Série,4,2.0,8.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,CDR,Geografia,2ª Série,4,2.0,8.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,CDR,Geografia,3ª Série,4,3.0,12.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,JG,Geografia,6º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+FLAVIO NASCIMENTO DE VASCONCELOS,FLAVIO NASCIMENTO DE VASCONCELOS,JG,Geografia,8º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+FLORO JUNIOR,Floro Junior,CDR,Língua Portuguesa,6º Ano,24,8.0,32.0,75.0,66.7,66.7,,True,,,72.1,Bom,Q1 - Excelente
+FLORO JUNIOR,Floro Junior,CDR,Língua Portuguesa,8º Ano,26,8.0,32.0,81.2,69.2,69.2,,True,,,77.0,Bom,Q1 - Excelente
+FLORO JUNIOR,Floro Junior,CDR,Redação,6º Ano,12,4.0,16.0,75.0,66.7,66.7,,True,,,72.1,Bom,Q1 - Excelente
+FLORO JUNIOR,Floro Junior,CDR,Redação,8º Ano,12,4.0,16.0,75.0,66.7,66.7,,True,,,72.1,Bom,Q1 - Excelente
+GABRIELA MEDEIROS,Gabriela Medeiros,CDR,Gramática,1ª Série,1,2.0,8.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+GABRIELA MEDEIROS,Gabriela Medeiros,CDR,Gramática,2ª Série,1,2.0,8.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+GABRIELA MEDEIROS,Gabriela Medeiros,CDR,Gramática,3ª Série,1,2.0,8.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+HENRIQUE HERMÍNIO DE OLIVEIRA,Henrique Hermínio de Oliveira,CD,Educação Física,6º Ano,6,3.0,12.0,50.0,100.0,100.0,,False,,,67.5,Atenção,Q2 - Registra pouco
+HENRIQUE HERMÍNIO DE OLIVEIRA,Henrique Hermínio de Oliveira,CD,Educação Física,7º Ano,6,3.0,12.0,50.0,100.0,100.0,,False,,,67.5,Atenção,Q2 - Registra pouco
+HENRIQUE HERMÍNIO DE OLIVEIRA,Henrique Hermínio de Oliveira,CD,Educação Física,8º Ano,4,3.0,12.0,33.3,100.0,100.0,,False,,,56.7,Atenção,Q2 - Registra pouco
+ISMAELENE MARIA SOUZA DOS SANTOS, Ismaelene Maria Souza dos Santos,CD,Filosofia,8º Ano,4,3.0,12.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,BV,Biologia,9º Ano,2,3.0,12.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,BV,Ciências Naturais,6º Ano,5,9.0,36.0,13.9,100.0,100.0,,True,,,44.0,Crítico,Q2 - Registra pouco
+IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,BV,Ciências Naturais,7º Ano,4,9.0,36.0,11.1,100.0,100.0,,True,,,42.2,Crítico,Q2 - Registra pouco
+IVALDO IVAN DOS SANTOS,IVALDO IVAN DOS SANTOS,BV,Ciências Naturais,8º Ano,6,9.0,36.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+IVSON SANTOS,IVSON SANTOS,BV,Geografia,1ª Série,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+IVSON SANTOS,IVSON SANTOS,BV,Geografia,2ª Série,4,6.0,24.0,16.7,100.0,100.0,1.0,True,-1.0,75.0,60.4,Atenção,Q2 - Registra pouco
+IVSON SANTOS,IVSON SANTOS,BV,Geografia,9º Ano,4,6.0,24.0,16.7,100.0,100.0,1.0,True,-1.0,75.0,60.4,Atenção,Q2 - Registra pouco
+JAMES MARCIO DE ARAÚJO,James Marcio de Araújo,JG,Matemática,1ª Série,6,8.0,32.0,18.8,83.3,83.3,,True,,,41.3,Crítico,Q2 - Registra pouco
+JAMES MARCIO DE ARAÚJO,James Marcio de Araújo,JG,Matemática,2ª Série,6,8.0,32.0,18.8,100.0,100.0,,True,,,47.2,Crítico,Q2 - Registra pouco
+JAMES MARCIO DE ARAÚJO,James Marcio de Araújo,JG,Matemática,9º Ano,8,10.0,40.0,20.0,100.0,100.0,,True,,,48.0,Crítico,Q2 - Registra pouco
+JOANA CRISTINA SOUZA DO NASCIMENTO ROSA,Joana Cristina Souza do Nascimento Rosa,JG,Arte,1ª Série,1,2.0,8.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+JOANA CRISTINA SOUZA DO NASCIMENTO ROSA,Joana Cristina Souza do Nascimento Rosa,JG,Arte,2ª Série,2,2.0,8.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+JOANA CRISTINA SOUZA DO NASCIMENTO ROSA,Joana Cristina Souza do Nascimento Rosa,JG,História,7º Ano,7,6.0,24.0,29.2,100.0,100.0,,True,,,54.0,Atenção,Q2 - Registra pouco
+JOANA CRISTINA SOUZA DO NASCIMENTO ROSA,Joana Cristina Souza do Nascimento Rosa,JG,História,9º Ano,8,6.0,24.0,33.3,100.0,100.0,1.0,True,-1.0,75.0,67.1,Atenção,Q2 - Registra pouco
+JOANA CRISTINA SOUZA DO NASCIMENTO ROSA,Joana Cristina Souza do Nascimento Rosa,JG,Projeto de Vida,1ª Série,3,2.0,8.0,37.5,100.0,100.0,,False,,,59.4,Atenção,Q2 - Registra pouco
+JOANA CRISTINA SOUZA DO NASCIMENTO ROSA,Joana Cristina Souza do Nascimento Rosa,JG,Projeto de Vida,3ª Série,2,1.0,4.0,50.0,100.0,100.0,,False,,,67.5,Atenção,Q2 - Registra pouco
+JOANA CRISTINA SOUZA DO NASCIMENTO ROSA,Joana Cristina Souza do Nascimento Rosa,JG,Projeto de Vida,9º Ano,4,2.0,8.0,50.0,100.0,100.0,,False,,,67.5,Atenção,Q2 - Registra pouco
+JOAO ANTÔNIO FIRMINO DA SILVA,Joao Antônio Firmino da Silva ,CDR,Redação,1ª Série,1,2.0,8.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+JOAO ANTÔNIO FIRMINO DA SILVA,Joao Antônio Firmino da Silva ,CDR,Redação,2ª Série,1,2.0,8.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+JOAO ANTÔNIO FIRMINO DA SILVA,Joao Antônio Firmino da Silva ,CDR,Redação,3ª Série,1,3.0,12.0,8.3,100.0,100.0,,True,,,40.4,Crítico,Q2 - Registra pouco
+JOAO ANTÔNIO FIRMINO DA SILVA,Joao Antônio Firmino da Silva ,CDR,Redação,9º Ano,1,4.0,16.0,6.2,100.0,100.0,,True,,,39.1,Crítico,Q2 - Registra pouco
+JORGE LUIZ ALVES DE SALES,JORGE LUIZ ALVES DE SALES,JG,Matemática,7º Ano,11,8.0,32.0,34.4,100.0,100.0,,True,,,57.3,Atenção,Q2 - Registra pouco
+JORGE LUIZ ALVES DE SALES,JORGE LUIZ ALVES DE SALES,JG,Matemática,8º Ano,15,15.0,60.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+JORGE LUIZ ALVES DE SALES,JORGE LUIZ ALVES DE SALES,JG,Raciocínio Lógico,6º Ano,2,3.0,12.0,16.7,100.0,100.0,,False,,,45.8,Crítico,Q2 - Registra pouco
+JOSE CARLOS CAVALCANTI DA SILVA FILHO,JOSE CARLOS CAVALCANTI DA SILVA FILHO,CD,Ciências Naturais,6º Ano,2,9.0,36.0,5.6,100.0,100.0,,True,,,38.6,Crítico,Q2 - Registra pouco
+JOSE CARLOS CAVALCANTI DA SILVA FILHO,JOSE CARLOS CAVALCANTI DA SILVA FILHO,CD,Ciências Naturais,7º Ano,1,9.0,36.0,2.8,100.0,100.0,,True,,,36.8,Crítico,Q2 - Registra pouco
+JOSE CARLOS CAVALCANTI DA SILVA FILHO,JOSE CARLOS CAVALCANTI DA SILVA FILHO,CD,Ciências Naturais,8º Ano,1,9.0,36.0,2.8,100.0,100.0,,True,,,36.8,Crítico,Q2 - Registra pouco
+JOSÉ MARLISON SILVA DO NASCIMENTO LIMA,José Marlison Silva do Nascimento Lima,JG,Língua Estrangeira Inglês,1ª Série,1,2.0,8.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+JOSÉ MARLISON SILVA DO NASCIMENTO LIMA,José Marlison Silva do Nascimento Lima,JG,Língua Estrangeira Inglês,2ª Série,2,2.0,8.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+JOSÉ MARLISON SILVA DO NASCIMENTO LIMA,José Marlison Silva do Nascimento Lima,JG,Língua Estrangeira Inglês,3ª Série,2,1.0,4.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+JOSÉ MARLISON SILVA DO NASCIMENTO LIMA,José Marlison Silva do Nascimento Lima,JG,Língua Estrangeira Inglês,6º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+JOSÉ MARLISON SILVA DO NASCIMENTO LIMA,José Marlison Silva do Nascimento Lima,JG,Língua Estrangeira Inglês,7º Ano,3,4.0,16.0,18.8,100.0,100.0,,True,,,47.2,Crítico,Q2 - Registra pouco
+JOSÉ MARLISON SILVA DO NASCIMENTO LIMA,José Marlison Silva do Nascimento Lima,JG,Língua Estrangeira Inglês,8º Ano,6,6.0,24.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+JOSÉ MARLISON SILVA DO NASCIMENTO LIMA,José Marlison Silva do Nascimento Lima,JG,Língua Estrangeira Inglês,9º Ano,5,4.0,16.0,31.2,100.0,100.0,,True,,,55.3,Atenção,Q2 - Registra pouco
+JOÃO ARTHUR BARROS DE OLIVEIRA,João Arthur Barros de Oliveira,CDR,Matemática,8º Ano,6,10.0,40.0,15.0,100.0,100.0,,True,,,44.8,Crítico,Q2 - Registra pouco
+JOÃO NICÁCIO FERREIRA DE MIRANDA,João Nicácio Ferreira de Miranda,CDR,História,9º Ano,8,6.0,24.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+JOÃO NICÁCIO FERREIRA DE MIRANDA,João Nicácio Ferreira de Miranda,JG,Arte,7º Ano,2,2.0,8.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+JOÃO NICÁCIO FERREIRA DE MIRANDA,João Nicácio Ferreira de Miranda,JG,Arte,9º Ano,3,2.0,8.0,37.5,100.0,100.0,,True,,,59.4,Atenção,Q2 - Registra pouco
+JOÃO NICÁCIO FERREIRA DE MIRANDA,João Nicácio Ferreira de Miranda,JG,Filosofia,6º Ano,2,3.0,12.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+JOÃO NICÁCIO FERREIRA DE MIRANDA,João Nicácio Ferreira de Miranda,JG,Filosofia,7º Ano,1,2.0,8.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+JOÃO NICÁCIO FERREIRA DE MIRANDA,João Nicácio Ferreira de Miranda,JG,Filosofia,8º Ano,3,3.0,12.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+JOÃO NICÁCIO FERREIRA DE MIRANDA,João Nicácio Ferreira de Miranda,JG,Filosofia,9º Ano,4,2.0,8.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+JOÃO NICÁCIO FERREIRA DE MIRANDA,João Nicácio Ferreira de Miranda,JG,História,1ª Série,8,6.0,24.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+JOÃO NICÁCIO FERREIRA DE MIRANDA,João Nicácio Ferreira de Miranda,JG,Projeto de Vida,2ª Série,3,2.0,8.0,37.5,100.0,100.0,,False,,,59.4,Atenção,Q2 - Registra pouco
+JULIANA CHAGAS DA SILVA,JULIANA CHAGAS DA SILVA,BV,Literatura,2ª Série,10,6.0,24.0,41.7,100.0,100.0,,True,,,62.1,Atenção,Q2 - Registra pouco
+JULIANA CHAGAS DA SILVA,JULIANA CHAGAS DA SILVA,BV,Literatura,3ª Série,8,4.0,16.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+KATARINA TAVARES DA SILVA,KATARINA TAVARES DA SILVA,BV,Arte,6º Ano,5,3.0,12.0,41.7,100.0,100.0,,True,,,62.1,Atenção,Q2 - Registra pouco
+KATARINA TAVARES DA SILVA,KATARINA TAVARES DA SILVA,BV,Arte,7º Ano,3,3.0,12.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+KATARINA TAVARES DA SILVA,KATARINA TAVARES DA SILVA,BV,Arte,8º Ano,6,3.0,12.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+KATARINA TAVARES DA SILVA,KATARINA TAVARES DA SILVA,BV,Arte,9º Ano,6,3.0,12.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+LARISSA EVELYN,Larissa Evelyn,CDR,Língua Estrangeira Inglês,6º Ano,8,4.0,16.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+LARISSA EVELYN,Larissa Evelyn,CDR,Língua Estrangeira Inglês,7º Ano,12,6.0,24.0,50.0,83.3,83.3,,True,,,61.7,Atenção,Q2 - Registra pouco
+LAURA MARIA DA HORA ALVES RODRIGUES,LAURA MARIA DA HORA ALVES RODRIGUES,BV,Língua Portuguesa,6º Ano,9,12.0,48.0,18.8,100.0,100.0,,True,,,47.2,Crítico,Q2 - Registra pouco
+LEONARDO JOSE DO NASCIMENTO FILHO,LEONARDO JOSE DO NASCIMENTO FILHO,CD,Língua Estrangeira Inglês,6º Ano,8,6.0,24.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+LEONARDO JOSE DO NASCIMENTO FILHO,LEONARDO JOSE DO NASCIMENTO FILHO,CD,Língua Estrangeira Inglês,7º Ano,8,6.0,24.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+LEONARDO JOSE DO NASCIMENTO FILHO,LEONARDO JOSE DO NASCIMENTO FILHO,CD,Língua Estrangeira Inglês,8º Ano,8,6.0,24.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+LEONARDO MENDES DE OLIVEIRA,LEONARDO MENDES DE OLIVEIRA,JG,Matemática,6º Ano,6,12.0,48.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+LEONARDO MENDES DE OLIVEIRA,LEONARDO MENDES DE OLIVEIRA,JG,Matemática,8º Ano,6,15.0,60.0,10.0,100.0,100.0,,True,,,41.5,Crítico,Q2 - Registra pouco
+LEONARDO MENDES DE OLIVEIRA,LEONARDO MENDES DE OLIVEIRA,JG,Raciocínio Lógico,6º Ano,2,3.0,12.0,16.7,100.0,100.0,,False,,,45.8,Crítico,Q2 - Registra pouco
+LEONARDO MENDES DE OLIVEIRA,LEONARDO MENDES DE OLIVEIRA,JG,Raciocínio Lógico,8º Ano,2,3.0,12.0,16.7,100.0,100.0,,False,,,45.8,Crítico,Q2 - Registra pouco
+LIDIANY SOARES MOTA TRAVASSOS,LIDIANY SOARES MOTA TRAVASSOS,BV,Língua Estrangeira Inglês,6º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+LIDIANY SOARES MOTA TRAVASSOS,LIDIANY SOARES MOTA TRAVASSOS,BV,Língua Estrangeira Inglês,7º Ano,7,6.0,24.0,29.2,100.0,100.0,,True,,,54.0,Atenção,Q2 - Registra pouco
+LILIANE TAVEIROS DE LIMA,LILIANE TAVEIROS DE LIMA,BV,Língua Portuguesa,7º Ano,7,12.0,48.0,14.6,100.0,100.0,,True,,,44.5,Crítico,Q2 - Registra pouco
+LILIANE TAVEIROS DE LIMA,LILIANE TAVEIROS DE LIMA,BV,Língua Portuguesa,8º Ano,7,12.0,48.0,14.6,100.0,100.0,,True,,,44.5,Crítico,Q2 - Registra pouco
+LORENA DOS SANTOS OLIVEIRA,LORENA DOS SANTOS OLIVEIRA,BV,História,1ª Série,9,9.0,36.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+LORENA DOS SANTOS OLIVEIRA,LORENA DOS SANTOS OLIVEIRA,BV,História,6º Ano,9,6.0,24.0,37.5,100.0,100.0,,True,,,59.4,Atenção,Q2 - Registra pouco
+LORENA DOS SANTOS OLIVEIRA,LORENA DOS SANTOS OLIVEIRA,BV,História,7º Ano,13,9.0,36.0,36.1,100.0,100.0,,True,,,58.5,Atenção,Q2 - Registra pouco
+LORENA DOS SANTOS OLIVEIRA,LORENA DOS SANTOS OLIVEIRA,BV,História,8º Ano,8,9.0,36.0,22.2,100.0,100.0,2.0,True,0.0,100.0,68.9,Atenção,Q2 - Registra pouco
+LUANA MARIA DE ARISTEU VILARIM MORAES,LUANA MARIA DE ARISTEU VILARIM MORAES,BV,Geografia,6º Ano,8,6.0,24.0,33.3,100.0,50.0,,True,,,49.2,Crítico,Q2 - Registra pouco
+LUANA MARIA DE ARISTEU VILARIM MORAES,LUANA MARIA DE ARISTEU VILARIM MORAES,BV,Geografia,7º Ano,8,6.0,24.0,33.3,100.0,50.0,,True,,,49.2,Crítico,Q2 - Registra pouco
+LUANA MARIA DE ARISTEU VILARIM MORAES,LUANA MARIA DE ARISTEU VILARIM MORAES,BV,Geografia,8º Ano,12,6.0,24.0,50.0,100.0,66.7,,True,,,62.5,Atenção,Q2 - Registra pouco
+MABÍLIA CAMPOS REIS,Mabília Campos Reis,CDR,Língua Portuguesa,7º Ano,24,12.0,48.0,50.0,100.0,75.0,,True,,,63.8,Atenção,Q2 - Registra pouco
+MABÍLIA CAMPOS REIS,Mabília Campos Reis,CDR,Redação,7º Ano,13,6.0,24.0,54.2,100.0,100.0,,True,,,70.2,Bom,Q2 - Registra pouco
+MACICLEIDE MARIA DA SILVA,Macicleide Maria da Silva,CD,Redação,6º Ano,8,6.0,24.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+MARIA CECÍLIA GUERRA CAL,MARIA CECÍLIA GUERRA CAL,BV,Arte,1ª Série,3,3.0,12.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+MARIA CECÍLIA GUERRA CAL,MARIA CECÍLIA GUERRA CAL,BV,Arte,2ª Série,3,3.0,12.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+MARIA CECÍLIA GUERRA CAL,MARIA CECÍLIA GUERRA CAL,BV,Arte,3ª Série,2,2.0,8.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+MARIA DAIANE MONTEIRO,Maria Daiane Monteiro,CDR,Química,1ª Série,6,3.0,12.0,50.0,100.0,66.7,,True,,,62.5,Atenção,Q2 - Registra pouco
+MARIA DAIANE MONTEIRO,Maria Daiane Monteiro,CDR,Química,2ª Série,6,3.0,12.0,50.0,100.0,16.7,,True,,,55.0,Atenção,Q2 - Registra pouco
+MARIA DAIANE MONTEIRO,Maria Daiane Monteiro,CDR,Química,3ª Série,6,4.0,16.0,37.5,100.0,33.3,,True,,,49.4,Crítico,Q2 - Registra pouco
+MARIA DAIANE MONTEIRO,Maria Daiane Monteiro,CDR,Química,9º Ano,4,2.0,8.0,50.0,100.0,0.0,,True,,,52.5,Atenção,Q2 - Registra pouco
+MARIA DAS GRAÇAS DE ALBUQUERQUE,Maria das Graças de Albuquerque,JG,Gramática,1ª Série,8,4.0,16.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+MARIA DAS GRAÇAS DE ALBUQUERQUE,Maria das Graças de Albuquerque,JG,Gramática,2ª Série,10,4.0,16.0,62.5,100.0,100.0,,True,,,75.6,Bom,Q2 - Registra pouco
+MARIA DAS GRAÇAS DE ALBUQUERQUE,Maria das Graças de Albuquerque,JG,Gramática,3ª Série,3,2.0,8.0,37.5,100.0,100.0,,True,,,59.4,Atenção,Q2 - Registra pouco
+MARIA DAS GRAÇAS DE ALBUQUERQUE,Maria das Graças de Albuquerque,JG,Literatura,1ª Série,7,4.0,16.0,43.8,100.0,100.0,,True,,,63.4,Atenção,Q2 - Registra pouco
+MARIA DAS GRAÇAS DE ALBUQUERQUE,Maria das Graças de Albuquerque,JG,Literatura,2ª Série,7,4.0,16.0,43.8,100.0,100.0,,True,,,63.4,Atenção,Q2 - Registra pouco
+MARIA DAS GRAÇAS DE ALBUQUERQUE,Maria das Graças de Albuquerque,JG,Literatura,3ª Série,1,2.0,8.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+MARIA DAS GRAÇAS DE ALBUQUERQUE,Maria das Graças de Albuquerque,JG,Língua Portuguesa,9º Ano,9,8.0,32.0,28.1,100.0,100.0,,True,,,53.3,Atenção,Q2 - Registra pouco
+MARIA DAS GRAÇAS DE ALBUQUERQUE,Maria das Graças de Albuquerque,JG,Redação,8º Ano,7,6.0,24.0,29.2,100.0,100.0,,True,,,54.0,Atenção,Q2 - Registra pouco
+MAURICIO SALA BRANQUINHO,Mauricio Sala Branquinho,CD,Matemática,6º Ano,24,12.0,48.0,50.0,100.0,100.0,1.0,True,-1.0,75.0,73.8,Bom,Q2 - Registra pouco
+MAURICIO SALA BRANQUINHO,Mauricio Sala Branquinho,CD,Matemática,8º Ano,19,15.0,60.0,31.7,100.0,100.0,1.0,True,-1.0,75.0,66.4,Atenção,Q2 - Registra pouco
+MAURICIO SALA BRANQUINHO,Mauricio Sala Branquinho,CD,Matemática,9º Ano,8,15.0,60.0,13.3,100.0,100.0,,True,,,43.7,Crítico,Q2 - Registra pouco
+MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,BV,Língua Estrangeira Inglês,6º Ano,2,6.0,24.0,8.3,100.0,100.0,,True,,,40.4,Crítico,Q2 - Registra pouco
+MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,BV,Língua Estrangeira Inglês,7º Ano,2,6.0,24.0,8.3,100.0,100.0,,True,,,40.4,Crítico,Q2 - Registra pouco
+MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,BV,Língua Estrangeira Inglês,8º Ano,3,6.0,24.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,MÔNICA MONIK FERREIRA GUEDES DE OLIVEIRA,BV,Língua Estrangeira Inglês,9º Ano,3,6.0,24.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+NATALIA DA SILVA OLIVEIRA,Natalia da Silva Oliveira,CD,Língua Portuguesa,6º Ano,3,12.0,48.0,6.2,100.0,100.0,1.0,True,-1.0,75.0,56.2,Atenção,Q2 - Registra pouco
+NATALIA DA SILVA OLIVEIRA,Natalia da Silva Oliveira,CD,Língua Portuguesa,7º Ano,3,12.0,48.0,6.2,100.0,100.0,1.0,True,-1.0,75.0,56.2,Atenção,Q2 - Registra pouco
+NATALIA DA SILVA OLIVEIRA,Natalia da Silva Oliveira,CD,Língua Portuguesa,8º Ano,3,12.0,48.0,6.2,100.0,100.0,1.0,True,-1.0,75.0,56.2,Atenção,Q2 - Registra pouco
+NATÁLIA MOURA E SILVA,NATÁLIA MOURA E SILVA,BV,Matemática,6º Ano,2,12.0,48.0,4.2,100.0,100.0,,True,,,37.7,Crítico,Q2 - Registra pouco
+NATÁLIA MOURA E SILVA,NATÁLIA MOURA E SILVA,BV,Matemática,7º Ano,2,12.0,48.0,4.2,100.0,100.0,,True,,,37.7,Crítico,Q2 - Registra pouco
+ORLANDO ALVINO DE LIMA FILHO,Orlando Alvino de Lima Filho,CD,Matemática,7º Ano,8,12.0,48.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+PEDRO HENRIQUE ALVES DA COSTA,Pedro Henrique Alves da Costa ,CD,Raciocínio Lógico,6º Ano,6,3.0,12.0,50.0,100.0,100.0,,False,,,67.5,Atenção,Q2 - Registra pouco
+PEDRO HENRIQUE ALVES DA COSTA,Pedro Henrique Alves da Costa ,CD,Raciocínio Lógico,7º Ano,1,3.0,12.0,8.3,100.0,100.0,,False,,,40.4,Crítico,Q2 - Registra pouco
+PEDRO HENRIQUE ALVES DA COSTA,Pedro Henrique Alves da Costa ,CD,Raciocínio Lógico,8º Ano,5,3.0,12.0,41.7,100.0,100.0,,False,,,62.1,Atenção,Q2 - Registra pouco
+POLLYANNA ROSA DA SILVA,POLLYANNA ROSA DA SILVA,CD,Língua Portuguesa,6º Ano,16,12.0,48.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+POLLYANNA ROSA DA SILVA,POLLYANNA ROSA DA SILVA,CD,Redação,8º Ano,8,6.0,24.0,33.3,100.0,100.0,,True,,,56.7,Atenção,Q2 - Registra pouco
+PRISCILA BARROS,PRISCILA BARROS,JG,Projeto de Vida,6º Ano,3,3.0,12.0,25.0,100.0,100.0,,False,,,51.2,Atenção,Q2 - Registra pouco
+PRISCILA BARROS,PRISCILA BARROS,JG,Redação,1ª Série,3,4.0,16.0,18.8,100.0,100.0,2.0,True,0.0,100.0,67.5,Atenção,Q2 - Registra pouco
+PRISCILA BARROS,PRISCILA BARROS,JG,Redação,2ª Série,2,4.0,16.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+PRISCILA BARROS,PRISCILA BARROS,JG,Redação,6º Ano,6,6.0,24.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+PRISCILA BARROS,PRISCILA BARROS,JG,Redação,7º Ano,2,4.0,16.0,12.5,100.0,100.0,,True,,,43.1,Crítico,Q2 - Registra pouco
+RAFAEL OTÁVIO ELOI DA HORA,Rafael Otávio Eloi da Hora,JG,História,6º Ano,10,6.0,24.0,41.7,100.0,100.0,,True,,,62.1,Atenção,Q2 - Registra pouco
+RAFAEL OTÁVIO ELOI DA HORA,Rafael Otávio Eloi da Hora,JG,História,8º Ano,15,9.0,36.0,41.7,100.0,100.0,,True,,,62.1,Atenção,Q2 - Registra pouco
+RENATA MIRANDA,RENATA MIRANDA,JG,Ciências Naturais,7º Ano,2,6.0,24.0,8.3,100.0,100.0,,True,,,40.4,Crítico,Q2 - Registra pouco
+RENATA MIRANDA,RENATA MIRANDA,JG,Ciências Naturais,8º Ano,4,9.0,36.0,11.1,100.0,100.0,,True,,,42.2,Crítico,Q2 - Registra pouco
+RISELDA BARRETO DA SILVA,RISELDA BARRETO DA SILVA,CD,Língua Portuguesa,8º Ano,13,12.0,48.0,27.1,100.0,100.0,,True,,,52.6,Atenção,Q2 - Registra pouco
+RISELDA BARRETO DA SILVA,RISELDA BARRETO DA SILVA,CD,Redação,7º Ano,7,6.0,24.0,29.2,100.0,100.0,,True,,,54.0,Atenção,Q2 - Registra pouco
+SAMARA VASCONCELOS,SAMARA VASCONCELOS,CD,Arte,6º Ano,6,3.0,12.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+SAMARA VASCONCELOS,SAMARA VASCONCELOS,CD,Arte,7º Ano,6,3.0,12.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+SAMARA VASCONCELOS,SAMARA VASCONCELOS,CD,Arte,8º Ano,6,3.0,12.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+SAMARA VASCONCELOS,SAMARA VASCONCELOS,CD,Geografia,8º Ano,4,4.0,16.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+SUELLEN CINTIA BARBOSA DE OLIVEIRA,SUELLEN CINTIA BARBOSA DE OLIVEIRA,BV,Ciências Naturais,6º Ano,3,9.0,36.0,8.3,100.0,100.0,,True,,,40.4,Crítico,Q2 - Registra pouco
+SUELLEN CINTIA BARBOSA DE OLIVEIRA,SUELLEN CINTIA BARBOSA DE OLIVEIRA,BV,Ciências Naturais,7º Ano,8,9.0,36.0,22.2,100.0,100.0,,True,,,49.4,Crítico,Q2 - Registra pouco
+SÔNIA MARIA FERREIRA DA SILVA,Sônia Maria Ferreira da Silva,JG,Geografia,6º Ano,2,6.0,24.0,8.3,100.0,100.0,1.0,True,-1.0,75.0,57.1,Atenção,Q2 - Registra pouco
+SÔNIA MARIA FERREIRA DA SILVA,Sônia Maria Ferreira da Silva,JG,Geografia,7º Ano,2,4.0,16.0,12.5,100.0,100.0,1.0,True,-1.0,75.0,58.8,Atenção,Q2 - Registra pouco
+TATIANA MARQUES DUARTE,TATIANA MARQUES DUARTE,BV,Química,2ª Série,10,9.0,36.0,27.8,100.0,100.0,1.0,True,-1.0,75.0,64.9,Atenção,Q2 - Registra pouco
+TATIANA MARQUES DUARTE,TATIANA MARQUES DUARTE,BV,Química,3ª Série,9,8.0,32.0,28.1,100.0,100.0,1.0,True,-1.0,75.0,65.0,Atenção,Q2 - Registra pouco
+TATIANA MARQUES DUARTE,TATIANA MARQUES DUARTE,CD,Química,1ª Série,6,9.0,36.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+TATIANA MARQUES DUARTE,TATIANA MARQUES DUARTE,CD,Química,2ª Série,6,9.0,36.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+TATIANA MARQUES DUARTE,TATIANA MARQUES DUARTE,CD,Química,3ª Série,12,12.0,48.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+TEDIMILSON DA COSTA GUIMARÃES JÚNIOR,Tedimilson da costa Guimarães Júnior,CDR,Matemática,9º Ano,20,10.0,40.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+THAYS LUANNA SIQUEIRA SANTOS,THAYS LUANNA SIQUEIRA SANTOS,BV,Matemática,6º Ano,12,12.0,48.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+THIAGO CASTILHO ALFINO,THIAGO CASTILHO ALFINO,CDR,Física,1ª Série,1,3.0,12.0,8.3,100.0,100.0,,True,,,40.4,Crítico,Q2 - Registra pouco
+THIAGO CASTILHO ALFINO,THIAGO CASTILHO ALFINO,CDR,Física,3ª Série,1,4.0,16.0,6.2,100.0,100.0,,True,,,39.1,Crítico,Q2 - Registra pouco
+THIAGO CASTILHO ALFINO,THIAGO CASTILHO ALFINO,JG,Física,1ª Série,11,6.0,24.0,45.8,100.0,100.0,,True,,,64.8,Atenção,Q2 - Registra pouco
+THIAGO CASTILHO ALFINO,THIAGO CASTILHO ALFINO,JG,Física,2ª Série,6,6.0,24.0,25.0,100.0,100.0,,True,,,51.2,Atenção,Q2 - Registra pouco
+THIAGO CASTILHO ALFINO,THIAGO CASTILHO ALFINO,JG,Física,3ª Série,8,4.0,16.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+THIAGO CASTILHO ALFINO,THIAGO CASTILHO ALFINO,JG,Física 2,9º Ano,4,,0.0,0.0,100.0,100.0,,True,,,35.0,Crítico,Q2 - Registra pouco
+VALDÉRIO ALEXANDRE DOS SANTOS,Valdério Alexandre dos Santos,JG,Química,1ª Série,7,6.0,24.0,29.2,100.0,100.0,,True,,,54.0,Atenção,Q2 - Registra pouco
+VALDÉRIO ALEXANDRE DOS SANTOS,Valdério Alexandre dos Santos,JG,Química,2ª Série,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+VALDÉRIO ALEXANDRE DOS SANTOS,Valdério Alexandre dos Santos,JG,Química,3ª Série,5,4.0,16.0,31.2,100.0,100.0,,True,,,55.3,Atenção,Q2 - Registra pouco
+VICTOR CALDAS DE CARVALHO,VICTOR CALDAS DE CARVALHO,CD,Matemática,7º Ano,4,12.0,48.0,8.3,100.0,100.0,,True,,,40.4,Crítico,Q2 - Registra pouco
+VICTOR CALDAS DE CARVALHO,VICTOR CALDAS DE CARVALHO,CD,Matemática,8º Ano,7,15.0,60.0,11.7,100.0,100.0,,True,,,42.6,Crítico,Q2 - Registra pouco
+WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,BV,Gramática,3ª Série,8,4.0,16.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,BV,Literatura,1ª Série,12,6.0,24.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,BV,Língua Portuguesa,8º Ano,8,12.0,48.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,BV,Língua Portuguesa,9º Ano,8,12.0,48.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,CD,Arte,2ª Série,6,3.0,12.0,50.0,100.0,100.0,,True,,,67.5,Atenção,Q2 - Registra pouco
+WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,CD,Arte,3ª Série,7,3.0,12.0,58.3,100.0,100.0,,True,,,72.9,Bom,Q2 - Registra pouco
+WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,CD,Literatura,1ª Série,14,6.0,24.0,58.3,100.0,100.0,,True,,,72.9,Bom,Q2 - Registra pouco
+WILLIAM MACIEL DAS CHAGAS SANTA ROSA,WILLIAM MACIEL DAS CHAGAS SANTA ROSA,CD,Redação,8º Ano,4,6.0,24.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,BV,História,8º Ano,5,9.0,36.0,13.9,100.0,100.0,,True,,,44.0,Crítico,Q2 - Registra pouco
+WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,BV,História,9º Ano,6,9.0,36.0,16.7,100.0,100.0,,True,,,45.8,Crítico,Q2 - Registra pouco
+WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,CD,História,6º Ano,9,6.0,24.0,37.5,100.0,100.0,,True,,,59.4,Atenção,Q2 - Registra pouco
+WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,CD,História,7º Ano,15,9.0,36.0,41.7,100.0,100.0,,True,,,62.1,Atenção,Q2 - Registra pouco
+WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,WILLIAMS CRISTIAN RODRIGUES DO NASCIMENTO,CD,História,8º Ano,17,9.0,36.0,47.2,100.0,100.0,,True,,,65.7,Atenção,Q2 - Registra pouco

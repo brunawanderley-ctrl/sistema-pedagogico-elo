@@ -1,0 +1,12 @@
+﻿empresa_id,empresa,qtd_ativos,qtd_desligados,perfil
+1,ARF,8,1,7 Operacional + 1 Administrativo
+2,CENTRO DE ENSINO,59,207,21 Apoio Pedagógico + 20 Docente
+3,CENTRO ELO,76,122,45 Docente + 13 Apoio Pedagógico
+4,DOMINUS,77,148,55 Docente + 11 Apoio Pedagógico
+5,ELLOS,19,24,8 Operacional + 6 Administrativo
+6,FAELO,27,34,16 Operacional + 3 Apoio Pedagógico
+7,LUBIENSKA,25,93,22 Docente + 2 Apoio Pedagógico
+8,PAULISTA,66,126,35 Docente + 17 Apoio Pedagógico
+9,PIERRET,67,80,38 Docente + 18 Apoio Pedagógico
+10,SOCIEDADE,29,53,9 Docente + 7 Administrativo
+11,UNIVERSAL,84,261,30 Estagiário + 20 Apoio Pedagógico
