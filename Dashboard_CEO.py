@@ -45,13 +45,27 @@ def semana_letiva():
 
 
 def capitulo_esperado(sem):
-    return min(12, math.ceil(sem / 3.5))
+    """Capítulo SAE esperado - SWITCH calibrado calendário 205 dias."""
+    if sem is None or sem < 1:
+        return 1
+    if sem <= 4: return 1
+    elif sem <= 8: return 2
+    elif sem <= 12: return 3
+    elif sem <= 15: return 4
+    elif sem <= 18: return 5
+    elif sem <= 22: return 6
+    elif sem <= 30: return 7   # inclui férias julho (sem 23-27)
+    elif sem <= 33: return 8
+    elif sem <= 37: return 9
+    elif sem <= 40: return 10
+    elif sem <= 43: return 11
+    else: return 12
 
 
 def trimestre(sem):
-    if sem <= 14:
+    if sem <= 15:
         return "1º Trimestre"
-    elif sem <= 28:
+    elif sem <= 33:
         return "2º Trimestre"
     return "3º Trimestre"
 

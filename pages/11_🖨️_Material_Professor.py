@@ -27,7 +27,7 @@ def _gerar_semanas_datas():
     df_cal = carregar_calendario()
     if df_cal.empty or 'semana_letiva' not in df_cal.columns:
         # Fallback: cálculo simples se calendário indisponível
-        return {sem: (INICIO_ANO + timedelta(weeks=sem - 1)).strftime("%d/%m") for sem in range(1, 43)}
+        return {sem: (INICIO_ANO + timedelta(weeks=sem - 1)).strftime("%d/%m") for sem in range(1, 48)}
     df_cal['data'] = pd.to_datetime(df_cal['data'])
     df_letivo = df_cal[df_cal['semana_letiva'].notna() & (df_cal['semana_letiva'] > 0)]
     return df_letivo.groupby('semana_letiva')['data'].min().apply(lambda d: d.strftime("%d/%m")).to_dict()
@@ -52,10 +52,10 @@ EVENTOS_SEMANA = {
 }
 
 def get_trimestre(semana):
-    """Retorna o trimestre de uma semana."""
-    if semana <= 14:
+    """Retorna o trimestre de uma semana (calendario 2026 - 205 dias)."""
+    if semana <= 15:
         return 1
-    elif semana <= 28:
+    elif semana <= 33:
         return 2
     else:
         return 3
@@ -199,9 +199,9 @@ def gerar_conteudo_professor(prof_nome, df_aulas_prof, df_horario_prof, semana_a
 ─────────────────────────────────────────────────────────────────────────────
 """
         trimestres_info = [
-            (1, "1-14", "1 a 4", "26/01 - 08/05", "Adaptação, A1, A2, Simulado"),
-            (2, "15-28", "5 a 8", "11/05 - 28/08", "Férias Julho, A1, A2, Simulado"),
-            (3, "29-42", "9 a 12", "31/08 - 21/12", "A1, A2, Final, Simulado")
+            (1, "1-15", "1 a 4", "27/01 - 09/05", "Adaptação, A1, A2, Simulado"),
+            (2, "16-33", "5 a 8", "11/05 - 12/09", "Férias Julho, A1, A2, Simulado"),
+            (3, "34-47", "9 a 12", "14/09 - 18/12", "A1, A2, Final, Simulado")
         ]
 
         for tri, semanas, caps, periodo, avaliacoes in trimestres_info:

@@ -392,8 +392,8 @@ def main():
     st.markdown("---")
     st.header("📊 Curva de Progressão SAE 2026")
 
-    semanas = list(range(1, 43))
-    capitulos = [min(12, math.ceil(s / 3.5)) for s in semanas]
+    semanas = list(range(1, 48))
+    capitulos = [calcular_capitulo_esperado(s) for s in semanas]
 
     fig = go.Figure()
     fig.add_trace(go.Scatter(
@@ -475,7 +475,7 @@ def _mostrar_referencia(semana_atual, cap_esperado):
     with st.expander("📋 Referência: Metas por Trimestre"):
         metas = pd.DataFrame({
             'Trimestre': ['1º Trimestre', '2º Trimestre', '3º Trimestre'],
-            'Semanas': ['1-14', '15-28', '29-42'],
+            'Semanas': ['1-15', '16-33', '34-47'],
             'Capítulos': ['1 a 4', '5 a 8', '9 a 12'],
             'Volumes': ['V1 + início V2', 'V2 (final) + V3', 'V3 (final) + V4'],
             'Avaliações': ['A1 + A2 + Simulado', 'A1 + A2 + Simulado', 'A1 + A2 + Final + Simulado'],
@@ -484,7 +484,7 @@ def _mostrar_referencia(semana_atual, cap_esperado):
 
     with st.expander("📋 Referência: Checkpoints"):
         checkpoints = pd.DataFrame({
-            'Checkpoint': ['Semana 7', 'Semana 14', 'Semana 21', 'Semana 28', 'Semana 35', 'Semana 42'],
+            'Checkpoint': ['Semana 8', 'Semana 15', 'Semana 22', 'Semana 33', 'Semana 40', 'Semana 47'],
             'Cap. Mínimo': [2, 4, 6, 8, 10, 12],
             'Avaliações': ['A1', 'A1+A2+Rec', 'A1 (2ºTri)', 'A1+A2+Rec', 'A1 (3ºTri)', 'Todas'],
         })

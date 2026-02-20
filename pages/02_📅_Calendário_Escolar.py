@@ -374,10 +374,10 @@ def main():
         c1.metric("Semana Letiva", f"{semana_atual}ª")
         c2.metric("Trimestre", f"{trimestre_atual}º")
         c3.metric("Capítulo Esperado", f"Cap {cap_esperado}")
-        c4.metric("Semanas Restantes", f"{max(0, 42 - semana_atual)}")
+        c4.metric("Semanas Restantes", f"{max(0, 47 - semana_atual)}")
 
         # Barra de progressão visual do ano
-        progresso_pct = min(100, round(semana_atual / 42 * 100))
+        progresso_pct = min(100, round(semana_atual / 47 * 100))
         st.markdown(f"""
         <div style="background: #E0E0E0; border-radius: 10px; height: 24px; margin: 10px 0 20px 0; position: relative;">
             <div style="background: linear-gradient(90deg, {CORES_SERIES['6º Ano']}, {CORES_SERIES['1ª Série']});
@@ -407,7 +407,7 @@ def main():
             def cap_da_semana(sem):
                 try:
                     s = int(sem)
-                    return f"Cap {min(12, math.ceil(s / 3.5))}" if s > 0 else ""
+                    return f"Cap {calcular_capitulo_esperado(s)}" if s > 0 else ""
                 except (ValueError, TypeError):
                     return ""
 
@@ -440,7 +440,7 @@ def main():
             caps_mes = set()
             for s in semanas_mes:
                 try:
-                    caps_mes.add(min(12, math.ceil(int(s) / 3.5)))
+                    caps_mes.add(calcular_capitulo_esperado(int(s)))
                 except (ValueError, TypeError):
                     pass
             if caps_mes:

@@ -88,17 +88,17 @@ def gerar_calendario_professor(disciplina, aulas_semana, turmas):
     calendario = []
     inicio = datetime(2026, 1, 26)  # Início das aulas
 
-    for semana in range(1, 43):
+    for semana in range(1, 48):
         data_inicio = inicio + timedelta(weeks=semana-1)
         data_fim = data_inicio + timedelta(days=4)
 
         # Calcula capítulo esperado
-        capitulo = min(12, math.ceil(semana / 3.5))
+        capitulo = calcular_capitulo_esperado(semana)
 
         # Verifica trimestre
-        if semana <= 14:
+        if semana <= 15:
             trimestre = 1
-        elif semana <= 28:
+        elif semana <= 33:
             trimestre = 2
         else:
             trimestre = 3
@@ -288,7 +288,7 @@ def main():
     with col_m1:
         st.markdown("""
         ### 1º Trimestre
-        **Período:** 26/01 - 08/05
+        **Período:** 27/01 - 09/05
 
         | Meta | Detalhe |
         |------|---------|
@@ -303,7 +303,7 @@ def main():
     with col_m2:
         st.markdown("""
         ### 2º Trimestre
-        **Período:** 11/05 - 28/08
+        **Período:** 11/05 - 12/09
 
         | Meta | Detalhe |
         |------|---------|
@@ -318,7 +318,7 @@ def main():
     with col_m3:
         st.markdown("""
         ### 3º Trimestre
-        **Período:** 31/08 - 18/12
+        **Período:** 14/09 - 18/12
 
         | Meta | Detalhe |
         |------|---------|
@@ -407,9 +407,9 @@ Por trimestre:
 ┌─────────────┬─────────────────┬──────────────┬──────────────┐
 │ Trimestre   │ Período         │ Aulas Est.   │ Capítulos    │
 ├─────────────┼─────────────────┼──────────────┼──────────────┤
-│ 1º          │ 26/01 - 08/05   │ ~{int(encontros_trimestre * 1.1):3d}         │ 1 a 4        │
-│ 2º          │ 11/05 - 28/08   │ ~{int(encontros_trimestre * 0.9):3d}         │ 5 a 8        │
-│ 3º          │ 31/08 - 18/12   │ ~{encontros_trimestre:3d}         │ 9 a 12       │
+│ 1º          │ 27/01 - 09/05   │ ~{int(encontros_trimestre * 1.1):3d}         │ 1 a 4        │
+│ 2º          │ 11/05 - 12/09   │ ~{int(encontros_trimestre * 0.9):3d}         │ 5 a 8        │
+│ 3º          │ 14/09 - 18/12   │ ~{encontros_trimestre:3d}         │ 9 a 12       │
 └─────────────┴─────────────────┴──────────────┴──────────────┘
 
 """
@@ -423,7 +423,7 @@ Por trimestre:
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                            1º TRIMESTRE                                      │
-│                         (26/01 - 08/05)                                      │
+│                         (27/01 - 09/05)                                      │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ • Capítulos: 1 a 4 (Volume 1)                                                │
 │ • Trilhas digitais: 4 trilhas                                                │
@@ -433,7 +433,7 @@ Por trimestre:
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                            2º TRIMESTRE                                      │
-│                         (11/05 - 28/08)                                      │
+│                         (11/05 - 12/09)                                      │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ • Capítulos: 5 a 8 (Volumes 2 e 3)                                           │
 │ • Trilhas digitais: 4 trilhas                                                │
@@ -444,7 +444,7 @@ Por trimestre:
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                            3º TRIMESTRE                                      │
-│                         (31/08 - 18/12)                                      │
+│                         (14/09 - 18/12)                                      │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ • Capítulos: 9 a 12 (Volume 4)                                               │
 │ • Trilhas digitais: 4 trilhas                                                │

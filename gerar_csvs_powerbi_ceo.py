@@ -30,8 +30,21 @@ def semana_letiva(dt=None):
 
 
 def capitulo_esperado(semana):
-    """Capítulo esperado: CEILING(semana / 3.5), máximo 12."""
-    return min(12, math.ceil(semana / 3.5))
+    """Capítulo SAE esperado - SWITCH calibrado calendário 205 dias."""
+    if semana is None or semana < 1:
+        return 1
+    if semana <= 4: return 1
+    elif semana <= 8: return 2
+    elif semana <= 12: return 3
+    elif semana <= 15: return 4
+    elif semana <= 18: return 5
+    elif semana <= 22: return 6
+    elif semana <= 30: return 7   # inclui férias julho (sem 23-27)
+    elif semana <= 33: return 8
+    elif semana <= 37: return 9
+    elif semana <= 40: return 10
+    elif semana <= 43: return 11
+    else: return 12
 
 
 SEMANA_ATUAL = semana_letiva()

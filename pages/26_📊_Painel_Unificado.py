@@ -982,7 +982,7 @@ def _render_metas(df_matriculas):
 
         # Semana atual e projecao
         semana = calcular_semana_letiva()
-        semanas_restantes = max(0, 42 - semana)
+        semanas_restantes = max(0, 47 - semana)
 
         # Taxa de crescimento semanal media
         if semana > 1:
@@ -1011,7 +1011,7 @@ def _render_metas(df_matriculas):
             )
 
         # Grafico de projecao
-        semanas = list(range(1, 43))
+        semanas = list(range(1, 48))
         valores_proj = [total_2025 + cresc_semanal * s for s in semanas]
 
         fig_proj = go.Figure()

@@ -129,7 +129,7 @@ def gerar_resumo_texto(semana, cap_esperado, trimestre, df_metricas, df_aulas, d
     if not df_prog.empty and not df_aulas.empty:
         linhas.append("*PROGRESSÃO SAE:*")
         linhas.append(f"  Semana {semana} → Capítulo {cap_esperado}")
-        pct_ano = round(semana / 42 * 100)
+        pct_ano = round(semana / 47 * 100)
         linhas.append(f"  Progresso no ano: {pct_ano}%")
         linhas.append("")
 
@@ -273,7 +273,7 @@ def main():
     with col_cfg1:
         un_sel = st.selectbox("Unidade:", opcoes, index=default_idx)
     with col_cfg2:
-        semana_sel = st.number_input("Semana:", min_value=1, max_value=42, value=semana_atual)
+        semana_sel = st.number_input("Semana:", min_value=1, max_value=47, value=semana_atual)
     with col_cfg3:
         periodo_sel = st.selectbox("Período:", PERIODOS_OPCOES, key='periodo_15')
 
