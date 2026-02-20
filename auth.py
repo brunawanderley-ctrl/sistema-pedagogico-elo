@@ -8,8 +8,28 @@ import streamlit as st
 
 
 def check_password():
-    """Autenticação desativada - acesso direto. Reativar quando definir quais páginas terão senha."""
-    return True
+    """Verifica se o usuario esta autenticado. Mostra tela de login se nao."""
+    if st.session_state.get("authenticated"):
+        return True
+
+    st.markdown("### 🔐 Sistema Pedagógico ELO 2026")
+    st.markdown("Faça login para acessar o sistema.")
+
+    with st.form("login_form"):
+        username = st.text_input("Usuário")
+        password = st.text_input("Senha", type="password")
+        submitted = st.form_submit_button("Entrar")
+
+    if submitted:
+        if _validate_credentials(username, password):
+            st.session_state["authenticated"] = True
+            st.session_state["username"] = username
+            st.session_state["display_name"] = _get_display_name(username)
+            st.rerun()
+        else:
+            st.error("Usuário ou senha incorretos.")
+
+    return False
 
 
 def _validate_credentials(username, password):
@@ -64,5 +84,10 @@ def get_user_role():
 
 
 def logout_button():
-    """Desativado - sem login, sem logout."""
-    pass
+    """Mostra botao de logout na sidebar."""
+    if st.session_state.get("authenticated"):
+        nome = st.session_state.get("display_name", "Usuário")
+        st.sidebar.markdown(f"👤 **{nome}**")
+        if st.sidebar.button("Sair"):
+            st.session_state.clear()
+            st.rerun()

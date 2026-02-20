@@ -42,8 +42,8 @@ material_id,material_nome,disciplina_sae,disciplina,serie,grade_id,colecao,segme
 68dd26dec2a04f336ffed0ba,Língua Portuguesa,Língua Portuguesa,Língua Portuguesa,9º Ano,13,Base AF,Ensino Fundamental - Anos Finais,True,0,12
 68dd26de6c4baa3baa783c04,Matemática,Matemática,Matemática,9º Ano,13,Base AF,Ensino Fundamental - Anos Finais,True,0,12
 68e648206c4baa3baa784881,Química,Química,Química,9º Ano,13,Base AF (Química),Ensino Fundamental - Anos Finais,True,0,12
-68e64a0d40d7b11fcd05776a,Arte,Arte,Arte,1ª Série,14,SSA EM,Ensino Médio,True,0,12
 68c1b413232cab0181339c65,Arte,Arte,Arte,1ª Série,14,Base EM,Ensino Médio,True,0,12
+68e64a0d40d7b11fcd05776a,Arte,Arte,Arte,1ª Série,14,SSA EM,Ensino Médio,True,0,12
 68e64a0d40d7b11fcd057827,Biologia,Biologia,Biologia,1ª Série,14,SSA EM,Ensino Médio,True,0,12
 68c1b413232cab0181339c31,Biologia,Biologia,Biologia,1ª Série,14,Base EM,Ensino Médio,True,0,12
 6904b3d0970ad32653c84cee,Cidadania e Direitos Humanos,Cidadania e Direitos Humanos,Cidadania e Direitos Humanos,1ª Série,14,Eletivas PIJ,Ensino Médio,True,0,12
@@ -61,7 +61,29 @@ material_id,material_nome,disciplina_sae,disciplina,serie,grade_id,colecao,segme
 68e64a0dea8d6e16559ed7ca,História,História,História,1ª Série,14,SSA EM,Ensino Médio,True,0,12
 68c1b413f370121fa541e2df,História,História,História,1ª Série,14,Base EM,Ensino Médio,True,0,12
 68e64a0dea8d6e16559ed72a,Leitura e produção de textos,Leitura e produção de textos,Leitura e produção de textos,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68e64a0d40d7b11fcd05778b,Literatura,Literatura,Literatura,1ª Série,14,SSA EM,Ensino Médio,True,0,12
 68c1b413dc51802cb95e710d,Literatura,Literatura,Literatura,1ª Série,14,Base EM,Ensino Médio,True,0,12
+68e64a0dea8d6e16559ed749,Língua Espanhola,Língua Espanhola,Língua Espanhola,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68e64a0d6c4baa3baa784aa9,Língua Inglesa,Língua Inglesa,Língua Estrangeira Inglês,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68c1b413f370121fa541e28d,Língua Inglesa,Língua Inglesa,Língua Estrangeira Inglês,1ª Série,14,Base EM,Ensino Médio,True,0,12
+68e64a0d6c4baa3baa784a82,Língua Portuguesa,Língua Portuguesa,Língua Portuguesa,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68c1b413232cab0181339bd3,Língua Portuguesa,Língua Portuguesa,Língua Portuguesa,1ª Série,14,Base EM,Ensino Médio,True,0,12
+68c1b295dc51802cb95e6fd0,Língua Portuguesa,Língua Portuguesa,Língua Portuguesa,1ª Série,14,Caderno de texto e gramática,Ensino Médio,True,0,12
+68c1b413232cab0181339c08,Matemática,Matemática,Matemática,1ª Série,14,Base EM,Ensino Médio,True,0,12
+68e64a0d40d7b11fcd0577e0,Matemática,Matemática,Matemática,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+6904b3d0985278187726aed4,Produção de Conteúdo para Redes Sociais,Produção de Conteúdo para Redes Sociais,Produção de Conteúdo para Redes Sociais,1ª Série,14,Eletivas PIJ,Ensino Médio,True,0,12
+6904b3eb985278187726af21,Projeto de vida e escolha profissional,Projeto de vida e escolha profissional,Projeto de vida e escolha profissional,1ª Série,14,Projeto de Vida,Ensino Médio,True,0,12
+68e64a0dea8d6e16559ed78e,Química,Química,Química,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68c1b413f370121fa541e2b6,Química,Química,Química,1ª Série,14,Base EM,Ensino Médio,True,0,12
+6904b3ebf0afe000e7743d48,Relações Interpessoais,Relações Interpessoais,Relações Interpessoais,1ª Série,14,Projeto de Vida,Ensino Médio,True,0,12
+68c1b413f370121fa541e2f5,Rumo à Redação Nota 1000,Rumo à Redação Nota 1000,Rumo à Redação Nota 1000,1ª Série,14,Base EM,Ensino Médio,True,0,12
+6904b3eb970ad32653c84d45,Saúde Mental e Bem-estar,Saúde Mental e Bem-estar,Saúde Mental e Bem-estar,1ª Série,14,Projeto de Vida,Ensino Médio,True,0,12
+68e64a0d6c4baa3baa784b39,Sociologia,Sociologia,Sociologia,1ª Série,14,SSA EM,Ensino Médio,True,0,12
+68c1b413dc51802cb95e7179,Sociologia,Sociologia,Sociologia,1ª Série,14,Base EM,Ensino Médio,True,0,12
+6904b3d0f0afe000e7743cfa,Tópicos de astronomia para curiosos,Tópicos de astronomia para curiosos,Tópicos de astronomia para curiosos,1ª Série,14,Eletivas PIJ,Ensino Médio,True,0,12
+68c1b414232cab0181339d0d,Aprova Biológicas,Aprova Biológicas,Aprova Biológicas,2ª Série,15,Base EM,Ensino Médio,True,0,12
+68c1b414dc51802cb95e7261,Aprova Humanas,Aprova Humanas,Aprova Humanas,2ª Série,15,Base EM,Ensino Médio,True,0,12
+68c1b414f370121fa541e3a5,Aprova Matemática e Física,Aprova Matemática e Física,Aprova Matemática e Física,2ª Série,15,Base EM,Ensino Médio,True,0,12
 68c1b414dc51802cb95e724a,Arte,Arte,Arte,2ª Série,15,Base EM,Ensino Médio,True,0,12
 68e64a0cea8d6e16559ed571,Arte,Arte,Arte,2ª Série,15,SSA EM,Ensino Médio,True,0,12
 68e64a0cea8d6e16559ed62e,Biologia,Biologia,Biologia,2ª Série,15,SSA EM,Ensino Médio,True,0,12
@@ -82,6 +104,23 @@ material_id,material_nome,disciplina_sae,disciplina,serie,grade_id,colecao,segme
 68e64a0c6c4baa3baa784976,História,História,História,2ª Série,15,SSA EM,Ensino Médio,True,0,12
 68e64a0c6c4baa3baa7848d6,Leitura e produção de textos,Leitura e produção de textos,Leitura e produção de textos,2ª Série,15,SSA EM,Ensino Médio,True,0,12
 68e64a0cea8d6e16559ed592,Literatura,Literatura,Literatura,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68c1b413f370121fa541e314,Literatura,Literatura,Literatura,2ª Série,15,Base EM,Ensino Médio,True,0,12
+68e64a0c6c4baa3baa7848f5,Língua Espanhola,Língua Espanhola,Língua Espanhola,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68e64a0c40d7b11fcd0575fe,Língua Inglesa,Língua Inglesa,Língua Estrangeira Inglês,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68c1b414232cab0181339c87,Língua Inglesa,Língua Inglesa,Língua Estrangeira Inglês,2ª Série,15,Base EM,Ensino Médio,True,0,12
+68c1b295232cab0181339a7e,Língua Portuguesa,Língua Portuguesa,Língua Portuguesa,2ª Série,15,Caderno de texto e gramática,Ensino Médio,True,0,12
+68c1b414dc51802cb95e71c4,Língua Portuguesa,Língua Portuguesa,Língua Portuguesa,2ª Série,15,Base EM,Ensino Médio,True,0,12
+68e64a0c40d7b11fcd0575d7,Língua Portuguesa,Língua Portuguesa,Língua Portuguesa,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68e64a0cea8d6e16559ed5e7,Matemática,Matemática,Matemática,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68c1b414dc51802cb95e71ed,Matemática,Matemática,Matemática,2ª Série,15,Base EM,Ensino Médio,True,0,12
+6904b3d0f0afe000e7743d0a,Produção de Conteúdo para Redes Sociais,Produção de Conteúdo para Redes Sociais,Produção de Conteúdo para Redes Sociais,2ª Série,15,Eletivas PIJ,Ensino Médio,True,0,12
+6904b3ebf0afe000e7743d64,Projeto de vida e escolha profissional,Projeto de vida e escolha profissional,Projeto de vida e escolha profissional,2ª Série,15,Projeto de Vida,Ensino Médio,True,0,12
+68e64a0c6c4baa3baa78493a,Química,Química,Química,2ª Série,15,SSA EM,Ensino Médio,True,0,12
+68c1b414232cab0181339cb0,Química,Química,Química,2ª Série,15,Base EM,Ensino Médio,True,0,12
+6904b3eb970ad32653c84d60,Relações Interpessoais,Relações Interpessoais,Relações Interpessoais,2ª Série,15,Projeto de Vida,Ensino Médio,True,0,12
+68c1b414232cab0181339cf0,Rumo à Redação Nota 1000,Rumo à Redação Nota 1000,Rumo à Redação Nota 1000,2ª Série,15,Base EM,Ensino Médio,True,0,12
+6904b3eb985278187726af46,Saúde Mental e Bem-estar,Saúde Mental e Bem-estar,Saúde Mental e Bem-estar,2ª Série,15,Projeto de Vida,Ensino Médio,True,0,12
+68c1b414f370121fa541e378,Sociologia,Sociologia,Sociologia,2ª Série,15,Base EM,Ensino Médio,True,0,12
 68e64a0d6c4baa3baa784999,Arte,Arte,Arte,3ª Série,16,SSA EM,Ensino Médio,True,0,12
 68e64a0d6c4baa3baa784a56,Biologia,Biologia,Biologia,3ª Série,16,SSA EM,Ensino Médio,True,0,12
 68e64a0d6c4baa3baa784a61,Filosofia,Filosofia,Filosofia,3ª Série,16,SSA EM,Ensino Médio,True,0,12

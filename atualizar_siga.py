@@ -22,6 +22,7 @@ from datetime import datetime
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 
 CONFIG = {
     "instituicao": os.environ.get("SIGA_INSTITUICAO", "COLEGIOELO"),
@@ -145,8 +146,14 @@ def fazer_login_e_capturar_cookies():
     return cookie_dict
 
 
+@retry(
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=2, max=15),
+    retry=retry_if_exception_type((requests.ConnectionError, requests.Timeout)),
+    before_sleep=lambda rs: print(f"  Retry #{rs.attempt_number} para {rs.args[1]['codigo']}...")
+)
 def extrair_diarios_unidade(session, unidade):
-    """Extrai diários de uma unidade via API (requests)."""
+    """Extrai diários de uma unidade via API (requests). Retry automático em falha de rede."""
     periodo = unidade['periodo']
     codigo = unidade['codigo']
     aulas_formatadas = []
@@ -237,8 +244,8 @@ def extrair_diarios_unidade(session, unidade):
                                     'semana_letiva': semana,
                                     'progressao_key': pkey,
                                 })
-                    except Exception:
-                        pass
+                    except Exception as e:
+                        print(f"  WARN {codigo}: diario {diario_id} falhou: {e}")
 
         print(f"  {codigo}: {len(aulas_formatadas)} aulas extraidas")
         return codigo, aulas_formatadas, aulas_raw
@@ -298,7 +305,14 @@ def run_update():
             todas_aulas_csv.extend(aulas_csv)
             todas_aulas_raw.extend(aulas_raw)
 
-    # 4. Garante que diretorio existe
+    # 4. Validacao pos-extracao
+    unidades_ok = [k for k, v in resultados.items() if v > 0]
+    unidades_falha = set(['BV', 'CD', 'JG', 'CDR']) - set(unidades_ok)
+    if unidades_falha:
+        print(f"\n  ⚠️  ALERTA: Unidades sem dados: {unidades_falha}")
+    if len(todas_aulas_csv) < 100:
+        print(f"  ⚠️  ALERTA: Apenas {len(todas_aulas_csv)} aulas (esperado >500)")
+
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     # 5. Salva CSV (fato_Aulas.csv)

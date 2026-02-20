@@ -98,11 +98,22 @@ def calcular_semana_letiva(data_ref=None):
 def calcular_capitulo_esperado(semana):
     """
     Calcula capitulo SAE esperado para a semana.
-    Formula: CEILING(semana / 3.5), max 12.
+    Formula SWITCH canonica (igual ao DAX e dim_Progressao_SAE).
     """
-    if semana is None:
+    if semana is None or semana < 1:
         return 1
-    return min(12, math.ceil(semana / 3.5))
+    if semana <= 3: return 1
+    elif semana <= 6: return 2
+    elif semana <= 9: return 3
+    elif semana <= 14: return 4
+    elif semana <= 17: return 5
+    elif semana <= 20: return 6
+    elif semana <= 23: return 7
+    elif semana <= 28: return 8
+    elif semana <= 31: return 9
+    elif semana <= 34: return 10
+    elif semana <= 37: return 11
+    else: return 12
 
 
 def calcular_trimestre(semana):
@@ -131,9 +142,18 @@ def status_conformidade(pct):
 
 # ========== NORMALIZACAO DE DISCIPLINAS ==========
 
-# Normaliza disciplinas do fato_Aulas (SIGA) → nomes canonicos SAE
+# Normaliza disciplinas numeradas do fato_Aulas (SIGA) → nomes base para progressao_key
 DISCIPLINA_NORM_FATO = {
     'Física 2': 'Física',
+    'Física 3': 'Física',
+    'Biologia 2': 'Biologia',
+    'Matemática 2': 'Matemática',
+    'Matemática 3': 'Matemática',
+    'Química 2': 'Química',
+    'Química 3': 'Química',
+    'História 2': 'História',
+    'Geografia 2': 'Geografia',
+    'Língua Portuguesa 2': 'Língua Portuguesa',
 }
 
 # Normaliza disciplinas numeradas do horario → nomes base do SIGA
