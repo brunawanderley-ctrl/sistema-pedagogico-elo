@@ -3,9 +3,27 @@
 PÁGINA 21: BOLETIM DIGITAL
 Visão do boletim escolar: notas por trimestre, médias, situação.
 Permite visualizar como coordenador ou como se fosse o portal do aluno.
+
+TEMPORARIAMENTE OCULTO — Notas trimestrais de 2026 ainda não disponíveis no SIGA.
+Será reativado após lançamento das notas do 1º Trimestre (maio/2026).
 """
 
 import streamlit as st
+
+# --- PÁGINA TEMPORARIAMENTE OCULTA ---
+st.set_page_config(page_title="Boletim Digital", page_icon="📑", layout="wide")
+st.title("📑 Boletim Digital")
+st.info(
+    "**Página temporariamente desativada.**\n\n"
+    "As notas trimestrais de 2026 ainda não foram lançadas no SIGA. "
+    "O 1º Trimestre termina em 10/05/2026 — após o lançamento das notas, "
+    "esta página será reativada com dados reais.\n\n"
+    "Para consultar o histórico escolar (notas finais de anos anteriores), "
+    "utilize a **Página 19 — Painel do Aluno**."
+)
+st.stop()
+# --- FIM DO BLOQUEIO TEMPORÁRIO ---
+
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
