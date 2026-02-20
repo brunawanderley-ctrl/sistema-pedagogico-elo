@@ -32,55 +32,61 @@ def check_password():
     return False
 
 
-def _validate_credentials(username, password):
-    """Valida credenciais contra st.secrets."""
+_FALLBACK_USERS = {
+    "bruna": {"password": "EloAdmin2026!", "name": "Bruna", "unit": "BV", "role": "admin"},
+    "admin": {"password": "EloAdmin2026!", "name": "Administrador", "unit": None, "role": "admin"},
+    "bv": {"password": "EloBV2026", "name": "Boa Viagem", "unit": "BV", "role": "coordenador"},
+    "candeias": {"password": "EloCD2026", "name": "Candeias", "unit": "CD", "role": "coordenador"},
+    "janga": {"password": "EloJG2026", "name": "Janga", "unit": "JG", "role": "coordenador"},
+    "cordeiro": {"password": "EloCDR2026", "name": "Cordeiro", "unit": "CDR", "role": "coordenador"},
+}
+
+
+def _get_users():
+    """Retorna dict de usuarios. Tenta st.secrets, fallback para hardcoded."""
     try:
-        users = st.secrets["credentials"]["usernames"]
-        if username in users:
-            stored_password = users[username]["password"]
-            return hmac.compare_digest(password, stored_password)
-    except (KeyError, FileNotFoundError):
-        st.error("Credenciais nao configuradas. Configure .streamlit/secrets.toml ou Streamlit Cloud Secrets.")
-        return False
+        return st.secrets["credentials"]["usernames"]
+    except (KeyError, FileNotFoundError, Exception):
+        return _FALLBACK_USERS
+
+
+def _validate_credentials(username, password):
+    """Valida credenciais contra st.secrets ou fallback."""
+    users = _get_users()
+    if username in users:
+        stored_password = users[username]["password"]
+        return hmac.compare_digest(password, stored_password)
     return False
 
 
 def _get_display_name(username):
     """Retorna o nome de exibição do usuário."""
-    try:
-        return st.secrets["credentials"]["usernames"][username]["name"]
-    except (KeyError, FileNotFoundError):
-        return username
+    users = _get_users()
+    if username in users:
+        return users[username].get("name", username)
+    return username
 
 
 def get_user_unit():
-    """
-    Retorna a unidade padrao do usuario logado.
-    Lê de st.secrets[credentials][usernames][user][unit].
-    Retorna None se nao configurado.
-    """
+    """Retorna a unidade padrao do usuario logado."""
     username = st.session_state.get("username")
     if not username:
         return None
-    try:
-        return st.secrets["credentials"]["usernames"][username].get("unit")
-    except (KeyError, FileNotFoundError, AttributeError):
-        return None
+    users = _get_users()
+    if username in users:
+        return users[username].get("unit")
+    return None
 
 
 def get_user_role():
-    """
-    Retorna o perfil do usuario logado (admin, coordenador, diretor).
-    Lê de st.secrets[credentials][usernames][user][role].
-    Retorna 'viewer' se nao configurado.
-    """
+    """Retorna o perfil do usuario logado (admin, coordenador, diretor)."""
     username = st.session_state.get("username")
     if not username:
         return 'viewer'
-    try:
-        return st.secrets["credentials"]["usernames"][username].get("role", "viewer")
-    except (KeyError, FileNotFoundError, AttributeError):
-        return 'viewer'
+    users = _get_users()
+    if username in users:
+        return users[username].get("role", "viewer")
+    return 'viewer'
 
 
 def logout_button():
