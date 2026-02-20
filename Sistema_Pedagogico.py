@@ -32,17 +32,18 @@ st.set_page_config(
 )
 
 
-# ========== SCHEDULER: ATUALIZAÇÃO AUTOMÁTICA ==========
-@st.cache_resource
-def _iniciar_scheduler():
-    """Inicia o scheduler de atualizacao automatica (roda 1x por processo)."""
-    if os.environ.get("SIGA_SENHA"):
-        from scheduler import iniciar_scheduler
-        iniciar_scheduler()
-        return True
-    return False
-
-_scheduler_ativo = _iniciar_scheduler()
+# ========== HEALTH CHECK: SCHEDULER EXTERNO ==========
+def _ler_health_scheduler():
+    """Le o health check do scheduler externo (scheduler_standalone.py)."""
+    health_file = Path(__file__).parent / "scheduler_health.json"
+    if not health_file.exists():
+        return {}
+    try:
+        import json
+        with open(health_file, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
 
 # ========== SESSION STATE: INICIALIZAÇÃO DE VARIÁVEIS COMUNS ==========
 if 'semana_atual' not in st.session_state:
@@ -98,36 +99,41 @@ with st.sidebar:
                     st.error("Erro na atualizacao:")
                     st.code(_result.stderr or _result.stdout, language="text")
         else:
-            # Render/Cloud: roda via scheduler em thread
-            from scheduler import executar_agora, is_running, ultimo_resultado, proxima_execucao
-
-            if is_running():
-                st.info("Atualizacao em andamento...")
-            else:
-                if st.button("Atualizar Diario de Classe", type="primary", key="btn_atualizar_home"):
-                    if executar_agora():
-                        st.success("Atualizacao iniciada! Aguarde ~2 min e recarregue a pagina.")
-                    else:
-                        st.warning("Ja existe uma atualizacao em andamento.")
-
-            # Status do scheduler
-            _ult = ultimo_resultado()
-            if _ult.get("timestamp"):
-                _ts = _ult["timestamp"].strftime("%d/%m %H:%M")
-                if _ult["ok"]:
-                    st.caption(f"Ultima auto: {_ts} ({_ult['total']} aulas)")
+            # Render/Cloud: roda via subprocess (mesmo que local)
+            if st.button("Atualizar Diario de Classe", type="primary", key="btn_atualizar_home"):
+                _script_path = Path(__file__).parent / "atualizar_siga.py"
+                _env = os.environ.copy()
+                with st.spinner("Atualizando dados do SIGA..."):
+                    _result = subprocess.run(
+                        ["python3", str(_script_path)],
+                        capture_output=True,
+                        text=True,
+                        timeout=300,
+                        cwd=str(Path(__file__).parent),
+                        env=_env,
+                    )
+                if _result.returncode == 0:
+                    st.success("Dados atualizados com sucesso!")
+                    st.rerun()
                 else:
-                    st.caption(f"Ultima auto: {_ts} (ERRO: {_ult.get('erro', '?')})")
-
-            _prox = proxima_execucao()
-            if _prox:
-                st.caption(f"Proxima auto: {_prox.strftime('%H:%M')}")
+                    st.error("Erro na atualizacao:")
+                    st.code(_result.stderr or _result.stdout, language="text")
     else:
         st.info("Configure SIGA_SENHA para habilitar atualizacoes.")
 
-    # Indicador do scheduler
-    if _scheduler_ativo:
-        st.caption("Scheduler ativo: 8h, 12h, 18h, 20h")
+    # Status do scheduler externo (le health check de scheduler_standalone.py)
+    _health = _ler_health_scheduler()
+    if _health.get("last_run"):
+        try:
+            _last_dt = datetime.fromisoformat(_health["last_run"])
+            _last_str = _last_dt.strftime("%d/%m %H:%M")
+            if _health.get("ok"):
+                st.caption(f"Ultima extracao: {_last_str} ({_health.get('total', 0)} aulas)")
+            else:
+                st.caption(f"Ultima extracao: {_last_str} (ERRO: {_health.get('erro', '?')})")
+        except (ValueError, TypeError):
+            st.caption(f"Ultima extracao: {_health['last_run']}")
+    st.caption("Scheduler: Externo (8h, 12h, 18h, 20h)")
 
     st.markdown("---")
 
