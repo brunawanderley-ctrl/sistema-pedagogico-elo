@@ -18,10 +18,11 @@ from utils import (
     calcular_semana_letiva, calcular_capitulo_esperado,
     carregar_fato_aulas, carregar_horario_esperado, carregar_progressao_sae,
     filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES,
-    _hoje, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM,
+    _hoje, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM, WRITABLE_DIR,
     CONFORMIDADE_CRITICO, CONFORMIDADE_BAIXO, CONFORMIDADE_META,
     CONTEUDO_VAZIO_ALERTA,
 )
+import json
 
 st.set_page_config(page_title="Alertas Inteligentes", page_icon="🧠", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -429,17 +430,46 @@ def main():
             'ROSA': 'alerta-rosa',
         }
 
-        for _, alerta in df_alertas_f.iterrows():
+        # Carrega devolutivas existentes para verificar follow-up
+        _dev_file = WRITABLE_DIR / 'devolutivas.json'
+        _devolutivas = []
+        if _dev_file.exists():
+            try:
+                with open(_dev_file, 'r', encoding='utf-8') as f:
+                    _devolutivas = json.load(f)
+            except (json.JSONDecodeError, ValueError):
+                pass
+        _profs_com_devolutiva = {d.get('professor') for d in _devolutivas}
+
+        for idx, (_, alerta) in enumerate(df_alertas_f.iterrows()):
             tipo = alerta['tipo']
             info = TIPOS_ALERTA[tipo]
             css_class = css_map[tipo]
+            prof_nome = alerta['professor']
+            tem_dev = prof_nome in _profs_com_devolutiva
+            badge_dev = ' | <span style="background:#C8E6C9;padding:2px 8px;border-radius:10px;font-size:0.8em;">Tem devolutiva</span>' if tem_dev else ''
+
             st.markdown(f"""
             <div class="{css_class}">
-                <strong>{info['emoji']} {info['nome']}</strong> | <strong>{alerta['professor']}</strong> ({alerta['unidade']}) - {alerta['disciplinas']}<br>
+                <strong>{info['emoji']} {info['nome']}</strong> | <strong>{prof_nome}</strong> ({alerta['unidade']}) - {alerta['disciplinas']}{badge_dev}<br>
                 <small>{alerta['detalhe']}</small><br>
-                <em>Ação: {info['acao']}</em>
+                <em>Acao: {info['acao']}</em>
             </div>
             """, unsafe_allow_html=True)
+
+            # Botao para criar devolutiva a partir do alerta
+            if prof_nome and alerta.get('professor_raw', '') and not tem_dev:
+                if st.button(f"Criar Devolutiva para {prof_nome}", key=f"dev_btn_{idx}"):
+                    st.session_state['devolutiva_from_alerta'] = {
+                        'professor': prof_nome,
+                        'unidade': alerta['unidade'],
+                        'tipo_alerta': tipo,
+                        'nome_alerta': info['nome'],
+                        'detalhe': alerta['detalhe'],
+                        'disciplinas': alerta['disciplinas'],
+                        'acao_sugerida': info['acao'],
+                    }
+                    st.info(f"Contexto salvo! Navegue para a pagina **Devolutivas** no menu lateral para preencher.")
 
         # Tabela resumo
         st.markdown("---")

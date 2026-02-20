@@ -146,9 +146,19 @@ def main():
         st.markdown("---")
         st.subheader("Selecionar Professor")
 
-        unidade_sel = st.selectbox("Unidade:", UNIDADES,
+        _user_unit = get_user_unit()
+        _un_default = UNIDADES.index(_user_unit) if _user_unit and _user_unit in UNIDADES else 0
+        # Se veio de alerta, pre-seleciona a unidade do alerta
+        if _alerta_ctx and _alerta_ctx.get('unidade') in UNIDADES:
+            _un_default = UNIDADES.index(_alerta_ctx['unidade'])
+        unidade_sel = st.selectbox("Unidade:", UNIDADES, index=_un_default,
             format_func=lambda x: UNIDADES_NOMES.get(x, x),
             key='dev_unidade')
+
+        # Verifica se veio de um alerta (pagina 14)
+        _alerta_ctx = st.session_state.get('devolutiva_from_alerta')
+        if _alerta_ctx:
+            st.success(f"Alerta: {_alerta_ctx.get('nome_alerta', '')} - {_alerta_ctx.get('professor', '')}")
 
         segmento_sel = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Médio'],
             key='dev_segmento')
@@ -166,7 +176,9 @@ def main():
             st.warning("Nenhum professor encontrado para esta unidade/segmento.")
             return
 
-        prof_sel = st.selectbox("Professor:", professores_disp, key='dev_professor')
+        _alerta_prof = _alerta_ctx.get('professor') if _alerta_ctx else None
+        _prof_default = professores_disp.index(_alerta_prof) if _alerta_prof and _alerta_prof in professores_disp else 0
+        prof_sel = st.selectbox("Professor:", professores_disp, index=_prof_default, key='dev_professor')
 
         # Disciplinas do professor selecionado
         disc_prof = sorted(df_f[df_f['professor'] == prof_sel]['disciplina'].dropna().unique()) if 'disciplina' in df_f.columns else []
@@ -214,7 +226,16 @@ def main():
             st.markdown('<div class="ccc-escuta"><strong>RELATO RECEBIDO</strong><br>'
                         '<small>Situação relatada por terceiros: quem relatou, contexto, recorrência</small></div>',
                         unsafe_allow_html=True)
+            _relato_default = ""
+            if _alerta_ctx and _alerta_ctx.get('professor') == prof_sel:
+                _relato_default = (
+                    f"[Alerta {_alerta_ctx.get('nome_alerta', '')}] "
+                    f"{_alerta_ctx.get('detalhe', '')} | "
+                    f"Disciplinas: {_alerta_ctx.get('disciplinas', '')} | "
+                    f"Acao sugerida: {_alerta_ctx.get('acao_sugerida', '')}"
+                )
             relato_recebido = st.text_area("Relato da situação:", height=100, key='dev_relato',
+                value=_relato_default,
                 placeholder="Ex: A família relatou que... / O aluno X mencionou que... / "
                 "Observação em sala no dia...")
 
@@ -303,8 +324,13 @@ def main():
 
             # ===== RODAPÉ: COORDENADOR E ASSINATURAS =====
             st.markdown("---")
-            coordenador = st.text_input("Coordenador(a) responsável:",
-                value=st.session_state.get("user_display", ""), key='dev_coordenador')
+            col_rod1, col_rod2 = st.columns(2)
+            with col_rod1:
+                coordenador = st.text_input("Coordenador(a) responsável:",
+                    value=st.session_state.get("display_name", ""), key='dev_coordenador')
+            with col_rod2:
+                status_dev = st.selectbox("Status:", ['Pendente', 'Em andamento', 'Concluido'],
+                    key='dev_status')
 
             submitted = st.form_submit_button("Salvar Devolutiva", type="primary", use_container_width=True)
 
@@ -314,6 +340,16 @@ def main():
                     st.error("Preencha ao menos um campo de Escuta ou dos 3C (Continuar, Começar, Cessar).")
                 else:
                     disc_valor = disciplina_sel if disciplina_sel != 'Todas' else ''
+                    # Limpa contexto de alerta apos uso
+                    alerta_origem = None
+                    if _alerta_ctx and _alerta_ctx.get('professor') == prof_sel:
+                        alerta_origem = {
+                            'tipo': _alerta_ctx.get('tipo_alerta', ''),
+                            'nome': _alerta_ctx.get('nome_alerta', ''),
+                            'detalhe': _alerta_ctx.get('detalhe', ''),
+                        }
+                        st.session_state.pop('devolutiva_from_alerta', None)
+
                     registro = {
                         'id': f"{unidade_sel}_{prof_sel}_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
                         'data': datetime.now().strftime('%d/%m/%Y %H:%M'),
@@ -324,6 +360,8 @@ def main():
                         'trimestre': trimestre,
                         'semana': semana,
                         'capitulo_esperado': cap_esperado,
+                        'status': status_dev,
+                        'alerta_origem': alerta_origem,
                         # Seção 1: Escuta e Diálogo Construtivo
                         'relato_recebido': relato_recebido.strip(),
                         'posicionamento_professor': posicionamento_prof.strip(),
@@ -374,11 +412,29 @@ def main():
             dev_prof.sort(key=lambda x: x.get('data', ''), reverse=True)
 
             for i, dev in enumerate(dev_prof):
+                _status = dev.get('status', 'Pendente')
+                _status_icon = {'Pendente': '🟡', 'Em andamento': '🔵', 'Concluido': '✅'}.get(_status, '⚪')
+                _alerta_tag = ''
+                if dev.get('alerta_origem'):
+                    _alerta_tag = f" | Alerta: {dev['alerta_origem'].get('nome', '')}"
                 with st.expander(
-                    f"{dev.get('data', '—')} | {dev.get('trimestre', '?')}º Tri · Semana {dev.get('semana', '?')} | "
-                    f"por {dev.get('coordenador', '—')}",
+                    f"{_status_icon} {dev.get('data', '—')} | {dev.get('trimestre', '?')}º Tri · Semana {dev.get('semana', '?')} | "
+                    f"por {dev.get('coordenador', '—')}{_alerta_tag}",
                     expanded=(i == 0)
                 ):
+                    # Atualizar status
+                    col_st1, col_st2 = st.columns([3, 1])
+                    with col_st1:
+                        st.caption(f"Status atual: **{_status}**")
+                    with col_st2:
+                        _novo_status = st.selectbox("Atualizar:", ['Pendente', 'Em andamento', 'Concluido'],
+                            index=['Pendente', 'Em andamento', 'Concluido'].index(_status),
+                            key=f'status_upd_{i}')
+                        if _novo_status != _status:
+                            dev['status'] = _novo_status
+                            salvar_devolutivas(devolutivas)
+                            st.rerun()
+
                     # Métricas do momento
                     snap = dev.get('metricas_snapshot', {})
                     if snap:
@@ -559,9 +615,12 @@ def main():
             resumo = []
             for prof, d in sorted(ultimo_por_prof.items()):
                 snap = d.get('metricas_snapshot', {})
+                _st = d.get('status', 'Pendente')
+                _st_icon = {'Pendente': '🟡', 'Em andamento': '🔵', 'Concluido': '✅'}.get(_st, '⚪')
                 resumo.append({
                     'Professor': prof,
                     'Última Devolutiva': d.get('data', ''),
+                    'Status': f"{_st_icon} {_st}",
                     'Trimestre': f"{d.get('trimestre', '')}º",
                     'Registro %': f"{snap.get('taxa_registro', 0):.0f}%",
                     'Prazo': d.get('prazo', ''),
