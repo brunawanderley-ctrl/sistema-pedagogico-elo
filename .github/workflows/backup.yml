@@ -1,0 +1,256 @@
+ # =============================================================================                                                                                        
+  # BACKUP AUTOMATICO - DADOS PEDAGOGICOS COLEGIO ELO                                                                                                                    
+  # =============================================================================
+  # Este workflow cria backups diarios dos arquivos CSV do diretorio power_bi/                                                                                           
+  # e os armazena como GitHub Releases com tag timestampada.                                                                                                             
+  #                                                                                                                                                                      
+  # Motivacao: O sistema roda no Streamlit Cloud e backups em /tmp sao perdidos                                                                                          
+  # a cada redeployment. GitHub Releases garante persistencia dos dados.                                                                                                 
+  #
+  # Agenda: Diariamente as 23:00 (horario de Recife, UTC-3) = 02:00 UTC
+  # Manual: Pode ser disparado manualmente via workflow_dispatch
+  # =============================================================================
+
+  name: Backup Dados Pedagógicos
+
+  on:
+    # Execucao agendada: todo dia as 02:00 UTC (23:00 BRT)
+    schedule:
+      - cron: '0 2 * * *'
+
+    # Permite execucao manual pelo GitHub Actions UI
+    workflow_dispatch:
+
+  # Permissoes necessarias para criar releases e tags
+  permissions:
+    contents: write
+
+  jobs:
+    backup:
+      name: Backup power_bi/
+      runs-on: ubuntu-latest
+
+      steps:
+        # -----------------------------------------------------------------------
+        # Passo 1: Checkout do repositorio
+        # -----------------------------------------------------------------------
+        - name: Checkout do repositório
+          uses: actions/checkout@v4
+
+        # -----------------------------------------------------------------------
+        # Passo 2: Gerar timestamp e tag para a release
+        # -----------------------------------------------------------------------
+        - name: Gerar timestamp e tag
+          id: meta
+          run: |
+            # Usa horario de Recife (UTC-3) para a tag
+            TIMESTAMP=$(TZ='America/Recife' date '+%Y-%m-%d_%H%M')
+            TAG="backup-${TIMESTAMP}"
+            DATE_DISPLAY=$(TZ='America/Recife' date '+%d/%m/%Y às %H:%M')
+
+            echo "timestamp=${TIMESTAMP}" >> "$GITHUB_OUTPUT"
+            echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+            echo "date_display=${DATE_DISPLAY}" >> "$GITHUB_OUTPUT"
+
+            echo "Tag gerada: ${TAG}"
+
+        # -----------------------------------------------------------------------
+        # Passo 3: Verificar se existem arquivos CSV para backup
+        # -----------------------------------------------------------------------
+        - name: Verificar arquivos CSV
+          id: check
+          run: |
+            CSV_COUNT=$(find power_bi/ -name '*.csv' -type f 2>/dev/null | wc -l | tr -d ' ')
+            echo "csv_count=${CSV_COUNT}" >> "$GITHUB_OUTPUT"
+
+            if [ "$CSV_COUNT" -eq 0 ]; then
+              echo "::error::Nenhum arquivo CSV encontrado em power_bi/"
+              exit 1
+            fi
+
+            echo "Encontrados ${CSV_COUNT} arquivos CSV para backup"
+
+        # -----------------------------------------------------------------------
+        # Passo 4: Criar ZIP com todos os CSVs e JSONs de configuracao
+        # -----------------------------------------------------------------------
+        - name: Criar arquivo ZIP do backup
+          id: zip
+          run: |
+            ZIP_NAME="backup_power_bi_${{ steps.meta.outputs.timestamp }}.zip"
+
+            # Inclui todos os CSVs e JSONs de configuracao do power_bi/
+            cd power_bi/
+            zip -9 "../${ZIP_NAME}" \
+              *.csv \
+              *.json \
+              2>/dev/null || true
+            cd ..
+
+            # Verifica se o ZIP foi criado com sucesso
+            if [ ! -f "${ZIP_NAME}" ]; then
+              echo "::error::Falha ao criar arquivo ZIP"
+              exit 1
+            fi
+
+            ZIP_SIZE=$(du -h "${ZIP_NAME}" | cut -f1)
+            ZIP_SIZE_BYTES=$(stat -c%s "${ZIP_NAME}" 2>/dev/null || stat -f%z "${ZIP_NAME}")
+
+            echo "zip_name=${ZIP_NAME}" >> "$GITHUB_OUTPUT"
+            echo "zip_size=${ZIP_SIZE}" >> "$GITHUB_OUTPUT"
+            echo "zip_size_bytes=${ZIP_SIZE_BYTES}" >> "$GITHUB_OUTPUT"
+
+            echo "ZIP criado: ${ZIP_NAME} (${ZIP_SIZE})"
+
+        # -----------------------------------------------------------------------
+        # Passo 5: Gerar inventario detalhado dos arquivos
+        # -----------------------------------------------------------------------
+        - name: Gerar inventário dos arquivos
+          id: inventory
+          run: |
+            {
+              echo "## Inventário do Backup"
+              echo ""
+              echo "| Arquivo | Tamanho | Última modificação |"
+              echo "|---------|---------|-------------------|"
+
+              # Lista cada CSV com tamanho e data
+              for f in power_bi/*.csv; do
+                if [ -f "$f" ]; then
+                  FNAME=$(basename "$f")
+                  FSIZE=$(du -h "$f" | cut -f1)
+                  FDATE=$(date -r "$f" '+%d/%m/%Y %H:%M' 2>/dev/null || stat -c '%y' "$f" 2>/dev/null | cut -d. -f1)
+                  echo "| \`${FNAME}\` | ${FSIZE} | ${FDATE} |"
+                fi
+              done
+
+              # Inclui JSONs se existirem
+              for f in power_bi/*.json; do
+                if [ -f "$f" ]; then
+                  FNAME=$(basename "$f")
+                  FSIZE=$(du -h "$f" | cut -f1)
+                  FDATE=$(date -r "$f" '+%d/%m/%Y %H:%M' 2>/dev/null || stat -c '%y' "$f" 2>/dev/null | cut -d. -f1)
+                  echo "| \`${FNAME}\` | ${FSIZE} | ${FDATE} |"
+                fi
+              done
+            } > inventory.md
+
+            # Conta totais para o resumo
+            TOTAL_CSV=$(find power_bi/ -name '*.csv' -type f | wc -l | tr -d ' ')
+            TOTAL_JSON=$(find power_bi/ -name '*.json' -type f | wc -l | tr -d ' ')
+            TOTAL_SIZE=$(du -sh power_bi/ | cut -f1)
+
+            echo "total_csv=${TOTAL_CSV}" >> "$GITHUB_OUTPUT"
+            echo "total_json=${TOTAL_JSON}" >> "$GITHUB_OUTPUT"
+            echo "total_size=${TOTAL_SIZE}" >> "$GITHUB_OUTPUT"
+
+        # -----------------------------------------------------------------------
+        # Passo 6: Criar release no GitHub com o ZIP
+        # -----------------------------------------------------------------------
+        - name: Criar release com backup
+          uses: softprops/action-gh-release@v2
+          with:
+            tag_name: ${{ steps.meta.outputs.tag }}
+            name: "Backup ${{ steps.meta.outputs.date_display }}"
+            body: |
+              # Backup Dados Pedagógicos - Colégio ELO
+
+              **Data:** ${{ steps.meta.outputs.date_display }} (horário de Recife)
+              **Arquivos CSV:** ${{ steps.inventory.outputs.total_csv }}
+              **Arquivos JSON:** ${{ steps.inventory.outputs.total_json }}
+              **Tamanho total (descompactado):** ${{ steps.inventory.outputs.total_size }}
+              **Tamanho ZIP:** ${{ steps.zip.outputs.zip_size }}
+
+              ### Arquivos incluídos
+
+              **Tabelas Dimensão:**
+              - `dim_Alunos.csv` - Cadastro de alunos (4 unidades)
+              - `dim_Alunos_SAE.csv` - Alunos SAE Digital (match por nome)
+              - `dim_Calendario.csv` - Calendário letivo 2026
+              - `dim_Disciplinas.csv` - Disciplinas canônicas
+              - `dim_Professores.csv` - Professores ativos
+              - `dim_Progressao_SAE.csv` - Progressão capítulos SAE
+              - `dim_Series.csv` - Séries (6º ao 3ª EM)
+              - `dim_Materiais_SAE.csv` - Materiais SAE Digital
+
+              **Tabelas Fato:**
+              - `fato_Aulas.csv` - Diário de classe (atualização diária)
+              - `fato_Ocorrencias.csv` - Ocorrências disciplinares
+              - `fato_Notas_Historico.csv` - Notas históricas
+              - `fato_Cruzamento.csv` - Cruzamento SIGA x SAE
+              - `fato_Engajamento_SAE.csv` - Engajamento SAE Digital
+
+              **Resumos e Scores:**
+              - `resumo_Aulas_Esperadas.csv` - Meta de aulas por disciplina
+              - `score_Professor.csv` - Score de desempenho docente
+              - `score_Aluno_ABC.csv` - Classificação ABC dos alunos
+
+              ---
+              _Backup automático do sistema pedagógico integrado SIGA-SAE._
+              _Repositório: brunawanderley-ctrl/sistema-pedagogico-elo_
+            files: |
+              ${{ steps.zip.outputs.zip_name }}
+            make_latest: true
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        # -----------------------------------------------------------------------
+        # Passo 7: Limpar releases antigas (manter apenas as 7 mais recentes)
+        # -----------------------------------------------------------------------
+        - name: Limpar releases antigas (manter últimas 7)
+          env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: |
+            echo "Verificando releases antigas para limpeza..."
+
+            # Lista todas as releases com tag de backup, ordenadas por data (mais recente primeiro)
+            RELEASES=$(gh release list --limit 100 \
+              --json tagName,createdAt \
+              --jq '[.[] | select(.tagName | startswith("backup-"))] | sort_by(.createdAt) | reverse | .[].tagName')
+
+            # Conta quantas releases de backup existem
+            COUNT=$(echo "$RELEASES" | grep -c 'backup-' || true)
+            echo "Total de releases de backup: ${COUNT}"
+
+            if [ "$COUNT" -le 7 ]; then
+              echo "Menos de 8 releases - nada a limpar."
+              exit 0
+            fi
+
+            # Pega as releases que devem ser removidas (a partir da 8a)
+            TO_DELETE=$(echo "$RELEASES" | tail -n +8)
+
+            echo "Removendo $(echo "$TO_DELETE" | wc -l | tr -d ' ') releases antigas..."
+
+            while IFS= read -r TAG; do
+              if [ -n "$TAG" ]; then
+                echo "  Removendo: ${TAG}"
+                gh release delete "$TAG" --yes --cleanup-tag 2>/dev/null || true
+              fi
+            done <<< "$TO_DELETE"
+
+            echo "Limpeza concluída!"
+
+        # -----------------------------------------------------------------------
+        # Passo 8: Resumo no GitHub Actions Summary
+        # -----------------------------------------------------------------------
+        - name: Gerar resumo da execução
+          if: always()
+          run: |
+            {
+              echo "# Backup Dados Pedagógicos - Colégio ELO"
+              echo ""
+              echo "| Item | Valor |"
+              echo "|------|-------|"
+              echo "| **Data** | ${{ steps.meta.outputs.date_display }} |"
+              echo "| **Tag** | \`${{ steps.meta.outputs.tag }}\` |"
+              echo "| **Arquivos CSV** | ${{ steps.inventory.outputs.total_csv }} |"
+              echo "| **Arquivos JSON** | ${{ steps.inventory.outputs.total_json }} |"
+              echo "| **Tamanho total** | ${{ steps.inventory.outputs.total_size }} |"
+              echo "| **Tamanho ZIP** | ${{ steps.zip.outputs.zip_size }} |"
+              echo ""
+
+              # Inclui o inventario detalhado
+              if [ -f inventory.md ]; then
+                cat inventory.md
+              fi
+            } >> "$GITHUB_STEP_SUMMARY"
