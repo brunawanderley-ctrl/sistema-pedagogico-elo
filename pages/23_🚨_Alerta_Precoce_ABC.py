@@ -161,7 +161,10 @@ def main():
     n_cols = 3 if (tem_notas and 'ano' in df_notas.columns) else 2
     cols_f = st.columns(n_cols)
     with cols_f[0]:
-        unidade_sel = st.selectbox("Unidade:", ['Todas'] + UNIDADES,
+        _user_unit = get_user_unit()
+        _un_opts = ['Todas'] + UNIDADES
+        _default_idx = _un_opts.index(_user_unit) if _user_unit and _user_unit in _un_opts else 0
+        unidade_sel = st.selectbox("Unidade:", _un_opts, index=_default_idx,
             format_func=lambda x: UNIDADES_NOMES.get(x, x) if x != 'Todas' else 'Todas')
     with cols_f[1]:
         segmento_sel = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Médio'])

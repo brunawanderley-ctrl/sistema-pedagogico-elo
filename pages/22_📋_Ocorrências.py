@@ -138,8 +138,10 @@ def main():
                         max_value=data_max.date() if hasattr(data_max, 'date') else data_max,
                         key='ocorr_periodo')
 
+            _user_unit = get_user_unit()
+            _default_un = [_user_unit] if _user_unit else UNIDADES
             unidades_sel = st.multiselect("Unidade:", UNIDADES,
-                default=UNIDADES,
+                default=_default_un,
                 format_func=lambda x: UNIDADES_NOMES.get(x, x),
                 key='ocorr_unidade')
 

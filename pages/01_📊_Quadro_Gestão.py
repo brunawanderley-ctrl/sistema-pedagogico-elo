@@ -121,6 +121,11 @@ def main():
         df = df[df['serie'] == filtro_serie]
     df = filtrar_por_periodo(df, filtro_periodo)
 
+    # Filtrar horario pela mesma unidade para alertas e resumo
+    df_horario_filt = df_horario.copy()
+    if filtro_un != 'TODAS':
+        df_horario_filt = df_horario_filt[df_horario_filt['unidade'] == filtro_un]
+
     if df.empty:
         st.info("Nenhum dado encontrado para os filtros selecionados.")
         return
@@ -259,8 +264,8 @@ def main():
     alertas = []
 
     # Alerta: Disciplinas/series sem nenhum registro
-    if not df_horario.empty:
-        slots_esp = set(df_horario.groupby(['unidade', 'serie', 'disciplina']).size().index)
+    if not df_horario_filt.empty:
+        slots_esp = set(df_horario_filt.groupby(['unidade', 'serie', 'disciplina']).size().index)
         slots_real = set(df.groupby(['unidade', 'serie', 'disciplina']).size().index) if not df.empty else set()
         slots_sem = slots_esp - slots_real
         if len(slots_sem) > 0:
@@ -282,10 +287,10 @@ def main():
         })
 
     # Alerta: Conformidade baixa por unidade
-    if not df_horario.empty:
-        for un in df_aulas['unidade'].unique():
-            df_un = df_aulas[df_aulas['unidade'] == un]
-            df_hor_un = df_horario[df_horario['unidade'] == un]
+    if not df_horario_filt.empty:
+        for un in df['unidade'].unique():
+            df_un = df[df['unidade'] == un]
+            df_hor_un = df_horario_filt[df_horario_filt['unidade'] == un]
 
             # Calcula semana baseada na data máxima DA UNIDADE
             if df_un['data'].notna().any():
@@ -408,20 +413,16 @@ def main():
     st.dataframe(df_resumo, use_container_width=True, hide_index=True)
 
     # ========== RANKING DE PROFESSORES ==========
-    if not df_horario.empty:
+    if not df_horario_filt.empty:
         st.markdown("---")
         st.header("🏆 Ranking de Professores")
 
         # Calcula conformidade usando fato_Aulas e horario esperado por
         # (unidade, serie, disciplina) - nao depende de match de nome
         prof_ranking = []
-        for prof in df_aulas['professor'].unique():
-            df_prof = df_aulas[df_aulas['professor'] == prof]
+        for prof in df['professor'].unique():
+            df_prof = df[df['professor'] == prof]
             un = df_prof['unidade'].iloc[0]
-
-            # Aplica filtros ativos
-            if filtro_un != 'TODAS' and un != filtro_un:
-                continue
 
             discs = sorted(df_prof['disciplina'].unique())
             series = df_prof['serie'].unique()

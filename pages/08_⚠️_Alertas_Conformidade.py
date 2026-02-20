@@ -167,10 +167,10 @@ def main():
                 })
 
         # 2. Conformidade por unidade (usando data máxima de cada unidade)
-        for un in df_aulas['unidade'].unique():
-            df_un = df_aulas[df_aulas['unidade'] == un]
+        for un in df_aulas_filt['unidade'].unique():
+            df_un = df_aulas_filt[df_aulas_filt['unidade'] == un]
             aulas_un = len(df_un)
-            horario_un = len(df_horario[df_horario['unidade'] == un])
+            horario_un = len(df_horario_filt[df_horario_filt['unidade'] == un])
 
             # Calcula semana baseada na data máxima DA UNIDADE
             if df_un['data'].notna().any():
@@ -342,8 +342,9 @@ def main():
         col_r1, col_r2 = st.columns(2)
 
         with col_r1:
-            unidades_rel = ['TODAS'] + sorted(df_aulas['unidade'].unique().tolist())
-            unidade_rel = st.selectbox("🏫 Unidade para relatório:", unidades_rel, key='un_rel')
+            unidades_rel = ['TODAS'] + sorted(df_aulas_filt['unidade'].unique().tolist())
+            _rel_default = unidades_rel.index(user_unit) if user_unit and user_unit in unidades_rel else 0
+            unidade_rel = st.selectbox("🏫 Unidade para relatório:", unidades_rel, index=_rel_default, key='un_rel')
 
         with col_r2:
             tipos_divergencia = st.multiselect(
