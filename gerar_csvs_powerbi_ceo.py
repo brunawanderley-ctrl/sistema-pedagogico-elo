@@ -65,6 +65,7 @@ df_cruzamento = carregar("fato_Cruzamento.csv")
 df_engajamento = carregar("fato_Engajamento_SAE.csv")
 df_disciplinas = carregar("dim_Disciplinas.csv")
 df_calendario = carregar("dim_Calendario.csv")
+df_freq_chamada = carregar("fato_Frequencia_Aluno.csv")
 
 
 # ========================================================================
@@ -283,9 +284,9 @@ def gerar_score_professor():
 def gerar_score_aluno_abc():
     """
     Calcula score ABC (Attendance-Behavior-Coursework) por aluno:
-    - A (Frequência): derivada de faltas/carga_horaria
-    - B (Comportamento): contagem e gravidade de ocorrências
-    - C (Desempenho): média de notas
+    - A (Frequência): dados de chamada 2026 (fato_Frequencia_Aluno.csv), fallback histórico
+    - B (Comportamento): contagem e gravidade de ocorrências (filtrado 2026)
+    - C (Desempenho): média de notas (histórico 2025)
     - Tier: 0 (verde), 1 (monitorar), 2 (atenção), 3 (crítico)
     """
     print("\n" + "=" * 70)
@@ -302,22 +303,62 @@ def gerar_score_aluno_abc():
     ].copy()
     print(f"  Alunos cursando: {len(alunos)}")
 
-    # --- A) FREQUÊNCIA ---
-    # Usar ano mais recente do histórico (2025 ou 2024)
+    # --- A) FREQUÊNCIA (chamada 2026, fallback histórico) ---
     freq_data = pd.DataFrame()
+    freq_source_default = "sem_dados"
+
+    # Tentar dados de chamada 2026 primeiro
+    if not df_freq_chamada.empty:
+        print("  [Eixo A] Usando fato_Frequencia_Aluno.csv (chamada 2026)")
+        fc = df_freq_chamada.copy()
+        # Filtrar apenas registros com chamada feita (P, F ou J)
+        # Ignorar registros sem presença registrada (NaN = chamada não feita)
+        fc_validos = fc[fc["presenca"].isin(["P", "F", "J"])].copy()
+        print(f"    Registros com chamada feita: {len(fc_validos)} de {len(fc)}")
+
+        # Calcular frequência por aluno:
+        # Presente = P, Falta = F, Falta Justificada = J
+        # % frequência = P / (P + F + J) * 100
+        freq_aluno_chamada = (
+            fc_validos.groupby("aluno_id")
+            .agg(
+                presentes=("presenca", lambda x: (x == "P").sum()),
+                faltas=("presenca", lambda x: (x == "F").sum()),
+                justificadas=("presenca", lambda x: (x == "J").sum()),
+                total_chamadas=("presenca", "count"),
+            )
+            .reset_index()
+        )
+        freq_aluno_chamada["pct_frequencia"] = np.where(
+            freq_aluno_chamada["total_chamadas"] > 0,
+            (freq_aluno_chamada["presentes"] / freq_aluno_chamada["total_chamadas"] * 100).clip(0, 100),
+            np.nan,
+        )
+        freq_aluno_chamada["total_faltas"] = freq_aluno_chamada["faltas"] + freq_aluno_chamada["justificadas"]
+        freq_aluno_chamada["freq_source"] = "chamada_2026"
+
+        freq_data = freq_aluno_chamada[["aluno_id", "pct_frequencia", "total_faltas", "freq_source"]].copy()
+        freq_source_default = "chamada_2026"
+
+        n_alunos_freq = freq_aluno_chamada["aluno_id"].nunique()
+        print(f"    Alunos com dados de chamada: {n_alunos_freq}")
+        print(f"    Frequência média: {freq_aluno_chamada['pct_frequencia'].mean():.1f}%")
+    else:
+        print("  [Eixo A] AVISO: fato_Frequencia_Aluno.csv não encontrado")
+
+    # Fallback: preencher alunos sem dados de chamada com histórico
+    fallback_count = 0
     if not df_notas.empty:
         notas = df_notas.copy()
-        # Pegar ano mais recente por aluno
         anos_disponiveis = notas["ano"].dropna().unique()
         ano_recente = max(anos_disponiveis) if len(anos_disponiveis) > 0 else 2025
-        print(f"  Usando notas do ano: {ano_recente}")
+        print(f"  [Eixo A fallback] Ano histórico disponível: {ano_recente}")
 
         notas_ano = notas[notas["ano"] == ano_recente].copy()
         notas_ano["carga_horaria"] = pd.to_numeric(notas_ano["carga_horaria"], errors="coerce")
         notas_ano["faltas"] = pd.to_numeric(notas_ano["faltas"], errors="coerce")
 
-        # Frequência por aluno (agregado de todas as disciplinas)
-        freq_aluno = (
+        freq_hist = (
             notas_ano.groupby("aluno_id")
             .agg(
                 total_faltas=("faltas", "sum"),
@@ -325,19 +366,37 @@ def gerar_score_aluno_abc():
             )
             .reset_index()
         )
-        freq_aluno["pct_frequencia"] = np.where(
-            freq_aluno["total_carga"] > 0,
-            ((freq_aluno["total_carga"] - freq_aluno["total_faltas"]) / freq_aluno["total_carga"] * 100).clip(0, 100),
+        freq_hist["pct_frequencia"] = np.where(
+            freq_hist["total_carga"] > 0,
+            ((freq_hist["total_carga"] - freq_hist["total_faltas"]) / freq_hist["total_carga"] * 100).clip(0, 100),
             np.nan,
         )
-        freq_data = freq_aluno[["aluno_id", "pct_frequencia", "total_faltas"]].copy()
+        freq_hist["freq_source"] = "historico_2025"
+        freq_hist = freq_hist[["aluno_id", "pct_frequencia", "total_faltas", "freq_source"]].copy()
 
-    # --- B) COMPORTAMENTO ---
+        if not freq_data.empty:
+            # Apenas preencher alunos que NÃO têm dados de chamada 2026
+            alunos_com_chamada = set(freq_data["aluno_id"].tolist())
+            freq_hist_faltantes = freq_hist[~freq_hist["aluno_id"].isin(alunos_com_chamada)]
+            fallback_count = len(freq_hist_faltantes)
+            if not freq_hist_faltantes.empty:
+                freq_data = pd.concat([freq_data, freq_hist_faltantes], ignore_index=True)
+                print(f"    Alunos completados com histórico (fallback): {fallback_count}")
+        else:
+            freq_data = freq_hist
+            freq_source_default = "historico_2025"
+            fallback_count = len(freq_hist)
+            print(f"    Usando APENAS histórico: {fallback_count} alunos")
+
+    # --- B) COMPORTAMENTO (filtrado para 2026) ---
     ocorr_data = pd.DataFrame()
     if not df_ocorrencias.empty:
-        # Filtrar séries relevantes (Fund II + EM)
         ocorr = df_ocorrencias.copy()
         ocorr["data"] = pd.to_datetime(ocorr["data"], errors="coerce")
+
+        # Filtrar apenas ocorrências de 2026 (a partir do início do ano letivo)
+        ocorr = ocorr[ocorr["data"] >= "2026-01-27"].copy()
+        print(f"  [Eixo B] Ocorrências 2026 (>= 27/01): {len(ocorr)}")
 
         # Peso por gravidade
         peso_gravidade = {"Leve": 1, "Media": 2, "Grave": 5}
@@ -359,12 +418,14 @@ def gerar_score_aluno_abc():
         )
         ocorr_data = ocorr_aluno
 
-    # --- C) DESEMPENHO (NOTAS) ---
+    # --- C) DESEMPENHO (NOTAS) - histórico 2025 ---
     notas_data = pd.DataFrame()
+    flag_c_source = "sem_dados"
     if not df_notas.empty:
         notas = df_notas.copy()
         anos_disponiveis = notas["ano"].dropna().unique()
         ano_recente = max(anos_disponiveis) if len(anos_disponiveis) > 0 else 2025
+        flag_c_source = f"historico_{ano_recente}"
 
         notas_ano = notas[notas["ano"] == ano_recente].copy()
         notas_ano["nota_final"] = pd.to_numeric(notas_ano["nota_final"], errors="coerce")
@@ -390,6 +451,12 @@ def gerar_score_aluno_abc():
     else:
         resultado["pct_frequencia"] = np.nan
         resultado["total_faltas"] = 0
+        resultado["freq_source"] = "sem_dados"
+
+    # Preencher freq_source para alunos sem nenhum dado
+    resultado["freq_source"] = resultado["freq_source"].fillna("sem_dados")
+    # Corrigir: se pct_frequencia é NaN, a fonte é efetivamente "sem_dados"
+    resultado.loc[resultado["pct_frequencia"].isna(), "freq_source"] = "sem_dados"
 
     if not ocorr_data.empty:
         resultado = resultado.merge(ocorr_data, on="aluno_id", how="left")
@@ -404,12 +471,18 @@ def gerar_score_aluno_abc():
     else:
         resultado["media_geral"] = np.nan
 
+    # Rastreabilidade de fontes
+    resultado["flag_C_source"] = np.where(
+        resultado["media_geral"].notna(), flag_c_source, "sem_dados"
+    )
+
     # --- CALCULAR FLAGS ABC ---
     # A - Attendance (Frequência)
+    # OK: >= 85% | Alerta: 70-85% | Risco: < 70% | Sem dados: NaN
     resultado["flag_A"] = np.where(
-        resultado["pct_frequencia"] < 75, "Crítico",
-        np.where(resultado["pct_frequencia"] < 85, "Risco",
-                 np.where(resultado["pct_frequencia"].isna(), "Sem dados", "OK"))
+        resultado["pct_frequencia"].isna(), "Sem dados",
+        np.where(resultado["pct_frequencia"] < 70, "Risco",
+                 np.where(resultado["pct_frequencia"] < 85, "Alerta", "OK"))
     )
 
     # B - Behavior (Comportamento)
@@ -420,21 +493,27 @@ def gerar_score_aluno_abc():
 
     # C - Coursework (Desempenho)
     resultado["flag_C"] = np.where(
-        resultado["media_geral"] < 3.0, "Crítico",
-        np.where(resultado["media_geral"] < 5.0, "Risco",
-                 np.where(resultado["media_geral"].isna(), "Sem dados", "OK"))
+        resultado["media_geral"].isna(), "Sem dados",
+        np.where(resultado["media_geral"] < 3.0, "Crítico",
+                 np.where(resultado["media_geral"] < 5.0, "Risco", "OK"))
     )
 
     # --- TIER DE RISCO ---
     def calcular_tier(row):
-        flags_critico = sum(1 for f in [row["flag_A"], row["flag_B"], row["flag_C"]] if f == "Crítico")
-        flags_risco = sum(1 for f in [row["flag_A"], row["flag_B"], row["flag_C"]] if f == "Risco")
+        flags_critico = sum(1 for f in [row["flag_A"], row["flag_B"], row["flag_C"]]
+                           if f in ("Crítico", "Risco"))
+        flags_alerta = sum(1 for f in [row["flag_A"], row["flag_B"], row["flag_C"]]
+                          if f == "Alerta")
 
         if flags_critico >= 2:
             return 3  # Crítico
-        elif flags_critico >= 1 or flags_risco >= 2:
+        elif flags_critico >= 1 and flags_alerta >= 1:
             return 2  # Atenção
-        elif flags_risco >= 1:
+        elif flags_critico >= 1:
+            return 2  # Atenção
+        elif flags_alerta >= 2:
+            return 1  # Monitorar
+        elif flags_alerta >= 1:
             return 1  # Monitorar
         else:
             return 0  # Verde
@@ -447,7 +526,7 @@ def gerar_score_aluno_abc():
     # Tipo de intervenção sugerido
     def tipo_intervencao(row):
         tipos = []
-        if row["flag_A"] in ("Risco", "Crítico"):
+        if row["flag_A"] in ("Risco", "Crítico", "Alerta"):
             tipos.append("Frequência → Família")
         if row["flag_B"] in ("Risco", "Crítico"):
             tipos.append("Comportamento → Orientação")
@@ -465,9 +544,9 @@ def gerar_score_aluno_abc():
     # Selecionar colunas
     cols = [
         "aluno_id", "aluno_nome", "unidade", "serie", "turma", "segmento",
-        "pct_frequencia", "total_faltas",
+        "pct_frequencia", "total_faltas", "freq_source",
         "total_ocorrencias", "ocorr_graves", "ocorr_medias", "ocorr_leves", "score_comportamento",
-        "media_geral", "menor_nota", "disciplinas_abaixo_5", "total_disciplinas",
+        "media_geral", "menor_nota", "disciplinas_abaixo_5", "total_disciplinas", "flag_C_source",
         "flag_A", "flag_B", "flag_C",
         "tier", "tier_label", "intervencao_sugerida",
     ]
@@ -478,9 +557,14 @@ def gerar_score_aluno_abc():
     resultado.to_csv(output, index=False, encoding="utf-8-sig")
     print(f"\n  Salvo: {output}")
     print(f"  Total: {len(resultado)} alunos")
-    print(f"  Distribuição por Tier:")
+    print(f"\n  Cobertura de frequência:")
+    print(resultado["freq_source"].value_counts().to_string(header=False))
+    print(f"  Alunos SEM dados de freq: {(resultado['freq_source'] == 'sem_dados').sum()}")
+    print(f"\n  Distribuição flag_A:")
+    print(resultado["flag_A"].value_counts().to_string(header=False))
+    print(f"\n  Distribuição por Tier:")
     print(resultado["tier_label"].value_counts().to_string(header=False))
-    print(f"  Por Unidade:")
+    print(f"\n  Por Unidade:")
     print(resultado.groupby("unidade")["tier"].mean().round(2).to_string(header=False))
 
     return resultado

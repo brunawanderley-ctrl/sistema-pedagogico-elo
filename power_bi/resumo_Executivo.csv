@@ -1,6 +1,6 @@
 ﻿unidade,semana_atual,capitulo_esperado,pct_conformidade_media,pct_conformidade_mediana,total_professores,professores_criticos,professores_excelentes,pct_prof_no_ritmo,total_alunos,pct_freq_acima_75,pct_freq_acima_90,frequencia_media,media_notas,alunos_tier_0,alunos_tier_1,alunos_tier_2,alunos_tier_3,pct_alunos_risco,total_aulas,pct_conteudo_preenchido,total_ocorrencias,ocorr_graves,semaforo
-BV,4,2,25.9,20.8,29,13,0,0.0,586,100.0,100.0,98.9,8.1,577,9,0,0,0.0,477,100.0,2136,4,Vermelho
-CD,4,2,29.2,31.7,21,7,0,0.0,622,100.0,100.0,99.1,8.2,618,4,0,0,0.0,384,100.0,1397,2,Vermelho
-JG,4,2,25.8,25.0,21,10,0,0.0,456,,,,8.4,456,0,0,0,0.0,410,99.8,610,4,Vermelho
-CDR,4,2,38.5,50.0,21,4,0,4.8,357,100.0,97.4,96.4,8.3,339,18,0,0,0.0,392,93.4,805,19,Vermelho
-TOTAL,4,2,29.8,31.9,92,34,0,1.2,2021,100.0,99.1,98.1,8.3,1990,31,0,0,0.0,1663,98.3,4948,29,Vermelho
+BV,4,2,39.5,33.3,35,10,2,5.7,586,89.9,65.1,90.2,8.1,455,57,68,6,12.6,878,100.0,2486,11,Vermelho
+CD,4,2,39.1,33.3,28,6,2,10.7,622,80.8,63.2,83.6,8.2,504,52,66,0,10.6,752,100.0,1641,2,Vermelho
+JG,4,2,41.3,37.5,21,6,1,4.8,456,69.2,38.2,79.6,8.4,233,109,112,2,25.0,665,99.8,767,4,Vermelho
+CDR,4,2,54.6,62.5,23,3,2,30.4,357,81.2,49.9,85.5,8.3,207,60,84,6,25.2,633,99.5,1000,36,Vermelho
+TOTAL,4,2,43.7,41.6,107,25,7,12.9,2021,80.3,54.1,84.7,8.3,1399,278,330,14,18.4,2928,99.8,5894,53,Vermelho

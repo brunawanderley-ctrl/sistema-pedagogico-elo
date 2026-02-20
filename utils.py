@@ -301,15 +301,40 @@ def carregar_notas():
 
 @st.cache_data(ttl=300)
 def carregar_frequencia_alunos():
-    """Carrega fato_Frequencia_Aluno.csv com cache. Fallback: derive from historico."""
+    """Carrega frequencia 2026 agregada por aluno/disciplina a partir de fato_Frequencia_Aluno.csv.
+
+    Calcula pct_frequencia = presentes / (presentes + faltas + justificadas) * 100.
+    Ignora registros sem chamada feita (presenca NaN).
+    Fallback: deriva do historico de notas se CSV nao existir.
+
+    Returns:
+        DataFrame com colunas: aluno_id, aluno_nome, unidade, serie, turma,
+        disciplina, pct_frequencia, total_aulas, presencas, faltas, justificadas, fonte.
+    """
     path = DATA_DIR / "fato_Frequencia_Aluno.csv"
-    if path.exists():
-        df = pd.read_csv(path)
-        if 'data' in df.columns:
-            df['data'] = pd.to_datetime(df['data'], errors='coerce')
-        return df
-    # Fallback: derivar frequencia do historico (faltas + carga_horaria)
-    return carregar_frequencia_historico()
+    if not path.exists():
+        return carregar_frequencia_historico()
+
+    df = pd.read_csv(path)
+    # Filtrar apenas registros com chamada feita (P, F ou J)
+    df = df[df['presenca'].isin(['P', 'F', 'J'])].copy()
+    if df.empty:
+        return carregar_frequencia_historico()
+
+    # Agregar por aluno + disciplina
+    group_cols = ['aluno_id', 'aluno_nome', 'unidade', 'serie', 'turma', 'disciplina']
+    group_cols = [c for c in group_cols if c in df.columns]
+
+    agg = df.groupby(group_cols).agg(
+        total_aulas=('presenca', 'count'),
+        presencas=('presenca', lambda x: (x == 'P').sum()),
+        faltas=('presenca', lambda x: (x == 'F').sum()),
+        justificadas=('presenca', lambda x: (x == 'J').sum()),
+    ).reset_index()
+
+    agg['pct_frequencia'] = (agg['presencas'] / agg['total_aulas'].clip(lower=1) * 100).round(1)
+    agg['fonte'] = '2026_chamada'
+    return agg
 
 
 @st.cache_data(ttl=300)
@@ -355,6 +380,28 @@ def carregar_frequencia_historico():
     df['fonte'] = 'historico'
     cols_out.append('fonte')
     return df[cols_out]
+
+
+@st.cache_data(ttl=300)
+def carregar_frequencia_detalhada():
+    """Carrega fato_Frequencia_Aluno.csv completo (sem agregar) para analise detalhada.
+
+    Filtra apenas registros com chamada feita (presenca P, F ou J).
+    Converte data_aula para datetime.
+
+    Returns:
+        DataFrame com todas as colunas originais do CSV (sem registros sem chamada).
+        Retorna DataFrame vazio se o CSV nao existir.
+    """
+    path = DATA_DIR / "fato_Frequencia_Aluno.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    df = pd.read_csv(path)
+    # Filtrar apenas registros com chamada feita
+    df = df[df['presenca'].isin(['P', 'F', 'J'])].copy()
+    if 'data_aula' in df.columns:
+        df['data_aula'] = pd.to_datetime(df['data_aula'], errors='coerce')
+    return df
 
 
 @st.cache_data(ttl=60)

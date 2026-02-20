@@ -186,26 +186,42 @@ def main():
     df = aplicar_filtro_unidade(df_alunos.copy(), unidade_sel, todas_label="Todas")
     df = aplicar_filtro_segmento(df, segmento_sel)
 
+    # Filtrar ocorrências para 2026 (a partir do início do ano letivo)
+    if tem_ocorr and 'data' in df_ocorr.columns:
+        df_ocorr['data'] = pd.to_datetime(df_ocorr['data'], errors='coerce')
+        df_ocorr = df_ocorr[df_ocorr['data'] >= '2026-01-27'].copy()
+
+    # Pre-agregar frequência por aluno para performance
+    freq_por_aluno = {}
+    if tem_freq and 'aluno_id' in df_freq.columns and 'pct_frequencia' in df_freq.columns:
+        # Agregar por aluno (média ponderada por total_aulas)
+        if 'total_aulas' in df_freq.columns and 'presentes' in df_freq.columns:
+            freq_agg = df_freq.groupby('aluno_id').agg(
+                total_aulas=('total_aulas', 'sum'),
+                presentes=('presentes', 'sum'),
+            ).reset_index()
+            freq_agg['pct_frequencia'] = (
+                freq_agg['presentes'] / freq_agg['total_aulas'].clip(lower=1) * 100
+            )
+            for _, r in freq_agg.iterrows():
+                freq_por_aluno[r['aluno_id']] = round(r['pct_frequencia'], 1)
+        else:
+            # Fallback: média simples
+            freq_agg = df_freq.groupby('aluno_id')['pct_frequencia'].mean()
+            for aid, val in freq_agg.items():
+                freq_por_aluno[aid] = round(val, 1)
+
     resultados = []
     for _, aluno in df.iterrows():
         aluno_id = aluno.get('aluno_id')
         if aluno_id is None:
             continue
 
-        # A - Frequência
-        freq_pct = 100
-        if tem_freq and 'aluno_id' in df_freq.columns:
-            freq_aluno = df_freq[df_freq['aluno_id'] == aluno_id]
-            if not freq_aluno.empty:
-                if 'pct_frequencia' in freq_aluno.columns:
-                    # Dados historicos ja tem frequencia calculada (media ponderada)
-                    total_aulas = freq_aluno['total_aulas'].sum() if 'total_aulas' in freq_aluno.columns else 1
-                    presencas = freq_aluno['presencas'].sum() if 'presencas' in freq_aluno.columns else total_aulas
-                    freq_pct = (presencas / max(1, total_aulas) * 100)
-                elif 'presente' in freq_aluno.columns:
-                    freq_pct = (freq_aluno['presente'].sum() / len(freq_aluno) * 100)
+        # A - Frequência (sem default artificial - NaN = sem dados)
+        freq_pct = freq_por_aluno.get(aluno_id, None)
+        tem_dados_freq = freq_pct is not None
 
-        # B - Ocorrências (apenas disciplinares para score comportamental)
+        # B - Ocorrências (apenas disciplinares, 2026 apenas)
         num_ocorr = 0
         if tem_ocorr and 'aluno_id' in df_ocorr.columns:
             ocorr_aluno = df_ocorr[df_ocorr['aluno_id'] == aluno_id]
@@ -214,14 +230,28 @@ def main():
             else:
                 num_ocorr = len(ocorr_aluno)
 
-        # C - Média de notas
-        media = 7.0  # default se nao tem dados
+        # C - Média de notas (sem default artificial - NaN = sem dados)
+        media = None
+        tem_dados_notas = False
         if tem_notas and 'aluno_id' in df_notas.columns:
             notas_aluno = df_notas[df_notas['aluno_id'] == aluno_id]
             if not notas_aluno.empty and 'nota' in notas_aluno.columns:
-                media = notas_aluno['nota'].mean()
+                val = notas_aluno['nota'].mean()
+                if pd.notna(val):
+                    media = val
+                    tem_dados_notas = True
 
-        flags, tier, score = calcular_score_abc(freq_pct, num_ocorr, media)
+        # Calcular score ABC com valores reais (usar neutro quando sem dados)
+        # Sem dados de freq -> usa 100% (neutro, não penaliza)
+        # Sem dados de notas -> usa 7.0 (neutro, não penaliza)
+        freq_para_score = freq_pct if tem_dados_freq else 100.0
+        media_para_score = media if tem_dados_notas else 7.0
+
+        flags, tier, score = calcular_score_abc(freq_para_score, num_ocorr, media_para_score)
+
+        # Marcar flags de "Sem dados" (não contar como OK real)
+        flag_a_str = 'Sem dados' if not tem_dados_freq else ('OK' if freq_pct >= 85 else ('Alerta' if freq_pct >= 70 else 'Risco'))
+        flag_c_str = 'Sem dados' if not tem_dados_notas else ('OK' if media >= 5.0 else ('Risco' if media >= 3.0 else 'Crítico'))
 
         resultados.append({
             'aluno_id': aluno_id,
@@ -229,9 +259,12 @@ def main():
             'serie': aluno.get('serie', ''),
             'turma': aluno.get('turma', ''),
             'unidade': aluno.get('unidade', ''),
-            'freq_pct': round(freq_pct, 1),
+            'freq_pct': round(freq_pct, 1) if tem_dados_freq else None,
+            'freq_source': 'chamada_2026' if tem_dados_freq else 'sem_dados',
             'num_ocorr': num_ocorr,
-            'media_notas': round(media, 1),
+            'media_notas': round(media, 1) if tem_dados_notas else None,
+            'flag_a_detail': flag_a_str,
+            'flag_c_detail': flag_c_str,
             'flags': flags,
             'flags_str': ', '.join(flags) if flags else 'OK',
             'num_flags': len(flags),
@@ -262,6 +295,16 @@ def main():
         {'label': '🟢 Universal (OK)', 'value': n_ok},
     ])
 
+    # Cobertura de dados
+    n_com_freq = df_abc['freq_pct'].notna().sum()
+    n_com_notas = df_abc['media_notas'].notna().sum()
+    pct_freq = n_com_freq / max(1, n_total) * 100
+    pct_notas = n_com_notas / max(1, n_total) * 100
+    st.caption(
+        f"Cobertura de dados: Frequência (chamada 2026): {n_com_freq}/{n_total} ({pct_freq:.0f}%) | "
+        f"Notas (historico): {n_com_notas}/{n_total} ({pct_notas:.0f}%)"
+    )
+
     # ========== TABS ==========
     tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "🔴 Alunos em Risco", "📊 Visão Geral", "🏫 Por Turma", "📈 Correlações", "ℹ️ Sobre o ABC"
@@ -283,11 +326,13 @@ def main():
             for _, row in alunos_tier.iterrows():
                 badges = ''
                 if 'A' in row['flags']:
-                    badges += f'<span class="abc-badge badge-a">A Frequência: {row["freq_pct"]:.0f}%</span>'
+                    freq_val = f'{row["freq_pct"]:.0f}%' if pd.notna(row.get("freq_pct")) else 'S/D'
+                    badges += f'<span class="abc-badge badge-a">A Frequência: {freq_val}</span>'
                 if 'B' in row['flags']:
                     badges += f'<span class="abc-badge badge-b">B Comportamento: {row["num_ocorr"]} ocorr.</span>'
                 if 'C' in row['flags']:
-                    badges += f'<span class="abc-badge badge-c">C Notas: {row["media_notas"]:.1f}</span>'
+                    nota_val = f'{row["media_notas"]:.1f}' if pd.notna(row.get("media_notas")) else 'S/D'
+                    badges += f'<span class="abc-badge badge-c">C Notas: {nota_val}</span>'
 
                 st.markdown(f"""
                 <div class="{css_class}">
@@ -405,14 +450,21 @@ def main():
         st.subheader("📈 Correlações entre Dimensões")
 
         # Scatter: Frequência x Notas (cor = ocorrências)
+        # Filtrar apenas alunos com ambos os dados para o scatter
+        df_scatter = df_abc.dropna(subset=['freq_pct', 'media_notas'])
+        if df_scatter.empty:
+            st.info("Dados insuficientes para correlação (necessita frequência E notas).")
+        else:
+            st.caption(f"Exibindo {len(df_scatter)} alunos com dados de frequência E notas.")
+        df_plot = df_scatter if not df_scatter.empty else df_abc
         fig = px.scatter(
-            df_abc, x='freq_pct', y='media_notas',
+            df_plot, x='freq_pct', y='media_notas',
             color='tier_nome',
             color_discrete_map={
                 'Intensivo': '#B71C1C', 'Intervenção': '#E65100',
                 'Atenção': '#F9A825', 'Universal': '#2E7D32',
             },
-            size='num_ocorr' if df_abc['num_ocorr'].max() > 0 else None,
+            size='num_ocorr' if df_plot['num_ocorr'].max() > 0 else None,
             hover_data=['aluno_nome', 'serie', 'unidade'],
             title='Frequência x Notas (tamanho = ocorrências)',
             labels={'freq_pct': '% Frequência', 'media_notas': 'Média de Notas'},
