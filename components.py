@@ -79,17 +79,11 @@ def filtro_unidade(
     if user_unit and user_unit in un_list:
         default_idx = un_list.index(user_unit)
 
-    format_fn = None
+    kwargs: Dict[str, Any] = dict(index=default_idx, key=key)
     if usar_nomes:
-        format_fn = lambda x: UNIDADES_NOMES.get(x, x) if x != todas_label else todas_label
+        kwargs["format_func"] = lambda x: UNIDADES_NOMES.get(x, x) if x != todas_label else todas_label
 
-    return st.selectbox(
-        label,
-        un_list,
-        index=default_idx,
-        format_func=format_fn,
-        key=key,
-    )
+    return st.selectbox(label, un_list, **kwargs)
 
 
 # ============================================================
