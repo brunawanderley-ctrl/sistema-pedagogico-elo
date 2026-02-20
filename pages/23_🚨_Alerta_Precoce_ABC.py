@@ -26,6 +26,11 @@ from utils import (
     THRESHOLD_FREQUENCIA_LDB, PERIODOS_OPCOES,
     UNIDADES, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM,
 )
+from components import (
+    filtro_unidade, filtro_segmento,
+    aplicar_filtro_unidade, aplicar_filtro_segmento,
+    cabecalho_pagina, metricas_em_colunas,
+)
 
 st.set_page_config(page_title="Alerta Precoce ABC", page_icon="🚨", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -129,11 +134,10 @@ def calcular_score_abc(freq_pct, num_ocorrencias, media_notas):
 
 
 def main():
-    st.title("🚨 Sistema ABC de Alerta Precoce")
-    st.markdown("""
-    **Framework: Attendance + Behavior + Coursework**
-    Sistema validado internacionalmente para identificar alunos em risco antes que fracassem.
-    """)
+    cabecalho_pagina(
+        "🚨 Sistema ABC de Alerta Precoce",
+        "Framework: Attendance + Behavior + Coursework | Alunos em risco antes que fracassem",
+    )
 
     hoje = _hoje()
     semana = calcular_semana_letiva(hoje)
@@ -161,13 +165,11 @@ def main():
     n_cols = 3 if (tem_notas and 'ano' in df_notas.columns) else 2
     cols_f = st.columns(n_cols)
     with cols_f[0]:
-        _user_unit = get_user_unit()
-        _un_opts = ['Todas'] + UNIDADES
-        _default_idx = _un_opts.index(_user_unit) if _user_unit and _user_unit in _un_opts else 0
-        unidade_sel = st.selectbox("Unidade:", _un_opts, index=_default_idx,
-            format_func=lambda x: UNIDADES_NOMES.get(x, x) if x != 'Todas' else 'Todas')
+        unidade_sel = filtro_unidade(
+            todas_label="Todas", usar_nomes=True, key="pg23_un",
+        )
     with cols_f[1]:
-        segmento_sel = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Médio'])
+        segmento_sel = filtro_segmento(key="pg23_seg")
 
     # Filtro de ano para dados historicos
     ano_abc = None
@@ -181,13 +183,8 @@ def main():
             df_freq = df_freq[df_freq['ano'] == ano_abc]
 
     # ========== CALCULAR ABC PARA CADA ALUNO ==========
-    df = df_alunos.copy()
-    if unidade_sel != 'Todas' and 'unidade' in df.columns:
-        df = df[df['unidade'] == unidade_sel]
-    if segmento_sel == 'Anos Finais' and 'serie' in df.columns:
-        df = df[df['serie'].isin(SERIES_FUND_II)]
-    elif segmento_sel == 'Ensino Médio' and 'serie' in df.columns:
-        df = df[df['serie'].isin(SERIES_EM)]
+    df = aplicar_filtro_unidade(df_alunos.copy(), unidade_sel, todas_label="Todas")
+    df = aplicar_filtro_segmento(df, segmento_sel)
 
     resultados = []
     for _, aluno in df.iterrows():
@@ -250,8 +247,6 @@ def main():
     df_abc = pd.DataFrame(resultados).sort_values('score', ascending=False)
 
     # ========== METRICAS ==========
-    col1, col2, col3, col4, col5 = st.columns(5)
-
     tier_counts = df_abc['tier'].value_counts()
     n_total = len(df_abc)
     n_tier3 = tier_counts.get(3, 0)
@@ -259,16 +254,13 @@ def main():
     n_tier1 = tier_counts.get(1, 0)
     n_ok = tier_counts.get(0, 0)
 
-    with col1:
-        st.metric("Total Alunos", n_total)
-    with col2:
-        st.metric("🔴 Tier 3 (Intensivo)", n_tier3)
-    with col3:
-        st.metric("🟠 Tier 2 (Intervenção)", n_tier2)
-    with col4:
-        st.metric("🟡 Tier 1 (Atenção)", n_tier1)
-    with col5:
-        st.metric("🟢 Universal (OK)", n_ok)
+    metricas_em_colunas([
+        {'label': 'Total Alunos', 'value': n_total},
+        {'label': '🔴 Tier 3 (Intensivo)', 'value': n_tier3},
+        {'label': '🟠 Tier 2 (Intervenção)', 'value': n_tier2},
+        {'label': '🟡 Tier 1 (Atenção)', 'value': n_tier1},
+        {'label': '🟢 Universal (OK)', 'value': n_ok},
+    ])
 
     # ========== TABS ==========
     tab1, tab2, tab3, tab4, tab5 = st.tabs([

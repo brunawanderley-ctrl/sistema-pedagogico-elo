@@ -20,6 +20,10 @@ from utils import (
     DATA_DIR, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM, PERIODOS_OPCOES,
     CONFORMIDADE_BAIXO, CONFORMIDADE_META,
 )
+from components import (
+    barra_filtros_padrao, aplicar_filtros_padrao, aplicar_filtro_unidade,
+    cabecalho_pagina,
+)
 
 st.set_page_config(page_title="Quadro de Gestão", page_icon="📊", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -72,8 +76,7 @@ def carregar_dados():
     return dados
 
 def main():
-    st.title("📊 Quadro de Gestão à Vista")
-    st.markdown("**Visão Geral da Rede | Atualizado em Tempo Real**")
+    cabecalho_pagina("📊 Quadro de Gestão à Vista", "Visão Geral da Rede | Atualizado em Tempo Real")
 
     dados = carregar_dados()
 
@@ -86,45 +89,28 @@ def main():
 
     # ========== FILTROS NO TOPO ==========
     st.markdown("---")
-    col_f1, col_f2, col_f3, col_f4 = st.columns(4)
-
-    with col_f1:
-        unidades = ['TODAS'] + sorted(df_aulas['unidade'].dropna().unique().tolist())
-        user_unit = get_user_unit()
-        default_un = unidades.index(user_unit) if user_unit and user_unit in unidades else 0
-        filtro_un = st.selectbox("🏫 Unidade", unidades, index=default_un)
-
-    with col_f2:
-        segmentos = ['TODOS', 'Anos Finais', 'Ensino Médio']
-        filtro_seg = st.selectbox("📚 Segmento", segmentos)
-
-    with col_f3:
-        series_todas = sorted(
-            df_aulas['serie'].dropna().unique().tolist(),
-            key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99
-        )
-        series_disp = ['TODAS'] + series_todas
-        filtro_serie = st.selectbox("🎓 Série", series_disp)
-
-    with col_f4:
-        filtro_periodo = st.selectbox("📅 Período", PERIODOS_OPCOES)
+    series_todas = sorted(
+        df_aulas['serie'].dropna().unique().tolist(),
+        key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99
+    )
+    filtros = barra_filtros_padrao(
+        series_disponiveis=series_todas,
+        key_prefix="pg01_",
+    )
+    filtro_un = filtros['unidade']
+    filtro_seg = filtros['segmento']
+    filtro_serie = filtros['serie']
+    filtro_periodo = filtros['periodo']
 
     # Aplica filtros
-    df = df_aulas.copy()
-    if filtro_un != 'TODAS':
-        df = df[df['unidade'] == filtro_un]
-    if filtro_seg == 'Anos Finais':
-        df = df[df['serie'].isin(SERIES_FUND_II)]
-    elif filtro_seg == 'Ensino Médio':
-        df = df[df['serie'].isin(SERIES_EM)]
-    if filtro_serie != 'TODAS':
-        df = df[df['serie'] == filtro_serie]
+    df = aplicar_filtros_padrao(
+        df_aulas.copy(),
+        unidade=filtro_un, segmento=filtro_seg, serie=filtro_serie,
+    )
     df = filtrar_por_periodo(df, filtro_periodo)
 
     # Filtrar horario pela mesma unidade para alertas e resumo
-    df_horario_filt = df_horario.copy()
-    if filtro_un != 'TODAS':
-        df_horario_filt = df_horario_filt[df_horario_filt['unidade'] == filtro_un]
+    df_horario_filt = aplicar_filtro_unidade(df_horario, filtro_un)
 
     if df.empty:
         st.info("Nenhum dado encontrado para os filtros selecionados.")
@@ -178,13 +164,9 @@ def main():
         profs_registrando = df['professor'].nunique()
         # Total de professores esperados (do horário)
         if not df_horario.empty:
-            df_hor_filtrado = df_horario.copy()
-            if filtro_un != 'TODAS':
-                df_hor_filtrado = df_hor_filtrado[df_hor_filtrado['unidade'] == filtro_un]
-            if filtro_seg == 'Anos Finais':
-                df_hor_filtrado = df_hor_filtrado[df_hor_filtrado['serie'].isin(SERIES_FUND_II)]
-            elif filtro_seg == 'Ensino Médio':
-                df_hor_filtrado = df_hor_filtrado[df_hor_filtrado['serie'].isin(SERIES_EM)]
+            df_hor_filtrado = aplicar_filtros_padrao(
+                df_horario, unidade=filtro_un, segmento=filtro_seg,
+            )
             profs_esperados = df_hor_filtrado['professor'].nunique()
         else:
             profs_esperados = profs_registrando
@@ -202,13 +184,9 @@ def main():
 
     if not df_horario.empty:
         # Filtra horário esperado
-        df_hor = df_horario.copy()
-        if filtro_un != 'TODAS':
-            df_hor = df_hor[df_hor['unidade'] == filtro_un]
-        if filtro_seg == 'Anos Finais':
-            df_hor = df_hor[df_hor['serie'].isin(SERIES_FUND_II)]
-        elif filtro_seg == 'Ensino Médio':
-            df_hor = df_hor[df_hor['serie'].isin(SERIES_EM)]
+        df_hor = aplicar_filtros_padrao(
+            df_horario, unidade=filtro_un, segmento=filtro_seg,
+        )
 
         aulas_semana = len(df_hor)
         # Ajusta semana para trimestre filtrado (não ultrapassar o fim do trimestre)

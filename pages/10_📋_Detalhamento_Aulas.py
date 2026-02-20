@@ -11,6 +11,12 @@ from datetime import datetime
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils import carregar_fato_aulas, _hoje, ORDEM_SERIES, SERIES_FUND_II, SERIES_EM
+from components import (
+    filtro_unidade, filtro_segmento,
+    filtro_serie as comp_filtro_serie,
+    aplicar_filtro_unidade, aplicar_filtro_segmento, aplicar_filtro_serie,
+    cabecalho_pagina, metricas_em_colunas, botao_download_csv,
+)
 
 st.set_page_config(page_title="Detalhamento de Aulas", page_icon="📋", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -19,8 +25,7 @@ if not check_password():
 logout_button()
 
 def main():
-    st.title("📋 Detalhamento de Aulas")
-    st.markdown("**Visão completa dos registros: quem, o quê, onde, quando**")
+    cabecalho_pagina("📋 Detalhamento de Aulas", "Visão completa dos registros: quem, o quê, onde, quando")
 
     df = carregar_fato_aulas()
 
@@ -34,28 +39,23 @@ def main():
     col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
-        unidades = ['TODAS'] + sorted(df['unidade'].dropna().unique().tolist())
-        user_unit = get_user_unit()
-        default_un = unidades.index(user_unit) if user_unit and user_unit in unidades else 0
-        filtro_un = st.selectbox("🏫 Unidade", unidades, index=default_un)
+        filtro_un = filtro_unidade(key="pg10_un")
 
     with col2:
-        segmentos = ['TODOS', 'Anos Finais', 'Ensino Médio']
-        filtro_seg = st.selectbox("📊 Segmento", segmentos)
+        filtro_seg = filtro_segmento(todos_label="TODOS", key="pg10_seg")
 
     # Aplica filtro de segmento primeiro
-    df_seg = df.copy()
-    if filtro_seg == 'Anos Finais':
-        df_seg = df_seg[df_seg['serie'].isin(SERIES_FUND_II)]
-    elif filtro_seg == 'Ensino Médio':
-        df_seg = df_seg[df_seg['serie'].isin(SERIES_EM)]
+    df_seg = aplicar_filtro_segmento(df.copy(), filtro_seg)
 
     with col3:
-        if filtro_un != 'TODAS':
-            series_disp = ['TODAS'] + sorted(df_seg[df_seg['unidade'] == filtro_un]['serie'].dropna().unique().tolist(), key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99)
-        else:
-            series_disp = ['TODAS'] + sorted(df_seg['serie'].dropna().unique().tolist(), key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99)
-        filtro_serie = st.selectbox("📚 Série", series_disp)
+        df_for_series = df_seg[df_seg['unidade'] == filtro_un] if filtro_un != 'TODAS' else df_seg
+        series_disp_list = sorted(
+            df_for_series['serie'].dropna().unique().tolist(),
+            key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99,
+        )
+        filtro_serie = comp_filtro_serie(
+            series_disp_list, todas_label="TODAS", key="pg10_serie",
+        )
 
     with col4:
         if filtro_un != 'TODAS':
@@ -120,12 +120,8 @@ def main():
                                                   'Unidade', 'Professor', 'Disciplina'])
 
     # Aplica filtros (começa do df_seg que já tem o filtro de segmento)
-    df_filtrado = df_seg.copy()
-
-    if filtro_un != 'TODAS':
-        df_filtrado = df_filtrado[df_filtrado['unidade'] == filtro_un]
-    if filtro_serie != 'TODAS':
-        df_filtrado = df_filtrado[df_filtrado['serie'] == filtro_serie]
+    df_filtrado = aplicar_filtro_unidade(df_seg.copy(), filtro_un)
+    df_filtrado = aplicar_filtro_serie(df_filtrado, filtro_serie, todas_label="TODAS")
     if filtro_disc != 'TODAS':
         df_filtrado = df_filtrado[df_filtrado['disciplina'] == filtro_disc]
     if filtro_prof != 'TODOS':
@@ -167,20 +163,16 @@ def main():
     # ========== MÉTRICAS ==========
     st.markdown("---")
 
-    col_m1, col_m2, col_m3, col_m4, col_m5 = st.columns(5)
+    com_conteudo = df_filtrado[df_filtrado['conteudo'].notna() & (df_filtrado['conteudo'] != '')].shape[0]
+    pct = (com_conteudo / len(df_filtrado) * 100) if len(df_filtrado) > 0 else 0
 
-    with col_m1:
-        st.metric("Total de Aulas", f"{len(df_filtrado):,}")
-    with col_m2:
-        st.metric("Professores", df_filtrado['professor'].nunique())
-    with col_m3:
-        st.metric("Turmas", df_filtrado['turma'].nunique())
-    with col_m4:
-        st.metric("Disciplinas", df_filtrado['disciplina'].nunique())
-    with col_m5:
-        com_conteudo = df_filtrado[df_filtrado['conteudo'].notna() & (df_filtrado['conteudo'] != '')].shape[0]
-        pct = (com_conteudo / len(df_filtrado) * 100) if len(df_filtrado) > 0 else 0
-        st.metric("Com Conteúdo", f"{pct:.0f}%")
+    metricas_em_colunas([
+        {'label': 'Total de Aulas', 'value': f"{len(df_filtrado):,}"},
+        {'label': 'Professores', 'value': df_filtrado['professor'].nunique()},
+        {'label': 'Turmas', 'value': df_filtrado['turma'].nunique()},
+        {'label': 'Disciplinas', 'value': df_filtrado['disciplina'].nunique()},
+        {'label': 'Com Conteúdo', 'value': f"{pct:.0f}%"},
+    ])
 
     # Segunda linha de métricas
     col_m6, col_m7, col_m8, col_m9, col_m10 = st.columns(5)
@@ -272,22 +264,20 @@ def main():
     col_d1, col_d2 = st.columns(2)
 
     with col_d1:
-        csv = df_filtrado.to_csv(index=False).encode('utf-8-sig')
-        st.download_button(
-            "📥 Download Completo (CSV)",
-            csv,
-            f"aulas_detalhadas_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
-            "text/csv"
+        botao_download_csv(
+            df_filtrado,
+            "aulas_detalhadas",
+            label="📥 Download Completo (CSV)",
+            key="pg10_dl_completo",
         )
 
     with col_d2:
         # Download dos filtrados visíveis (página atual)
-        csv_show = df_show.iloc[inicio:fim].to_csv(index=False).encode('utf-8-sig')
-        st.download_button(
-            "📥 Download Exibido (CSV)",
-            csv_show,
-            f"aulas_filtradas_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
-            "text/csv"
+        botao_download_csv(
+            df_show.iloc[inicio:fim],
+            "aulas_filtradas",
+            label="📥 Download Exibido (CSV)",
+            key="pg10_dl_exibido",
         )
 
     # ========== ANÁLISE RÁPIDA ==========
@@ -323,21 +313,14 @@ def main():
     cb1, cb2, cb3, cb4, cb5 = st.columns(5)
 
     with cb1:
-        un_busca_opts = ['TODAS'] + sorted(df['unidade'].dropna().unique().tolist())
-        un_busca = st.selectbox("🏫 Unidade", un_busca_opts, key='busca_un')
+        un_busca = filtro_unidade(key="pg10_busca_un")
 
     with cb2:
-        seg_busca_opts = ['TODOS', 'Anos Finais', 'Ensino Médio']
-        seg_busca = st.selectbox("📊 Segmento", seg_busca_opts, key='busca_seg')
+        seg_busca = filtro_segmento(todos_label="TODOS", key="pg10_busca_seg")
 
     # Aplica filtro de segmento e unidade para popular série/turma
-    df_busca_base = df.copy()
-    if un_busca != 'TODAS':
-        df_busca_base = df_busca_base[df_busca_base['unidade'] == un_busca]
-    if seg_busca == 'Anos Finais':
-        df_busca_base = df_busca_base[df_busca_base['serie'].isin(SERIES_FUND_II)]
-    elif seg_busca == 'Ensino Médio':
-        df_busca_base = df_busca_base[df_busca_base['serie'].isin(SERIES_EM)]
+    df_busca_base = aplicar_filtro_unidade(df.copy(), un_busca)
+    df_busca_base = aplicar_filtro_segmento(df_busca_base, seg_busca)
 
     with cb3:
         serie_busca_opts = ['TODAS'] + sorted(df_busca_base['serie'].dropna().unique().tolist(), key=lambda x: ORDEM_SERIES.index(x) if x in ORDEM_SERIES else 99)

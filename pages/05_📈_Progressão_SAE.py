@@ -21,6 +21,10 @@ from utils import (
     _hoje, DATA_DIR, UNIDADES_NOMES, ORDEM_SERIES,
     SERIES_FUND_II, SERIES_EM
 )
+from components import (
+    barra_filtros_padrao, aplicar_filtros_padrao, cabecalho_pagina,
+    botao_download_csv,
+)
 
 st.set_page_config(page_title="Progressão SAE", page_icon="📈", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -142,8 +146,7 @@ def calcular_progressao_real(df_aulas, df_prog, semana_atual):
 
 
 def main():
-    st.title("📈 Progressão SAE")
-    st.markdown("**Ritmo esperado vs realizado | Capítulos por semana**")
+    cabecalho_pagina("📈 Progressão SAE", "Ritmo esperado vs realizado | Capítulos por semana")
 
     semana_atual = calcular_semana_letiva()
     cap_esperado = calcular_capitulo_esperado(semana_atual)
@@ -205,36 +208,30 @@ def main():
     df_aulas_filtrado = filtrar_ate_hoje(df_aulas)
 
     # Filtros
-    col_f1, col_f2, col_f3, col_f4 = st.columns(4)
-    with col_f1:
-        unidades = sorted(df_aulas_filtrado['unidade'].unique())
-        un_opts = ['Todas'] + unidades
-        user_unit = get_user_unit()
-        default_un = un_opts.index(user_unit) if user_unit and user_unit in un_opts else 0
-        un_sel = st.selectbox("Unidade:", un_opts, index=default_un)
-    with col_f2:
-        segmento = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Médio'])
-    with col_f3:
-        series_disp = sorted(
-            df_aulas_filtrado['serie'].unique(),
-            key=lambda s: ORDEM_SERIES.index(s) if s in ORDEM_SERIES else 99
-        )
-        serie_sel = st.selectbox("Série:", ['Todas'] + series_disp)
-    with col_f4:
-        periodo_sel = st.selectbox("Período:", PERIODOS_OPCOES, key='periodo_05')
+    series_disp = sorted(
+        df_aulas_filtrado['serie'].unique(),
+        key=lambda s: ORDEM_SERIES.index(s) if s in ORDEM_SERIES else 99
+    )
+    filtros = barra_filtros_padrao(
+        series_disponiveis=series_disp,
+        todas_un_label="Todas",
+        todas_serie_label="Todas",
+        todos_seg_label="Todos",
+        key_prefix="pg05_",
+    )
+    un_sel = filtros['unidade']
+    segmento = filtros['segmento']
+    serie_sel = filtros['serie']
+    periodo_sel = filtros['periodo']
 
     df_aulas_filtrado = filtrar_por_periodo(df_aulas_filtrado, periodo_sel)
 
     # Aplica filtros
-    df_f = df_aulas_filtrado.copy()
-    if un_sel != 'Todas':
-        df_f = df_f[df_f['unidade'] == un_sel]
-    if segmento == 'Anos Finais':
-        df_f = df_f[df_f['serie'].isin(SERIES_FUND_II)]
-    elif segmento == 'Ensino Médio':
-        df_f = df_f[df_f['serie'].isin(SERIES_EM)]
-    if serie_sel != 'Todas':
-        df_f = df_f[df_f['serie'] == serie_sel]
+    df_f = aplicar_filtros_padrao(
+        df_aulas_filtrado.copy(),
+        unidade=un_sel, segmento=segmento, serie=serie_sel,
+        todas_un="Todas", todas_serie="Todas",
+    )
 
     # Calcula progressao
     df_status = calcular_progressao_real(df_f, df_prog, semana_atual)
@@ -440,12 +437,11 @@ def main():
 
     with col_exp1:
         # CSV detalhado
-        csv_data = df_status.to_csv(index=False)
-        st.download_button(
-            "Baixar Progressão (CSV)",
-            csv_data,
-            f"progressao_sae_{un_sel}_{datetime.now().strftime('%Y%m%d')}.csv",
-            "text/csv"
+        botao_download_csv(
+            df_status,
+            f"progressao_sae_{un_sel}",
+            label="Baixar Progressão (CSV)",
+            key="pg05_dl_csv",
         )
 
     with col_exp2:

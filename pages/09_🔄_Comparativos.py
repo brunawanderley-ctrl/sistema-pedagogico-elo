@@ -19,6 +19,9 @@ from utils import (
     SERIES_FUND_II, SERIES_EM,
     CONFORMIDADE_BAIXO, CONFORMIDADE_META,
 )
+from components import (
+    filtro_periodo, aplicar_filtro_segmento, cabecalho_pagina,
+)
 
 st.set_page_config(page_title="Comparativos", page_icon="🔄", layout="wide")
 from auth import check_password, logout_button
@@ -27,8 +30,7 @@ if not check_password():
 logout_button()
 
 def main():
-    st.title("🔄 Análise Comparativa")
-    st.markdown("**Compare unidades, professores e séries**")
+    cabecalho_pagina("🔄 Análise Comparativa", "Compare unidades, professores e séries")
 
     df_aulas = carregar_fato_aulas()
     df_horario = carregar_horario_esperado()
@@ -39,7 +41,7 @@ def main():
 
     df_aulas = filtrar_ate_hoje(df_aulas)
 
-    periodo_sel = st.selectbox("Período:", PERIODOS_OPCOES, key='periodo_09')
+    periodo_sel = filtro_periodo(key="pg09_periodo")
     df_aulas = filtrar_por_periodo(df_aulas, periodo_sel)
 
     # Calcula semana baseada na ultima data de registro
@@ -130,16 +132,15 @@ def main():
             segmento = st.radio("Segmento:", ['Todos', 'Anos Finais (6º-9º)', 'Ensino Médio (1ª-3ª)'],
                                horizontal=True, key='seg_prof')
 
-        # Aplica filtro de segmento
-        df_seg = df_aulas.copy()
-        df_hor_seg = df_horario.copy()
-
-        if segmento == 'Anos Finais (6º-9º)':
-            df_seg = df_seg[df_seg['serie'].isin(SERIES_FUND_II)]
-            df_hor_seg = df_hor_seg[df_hor_seg['serie'].isin(SERIES_FUND_II)]
-        elif segmento == 'Ensino Médio (1ª-3ª)':
-            df_seg = df_seg[df_seg['serie'].isin(SERIES_EM)]
-            df_hor_seg = df_hor_seg[df_hor_seg['serie'].isin(SERIES_EM)]
+        # Aplica filtro de segmento (mapeia labels customizados para padrao)
+        _seg_map = {
+            'Todos': 'Todos',
+            'Anos Finais (6º-9º)': 'Anos Finais',
+            'Ensino Médio (1ª-3ª)': 'Ensino Medio',
+        }
+        _seg_norm = _seg_map.get(segmento, segmento)
+        df_seg = aplicar_filtro_segmento(df_aulas.copy(), _seg_norm)
+        df_hor_seg = aplicar_filtro_segmento(df_horario.copy(), _seg_norm)
 
         with col_s2:
             # Seletor de disciplina (filtrado pelo segmento)

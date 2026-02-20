@@ -22,6 +22,10 @@ from utils import (
     filtrar_ate_hoje, filtrar_por_periodo, _hoje,
     PERIODOS_OPCOES, UNIDADES, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM,
 )
+from components import (
+    filtro_unidade_multi, filtro_segmento,
+    aplicar_filtro_segmento, cabecalho_pagina, metricas_em_colunas,
+)
 
 st.set_page_config(page_title="Ocorrências", page_icon="📋", layout="wide")
 from auth import check_password, logout_button, get_user_unit, get_user_role
@@ -76,8 +80,7 @@ PROVIDENCIAS_SUGERIDAS = {
 
 
 def main():
-    st.title("📋 Ocorrências Disciplinares")
-    st.markdown("**Registro e Monitoramento de Comportamento**")
+    cabecalho_pagina("📋 Ocorrências Disciplinares", "Registro e Monitoramento de Comportamento")
 
     hoje = _hoje()
     semana = calcular_semana_letiva(hoje)
@@ -138,15 +141,9 @@ def main():
                         max_value=data_max.date() if hasattr(data_max, 'date') else data_max,
                         key='ocorr_periodo')
 
-            _user_unit = get_user_unit()
-            _default_un = [_user_unit] if _user_unit else UNIDADES
-            unidades_sel = st.multiselect("Unidade:", UNIDADES,
-                default=_default_un,
-                format_func=lambda x: UNIDADES_NOMES.get(x, x),
-                key='ocorr_unidade')
+            unidades_sel = filtro_unidade_multi(key="pg22_un")
 
-            segmento_sel = st.selectbox("Segmento:", ['Todos', 'Anos Finais', 'Ensino Médio'],
-                key='ocorr_segmento')
+            segmento_sel = filtro_segmento(key="pg22_seg")
 
             tipos_disp = sorted(df_ocorr['tipo'].unique()) if 'tipo' in df_ocorr.columns else []
             tipos_sel = st.multiselect("Tipo:", tipos_disp, default=tipos_disp, key='ocorr_tipo')
@@ -165,10 +162,7 @@ def main():
             df = df[(df['data'].dt.date >= periodo_range[0]) & (df['data'].dt.date <= periodo_range[1])]
         if unidades_sel and len(unidades_sel) < len(UNIDADES) and 'unidade' in df.columns:
             df = df[df['unidade'].isin(unidades_sel)]
-        if segmento_sel == 'Anos Finais' and 'serie' in df.columns:
-            df = df[df['serie'].isin(SERIES_FUND_II)]
-        elif segmento_sel == 'Ensino Médio' and 'serie' in df.columns:
-            df = df[df['serie'].isin(SERIES_EM)]
+        df = aplicar_filtro_segmento(df, segmento_sel)
         if tipos_sel and len(tipos_sel) < len(tipos_disp) and 'tipo' in df.columns:
             df = df[df['tipo'].isin(tipos_sel)]
         if grav_sel != 'Todas' and 'gravidade' in df.columns:
@@ -329,8 +323,6 @@ def _tab_novo_registro(df_alunos, tem_alunos):
 def _mostrar_metricas(df, container):
     """Mostra metricas resumo."""
     with container:
-        col1, col2, col3, col4, col5 = st.columns(5)
-
         total = len(df)
         alunos_envolvidos = df['aluno_id'].nunique() if 'aluno_id' in df.columns else df['aluno_nome'].nunique() if 'aluno_nome' in df.columns else 0
         reincidentes = 0
@@ -340,16 +332,13 @@ def _mostrar_metricas(df, container):
         graves = len(df[df['gravidade'] == 'Grave']) if 'gravidade' in df.columns else 0
         media_dia = total / max(1, df['data'].dt.date.nunique()) if 'data' in df.columns else 0
 
-        with col1:
-            st.metric("Total Ocorrências", total)
-        with col2:
-            st.metric("Alunos Envolvidos", alunos_envolvidos)
-        with col3:
-            st.metric("Reincidentes", reincidentes)
-        with col4:
-            st.metric("Graves", graves)
-        with col5:
-            st.metric("Média/Dia", f"{media_dia:.1f}")
+        metricas_em_colunas([
+            {'label': 'Total Ocorrências', 'value': total},
+            {'label': 'Alunos Envolvidos', 'value': alunos_envolvidos},
+            {'label': 'Reincidentes', 'value': reincidentes},
+            {'label': 'Graves', 'value': graves},
+            {'label': 'Média/Dia', 'value': f"{media_dia:.1f}"},
+        ])
 
 
 def _tab_alunos_risco(df):

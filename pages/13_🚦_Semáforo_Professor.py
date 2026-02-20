@@ -19,6 +19,11 @@ from utils import (
     filtrar_ate_hoje, filtrar_por_periodo, PERIODOS_OPCOES,
     _hoje, UNIDADES_NOMES, SERIES_FUND_II, SERIES_EM
 )
+from components import (
+    filtro_unidade, filtro_segmento, filtro_periodo,
+    aplicar_filtro_unidade, aplicar_filtro_segmento,
+    cabecalho_pagina, botao_download_csv,
+)
 
 st.set_page_config(page_title="Semáforo do Professor", page_icon="🚦", layout="wide")
 from auth import check_password, logout_button, get_user_unit
@@ -141,8 +146,7 @@ def render_semaforo_html(row):
 
 
 def main():
-    st.title("🚦 Semáforo do Professor")
-    st.markdown("**Visão rápida: quem precisa de atenção HOJE**")
+    cabecalho_pagina("🚦 Semáforo do Professor", "Visão rápida: quem precisa de atenção HOJE")
 
     df_aulas = carregar_fato_aulas()
     df_horario = carregar_horario_esperado()
@@ -159,39 +163,27 @@ def main():
     col_f1, col_f2, col_f3, col_f4 = st.columns(4)
 
     with col_f1:
-        un_opts = ['TODAS'] + sorted(df_horario['unidade'].unique().tolist())
-        user_unit = get_user_unit()
-        default_un = un_opts.index(user_unit) if user_unit and user_unit in un_opts else 0
-        filtro_un = st.selectbox("🏫 Unidade", un_opts, index=default_un)
+        filtro_un = filtro_unidade(key="pg13_un")
 
     with col_f2:
-        seg_opts = ['TODOS', 'Anos Finais', 'Ensino Médio']
-        filtro_seg = st.selectbox("📚 Segmento", seg_opts)
+        filtro_seg = filtro_segmento(todos_label="TODOS", key="pg13_seg")
 
     with col_f3:
-        periodo_sel = st.selectbox("📅 Período", PERIODOS_OPCOES, key='periodo_13')
+        periodo_sel = filtro_periodo(key="pg13_periodo")
 
     with col_f4:
         cor_opts = ['TODOS', '🔴 Crítico', '🟡 Atenção', '🟢 OK', '⚪ Sem dados']
-        filtro_cor = st.selectbox("🚦 Status", cor_opts)
+        filtro_cor = st.selectbox("🚦 Status", cor_opts, key="pg13_cor")
 
     # Aplica filtro de periodo
     df_aulas = filtrar_por_periodo(df_aulas, periodo_sel)
 
     # Filtra dados
-    df_hor_f = df_horario.copy()
-    df_aulas_f = df_aulas.copy()
+    df_hor_f = aplicar_filtro_unidade(df_horario, filtro_un)
+    df_hor_f = aplicar_filtro_segmento(df_hor_f, filtro_seg)
 
-    if filtro_un != 'TODAS':
-        df_hor_f = df_hor_f[df_hor_f['unidade'] == filtro_un]
-        df_aulas_f = df_aulas_f[df_aulas_f['unidade'] == filtro_un]
-
-    if filtro_seg == 'Anos Finais':
-        df_hor_f = df_hor_f[df_hor_f['serie'].isin(SERIES_FUND_II)]
-        df_aulas_f = df_aulas_f[df_aulas_f['serie'].isin(SERIES_FUND_II)]
-    elif filtro_seg == 'Ensino Médio':
-        df_hor_f = df_hor_f[df_hor_f['serie'].isin(SERIES_EM)]
-        df_aulas_f = df_aulas_f[df_aulas_f['serie'].isin(SERIES_EM)]
+    df_aulas_f = aplicar_filtro_unidade(df_aulas, filtro_un)
+    df_aulas_f = aplicar_filtro_segmento(df_aulas_f, filtro_seg)
 
     # Calcula metricas
     df_semaforo = calcular_metricas_professor(df_aulas_f, df_hor_f, semana)
@@ -423,12 +415,11 @@ def main():
     col_e1, col_e2 = st.columns(2)
 
     with col_e1:
-        csv_data = df_show.to_csv(index=False).encode('utf-8-sig')
-        st.download_button(
-            "📥 Download Semáforo (CSV)",
-            csv_data,
-            f"semaforo_professores_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
-            "text/csv"
+        botao_download_csv(
+            df_show,
+            "semaforo_professores",
+            label="📥 Download Semáforo (CSV)",
+            key="pg13_dl_csv",
         )
 
     with col_e2:
