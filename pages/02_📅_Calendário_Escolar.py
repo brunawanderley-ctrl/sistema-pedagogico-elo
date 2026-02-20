@@ -92,17 +92,17 @@ def main():
 
     st.markdown("""
     <div class="info-box">
-        <strong>Ano Letivo 2026:</strong> 199 dias letivos distribuídos em 3 trimestres de aproximadamente 14 semanas cada.
+        <strong>Ano Letivo 2026:</strong> 205 dias letivos distribuídos em 3 trimestres, incluindo 7 sábados letivos.
     </div>
     """, unsafe_allow_html=True)
 
-    # Tabela de trimestres
+    # Tabela de trimestres (Calendário confirmado por Bruna Vitória)
     trimestres = pd.DataFrame({
         'Período': ['1º TRIMESTRE', '2º TRIMESTRE', '3º TRIMESTRE', 'ANO LETIVO'],
-        'Início': ['26/01/2026', '11/05/2026', '31/08/2026', '26/01/2026'],
-        'Término': ['08/05/2026', '28/08/2026', '21/12/2026', '21/12/2026'],
-        'Dias Letivos': [68, 57, 75, 200],
-        'Semanas': [14, 14, 14, 42],
+        'Início': ['27/01/2026', '11/05/2026', '14/09/2026', '26/01/2026'],
+        'Término': ['10/05/2026', '12/09/2026', '18/12/2026', '18/12/2026'],
+        'Dias Letivos': [69, 68, 68, 205],
+        'Semanas': ['~15', '~14', '~13', '~42'],
         'Capítulos SAE': ['1 a 4', '5 a 8', '9 a 12', '1 a 12'],
         'Volumes': ['V1', 'V2 + V3', 'V4', 'V1 a V4']
     })
@@ -117,10 +117,10 @@ def main():
 
         | Trimestre | Dias | % do Ano |
         |-----------|------|----------|
-        | 1º Trimestre | 68 | 34% |
-        | 2º Trimestre | 57 | 28,5% |
-        | 3º Trimestre | 75 | 37,5% |
-        | **TOTAL** | **200** | **100%** |
+        | 1º Trimestre | 69 | 33,7% |
+        | 2º Trimestre | 68 | 33,2% |
+        | 3º Trimestre | 68 | 33,2% |
+        | **TOTAL** | **205** | **100%** |
         """)
 
     with col2:
@@ -183,26 +183,34 @@ def main():
     """, unsafe_allow_html=True)
 
     feriados = pd.DataFrame({
-        'Data': ['14-17/02', '06/03', '02-03/04', '13/04', '21/04', '01/05',
-                 '04/06', '24/06', '06-31/07', '07/09', '12/10', '02/11',
-                 '15/11', '20/11', '08/12'],
-        'Evento': ['Carnaval', 'Data Magna PE', 'Semana Santa', 'Feriado Jaboatão',
-                   'Tiradentes', 'Dia do Trabalho', 'Corpus Christi', 'São João',
-                   'Férias de Julho', 'Independência', 'N.S. Aparecida', 'Finados',
-                   'Proclamação República', 'Consciência Negra', 'N.S. Conceição'],
+        'Data': ['13-17/02', '06/03', '03/04', '13/04', '21/04', '01/05',
+                 '04/05', '04/06', '23/06', '02/07-31/07', '02/09',
+                 '07/09', '12/10', '16/10', '02/11', '20/11', '08/12'],
+        'Evento': ['Carnaval', 'Data Magna PE', 'Sexta-feira Santa', 'Feriado Jaboatão',
+                   'Tiradentes', 'Dia do Trabalho', 'Feriado Jaboatão',
+                   'Corpus Christi', 'São João',
+                   'Férias de Julho', 'Feriado Paulista',
+                   'Independência', 'N.S. Aparecida', 'Emprensado Sindicato',
+                   'Finados', 'Consciência Negra', 'N.S. Conceição'],
         'Tipo': ['🔴 Nacional', '🟠 Regional PE', '🔴 Nacional', '🟠 Regional Jaboatão',
-                 '🔴 Nacional', '🔴 Nacional', '🔴 Nacional', '🟠 Regional PE',
-                 '🟢 Férias', '🔴 Nacional', '🔴 Nacional', '🔴 Nacional',
+                 '🔴 Nacional', '🔴 Nacional', '🟠 Regional Jaboatão',
+                 '🔴 Nacional', '🟠 Regional PE',
+                 '🟢 Férias', '🟠 Regional Paulista',
+                 '🔴 Nacional', '🔴 Nacional', '🟠 Sindicato',
                  '🔴 Nacional', '🔴 Nacional', '🔴 Nacional'],
-        'Dias Não Letivos': [4, 1, 2, 1, 1, 1, 1, 1, '~20', 1, 1, 1, 1, 1, 1],
-        'Impacto': ['Semana reduzida', 'Apenas Pernambuco', 'Quinta e Sexta-feira',
-                    'Apenas Candeias (CD)', 'Terça-feira', 'Sexta-feira',
-                    'Quinta-feira', 'Quarta-feira', 'Recesso escolar completo',
-                    'Segunda-feira', 'Segunda-feira', 'Segunda-feira',
-                    'Domingo (sem impacto)', 'Sexta-feira', 'Terça-feira'],
+        'Dias Não Letivos': [3, 1, 1, 1, 1, 1, 1, 1, 1, '~22', 1, 1, 1, 1, 1, 1, 1],
+        'Impacto': ['Sex/Seg/Ter', 'Sexta-feira', 'Sexta-feira',
+                    'Segunda-feira (apenas CD)', 'Terça-feira', 'Sexta-feira',
+                    'Segunda-feira (apenas CD)',
+                    'Quinta-feira', 'Terça-feira',
+                    'Recesso escolar completo', 'Quarta-feira (apenas JG)',
+                    'Segunda-feira', 'Segunda-feira', 'Sexta-feira',
+                    'Segunda-feira', 'Sexta-feira', 'Terça-feira'],
         'Unidades Afetadas': ['TODAS', 'TODAS', 'TODAS', 'Apenas CD',
-                              'TODAS', 'TODAS', 'TODAS', 'TODAS',
-                              'TODAS', 'TODAS', 'TODAS', 'TODAS',
+                              'TODAS', 'TODAS', 'Apenas CD',
+                              'TODAS', 'TODAS',
+                              'TODAS', 'Apenas JG',
+                              'TODAS', 'TODAS', 'TODAS',
                               'TODAS', 'TODAS', 'TODAS']
     })
 
@@ -214,9 +222,9 @@ def main():
 
     | Trimestre | Feriados | Dias Perdidos | Observação |
     |-----------|----------|---------------|------------|
-    | **1º Tri** | Carnaval, Data Magna, Semana Santa, Jaboatão, Tiradentes, Trabalho | ~10 dias | Maior concentração |
-    | **2º Tri** | Corpus Christi, São João, Férias Julho | ~22 dias | Inclui férias |
-    | **3º Tri** | Independência, N.S. Aparecida, Finados, República, Consciência Negra, N.S. Conceição | ~6 dias | Menor impacto |
+    | **1º Tri** (27/01-10/05) | Carnaval, Data Magna, Sexta Santa, Tiradentes, Trabalho | ~7 dias | Maior concentração |
+    | **2º Tri** (11/05-12/09) | Corpus Christi, São João, Férias Julho, Independência | ~24 dias | Inclui férias |
+    | **3º Tri** (14/09-18/12) | N.S. Aparecida, Emprensado, Finados, Consciência Negra, N.S. Conceição | ~5 dias | Menor impacto |
     """)
 
     st.warning("""
@@ -360,7 +368,7 @@ def main():
         hoje = _hoje()
         semana_atual = calcular_semana_letiva(hoje)
         cap_esperado = calcular_capitulo_esperado(semana_atual)
-        trimestre_atual = 1 if semana_atual <= 14 else (2 if semana_atual <= 28 else 3)
+        trimestre_atual = 1 if semana_atual <= 15 else (2 if semana_atual <= 33 else 3)
 
         c1, c2, c3, c4 = st.columns(4)
         c1.metric("Semana Letiva", f"{semana_atual}ª")
@@ -409,8 +417,8 @@ def main():
             def tri_da_semana(sem):
                 try:
                     s = int(sem)
-                    if s <= 14: return "1º Tri"
-                    elif s <= 28: return "2º Tri"
+                    if s <= 15: return "1º Tri"
+                    elif s <= 33: return "2º Tri"
                     else: return "3º Tri"
                 except (ValueError, TypeError):
                     return ""

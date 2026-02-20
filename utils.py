@@ -106,31 +106,37 @@ def calcular_semana_letiva(data_ref=None):
 def calcular_capitulo_esperado(semana):
     """
     Calcula capitulo SAE esperado para a semana.
-    Formula SWITCH canonica (igual ao DAX e dim_Progressao_SAE).
+    Formula SWITCH calibrada para o calendario 2026 (205 dias, Bruna Vitoria).
+    I Tri sem 1-15 (caps 1-4) | II Tri sem 16-33 (caps 5-8) | III Tri sem 34+ (caps 9-12)
+    Ferias julho = semanas 23-27 (sem avanco de capitulo).
     """
     if semana is None or semana < 1:
         return 1
-    if semana <= 3: return 1
-    elif semana <= 6: return 2
-    elif semana <= 9: return 3
-    elif semana <= 14: return 4
-    elif semana <= 17: return 5
-    elif semana <= 20: return 6
-    elif semana <= 23: return 7
-    elif semana <= 28: return 8
-    elif semana <= 31: return 9
-    elif semana <= 34: return 10
-    elif semana <= 37: return 11
+    # I Trimestre: semanas 1-15, caps 1-4
+    if semana <= 4: return 1
+    elif semana <= 8: return 2
+    elif semana <= 12: return 3
+    elif semana <= 15: return 4
+    # II Trimestre: semanas 16-33, caps 5-8
+    elif semana <= 18: return 5
+    elif semana <= 22: return 6
+    elif semana <= 30: return 7   # inclui ferias julho (sem 23-27)
+    elif semana <= 33: return 8
+    # III Trimestre: semanas 34-47, caps 9-12
+    elif semana <= 37: return 9
+    elif semana <= 40: return 10
+    elif semana <= 43: return 11
     else: return 12
 
 
 def calcular_trimestre(semana):
-    """Retorna o trimestre (1, 2 ou 3) baseado na semana letiva."""
+    """Retorna o trimestre (1, 2 ou 3) baseado na semana letiva.
+    Calendario 2026 (205 dias): I=sem 1-15 | II=sem 16-33 | III=sem 34+"""
     if semana is None:
         return 1
-    if semana <= 14:
+    if semana <= 15:
         return 1
-    elif semana <= 28:
+    elif semana <= 33:
         return 2
     else:
         return 3
@@ -570,18 +576,18 @@ def filtrar_por_periodo(df, periodo, col_data='data', col_semana='semana_letiva'
 
     elif periodo == '1o Trimestre':
         if col_semana in df.columns:
-            return df[df[col_semana] <= 14]
-        return df[df[col_data] < datetime(2026, 5, 9)]
+            return df[df[col_semana] <= 15]
+        return df[df[col_data] < datetime(2026, 5, 11)]
 
     elif periodo == '2o Trimestre':
         if col_semana in df.columns:
-            return df[(df[col_semana] >= 15) & (df[col_semana] <= 28)]
-        return df[(df[col_data] >= datetime(2026, 5, 9)) & (df[col_data] < datetime(2026, 8, 29))]
+            return df[(df[col_semana] >= 16) & (df[col_semana] <= 33)]
+        return df[(df[col_data] >= datetime(2026, 5, 11)) & (df[col_data] < datetime(2026, 9, 14))]
 
     elif periodo == '3o Trimestre':
         if col_semana in df.columns:
-            return df[df[col_semana] >= 29]
-        return df[df[col_data] >= datetime(2026, 8, 29)]
+            return df[df[col_semana] >= 34]
+        return df[df[col_data] >= datetime(2026, 9, 14)]
 
     return df
 
