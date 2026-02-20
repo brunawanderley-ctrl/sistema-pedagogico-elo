@@ -1,6 +1,10 @@
 """
 Funcoes compartilhadas do Sistema Pedagogico ELO 2026.
 Centraliza calculos, carregamento de dados e constantes usados em todas as paginas.
+
+Constantes e funcoes de normalizacao sao delegadas para normalizacao.py
+(fonte unica de verdade). Este modulo re-exporta os nomes para manter
+compatibilidade com todas as paginas existentes.
 """
 
 import math
@@ -11,6 +15,22 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 from pathlib import Path
+
+# ============================================================
+# RE-EXPORTS de normalizacao.py — fonte unica de verdade
+# ============================================================
+from normalizacao import (  # noqa: F401
+    UNIDADES,
+    UNIDADES_NOMES,
+    SERIES_FUND_II,
+    SERIES_EM,
+    DISCIPLINA_NORM_FATO,
+    DISCIPLINA_NORM_HORARIO,
+    DISCIPLINA_SAE_MAP as _DISCIPLINA_SAE_MAP,
+    GRADE_MAP_SAE as _GRADE_MAP_SAE,
+    normalizar_disciplina_sae,
+    normalizar_serie_sae,
+)
 
 # ========== CONSTANTES ==========
 
@@ -41,20 +61,8 @@ def _get_writable_dir():
 
 WRITABLE_DIR = _get_writable_dir()
 
-UNIDADES = ['BV', 'CD', 'JG', 'CDR']
-
-UNIDADES_NOMES = {
-    'BV': 'Boa Viagem',
-    'CD': 'Candeias',
-    'JG': 'Janga',
-    'CDR': 'Cordeiro',
-}
-
 # Re-exporta de config_cores para manter compatibilidade de imports
 from config_cores import ORDEM_SERIES  # noqa: F401
-
-SERIES_FUND_II = ['6º Ano', '7º Ano', '8º Ano', '9º Ano']
-SERIES_EM = ['1ª Série', '2ª Série', '3ª Série']
 
 # ============================================================
 # THRESHOLDS DE CONFORMIDADE (%)
@@ -141,43 +149,7 @@ def status_conformidade(pct):
 
 
 # ========== NORMALIZACAO DE DISCIPLINAS ==========
-
-# Normaliza disciplinas numeradas do fato_Aulas (SIGA) → nomes base para progressao_key
-DISCIPLINA_NORM_FATO = {
-    'Física 2': 'Física',
-    'Física 3': 'Física',
-    'Biologia 2': 'Biologia',
-    'Matemática 2': 'Matemática',
-    'Matemática 3': 'Matemática',
-    'Química 2': 'Química',
-    'Química 3': 'Química',
-    'História 2': 'História',
-    'Geografia 2': 'Geografia',
-    'Língua Portuguesa 2': 'Língua Portuguesa',
-}
-
-# Normaliza disciplinas numeradas do horario → nomes base do SIGA
-# O horario EM divide disciplinas em slots (Matematica 1, 2, 3) mas
-# o SIGA registra apenas o nome base (Matematica)
-DISCIPLINA_NORM_HORARIO = {
-    'Matemática 1': 'Matemática',
-    'Matemática 2': 'Matemática',
-    'Matemática 3': 'Matemática',
-    'Física 1': 'Física',
-    'Física 2': 'Física',
-    'Física 3': 'Física',
-    'Biologia 1': 'Biologia',
-    'Biologia 2': 'Biologia',
-    'Química 1': 'Química',
-    'Química 2': 'Química',
-    'Química 3': 'Química',
-    'História 1': 'História',
-    'História 2': 'História',
-    'Geografia 1': 'Geografia',
-    'Geografia 2': 'Geografia',
-    'Língua Portuguesa 1': 'Língua Portuguesa',
-    'Língua Portuguesa 2': 'Língua Portuguesa',
-}
+# Dicts DISCIPLINA_NORM_FATO e DISCIPLINA_NORM_HORARIO sao importados de normalizacao.py
 
 
 def _normalizar_disciplina_fato(df):
@@ -603,37 +575,8 @@ def ultima_atualizacao():
 
 
 # ========== SAE DIGITAL - CARREGAMENTO E NORMALIZACAO ==========
-
-# Grade IDs SAE → Serie canonica
-_GRADE_MAP_SAE = {
-    10: '6\u00ba Ano', 11: '7\u00ba Ano', 12: '8\u00ba Ano', 13: '9\u00ba Ano',
-    14: '1\u00aa S\u00e9rie', 15: '2\u00aa S\u00e9rie', 16: '3\u00aa S\u00e9rie',
-}
-
-# Nomes de disciplina SAE → canonico SIGA
-_DISCIPLINA_SAE_MAP = {
-    'Ci\u00eancias': 'Ci\u00eancias Naturais',
-    'Ci\u00eancias da Natureza': 'Ci\u00eancias Naturais',
-    'Ingl\u00eas': 'L\u00edngua Estrangeira Ingl\u00eas',
-    'L\u00edngua Inglesa': 'L\u00edngua Estrangeira Ingl\u00eas',
-    'Artes': 'Arte',
-}
-
-
-def normalizar_disciplina_sae(nome):
-    """Normaliza nome de disciplina SAE para canonico SIGA.
-    Retorna o nome canonico ou o proprio nome se ja estiver correto."""
-    if not nome:
-        return nome
-    return _DISCIPLINA_SAE_MAP.get(nome, nome)
-
-
-def normalizar_serie_sae(grade_id):
-    """Converte grade_id SAE (10-16) para serie canonica SIGA.
-    Retorna None se grade_id nao reconhecido."""
-    if grade_id is None:
-        return None
-    return _GRADE_MAP_SAE.get(int(grade_id))
+# Funcoes normalizar_disciplina_sae e normalizar_serie_sae sao importadas de normalizacao.py
+# Dicts _GRADE_MAP_SAE e _DISCIPLINA_SAE_MAP sao importados de normalizacao.py (como aliases)
 
 
 @st.cache_data(ttl=300)

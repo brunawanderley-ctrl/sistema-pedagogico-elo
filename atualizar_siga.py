@@ -42,68 +42,28 @@ API_BASE = "https://siga02.activesoft.com.br"
 
 INICIO_ANO_LETIVO = datetime(2026, 1, 26)
 
-# Normalização de séries (SIGA → canônico)
-SERIE_NORMALIZACAO = {
-    '6º ANO': '6º Ano',
-    '7º ANO': '7º Ano',
-    '8º ANO': '8º Ano',
-    '9º ANO': '9º Ano',
-    '1º Ano Médio': '1ª Série',
-    '2º Ano Médio': '2ª Série',
-    '3º Ano Médio': '3ª Série',
-    '1ª Série EM': '1ª Série',
-    '2ª Série EM': '2ª Série',
-    '3ª Série EM': '3ª Série',
-}
+# ============================================================
+# Normalização delegada para normalizacao.py (fonte única de verdade)
+# ============================================================
+from normalizacao import (
+    SERIE_NORMALIZACAO,
+    DISCIPLINA_NORMALIZACAO,
+    SERIES_FUND_II as _SERIES_FUND_II_LIST,
+    normalizar_serie,
+    normalizar_disciplina,
+    normalizar_nome_professor,
+    serie_eh_fund_ii,
+)
 
-# Normalização de disciplinas (SIGA → canônico)
-DISCIPLINA_NORMALIZACAO = {
-    'Português': 'Língua Portuguesa',
-    'Ciências': 'Ciências Naturais',
-    'Língua Inglesa': 'Língua Estrangeira Inglês',
-    'Inglês': 'Língua Estrangeira Inglês',
-    'Física II': 'Física 2',
-    'Ciências Sociais': 'Sociologia',
-    'Projeto de Vida / LIV': 'Projeto de Vida',
-    'Oficina de Redação e Prod. Textual': 'Redação',
-    'IF - Projeto de Vida': 'Projeto de Vida',
-    'LÍNGUA PORTUGUESA 1': 'Língua Portuguesa 1',
-    'LÍNGUA PORTUGUESA 2': 'Língua Portuguesa 2',
-    # Abreviações do SIGA para disciplinas numeradas do EM
-    'BIO 2': 'Biologia 2',
-    'QUIM 2': 'Química 2',
-    'QUIM 3': 'Química 3',
-    'FISIC 2': 'Física 2',
-    'matem 2': 'Matemática 2',
-}
-
-SERIES_FUND_II = {'6º Ano', '7º Ano', '8º Ano', '9º Ano'}
+# atualizar_siga.py usava set; normalizacao.py exporta list.
+# Convertemos para set para manter a semantica de lookup O(1).
+SERIES_FUND_II = set(_SERIES_FUND_II_LIST)
 
 FIELDNAMES = [
     'aula_id', 'data', 'unidade', 'curso', 'disciplina', 'serie', 'turma',
     'professor', 'professor_normalizado', 'numero_aula', 'conteudo', 'tarefa',
     'situacao', 'frequencia', 'semana_letiva', 'progressao_key'
 ]
-
-
-def normalizar_serie(serie):
-    if not serie:
-        return serie
-    return SERIE_NORMALIZACAO.get(serie.strip(), serie.strip())
-
-
-def normalizar_disciplina(disciplina):
-    if not disciplina:
-        return disciplina
-    return DISCIPLINA_NORMALIZACAO.get(disciplina.strip(), disciplina.strip())
-
-
-def normalizar_nome_professor(nome):
-    if not nome:
-        return ''
-    nome = nome.strip().upper()
-    nome = re.sub(r'\s*-\s*(BV|CD|JG|CDR|CORD|TEEN\s*\d?)\s*-\s*\d{4}\s*$', '', nome)
-    return re.sub(r'\s+', ' ', nome).strip()
 
 
 def calcular_semana_letiva(data_str):
