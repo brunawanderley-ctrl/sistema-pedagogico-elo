@@ -264,7 +264,7 @@ with st.expander("Exportar pauta"):
     texto.append("PEEX Command Center — Colegio ELO 2026")
 
     texto_final = "\n".join(texto)
-    st.text_area("", texto_final, height=300)
+    st.text_area("Texto gerado", texto_final, height=300, label_visibility="collapsed")
     st.download_button(
         "Baixar TXT",
         texto_final,

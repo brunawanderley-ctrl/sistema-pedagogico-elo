@@ -146,7 +146,6 @@ if role == 'ceo':
         P("app_pages/15_📄_Resumo_Semanal.py", "Resumo Semanal", "📄"),
         P("app_pages/26_📊_Painel_Unificado.py", "Painel Unificado", "📊"),
         P("peex_pages/16_briefing_pdf.py", "Briefing PDF", "📄"),
-        P("peex_pages/14_gerador_peex_rede.py", "PEEX Rede", "🌐"),
         P("peex_pages/13_polinizacao.py", "Polinizacao", "🌸"),
     ]
     sections["Referencia"] = [

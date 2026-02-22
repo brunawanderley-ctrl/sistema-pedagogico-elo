@@ -25,7 +25,7 @@ from peex_config import (
 from peex_utils import info_semana, proximas_reunioes
 
 
-# ========== CARREGAR DADOS ==========
+# ========== HELPERS ==========
 
 def _carregar_json(nome):
     """Carrega JSON pre-gerado do WRITABLE_DIR."""
@@ -37,6 +37,214 @@ def _carregar_json(nome):
         except (json.JSONDecodeError, IOError):
             pass
     return {}
+
+
+# Explicacoes detalhadas dos protocolos de crise por unidade
+# (extraidas da Sintese Final + Plano Sinais e Redes + dados reais)
+_EXPLICACOES_PROTOCOLO = {
+    'JG': {
+        'titulo': 'Protocolo Janga — Busca Ativa de Frequencia',
+        'contexto': (
+            'Janga tem a menor frequencia da rede (79,6%) e 25% dos alunos em risco de evasao. '
+            'E a unidade com maior desafio de presenca, por fatores socioeconomicos e de transporte.'
+        ),
+        'quem': [
+            ('Pietro', 'Coordenador do Janga. Responsavel por contato telefonico imediato com familias.'),
+            ('Secretaria', 'Equipe administrativa da unidade. Apoia com dados de matricula, contatos atualizados e registro das ligacoes.'),
+            ('Lecinane', 'Coordenadora do Janga. Vai pessoalmente as casas dos alunos com faltas criticas (visita domiciliar).'),
+        ],
+        'passo_a_passo': [
+            'Pietro + secretaria levantam lista de alunos com 3+ faltas consecutivas no mesmo dia da crise.',
+            'Ligam para TODAS as familias da lista naquele dia (nao esperar o dia seguinte).',
+            'Lecinane seleciona os 5 casos mais graves e faz visita domiciliar pessoalmente.',
+            'Registram os motivos no sistema (saude, transporte, financeiro, desinteresse, etc.).',
+            'Na reuniao seguinte: apresentam o resultado — quantos retornaram, quantos precisam de plano individual.',
+        ],
+        'por_que': (
+            'A Sintese Final determinou que Janga precisa de acao presencial e rapida porque '
+            'ligacao telefonica sozinha nao resolve — muitas familias nao atendem ou nao tem credito. '
+            'A presenca fisica da coordenacao mostra compromisso da escola e recupera alunos que '
+            'estavam desistindo silenciosamente.'
+        ),
+    },
+    'CDR': {
+        'titulo': 'Protocolo Cordeiro — Controle de Ocorrencias',
+        'contexto': (
+            'Cordeiro concentra 68% das ocorrencias graves da rede (36 de 53). '
+            'E a unidade com maior problema disciplinar, e o padrao se repete em turmas especificas.'
+        ),
+        'quem': [
+            ('Ana Claudia', 'Coordenadora do Cordeiro. Responsavel por identificar turmas-foco e organizar a presenca da equipe.'),
+            ('Vanessa', 'Coordenadora do Cordeiro. Trabalha em par com Ana Claudia, dividindo as turmas prioritarias.'),
+        ],
+        'passo_a_passo': [
+            'Gerar o mapa de calor: cruzar turma x tipo de ocorrencia x dia da semana para identificar os 3 focos.',
+            'Selecionar 3 turmas-foco (as com mais ocorrencias graves concentradas).',
+            'Coordenacao marca presenca fisica nas 3 turmas por 5 dias consecutivos (nao esporadico).',
+            'Durante os 5 dias: observar padroes, conversar com professores, mediar conflitos in loco.',
+            'Ao fim dos 5 dias: relatorio com causas identificadas + plano de acao por turma.',
+        ],
+        'por_que': (
+            'A Sintese identificou que ocorrencias em Cordeiro nao sao aleatorias — se concentram '
+            'em turmas especificas e horarios especificos. O mapa de calor revela o padrao. '
+            'Presenca fisica continua (5 dias, nao 1) quebra o ciclo porque alunos e professores '
+            'mudam o comportamento quando a coordenacao esta presente consistentemente.'
+        ),
+    },
+    'BV': {
+        'titulo': 'Protocolo Boa Viagem — Feedback Express aos Professores',
+        'contexto': (
+            'Boa Viagem e a unidade de referencia, mas em crise precisa agir rapido nos professores. '
+            'Tem 2 coordenadores (Bruna Vitoria para 6o-9o e Gilberto para EM), o que permite dividir a carga.'
+        ),
+        'quem': [
+            ('Bruna Vitoria Nascimento', 'Coordenadora de 6o ao 9o Ano em BV. Fica com metade da lista de professores envolvidos na crise.'),
+            ('Gilberto Santos', 'Coordenador do Ensino Medio em BV. Fica com a outra metade da lista.'),
+        ],
+        'passo_a_passo': [
+            'Levantar lista de todos os professores envolvidos na situacao de crise.',
+            'Dividir a lista entre Bruna Vitoria (Fund. II) e Gilberto (EM).',
+            'Cada um conversa individualmente com cada professor — maximo 5 minutos por conversa.',
+            'Prazo: todas as conversas concluidas em ate 48 horas.',
+            'Registrar o que cada professor se comprometeu a fazer.',
+        ],
+        'por_que': (
+            'BV tem o maior numero de professores. Em crise, nao da para esperar a proxima reuniao '
+            'coletiva — cada professor precisa saber pessoalmente o que esta acontecendo e o que '
+            'se espera dele. 5 minutos bastam: "Estamos em crise por X. Preciso que voce faca Y ate Z." '
+            'A divisao entre 2 coordenadores garante que todos sejam contatados em 48h.'
+        ),
+    },
+    'CD': {
+        'titulo': 'Protocolo Candeias — Verificacao de Matricula Ativa',
+        'contexto': (
+            'Candeias tem 3 coordenadoras e o maior risco de evasao silenciosa. '
+            'Alunos desaparecem sem dar baixa na matricula — 15+ dias sem presenca e frequente.'
+        ),
+        'quem': [
+            ('Alline', 'Coordenadora em Candeias. Assume 1 turma prioritaria para verificacao.'),
+            ('Elisangela', 'Coordenadora em Candeias. Assume 1 turma prioritaria para verificacao.'),
+            ('Vanessa', 'Coordenadora em Candeias. Assume 1 turma prioritaria para verificacao.'),
+        ],
+        'passo_a_passo': [
+            'Filtrar alunos com 15+ dias consecutivos sem presenca.',
+            'Para cada um: verificar no SIGA se a matricula ainda esta ativa.',
+            'Se matricula ativa mas aluno ausente: contato imediato com familia.',
+            'Se familia confirma desistencia: registrar transferencia/evasao para limpar os dados.',
+            'Cada coordenadora assume 1 turma prioritaria para nao sobrecarregar.',
+        ],
+        'por_que': (
+            'A Sintese identificou que Candeias tem "alunos fantasma" — matriculados mas que '
+            'nao frequentam ha semanas. Isso distorce os indicadores de frequencia e mascara '
+            'a evasao real. Verificar a matricula ativa e o primeiro passo: se o aluno ja saiu, '
+            'precisa estar registrado. Se nao saiu, precisa ser buscado.'
+        ),
+    },
+}
+
+
+def _gerar_export_completo(preparador_data, reuniao, rot, formato, missoes):
+    """Gera texto completo do roteiro para download."""
+    sem = calcular_semana_letiva()
+    lines = []
+    lines.append("=" * 60)
+    lines.append(f"ROTEIRO DE REUNIAO PEEX — {formato}")
+    lines.append(f"Semana {preparador_data.get('reuniao', {}).get('semana', sem)}")
+    lines.append("=" * 60)
+
+    if reuniao:
+        lines.append(f"\nReuniao: {reuniao.get('titulo', '')}")
+        lines.append(f"Formato: {formato} | Duracao: {rot['duracao']}")
+        lines.append(f"Foco: {reuniao.get('foco', '')}")
+
+    lines.append(f"\nSAIDA OBRIGATORIA: {rot['saida_obrigatoria']}")
+
+    obj = preparador_data.get('objetivo_da_reuniao', '')
+    if obj:
+        lines.append(f"\nOBJETIVO: {obj}")
+
+    lines.append(f"\n{'=' * 40}")
+    lines.append("ROTEIRO MINUTO-A-MINUTO")
+    lines.append(f"{'=' * 40}")
+
+    for bloco in rot['blocos']:
+        lines.append(f"\n[{bloco['tempo']}] {bloco['nome']}")
+        lines.append(f'  Fala: "{bloco["script"]}"')
+        if bloco.get('pagina'):
+            lines.append(f"  Dados: pagina {bloco['pagina']}")
+
+    # Por unidade
+    rot_un = preparador_data.get('roteiro_por_unidade', {})
+    for un_code in ['BV', 'CD', 'JG', 'CDR']:
+        un_data = rot_un.get(un_code, {})
+        if un_data:
+            un_nome = UNIDADES_NOMES.get(un_code, un_code)
+            lines.append(f"\n--- {un_nome} ---")
+            if un_data.get('situacao_resumida'):
+                lines.append(f"Situacao: {un_data['situacao_resumida']}")
+            if un_data.get('pergunta_para_diretor'):
+                lines.append(f"Pergunta: {un_data['pergunta_para_diretor']}")
+            if un_data.get('compromisso_esperado'):
+                lines.append(f"Compromisso: {un_data['compromisso_esperado']}")
+
+    # Protocolos de crise
+    if formato == 'CRISE' and 'protocolos_unidade' in rot:
+        lines.append(f"\n{'=' * 40}")
+        lines.append("PROTOCOLOS DE CRISE POR UNIDADE")
+        for un, prot_txt in rot['protocolos_unidade'].items():
+            lines.append(f"  {UNIDADES_NOMES.get(un, un)}: {prot_txt}")
+            expl = _EXPLICACOES_PROTOCOLO.get(un)
+            if expl:
+                for passo in expl['passo_a_passo']:
+                    lines.append(f"    - {passo}")
+
+    lines.append(f"\n\nGerado em: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
+    return '\n'.join(lines)
+
+
+def _gerar_export_whatsapp(reuniao, rot, formato, sem):
+    """Gera versao resumida para WhatsApp."""
+    lines = []
+    lines.append(f"*REUNIAO PEEX — {formato}*")
+    lines.append(f"Semana {sem}")
+    if reuniao:
+        lines.append(f"Foco: {reuniao.get('foco', '')}")
+    lines.append(f"\n*Saida obrigatoria:* {rot['saida_obrigatoria']}")
+    lines.append("\n*Roteiro:*")
+    for bloco in rot['blocos']:
+        lines.append(f"  {bloco['tempo']} — {bloco['nome']}")
+    lines.append(f"\n_Gerado em {datetime.now().strftime('%d/%m %H:%M')}_")
+    return '\n'.join(lines)
+
+
+def _renderizar_protocolo_expandido(un_code, protocolo_resumo):
+    """Renderiza protocolo de crise com expander explicativo."""
+    un_nome = UNIDADES_NOMES.get(un_code, un_code)
+
+    # Resumo visual (sempre visivel)
+    st.markdown(f"""
+    <div class="protocolo-unidade">
+        <strong>{un_nome}:</strong> {protocolo_resumo}
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Explicacao expandivel
+    expl = _EXPLICACOES_PROTOCOLO.get(un_code)
+    if expl:
+        with st.expander(f"Entender protocolo: {expl['titulo']}"):
+            st.markdown(f"**Contexto:** {expl['contexto']}")
+
+            st.markdown("**Quem faz o que:**")
+            for nome, funcao in expl['quem']:
+                st.markdown(f"- **{nome}** — {funcao}")
+
+            st.markdown("**Passo a passo:**")
+            for i, passo in enumerate(expl['passo_a_passo'], 1):
+                st.markdown(f"{i}. {passo}")
+
+            st.markdown(f"**Por que esse protocolo?** {expl['por_que']}")
+
+            st.caption("Fonte: Sintese Final PEEX 2026, Secao Protocolos de Crise por Unidade")
 
 
 # ========== CSS ==========
@@ -249,13 +457,12 @@ if role == ROLE_CEO:
 
     if formato_final == 'CRISE' and 'protocolos_unidade' in roteiro:
         st.subheader("Protocolos de Crise por Unidade")
+        st.caption(
+            "Cada unidade tem um protocolo especifico definido na Sintese Final PEEX 2026. "
+            "Clique em \"Entender protocolo\" para ver quem faz o que, passo a passo."
+        )
         for un_code, protocolo in roteiro['protocolos_unidade'].items():
-            un_nome = UNIDADES_NOMES.get(un_code, un_code)
-            st.markdown(f"""
-            <div class="protocolo-unidade">
-                <strong>{un_nome}:</strong> {protocolo}
-            </div>
-            """, unsafe_allow_html=True)
+            _renderizar_protocolo_expandido(un_code, protocolo)
 
         # Workflow 5 Porques (interativo)
         st.markdown("""
@@ -265,6 +472,10 @@ if role == ROLE_CEO:
         """, unsafe_allow_html=True)
 
         with st.expander("Aplicar 5 Porques (interativo)"):
+            st.caption(
+                "Tecnica para encontrar a causa raiz de um problema. "
+                "Pergunte \"por que?\" repetidamente ate chegar na origem real."
+            )
             problema = st.text_input("Problema detectado:", key="crise_problema")
             porques = []
             for n in range(1, 6):
@@ -526,74 +737,3 @@ else:
         st.markdown("- Revise suas missoes ativas e prepare status de cada uma")
         st.markdown("- Traga dados atualizados dos professores criticos")
         st.markdown("- Pense em 1 conquista da semana para compartilhar")
-
-
-# ========== HELPERS: EXPORT ==========
-
-def _gerar_export_completo(preparador, reuniao, roteiro, formato, missoes_data):
-    """Gera texto completo do roteiro para download."""
-    lines = []
-    lines.append("=" * 60)
-    lines.append(f"ROTEIRO DE REUNIAO PEEX — {formato}")
-    lines.append(f"Semana {preparador.get('reuniao', {}).get('semana', semana)}")
-    lines.append("=" * 60)
-
-    if reuniao:
-        lines.append(f"\nReuniao: {reuniao.get('titulo', '')}")
-        lines.append(f"Formato: {formato} | Duracao: {roteiro['duracao']}")
-        lines.append(f"Foco: {reuniao.get('foco', '')}")
-
-    lines.append(f"\nSAIDA OBRIGATORIA: {roteiro['saida_obrigatoria']}")
-
-    obj = preparador.get('objetivo_da_reuniao', '')
-    if obj:
-        lines.append(f"\nOBJETIVO: {obj}")
-
-    lines.append(f"\n{'=' * 40}")
-    lines.append(f"ROTEIRO MINUTO-A-MINUTO")
-    lines.append(f"{'=' * 40}")
-
-    for bloco in roteiro['blocos']:
-        lines.append(f"\n[{bloco['tempo']}] {bloco['nome']}")
-        lines.append(f'  Fala: "{bloco["script"]}"')
-        if bloco.get('pagina'):
-            lines.append(f"  Dados: pagina {bloco['pagina']}")
-
-    # Por unidade
-    rot_un = preparador.get('roteiro_por_unidade', {})
-    for un_code in ['BV', 'CD', 'JG', 'CDR']:
-        un_data = rot_un.get(un_code, {})
-        if un_data:
-            un_nome = UNIDADES_NOMES.get(un_code, un_code)
-            lines.append(f"\n--- {un_nome} ---")
-            if un_data.get('situacao_resumida'):
-                lines.append(f"Situacao: {un_data['situacao_resumida']}")
-            if un_data.get('pergunta_para_diretor'):
-                lines.append(f"Pergunta: {un_data['pergunta_para_diretor']}")
-            if un_data.get('compromisso_esperado'):
-                lines.append(f"Compromisso: {un_data['compromisso_esperado']}")
-
-    # Protocolos de crise
-    if formato == 'CRISE' and 'protocolos_unidade' in roteiro:
-        lines.append(f"\n{'=' * 40}")
-        lines.append("PROTOCOLOS DE CRISE POR UNIDADE")
-        for un, prot in roteiro['protocolos_unidade'].items():
-            lines.append(f"  {UNIDADES_NOMES.get(un, un)}: {prot}")
-
-    lines.append(f"\n\nGerado em: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
-    return '\n'.join(lines)
-
-
-def _gerar_export_whatsapp(reuniao, roteiro, formato, semana):
-    """Gera versao resumida para WhatsApp."""
-    lines = []
-    lines.append(f"*REUNIAO PEEX — {formato}*")
-    lines.append(f"Semana {semana}")
-    if reuniao:
-        lines.append(f"Foco: {reuniao.get('foco', '')}")
-    lines.append(f"\n*Saida obrigatoria:* {roteiro['saida_obrigatoria']}")
-    lines.append(f"\n*Roteiro:*")
-    for bloco in roteiro['blocos']:
-        lines.append(f"  {bloco['tempo']} — {bloco['nome']}")
-    lines.append(f"\n_Gerado em {datetime.now().strftime('%d/%m %H:%M')}_")
-    return '\n'.join(lines)
