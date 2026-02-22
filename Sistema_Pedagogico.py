@@ -312,7 +312,7 @@ else:
         ]
 
     else:
-        # === FASE 1 — CONHECER (semana 5: 23/02) — 13 páginas ===
+        # === FASE 1 — CONHECER (semana 5: 23/02) — 14 páginas ===
         sections["Autogerência (diário)"] = [
             P("app_pages/home.py", "Home", "🏠"),
             P("peex_pages/15_gerador_peex_unidade.py", "Minha Semana", "🎯"),
@@ -326,6 +326,7 @@ else:
             P("app_pages/13_🚦_Semáforo_Professor.py", "Semaforo Professor", "🚦"),
             P("app_pages/01_📊_Quadro_Gestão.py", "Quadro Gestao", "📊"),
             P("app_pages/08_⚠️_Alertas_Conformidade.py", "Alertas Conformidade", "⚠️"),
+            P("app_pages/02_🎯_Prioridades_da_Semana.py", "Prioridades SIGA", "🎯"),
         ]
         sections["Currículo e SAE (sob demanda)"] = [
             P("app_pages/03_📚_Estrutura_Curricular.py", "Estrutura Curricular", "📚"),
