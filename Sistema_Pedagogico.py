@@ -206,6 +206,17 @@ elif role == 'diretor':
         P("peex_pages/04_ranking_rede.py", "Rankings", "🏆"),
         P("app_pages/26_📊_Painel_Unificado.py", "Painel Unificado", "📊"),
     ]
+    sections["Referência (sob demanda)"] = [
+        P("app_pages/10_📋_Detalhamento_Aulas.py", "Detalhamento Aulas", "📋"),
+        P("app_pages/18_🏫_Análise_Turma.py", "Analise Turma", "🏫"),
+        P("app_pages/09_🔄_Comparativos.py", "Comparativos", "🔄"),
+        P("app_pages/07_📝_Instrumentos_Avaliativos.py", "Instrumentos", "📝"),
+        P("peex_pages/11_ritmo_semanal.py", "Ritmo Semanal", "📅"),
+        P("app_pages/21_📑_Boletim_Digital.py", "Boletim", "📑"),
+        P("app_pages/12_📋_Agenda_Coordenação.py", "Agenda Coordenacao", "📋"),
+        P("app_pages/17_🎯_Painel_Ações.py", "Painel Acoes", "🎯"),
+        P("app_pages/28_📅_Calendário_Escolar.py", "Calendario Escolar", "📅"),
+    ]
     sections["Apoio (pontual)"] = [
         P("app_pages/onboarding.py", "Onboarding", "🎓"),
         P("app_pages/glossario.py", "Glossario", "📖"),
@@ -270,6 +281,17 @@ else:
             P("peex_pages/13_polinizacao.py", "Polinizacao", "🌸"),
             P("peex_pages/04_ranking_rede.py", "Rankings", "🏆"),
         ]
+        sections["Referência (sob demanda)"] = [
+            P("app_pages/10_📋_Detalhamento_Aulas.py", "Detalhamento Aulas", "📋"),
+            P("app_pages/18_🏫_Análise_Turma.py", "Analise Turma", "🏫"),
+            P("app_pages/09_🔄_Comparativos.py", "Comparativos", "🔄"),
+            P("app_pages/07_📝_Instrumentos_Avaliativos.py", "Instrumentos", "📝"),
+            P("peex_pages/11_ritmo_semanal.py", "Ritmo Semanal", "📅"),
+            P("app_pages/21_📑_Boletim_Digital.py", "Boletim", "📑"),
+            P("app_pages/12_📋_Agenda_Coordenação.py", "Agenda Coordenacao", "📋"),
+            P("app_pages/17_🎯_Painel_Ações.py", "Painel Acoes", "🎯"),
+            P("app_pages/28_📅_Calendário_Escolar.py", "Calendario Escolar", "📅"),
+        ]
         sections["Apoio (pontual)"] = [
             P("app_pages/onboarding.py", "Onboarding", "🎓"),
             P("app_pages/glossario.py", "Glossario", "📖"),
@@ -306,6 +328,17 @@ else:
             P("app_pages/05_📈_Progressão_SAE.py", "Progressao SAE", "📈"),
             P("app_pages/24_🔗_Cruzamento_SIGA_SAE.py", "Cruzamento SIGA SAE", "🔗"),
         ]
+        sections["Referência (sob demanda)"] = [
+            P("app_pages/10_📋_Detalhamento_Aulas.py", "Detalhamento Aulas", "📋"),
+            P("app_pages/18_🏫_Análise_Turma.py", "Analise Turma", "🏫"),
+            P("app_pages/09_🔄_Comparativos.py", "Comparativos", "🔄"),
+            P("app_pages/07_📝_Instrumentos_Avaliativos.py", "Instrumentos", "📝"),
+            P("peex_pages/11_ritmo_semanal.py", "Ritmo Semanal", "📅"),
+            P("app_pages/21_📑_Boletim_Digital.py", "Boletim", "📑"),
+            P("app_pages/12_📋_Agenda_Coordenação.py", "Agenda Coordenacao", "📋"),
+            P("app_pages/17_🎯_Painel_Ações.py", "Painel Acoes", "🎯"),
+            P("app_pages/28_📅_Calendário_Escolar.py", "Calendario Escolar", "📅"),
+        ]
         sections["Apoio (pontual)"] = [
             P("app_pages/onboarding.py", "Onboarding", "🎓"),
             P("app_pages/glossario.py", "Glossario", "📖"),
@@ -332,6 +365,17 @@ else:
             P("app_pages/03_📚_Estrutura_Curricular.py", "Estrutura Curricular", "📚"),
             P("app_pages/05_📈_Progressão_SAE.py", "Progressao SAE", "📈"),
             P("app_pages/24_🔗_Cruzamento_SIGA_SAE.py", "Cruzamento SIGA SAE", "🔗"),
+        ]
+        sections["Referência (sob demanda)"] = [
+            P("app_pages/10_📋_Detalhamento_Aulas.py", "Detalhamento Aulas", "📋"),
+            P("app_pages/18_🏫_Análise_Turma.py", "Analise Turma", "🏫"),
+            P("app_pages/09_🔄_Comparativos.py", "Comparativos", "🔄"),
+            P("app_pages/07_📝_Instrumentos_Avaliativos.py", "Instrumentos", "📝"),
+            P("peex_pages/11_ritmo_semanal.py", "Ritmo Semanal", "📅"),
+            P("app_pages/21_📑_Boletim_Digital.py", "Boletim", "📑"),
+            P("app_pages/12_📋_Agenda_Coordenação.py", "Agenda Coordenacao", "📋"),
+            P("app_pages/17_🎯_Painel_Ações.py", "Painel Acoes", "🎯"),
+            P("app_pages/28_📅_Calendário_Escolar.py", "Calendario Escolar", "📅"),
         ]
         sections["Apoio (pontual)"] = [
             P("app_pages/onboarding.py", "Onboarding", "🎓"),
