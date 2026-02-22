@@ -2,6 +2,9 @@
 PEEX — Centro de Inteligencia
 Landing page da CEO com visao consolidada: narrativa, decisoes, mapa da rede,
 projecoes, reunioes e genealogia intelectual do PEEX.
+
+Funciona com dados reais (resumo_Executivo.csv) como base.
+Quando robos/LLM estiverem ativos, enriquece com analises mais profundas.
 """
 
 import json
@@ -24,12 +27,14 @@ from engine import (
     carregar_missoes_pregeradas, carregar_preditor, carregar_preparador,
 )
 from peex_utils import (
-    info_semana, calcular_indice_elo, progresso_metas,
-    estacao_atual, proximas_reunioes,
+    info_semana, calcular_indice_elo, estacao_atual, proximas_reunioes,
 )
-from peex_config import FASES, DIFERENCIACAO_UNIDADE, REUNIOES, FORMATOS_REUNIAO
+from peex_config import (
+    FASES, DIFERENCIACAO_UNIDADE, REUNIOES, FORMATOS_REUNIAO,
+    METAS_SMART,
+)
 
-# LLM engine — modulo opcional, pode nao existir ainda
+# LLM engine — modulo opcional
 try:
     from llm_engine import AnalistaELO, carregar_analista, _llm_disponivel
     _HAS_LLM = True
@@ -51,159 +56,366 @@ if role != ROLE_CEO:
     st.stop()
 
 
+# ========== HELPERS: GERAR INTELIGENCIA DOS DADOS ==========
+
+def _carregar_resumo():
+    """Carrega resumo executivo. Retorna (total_row, unidades_df) ou (None, empty)."""
+    path = DATA_DIR / "resumo_Executivo.csv"
+    if not path.exists():
+        return None, pd.DataFrame()
+    try:
+        df = pd.read_csv(path)
+        total = df[df['unidade'] == 'TOTAL']
+        total_row = total.iloc[0] if not total.empty else None
+        unidades = df[df['unidade'] != 'TOTAL'].copy()
+        return total_row, unidades
+    except Exception:
+        return None, pd.DataFrame()
+
+
+def _gerar_narrativa(total, unidades, semana, fase_info):
+    """Gera narrativa da semana a partir dos dados reais."""
+    if total is None:
+        return "Dados nao disponiveis. Execute a extracao do SIGA."
+
+    conf = total['pct_conformidade_media']
+    freq = total['frequencia_media']
+    profs_crit = int(total['professores_criticos'])
+    total_profs = int(total['total_professores'])
+    alunos_risco = total['pct_alunos_risco']
+    graves = int(total['ocorr_graves'])
+
+    # Identificar unidade mais critica e melhor
+    un_sort = unidades.sort_values('pct_conformidade_media')
+    pior = un_sort.iloc[0]
+    melhor = un_sort.iloc[-1]
+    pior_nome = UNIDADES_NOMES.get(pior['unidade'], pior['unidade'])
+    melhor_nome = UNIDADES_NOMES.get(melhor['unidade'], melhor['unidade'])
+
+    # JG frequencia
+    jg = unidades[unidades['unidade'] == 'JG']
+    jg_freq = float(jg['frequencia_media'].iloc[0]) if not jg.empty else 0
+    jg_risco = float(jg['pct_alunos_risco'].iloc[0]) if not jg.empty else 0
+
+    # CDR ocorrencias
+    cdr = unidades[unidades['unidade'] == 'CDR']
+    cdr_graves = int(cdr['ocorr_graves'].iloc[0]) if not cdr.empty else 0
+    pct_cdr = (cdr_graves / graves * 100) if graves > 0 else 0
+
+    meta_conf = 70  # meta tri 1
+    gap_conf = meta_conf - conf
+    semanas_restantes = 15 - semana  # fim do tri 1
+    pp_por_semana = gap_conf / semanas_restantes if semanas_restantes > 0 else gap_conf
+
+    narrativa = (
+        f"<strong>Semana {semana} — Fase SOBREVIVENCIA</strong><br><br>"
+        f"A rede esta em <strong>{conf:.1f}% de conformidade</strong> "
+        f"(meta do trimestre: {meta_conf}%). "
+        f"Faltam <strong>{gap_conf:.1f} pontos percentuais</strong> em "
+        f"{semanas_restantes} semanas — precisa ganhar "
+        f"<strong>{pp_por_semana:.1f}pp por semana</strong> para atingir a meta.<br><br>"
+        f"Dos {total_profs} professores, <strong>{profs_crit} estao criticos</strong> "
+        f"(registram menos de 30% do esperado). "
+        f"Apenas {total['pct_prof_no_ritmo']:.0f}% estao no ritmo SAE.<br><br>"
+        f"<strong>Frequencia:</strong> {freq:.1f}% na rede. "
+        f"Janga e o alerta principal: {jg_freq:.1f}% de frequencia com "
+        f"{jg_risco:.0f}% dos alunos em risco de evasao.<br><br>"
+        f"<strong>Ocorrencias graves:</strong> {graves} na rede. "
+        f"Cordeiro concentra {cdr_graves} ({pct_cdr:.0f}%).<br><br>"
+        f"<strong>{melhor_nome}</strong> lidera com {melhor['pct_conformidade_media']:.1f}% "
+        f"de conformidade. "
+        f"<strong>{pior_nome}</strong> esta mais atras com {pior['pct_conformidade_media']:.1f}%."
+    )
+    return narrativa
+
+
+def _gerar_decisoes(total, unidades, semana):
+    """Gera 3 decisoes estrategicas a partir dos dados reais."""
+    if total is None:
+        return []
+
+    decisoes = []
+
+    # Decisao 1: Professores criticos (sempre relevante na fase 1)
+    profs_crit = int(total['professores_criticos'])
+    total_profs = int(total['total_professores'])
+    pct_crit = profs_crit / total_profs * 100 if total_profs else 0
+
+    # Qual unidade tem mais criticos?
+    un_crit = unidades.sort_values('professores_criticos', ascending=False).iloc[0]
+    un_crit_nome = UNIDADES_NOMES.get(un_crit['unidade'], un_crit['unidade'])
+
+    decisoes.append({
+        'titulo': f'{profs_crit} professores criticos na rede ({pct_crit:.0f}%)',
+        'unidade': 'Rede (pior: ' + un_crit_nome + f" com {int(un_crit['professores_criticos'])})",
+        'por_que': (
+            f'Professores criticos registram menos de 30% das aulas esperadas. '
+            f'Sem registro, nao ha dado para acompanhar aprendizagem, frequencia nem conteudo. '
+            f'E a prioridade #1 da Fase Sobrevivencia.'
+        ),
+        'opcoes': [
+            f'Conversa individual com cada um dos {profs_crit} (Bruna Vitoria + Gilberto em BV, coordenadores nas demais)',
+            'Contrato de Pratica Docente: prazo de 2 semanas para regularizar, com acompanhamento diario',
+            'Escalar para direcao os que nao responderem apos 2 feedbacks',
+        ],
+        'impacto': f'Cada professor que regulariza pode mover a conformidade em +{100/total_profs:.1f}pp',
+        'origem': 'Sintese Final, Secao Registro como Prioridade #1 + Plano Definitivo, Fase 1',
+    })
+
+    # Decisao 2: Frequencia JG
+    jg = unidades[unidades['unidade'] == 'JG']
+    if not jg.empty:
+        jg_row = jg.iloc[0]
+        jg_freq = float(jg_row['frequencia_media'])
+        jg_risco = float(jg_row['pct_alunos_risco'])
+        jg_tier3 = int(jg_row['alunos_tier_3'])
+        jg_tier2 = int(jg_row['alunos_tier_2'])
+
+        decisoes.append({
+            'titulo': f'Janga: {jg_freq:.1f}% frequencia, {jg_risco:.0f}% alunos em risco',
+            'unidade': 'Janga',
+            'por_que': (
+                f'Janga tem a pior frequencia da rede. {jg_tier2 + jg_tier3} alunos estao em '
+                f'risco (tier 2+3). Se nao agir agora, esses alunos podem evadir '
+                f'antes do fim do trimestre. A busca ativa precisa comecar esta semana.'
+            ),
+            'opcoes': [
+                'Pietro + secretaria: ligar para familias dos alunos com 3+ faltas consecutivas ESTA semana',
+                'Lecinane: visita domiciliar aos 5 casos mais graves',
+                'Reuniao FOCO especifica para JG na proxima semana (alem da RU regular)',
+            ],
+            'impacto': f'Recuperar 10 alunos = +{10/int(jg_row["total_alunos"])*100:.1f}pp na frequencia de JG',
+            'origem': 'Sintese Final, Protocolo de Busca Ativa 3 Niveis + Plano Sinais Original',
+        })
+
+    # Decisao 3: Ocorrencias CDR
+    cdr = unidades[unidades['unidade'] == 'CDR']
+    if not cdr.empty:
+        cdr_row = cdr.iloc[0]
+        cdr_graves = int(cdr_row['ocorr_graves'])
+        total_graves = int(total['ocorr_graves'])
+        pct = cdr_graves / total_graves * 100 if total_graves else 0
+
+        decisoes.append({
+            'titulo': f'Cordeiro: {cdr_graves} ocorrencias graves ({pct:.0f}% da rede)',
+            'unidade': 'Cordeiro',
+            'por_que': (
+                f'Cordeiro concentra {pct:.0f}% de todas as ocorrencias graves. '
+                f'Isso indica um problema disciplinar concentrado em turmas especificas. '
+                f'Sem intervencao, o clima piora e a evasao aumenta.'
+            ),
+            'opcoes': [
+                'Ana Claudia + Vanessa: gerar mapa de calor (turma x tipo x dia) para identificar 3 focos',
+                'Presenca fisica da coordenacao nas 3 turmas-foco por 5 dias consecutivos',
+                'Reuniao com professores dessas turmas: o que esta provocando as ocorrencias?',
+            ],
+            'impacto': f'Meta: reduzir de {cdr_graves} para {cdr_graves//2} graves ate fim do trimestre',
+            'origem': 'Sintese Final, Protocolo de Crise CDR + Competidor B (clima como indicador lead)',
+        })
+
+    return decisoes
+
+
+def _gerar_projecoes(total, unidades, semana):
+    """Gera projecoes simples: atual vs meta + ritmo necessario."""
+    if total is None:
+        return []
+
+    semanas_restantes_tri1 = max(15 - semana, 1)
+    projecoes = []
+
+    for meta in METAS_SMART:
+        campo = meta['campo_resumo']
+        if campo not in total.index:
+            continue
+
+        atual = float(total[campo])
+        meta_tri1 = meta['meta_tri1']
+        baseline = meta['baseline']
+        inverso = meta.get('inverso', False)
+        unid = meta['unidade']
+
+        # Calcular gap e ritmo
+        if inverso:
+            gap = atual - meta_tri1  # precisa diminuir
+            por_semana = gap / semanas_restantes_tri1
+            no_caminho = atual <= meta_tri1
+            direcao = 'diminuir'
+        else:
+            gap = meta_tri1 - atual  # precisa aumentar
+            por_semana = gap / semanas_restantes_tri1
+            no_caminho = atual >= meta_tri1
+            direcao = 'ganhar'
+
+        # Variacao desde baseline
+        variacao = atual - baseline
+
+        projecoes.append({
+            'indicador': meta['indicador'],
+            'eixo': meta['eixo'],
+            'atual': atual,
+            'baseline': baseline,
+            'meta_tri1': meta_tri1,
+            'gap': abs(gap),
+            'por_semana': abs(por_semana),
+            'no_caminho': no_caminho,
+            'variacao': variacao,
+            'direcao': direcao,
+            'inverso': inverso,
+            'unidade': unid,
+            'semanas_restantes': semanas_restantes_tri1,
+        })
+
+    return projecoes
+
+
+def _propostas_por_unidade(unidades):
+    """Gera propostas de acao por unidade baseado nos dados."""
+    propostas = {}
+    for _, row in unidades.iterrows():
+        un = row['unidade']
+        nome = UNIDADES_NOMES.get(un, un)
+        diff = DIFERENCIACAO_UNIDADE.get(un, {})
+        acoes = []
+
+        conf = row['pct_conformidade_media']
+        freq = row['frequencia_media']
+        crit = int(row['professores_criticos'])
+        graves = int(row['ocorr_graves'])
+        risco = row['pct_alunos_risco']
+
+        # Prioridade por dados
+        if conf < 40:
+            acoes.append({
+                'prioridade': 'URGENTE',
+                'acao': f'Conformidade em {conf:.0f}% — abaixo de 40%. Contato direto com os {crit} professores criticos esta semana.',
+                'responsavel': diff.get('coordenadores', 'Coordenacao'),
+            })
+        elif conf < 55:
+            acoes.append({
+                'prioridade': 'IMPORTANTE',
+                'acao': f'Conformidade em {conf:.0f}% — precisa chegar a 70%. Foco nos {crit} criticos.',
+                'responsavel': diff.get('coordenadores', 'Coordenacao'),
+            })
+
+        if freq < 82:
+            acoes.append({
+                'prioridade': 'URGENTE',
+                'acao': f'Frequencia em {freq:.1f}% — protocolo de busca ativa imediato.',
+                'responsavel': diff.get('coordenadores', 'Coordenacao'),
+            })
+        elif freq < 88:
+            acoes.append({
+                'prioridade': 'IMPORTANTE',
+                'acao': f'Frequencia em {freq:.1f}% — meta 88%. Monitorar alunos com 3+ faltas.',
+                'responsavel': diff.get('coordenadores', 'Coordenacao'),
+            })
+
+        if graves > 10:
+            acoes.append({
+                'prioridade': 'URGENTE',
+                'acao': f'{graves} ocorrencias graves. Mapa de calor + presenca fisica nas turmas-foco.',
+                'responsavel': diff.get('coordenadores', 'Coordenacao'),
+            })
+
+        if risco > 20:
+            acoes.append({
+                'prioridade': 'IMPORTANTE',
+                'acao': f'{risco:.0f}% alunos em risco. Plano individual para tier 2/3.',
+                'responsavel': diff.get('coordenadores', 'Coordenacao'),
+            })
+
+        if not acoes:
+            acoes.append({
+                'prioridade': 'MONITORAR',
+                'acao': 'Indicadores dentro do esperado. Manter ritmo.',
+                'responsavel': diff.get('coordenadores', 'Coordenacao'),
+            })
+
+        propostas[un] = {'nome': nome, 'acoes': acoes, 'foco': diff.get('foco', '')}
+
+    return propostas
+
+
 # ========== CSS ==========
 
 st.markdown("""
 <style>
     .ci-header {
         background: linear-gradient(135deg, #0d1b2a 0%, #1b2838 40%, #1a237e 100%);
-        color: white;
-        padding: 32px;
-        border-radius: 14px;
-        margin-bottom: 24px;
+        color: white; padding: 32px; border-radius: 14px; margin-bottom: 24px;
     }
-    .ci-header h2 {
-        color: white !important;
-        margin: 0 0 6px 0;
-        font-size: 1.8em;
-        letter-spacing: 2px;
-    }
-    .ci-header .ci-subtitle {
-        opacity: 0.85;
-        font-size: 0.95em;
-        margin-bottom: 10px;
-    }
+    .ci-header h2 { color: white !important; margin: 0 0 6px 0; font-size: 1.8em; letter-spacing: 2px; }
+    .ci-header .ci-subtitle { opacity: 0.85; font-size: 0.95em; margin-bottom: 10px; }
     .ci-header .ci-motto {
-        font-style: italic;
-        opacity: 0.7;
-        font-size: 0.88em;
-        margin-top: 8px;
-        border-top: 1px solid rgba(255,255,255,0.2);
-        padding-top: 8px;
+        font-style: italic; opacity: 0.7; font-size: 0.88em; margin-top: 8px;
+        border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px;
     }
-    .chip-container {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 10px;
-    }
-    .chip {
-        background: rgba(255,255,255,0.15);
-        padding: 4px 14px;
-        border-radius: 16px;
-        font-size: 0.9em;
-    }
+    .chip-container { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+    .chip { background: rgba(255,255,255,0.15); padding: 4px 14px; border-radius: 16px; font-size: 0.9em; }
     .narrativa-box {
-        background: #f5f5f5;
-        border-left: 4px solid #1a237e;
-        padding: 20px;
-        border-radius: 8px;
-        margin: 16px 0;
-        line-height: 1.7;
-        font-size: 1.05em;
+        background: #f5f5f5; border-left: 4px solid #1a237e; padding: 20px;
+        border-radius: 8px; margin: 16px 0; line-height: 1.7; font-size: 1.05em;
     }
-    .fonte-badge {
-        display: inline-block;
-        padding: 3px 12px;
-        border-radius: 12px;
-        font-size: 0.78em;
-        font-weight: bold;
-        color: white;
-        margin-top: 6px;
-    }
-    .fonte-llm { background: #7B1FA2; }
-    .fonte-template { background: #607D8B; }
     .decisao-card {
-        background: #fff3e0;
-        border-left: 5px solid #e65100;
-        padding: 16px 20px;
-        margin: 10px 0;
-        border-radius: 6px;
+        background: #fff3e0; border-left: 5px solid #e65100;
+        padding: 16px 20px; margin: 12px 0; border-radius: 6px;
     }
-    .decisao-titulo {
-        font-weight: bold;
-        font-size: 1.05em;
-        margin-bottom: 6px;
+    .decisao-titulo { font-weight: bold; font-size: 1.1em; margin-bottom: 8px; color: #bf360c; }
+    .decisao-porque {
+        background: white; padding: 10px 14px; border-radius: 6px;
+        border: 1px solid #e0e0e0; margin: 8px 0; line-height: 1.6;
     }
-    .decisao-impacto {
-        color: #bf360c;
-        font-size: 0.9em;
-        margin-top: 4px;
-    }
-    .decisao-opcoes {
-        font-size: 0.9em;
-        color: #555;
-        margin-top: 4px;
-    }
+    .decisao-opcoes { margin: 8px 0; }
+    .decisao-opcoes li { margin: 4px 0; }
+    .decisao-impacto { color: #2e7d32; font-weight: bold; font-size: 0.9em; margin-top: 6px; }
+    .decisao-origem { font-size: 0.8em; color: #888; margin-top: 6px; font-style: italic; }
     .ie-card {
-        background: white;
-        border: 2px solid #e0e0e0;
-        border-radius: 12px;
-        padding: 20px;
-        text-align: center;
+        background: white; border: 2px solid #e0e0e0; border-radius: 12px;
+        padding: 20px; text-align: center;
     }
     .ie-value { font-size: 2.4em; font-weight: bold; }
     .ie-label { font-size: 0.85em; color: #666; margin-top: 4px; }
     .semaforo-dot {
-        display: inline-block;
-        width: 14px; height: 14px;
-        border-radius: 50%;
-        margin-right: 6px;
+        display: inline-block; width: 14px; height: 14px;
+        border-radius: 50%; margin-right: 6px;
     }
-    .proj-card {
-        background: #f5f5f5;
-        border-left: 4px solid #1565C0;
-        padding: 14px 18px;
-        border-radius: 6px;
-        margin: 8px 0;
+    .proposta-card {
+        padding: 14px 18px; margin: 8px 0; border-radius: 6px;
     }
-    .proj-tendencia { font-size: 0.9em; font-weight: bold; }
-    .tend-subindo { color: #2e7d32; }
-    .tend-caindo { color: #c62828; }
-    .tend-estavel { color: #e65100; }
-    .alerta-proj {
-        background: #ffebee;
-        border-left: 4px solid #c62828;
-        padding: 10px 16px;
-        border-radius: 6px;
-        margin: 6px 0;
-        font-size: 0.9em;
+    .proposta-urgente { background: #ffebee; border-left: 4px solid #c62828; }
+    .proposta-importante { background: #fff3e0; border-left: 4px solid #e65100; }
+    .proposta-monitorar { background: #e8f5e9; border-left: 4px solid #4caf50; }
+    .proj-row {
+        display: flex; align-items: center; padding: 12px 16px;
+        margin: 6px 0; border-radius: 6px; background: #f8f9fa;
+    }
+    .proj-indicador { flex: 1; font-weight: bold; }
+    .proj-valor { width: 80px; text-align: center; font-size: 1.2em; font-weight: bold; }
+    .proj-meta { width: 80px; text-align: center; color: #666; }
+    .proj-ritmo { flex: 1; font-size: 0.9em; }
+    .no-caminho { color: #2e7d32; }
+    .fora-meta { color: #c62828; }
+    .diff-note {
+        background: #E8EAF6; border-left: 3px solid #3F51B5;
+        padding: 10px 14px; border-radius: 4px; margin: 6px 0; font-size: 0.88em;
+    }
+    .reuniao-preview {
+        background: #f8f9fa; border-left: 4px solid #1565C0;
+        padding: 14px 18px; border-radius: 6px; margin: 8px 0;
     }
     .gen-tree {
-        background: #f5f5f5;
-        padding: 20px;
-        border-radius: 10px;
-        font-family: monospace;
-        font-size: 0.88em;
-        line-height: 1.6;
-        white-space: pre-wrap;
+        background: #f5f5f5; padding: 20px; border-radius: 10px;
+        font-family: monospace; font-size: 0.88em; line-height: 1.6; white-space: pre-wrap;
     }
     .gen-node {
-        display: inline-block;
-        padding: 4px 12px;
-        border-radius: 6px;
-        margin: 2px 4px;
-        font-weight: bold;
+        display: inline-block; padding: 4px 12px; border-radius: 6px;
+        margin: 2px 4px; font-weight: bold;
     }
     .gen-plano { background: #E3F2FD; color: #1565C0; }
     .gen-competidor { background: #FFF3E0; color: #E65100; }
     .gen-sintese { background: #E8F5E9; color: #2E7D32; }
     .gen-impl { background: #F3E5F5; color: #7B1FA2; }
-    .diff-note {
-        background: #E8EAF6;
-        border-left: 3px solid #3F51B5;
-        padding: 10px 14px;
-        border-radius: 4px;
-        margin: 6px 0;
-        font-size: 0.88em;
-    }
-    .reuniao-preview {
-        background: #f8f9fa;
-        border-left: 4px solid #1565C0;
-        padding: 14px 18px;
-        border-radius: 6px;
-        margin: 8px 0;
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -219,6 +431,8 @@ info = info_semana(semana)
 fase = info['fase']
 fase_num = info['fase_num']
 estacao, tom_estacao = estacao_atual(semana)
+
+total_row, unidades_df = _carregar_resumo()
 
 
 # ========== HEADER ==========
@@ -252,170 +466,167 @@ tab_narrativa, tab_decisoes, tab_mapa, tab_projecoes, tab_reunioes, tab_genealog
 with tab_narrativa:
     st.markdown("### Narrativa da Semana")
 
-    # Try LLM-enriched narrative first, fallback to template
-    fonte = "Template"
-    narrativa_data = {}
-    analista = None
+    # Tentar robos/LLM primeiro, fallback para dados reais
+    fonte = "Dados"
+    narrativa_texto = None
 
+    # 1. Tentar LLM (Analista)
     if _HAS_LLM and _llm_disponivel():
         try:
             analista = carregar_analista()
-            if analista and hasattr(analista, 'narrativa') and analista.narrativa:
-                narrativa_data = {
-                    'narrativa': analista.narrativa,
-                    'decisoes': getattr(analista, 'decisoes', []),
-                    'gerado_em': getattr(analista, 'gerado_em', ''),
-                }
-                fonte = "LLM"
+            if analista and getattr(analista, 'narrativa', None):
+                narrativa_texto = analista.narrativa
+                fonte = "LLM (Analista)"
         except Exception:
-            analista = None
+            pass
 
-    if not narrativa_data or not narrativa_data.get('narrativa'):
+    # 2. Tentar robo Estrategista (narrativa_ceo)
+    if not narrativa_texto:
         try:
-            narrativa_data = carregar_narrativa_ceo()
-            fonte = "Template"
+            narr_data = carregar_narrativa_ceo()
+            if narr_data and narr_data.get('narrativa'):
+                narrativa_texto = narr_data['narrativa']
+                fonte = "Robo (Estrategista)"
         except Exception:
-            narrativa_data = {'narrativa': 'Narrativa nao disponivel. Execute o Estrategista.'}
-            fonte = "Template"
+            pass
 
-    narrativa_texto = narrativa_data.get('narrativa', 'Narrativa nao disponivel.')
+    # 3. Fallback: gerar dos dados reais
+    if not narrativa_texto:
+        narrativa_texto = _gerar_narrativa(total_row, unidades_df, semana, fase)
+        fonte = "Dados em tempo real"
+
     st.markdown(f'<div class="narrativa-box">{narrativa_texto}</div>', unsafe_allow_html=True)
 
-    # Fonte badge
-    badge_class = 'fonte-llm' if fonte == 'LLM' else 'fonte-template'
-    st.markdown(f'<span class="fonte-badge {badge_class}">Fonte: {fonte}</span>', unsafe_allow_html=True)
+    badge_class = 'fonte-llm' if 'LLM' in fonte else 'fonte-template'
+    st.markdown(
+        f'<span class="fonte-badge" style="background:{"#7B1FA2" if "LLM" in fonte else "#607D8B"}; '
+        f'color:white; padding:3px 12px; border-radius:12px; font-size:0.78em;">'
+        f'Fonte: {fonte}</span>',
+        unsafe_allow_html=True,
+    )
+    st.caption(f"Semana {semana} | {hoje.strftime('%d/%m/%Y')}")
 
-    if narrativa_data.get('gerado_em'):
-        gerado = str(narrativa_data['gerado_em'])[:19].replace('T', ' ')
-        st.caption(f"Gerado em: {gerado}")
-
-    with st.expander("Origem"):
+    with st.expander("O que e esta narrativa?"):
         st.markdown(
-            "Narrativa baseada na **Sintese Final** + **Plano Definitivo**. "
-            "O Estrategista consolida dados do resumo executivo, historico semanal "
-            "e missoes persistentes para gerar a narrativa."
+            "A narrativa resume os numeros da semana em linguagem clara para a CEO. "
+            "Mostra: conformidade, frequencia, professores criticos, ocorrencias, e "
+            "quanto falta para atingir a meta do trimestre.\n\n"
+            "**3 niveis de inteligencia:**\n"
+            "1. **LLM (Analista)**: Quando a API Claude estiver ativa — narrativa contextual profunda\n"
+            "2. **Robo (Estrategista)**: Quando o robo roda domingo 22h — narrativa pre-gerada\n"
+            "3. **Dados em tempo real**: Sempre disponivel — gera do resumo executivo\n\n"
+            "**Atualizacao:** Automatica apos cada extracao (4x/dia: 8h, 12h, 18h, 20h)."
         )
-        st.caption(f"Semana: {narrativa_data.get('semana', semana)} | "
-                    f"Persistentes: {narrativa_data.get('n_persistentes', '?')}")
+
+    # Pauta resumida da semana
+    prox = info.get('proxima_reuniao')
+    if prox:
+        st.markdown("---")
+        st.markdown("### Sua Pauta Esta Semana")
+        st.markdown(f"**Reuniao:** {prox.get('cod', '')} — {prox.get('titulo', '')}")
+        st.markdown(f"**Foco:** {prox.get('foco', '')}")
+
+        # Acoes concretas da semana
+        st.markdown("**O que fazer antes da proxima reuniao:**")
+        st.markdown(
+            f"1. Verificar se os {int(total_row['professores_criticos']) if total_row is not None else '?'} "
+            f"professores criticos foram contatados\n"
+            f"2. Checar frequencia de Janga (busca ativa ativada?)\n"
+            f"3. Ver mapa de calor de Cordeiro (aba **Mapa da Rede** acima)\n"
+            f"4. Revisar dados atualizados antes da reuniao (pagina **Quadro Gestao**)"
+        )
 
 
 # ---------- TAB 2: DECISOES ----------
 
 with tab_decisoes:
     st.markdown("### 3 Decisoes Estrategicas")
-    st.caption("Missoes que persistem ha 4+ semanas sem resolucao")
+    st.caption("Baseadas nos dados reais da semana — o que precisa de acao AGORA")
 
-    decisoes = narrativa_data.get('decisoes', [])
-
-    if not decisoes and analista:
-        try:
-            decisoes = getattr(analista, 'decisoes', [])
-        except Exception:
-            decisoes = []
+    decisoes = _gerar_decisoes(total_row, unidades_df, semana)
 
     if decisoes:
-        for i, d in enumerate(decisoes[:3], 1):
-            titulo = d.get('titulo', d.get('o_que', f'Decisao {i}'))
-            unidade_nome = UNIDADES_NOMES.get(d.get('unidade', ''), d.get('unidade', ''))
-            analise = d.get('decisao', d.get('analise', ''))
-            impacto = d.get('impacto', '')
-            opcoes = d.get('opcoes', d.get('como', []))
-
-            opcoes_html = ''
-            if opcoes:
-                if isinstance(opcoes, list):
-                    opcoes_html = '<div class="decisao-opcoes"><strong>Opcoes:</strong> ' + \
-                        ' | '.join(str(o) for o in opcoes[:3]) + '</div>'
-                elif isinstance(opcoes, str):
-                    opcoes_html = f'<div class="decisao-opcoes"><strong>Opcoes:</strong> {opcoes}</div>'
+        for i, d in enumerate(decisoes, 1):
+            opcoes_html = ""
+            if d.get('opcoes'):
+                opcoes_items = ''.join(f'<li>{o}</li>' for o in d['opcoes'])
+                opcoes_html = f'<div class="decisao-opcoes"><strong>Opcoes de acao:</strong><ol>{opcoes_items}</ol></div>'
 
             st.markdown(f"""
             <div class="decisao-card">
-                <div class="decisao-titulo">#{i} — {titulo}{f' ({unidade_nome})' if unidade_nome else ''}</div>
-                <div>{analise}</div>
+                <div class="decisao-titulo">#{i} — {d['titulo']}</div>
+                <div class="decisao-porque">{d['por_que']}</div>
                 {opcoes_html}
-                {'<div class="decisao-impacto">' + impacto + '</div>' if impacto else ''}
+                <div class="decisao-impacto">Impacto estimado: {d['impacto']}</div>
+                <div class="decisao-origem">Origem: {d['origem']}</div>
             </div>
             """, unsafe_allow_html=True)
 
-            with st.expander(f"Origem — Decisao #{i}"):
+            with st.expander(f"Por que essa decisao aparece? (#{i})"):
                 st.markdown(
-                    f"**Tipo:** {d.get('tipo', d.get('tipo_gatilho', 'Persistente'))}\n\n"
-                    f"**Unidade:** {unidade_nome or 'Rede'}\n\n"
-                    f"**Semanas ativa:** {d.get('semanas_ativas', '?')}\n\n"
-                    f"Decisao derivada da Sintese Final + Plano Definitivo."
+                    f"**Unidade:** {d['unidade']}\n\n"
+                    f"**Analise:** {d['por_que']}\n\n"
+                    f"**De onde veio:** {d['origem']}\n\n"
+                    "Essa decisao foi gerada automaticamente a partir dos dados reais "
+                    "cruzados com o planejamento da Sintese Final. Aparece porque os "
+                    "indicadores estao fora da meta e requerem acao."
                 )
     else:
-        st.info("Nenhuma missao persistente detectada (4+ semanas). Bom sinal!")
+        st.info("Nenhuma decisao urgente identificada. Dados nao disponiveis.")
 
 
 # ---------- TAB 3: MAPA DA REDE ----------
 
 with tab_mapa:
-    st.markdown("### Mapa da Rede — Heatmap + Indice ELO")
+    st.markdown("### Mapa da Rede — Heatmap + Propostas de Acao")
 
-    resumo_path = DATA_DIR / "resumo_Executivo.csv"
-    try:
-        resumo_df = pd.read_csv(resumo_path) if resumo_path.exists() else pd.DataFrame()
-    except Exception:
-        resumo_df = pd.DataFrame()
-
-    if not resumo_df.empty:
-        unidades_df = resumo_df[resumo_df['unidade'] != 'TOTAL'].copy()
-
+    if not unidades_df.empty:
         # --- Heatmap ---
-        if not unidades_df.empty:
-            indicadores = {
-                'Conformidade (%)': 'pct_conformidade_media',
-                'Frequencia (%)': 'frequencia_media',
-                'Freq. >75% (%)': 'pct_freq_acima_75',
-                'Prof. no Ritmo (%)': 'pct_prof_no_ritmo',
-                'Conteudo Preenchido (%)': 'pct_conteudo_preenchido',
-                'Alunos Risco (%)': 'pct_alunos_risco',
-            }
+        indicadores = {
+            'Conformidade (%)': 'pct_conformidade_media',
+            'Frequencia (%)': 'frequencia_media',
+            'Freq. >75% (%)': 'pct_freq_acima_75',
+            'Prof. no Ritmo (%)': 'pct_prof_no_ritmo',
+            'Conteudo Preenchido (%)': 'pct_conteudo_preenchido',
+            'Alunos Risco (%)': 'pct_alunos_risco',
+        }
 
-            unidades_order = ['BV', 'CD', 'JG', 'CDR']
-            unidades_presentes = [u for u in unidades_order if u in unidades_df['unidade'].values]
-            nomes = [UNIDADES_NOMES.get(u, u) for u in unidades_presentes]
+        unidades_order = ['BV', 'CD', 'JG', 'CDR']
+        unidades_presentes = [u for u in unidades_order if u in unidades_df['unidade'].values]
+        nomes = [UNIDADES_NOMES.get(u, u) for u in unidades_presentes]
 
-            z_data = []
-            y_labels = []
-            for label, col in indicadores.items():
-                if col in unidades_df.columns:
-                    row = []
-                    for un in unidades_presentes:
-                        val = unidades_df[unidades_df['unidade'] == un][col]
-                        row.append(round(float(val.iloc[0]), 1) if not val.empty else 0)
-                    z_data.append(row)
-                    y_labels.append(label)
+        z_data = []
+        y_labels = []
+        for label, col in indicadores.items():
+            if col in unidades_df.columns:
+                row = []
+                for un in unidades_presentes:
+                    val = unidades_df[unidades_df['unidade'] == un][col]
+                    row.append(round(float(val.iloc[0]), 1) if not val.empty else 0)
+                z_data.append(row)
+                y_labels.append(label)
 
-            if z_data:
-                fig = go.Figure(data=go.Heatmap(
-                    z=z_data,
-                    x=nomes,
-                    y=y_labels,
-                    colorscale='RdYlGn',
-                    text=[[f"{v:.0f}%" for v in row] for row in z_data],
-                    texttemplate="%{text}",
-                    textfont={"size": 14},
-                    hovertemplate="<b>%{y}</b><br>%{x}: %{z:.1f}%<extra></extra>",
-                ))
-                fig.update_layout(
-                    height=360,
-                    margin=dict(l=10, r=10, t=10, b=10),
-                    yaxis=dict(autorange="reversed"),
-                )
-                st.plotly_chart(fig, use_container_width=True)
+        if z_data:
+            fig = go.Figure(data=go.Heatmap(
+                z=z_data, x=nomes, y=y_labels,
+                colorscale='RdYlGn',
+                text=[[f"{v:.0f}%" for v in row] for row in z_data],
+                texttemplate="%{text}",
+                textfont={"size": 14},
+                hovertemplate="<b>%{y}</b><br>%{x}: %{z:.1f}%<extra></extra>",
+            ))
+            fig.update_layout(
+                height=360, margin=dict(l=10, r=10, t=10, b=10),
+                yaxis=dict(autorange="reversed"),
+            )
+            st.plotly_chart(fig, use_container_width=True)
 
-        # --- Indice ELO por unidade ---
+        # --- Indice ELO + Semaforo ---
         st.markdown("#### Indice ELO (IE) por Unidade")
         ie_cols = st.columns(4)
-        for i, un_code in enumerate(['BV', 'CD', 'JG', 'CDR']):
-            un_row = resumo_df[resumo_df['unidade'] == un_code]
-            if not un_row.empty:
-                ie = calcular_indice_elo(un_row.iloc[0])
-            else:
-                ie = 0
+        for i, un_code in enumerate(unidades_order):
+            un_row = unidades_df[unidades_df['unidade'] == un_code]
+            ie = calcular_indice_elo(un_row.iloc[0]) if not un_row.empty else 0
             cor_ie = '#2e7d32' if ie >= 70 else '#e65100' if ie >= 50 else '#c62828'
             nome = UNIDADES_NOMES.get(un_code, un_code)
             with ie_cols[i]:
@@ -426,35 +637,115 @@ with tab_mapa:
                 </div>
                 """, unsafe_allow_html=True)
 
-        # --- Semaforo ---
-        st.markdown("#### Semaforo")
-        for un_code in ['BV', 'CD', 'JG', 'CDR']:
-            sc = carregar_scorecard_diretor(un_code)
-            cor_sem = sc.get('cor_semaforo', 'vermelho')
-            cor_map = {'verde': '#4CAF50', 'amarelo': '#FFA000', 'vermelho': '#F44336'}
-            cor_dot = cor_map.get(cor_sem, '#F44336')
-            nome = UNIDADES_NOMES.get(un_code, un_code)
-            conf = sc.get('conformidade', 0)
-            st.markdown(
-                f'<span class="semaforo-dot" style="background:{cor_dot};"></span>'
-                f'**{nome}** — {conf:.0f}% conformidade | '
-                f'{sc.get("n_missoes", 0)} missoes ({sc.get("n_urgentes", 0)} urgentes)',
-                unsafe_allow_html=True,
-            )
+        # --- PROPOSTAS DE ACAO POR UNIDADE (novo!) ---
+        st.markdown("#### O Que Fazer — Propostas por Unidade")
+        st.caption("Acoes geradas automaticamente a partir dos indicadores criticos de cada unidade")
 
-        # --- Diferenciacao por unidade ---
-        st.markdown("#### Diferenciacao por Unidade")
-        for un_code in ['BV', 'CD', 'JG', 'CDR']:
-            diff = DIFERENCIACAO_UNIDADE.get(un_code, {})
-            nome = UNIDADES_NOMES.get(un_code, un_code)
-            foco = diff.get('foco', '')
-            coord = diff.get('coordenadores', '')
-            st.markdown(f"""
-            <div class="diff-note">
-                <strong>{nome}</strong>: {foco}<br>
-                <small>Coordenadores: {coord} | Escalacao: {diff.get('escalacao', 'N/A')}</small>
-            </div>
-            """, unsafe_allow_html=True)
+        propostas = _propostas_por_unidade(unidades_df)
+        for un_code in unidades_order:
+            prop = propostas.get(un_code)
+            if not prop:
+                continue
+
+            with st.expander(f"{prop['nome']} — {prop['foco']}", expanded=True):
+                for acao in prop['acoes']:
+                    prio = acao['prioridade']
+                    css_class = {
+                        'URGENTE': 'proposta-urgente',
+                        'IMPORTANTE': 'proposta-importante',
+                        'MONITORAR': 'proposta-monitorar',
+                    }.get(prio, 'proposta-monitorar')
+
+                    st.markdown(f"""
+                    <div class="proposta-card {css_class}">
+                        <strong>[{prio}]</strong> {acao['acao']}<br>
+                        <small>Responsavel: {acao['responsavel']}</small>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+        # --- MAPA DE CALOR DE OCORRENCIAS (CDR em destaque) ---
+        st.markdown("#### Mapa de Calor — Ocorrencias Graves por Turma")
+        st.caption("Onde estao concentradas as ocorrencias graves? Dados reais do SIGA.")
+
+        ocorr_path = DATA_DIR / "fato_Ocorrencias.csv"
+        if ocorr_path.exists():
+            try:
+                ocorr_df = pd.read_csv(ocorr_path)
+                graves_df = ocorr_df[ocorr_df['gravidade'] == 'Grave'].copy()
+
+                if not graves_df.empty:
+                    # Extrair serie limpa
+                    graves_df['serie_limpa'] = graves_df['serie'].fillna('Outros')
+
+                    # Heatmap: unidade x serie
+                    pivot = graves_df.groupby(['unidade', 'serie_limpa']).size().reset_index(name='qtd')
+                    series_order = ['6º Ano', '7º Ano', '8º Ano', '9º Ano', '1º Ano', '2º Ano', '3º Ano']
+                    series_presentes = [s for s in series_order if s in pivot['serie_limpa'].values]
+
+                    z_ocorr = []
+                    for un in ['BV', 'CD', 'JG', 'CDR']:
+                        row = []
+                        for s in series_presentes:
+                            val = pivot[(pivot['unidade'] == un) & (pivot['serie_limpa'] == s)]['qtd']
+                            row.append(int(val.iloc[0]) if not val.empty else 0)
+                        z_ocorr.append(row)
+
+                    nomes_un = [UNIDADES_NOMES.get(u, u) for u in ['BV', 'CD', 'JG', 'CDR']]
+
+                    fig_ocorr = go.Figure(data=go.Heatmap(
+                        z=z_ocorr, x=series_presentes, y=nomes_un,
+                        colorscale='Reds',
+                        text=[[str(v) if v > 0 else '' for v in row] for row in z_ocorr],
+                        texttemplate="%{text}",
+                        textfont={"size": 16},
+                        hovertemplate="<b>%{y}</b> - %{x}<br>Graves: %{z}<extra></extra>",
+                    ))
+                    fig_ocorr.update_layout(
+                        height=250, margin=dict(l=10, r=10, t=10, b=10),
+                    )
+                    st.plotly_chart(fig_ocorr, use_container_width=True)
+
+                    # Top 3 turmas CDR
+                    cdr_graves = graves_df[graves_df['unidade'] == 'CDR']
+                    if not cdr_graves.empty:
+                        import re
+                        def extrair_turma(t):
+                            m = re.search(r'(\d+[ºªo]\s*\w+.*?Turma\s*\w)', str(t))
+                            return m.group(1) if m else str(t)[:40]
+
+                        cdr_graves = cdr_graves.copy()
+                        cdr_graves['turma_curta'] = cdr_graves['turma'].apply(extrair_turma)
+                        top_turmas = cdr_graves['turma_curta'].value_counts().head(3)
+
+                        st.markdown("**Cordeiro — 3 turmas com mais ocorrencias graves:**")
+                        for turma, qtd in top_turmas.items():
+                            st.markdown(
+                                f'<div class="proposta-card proposta-urgente">'
+                                f'<strong>{turma}</strong>: {qtd} ocorrencias graves'
+                                f'</div>',
+                                unsafe_allow_html=True,
+                            )
+                        st.caption(
+                            "Acao: Ana Claudia + Vanessa devem marcar presenca fisica "
+                            "nestas 3 turmas por 5 dias consecutivos."
+                        )
+            except Exception:
+                st.caption("Erro ao carregar dados de ocorrencias.")
+        else:
+            st.caption("fato_Ocorrencias.csv nao encontrado.")
+
+        # --- Diferenciacao ---
+        with st.expander("Diferenciacao por Unidade (do planejamento)"):
+            for un_code in unidades_order:
+                diff = DIFERENCIACAO_UNIDADE.get(un_code, {})
+                nome = UNIDADES_NOMES.get(un_code, un_code)
+                st.markdown(f"""
+                <div class="diff-note">
+                    <strong>{nome}</strong>: {diff.get('foco', '')}<br>
+                    <small>Coordenadores: {diff.get('coordenadores', '')} |
+                    Escalacao: {diff.get('escalacao', 'N/A')}</small>
+                </div>
+                """, unsafe_allow_html=True)
     else:
         st.warning("resumo_Executivo.csv nao encontrado. Execute a extracao do SIGA.")
 
@@ -462,69 +753,140 @@ with tab_mapa:
 # ---------- TAB 4: PROJECOES ----------
 
 with tab_projecoes:
-    st.markdown("### Projecoes de Conformidade")
-    st.caption("Regressao linear sobre historico semanal — gerada pelo Preditor (sexta 20h)")
+    st.markdown("### Projecoes — Atual vs Meta do Trimestre")
+    st.caption("Quanto falta e qual o ritmo necessario para atingir cada meta")
 
+    # Tentar Preditor primeiro (roda sexta 20h)
     try:
         preditor_data = carregar_preditor()
     except Exception:
         preditor_data = {}
 
-    projecoes = preditor_data.get('projecoes', {})
-    alertas_pred = preditor_data.get('alertas', [])
+    if preditor_data.get('projecoes'):
+        st.success("Projecoes do Preditor disponiveis (regressao linear sobre historico)")
+        pred_proj = preditor_data['projecoes']
+        for un_code in ['BV', 'CD', 'JG', 'CDR']:
+            proj = pred_proj.get(un_code, {})
+            if proj:
+                nome = UNIDADES_NOMES.get(un_code, un_code)
+                st.markdown(
+                    f"**{nome}**: Atual {proj.get('atual', 0):.1f}% | "
+                    f"+1sem: {proj.get('proj_sem_mais_1', 0):.1f}% | "
+                    f"+2sem: {proj.get('proj_sem_mais_2', 0):.1f}% | "
+                    f"Tendencia: {proj.get('tendencia', 'estavel')}"
+                )
+        if preditor_data.get('alertas'):
+            st.markdown("#### Alertas do Preditor")
+            for alerta in preditor_data['alertas']:
+                st.warning(alerta.get('mensagem', ''))
+        st.markdown("---")
+        st.markdown("**Complemento: Ritmo necessario por indicador**")
+
+    # Sempre mostrar projecoes baseadas em metas (dados reais)
+    projecoes = _gerar_projecoes(total_row, unidades_df, semana)
 
     if projecoes:
-        n_semanas = preditor_data.get('n_semanas_historico', '?')
-        st.caption(f"Baseado em {n_semanas} semanas de historico")
+        semanas_rest = max(15 - semana, 1)
+        st.markdown(f"**Semanas restantes no 1o Trimestre: {semanas_rest}**")
+        st.markdown("")
 
-        for un_code in ['BV', 'CD', 'JG', 'CDR']:
-            proj = projecoes.get(un_code, {})
-            if not proj:
-                continue
+        # Dicas de acao por indicador
+        _DICAS = {
+            'Conformidade media': 'Contato direto com professores criticos. Contrato de Pratica Docente.',
+            'Professores criticos': 'Conversa individual de 5 min com cada um. Prazo de 2 semanas.',
+            'Profs no ritmo SAE': 'Protocolo de Ritmo: verificar capitulo atual vs esperado por professor.',
+            'Frequencia media': 'Busca ativa 3 niveis (ligacao, visita, reuniao familia). Foco: JG.',
+            'Alunos freq >90%': 'Identificar os que cairam de >90% para <90% e intervir rapido.',
+            'Alunos em risco': 'Plano individual para tier 2/3. Reuniao com familia dos tier 3.',
+            'Media de notas': 'Manter. Atentar para unidades abaixo de 7.5.',
+            'Ocorrencias graves': 'Mapa de calor CDR. Presenca fisica nas 3 turmas-foco.',
+        }
 
-            nome = UNIDADES_NOMES.get(un_code, un_code)
-            atual = proj.get('atual', 0)
-            p1 = proj.get('proj_sem_mais_1', 0)
-            p2 = proj.get('proj_sem_mais_2', 0)
-            tendencia = proj.get('tendencia', 'estavel')
+        for p in projecoes:
+            # Barra de progresso visual
+            if p['inverso']:
+                range_total = p['baseline'] - p['meta_tri1']
+                progresso_feito = p['baseline'] - p['atual']
+                pct_progresso = (progresso_feito / range_total * 100) if range_total > 0 else 0
+            else:
+                range_total = p['meta_tri1'] - p['baseline']
+                progresso_feito = p['atual'] - p['baseline']
+                pct_progresso = (progresso_feito / range_total * 100) if range_total > 0 else 0
 
-            tend_class = f'tend-{tendencia}'
-            tend_seta = {'subindo': '/\\', 'caindo': '\\/', 'estavel': '--'}.get(tendencia, '--')
+            pct_progresso = max(0, min(100, pct_progresso))
+            unid = p['unidade']
+
+            if p['no_caminho']:
+                ritmo_txt = "Meta atingida!"
+                cor_fundo = '#E8F5E9'
+                cor_borda = '#4CAF50'
+                cor_valor = '#2e7d32'
+                icone = '✅'
+            else:
+                ritmo_txt = f"Precisa {p['direcao']} {p['por_semana']:.1f}{unid}/semana"
+                if pct_progresso >= 30:
+                    cor_fundo = '#FFF3E0'
+                    cor_borda = '#FF9800'
+                    cor_valor = '#e65100'
+                    icone = '⚠️'
+                else:
+                    cor_fundo = '#FFEBEE'
+                    cor_borda = '#F44336'
+                    cor_valor = '#c62828'
+                    icone = '🔴'
+
+            dica = _DICAS.get(p['indicador'], '')
+
+            # Barra de progresso
+            cor_barra = '#4CAF50' if pct_progresso >= 60 else '#FFA000' if pct_progresso >= 30 else '#F44336'
+            barra_width = max(pct_progresso, 3)  # minimo 3% para ser visivel
 
             st.markdown(f"""
-            <div class="proj-card">
-                <strong>{nome}</strong>
-                <span class="proj-tendencia {tend_class}" style="float:right;">{tend_seta} {tendencia.upper()}</span>
-                <br>
-                <table style="width:100%; margin-top:8px; font-size:0.9em;">
-                    <tr>
-                        <td><strong>Atual:</strong> {atual:.1f}%</td>
-                        <td><strong>+1 sem:</strong> {p1:.1f}%</td>
-                        <td><strong>+2 sem:</strong> {p2:.1f}%</td>
-                    </tr>
-                </table>
+            <div style="background:{cor_fundo}; border-left:5px solid {cor_borda};
+                        padding:14px 18px; margin:8px 0; border-radius:0 8px 8px 0;">
+                <div style="display:flex; align-items:center; margin-bottom:6px;">
+                    <span style="font-size:1.1em;">{icone}</span>
+                    <strong style="margin-left:8px; flex:1;">{p['indicador']}</strong>
+                    <span style="font-size:1.4em; font-weight:bold; color:{cor_valor};">
+                        {p['atual']:.1f}{unid}
+                    </span>
+                    <span style="margin-left:12px; color:#666;">Meta: {p['meta_tri1']}{unid}</span>
+                </div>
+                <div style="background:#e0e0e0; border-radius:4px; height:10px; margin:6px 0;">
+                    <div style="background:{cor_barra}; width:{barra_width:.0f}%;
+                                height:100%; border-radius:4px;"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-top:4px;">
+                    <span style="color:{cor_valor}; font-weight:bold; font-size:0.9em;">
+                        {ritmo_txt}
+                    </span>
+                    <span style="font-size:0.8em; color:#666;">
+                        Progresso: {pct_progresso:.0f}%
+                    </span>
+                </div>
+                <div style="font-size:0.85em; color:#555; margin-top:6px;
+                            border-top:1px solid rgba(0,0,0,0.1); padding-top:6px;">
+                    <strong>O que fazer:</strong> {dica}
+                </div>
             </div>
             """, unsafe_allow_html=True)
 
-        # Alertas do preditor
-        if alertas_pred:
-            st.markdown("#### Alertas Preventivos")
-            for alerta in alertas_pred:
-                urgencia = alerta.get('urgencia', 'media')
-                st.markdown(f"""
-                <div class="alerta-proj">
-                    <strong>[{urgencia.upper()}]</strong> {alerta.get('mensagem', '')}
-                </div>
-                """, unsafe_allow_html=True)
-
-        if preditor_data.get('gerado_em'):
-            gerado = str(preditor_data['gerado_em'])[:19].replace('T', ' ')
-            st.caption(f"Ultima execucao do Preditor: {gerado}")
+        st.markdown("---")
+        with st.expander("Como usar estas projecoes"):
+            st.markdown(
+                "**Leitura rapida:**\n"
+                "- 🔴 **Vermelho**: Indicador longe da meta, precisa de acao urgente\n"
+                "- ⚠️ **Amarelo**: Indicador em progresso, manter ritmo\n"
+                "- ✅ **Verde**: Meta atingida, celebrar e manter\n\n"
+                "**Na pratica:**\n"
+                "1. Olhe os vermelhos primeiro — sao suas prioridades da semana\n"
+                "2. Leia o \"O que fazer\" de cada um\n"
+                "3. Na reuniao, pergunte: \"Qual o status desta acao?\"\n"
+                "4. Acompanhe semanalmente: a barra de progresso deve crescer\n\n"
+                "**Fonte:** Metas definidas na Sintese Final PEEX 2026."
+            )
     else:
-        st.info(
-            "Projecoes nao disponiveis. O Preditor precisa de 4+ semanas de historico "
-            "e roda automaticamente toda sexta 20h."
-        )
+        st.info("Dados nao disponiveis para projecoes.")
 
 
 # ---------- TAB 5: REUNIOES ----------
@@ -552,61 +914,41 @@ with tab_reunioes:
             <em>Foco: {prox_reuniao.get('foco', '')}</em>
         </div>
         """, unsafe_allow_html=True)
+
+        # O que preparar para esta reuniao
+        st.markdown("#### O que preparar")
+        foco = prox_reuniao.get('foco', '')
+        st.markdown(
+            f"1. **Dados atualizados**: Quadro Gestao com conformidade por unidade\n"
+            f"2. **Lista nominal**: professores criticos — quem ja foi contatado?\n"
+            f"3. **Foco especifico**: {foco}\n"
+            f"4. **Perguntar a cada diretor**: qual o status dos compromissos da semana passada?"
+        )
     else:
         st.info("Nenhuma reuniao programada.")
 
-    # Resumo do preparador
-    st.markdown("#### Resumo do Preparador")
-    try:
-        prep_data = carregar_preparador()
-    except Exception:
-        prep_data = {}
+    # Calendario visual do trimestre
+    st.markdown("#### Calendario do Trimestre")
+    st.caption("Todas as reunioes ate o fim da Fase Sobrevivencia")
 
-    if prep_data:
-        objetivo = prep_data.get('objetivo_da_reuniao', '')
-        if objetivo:
-            st.markdown(f"**Objetivo:** {objetivo}")
+    prox_lista = proximas_reunioes(semana, n=20)
+    for r in prox_lista:
+        fmt = FORMATOS_REUNIAO.get(r.get('formato', 'F'), {})
+        cor = fmt.get('cor', '#607D8B')
+        icone = fmt.get('icone', '')
+        sem_r = r.get('semana', '?')
+        atual = " **(PROXIMA)**" if sem_r == prox_reuniao.get('semana') else ""
 
-        prep_ceo = prep_data.get('preparacao_ceo', {})
-        if prep_ceo:
-            col_a, col_b = st.columns(2)
-            with col_a:
-                st.markdown("**Antes da reuniao:**")
-                for item in prep_ceo.get('antes_da_reuniao', []):
-                    st.markdown(f"- {item}")
-            with col_b:
-                st.markdown("**O que levar:**")
-                for item in prep_ceo.get('o_que_levar', []):
-                    st.markdown(f"- {item}")
+        st.markdown(
+            f"<span style='color:{cor}; font-weight:bold;'>{icone}</span> "
+            f"**Sem {sem_r}** — {r.get('cod', '')} "
+            f"({fmt.get('nome', '?')}, {fmt.get('duracao', 30)}min): "
+            f"{r.get('titulo', '')} | _{r.get('foco', '')[:120]}_{atual}",
+            unsafe_allow_html=True,
+        )
 
-            if prep_ceo.get('tom_recomendado'):
-                st.info(f"Tom recomendado: {prep_ceo['tom_recomendado']}")
-
-        if prep_data.get('gerado_em'):
-            gerado = str(prep_data['gerado_em'])[:19].replace('T', ' ')
-            st.caption(f"Preparador atualizado em: {gerado}")
-    else:
-        st.info("Preparador ainda nao executado. Roda segunda 5h45.")
-
-    # Link para pagina completa
     st.markdown("---")
-    st.markdown("**[Ir para Preparador de Reuniao completo -->]**")
-    st.caption("Acesse a pagina Preparador de Reuniao para ver o roteiro detalhado, "
-               "script dos 5 atos e visao por unidade.")
-
-    # Proximas reunioes (lista)
-    st.markdown("#### Proximas Reunioes")
-    prox_lista = proximas_reunioes(semana, n=5)
-    if prox_lista:
-        for r in prox_lista:
-            fmt = FORMATOS_REUNIAO.get(r.get('formato', 'F'), {})
-            st.markdown(
-                f"**Sem {r.get('semana', '?')}** — {r.get('cod', '')} "
-                f"({fmt.get('nome', '?')}, {fmt.get('duracao', 30)}min): "
-                f"{r.get('titulo', '')} | _{r.get('foco', '')[:100]}_"
-            )
-    else:
-        st.info("Nenhuma reuniao futura programada.")
+    st.markdown("Roteiro detalhado: **Preparador de Reuniao** (menu lateral)")
 
 
 # ---------- TAB 6: GENEALOGIA ----------
@@ -669,6 +1011,4 @@ with tab_genealogia:
         )
 
     st.markdown("---")
-    st.markdown("**[Ir para Genealogia completa -->]**")
-    st.caption("Acesse a pagina de Genealogia para ver o historico completo "
-               "dos documentos fundadores e a evolucao do pensamento PEEX.")
+    st.markdown("Arvore completa dos 31 conceitos: **Genealogia da Proposta** (menu lateral)")

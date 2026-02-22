@@ -195,7 +195,6 @@ elif role == 'diretor':
     sections["Reunioes"] = [
         P("peex_pages/07_plano_acao.py", "Plano de Acao", "📝"),
         P("peex_pages/15_gerador_peex_unidade.py", "Pauta Unidade", "📃"),
-        P("peex_pages/calendario_peex.py", "Calendario PEEX", "📅"),
     ]
     sections["Estrategia"] = [
         P("peex_pages/03_scorecard_diretores.py", "Scorecard", "📊"),
@@ -235,6 +234,8 @@ else:
         P("app_pages/14_🧠_Alertas_Inteligentes.py", "Alertas Inteligentes", "🧠"),
     ]
     sections["Professores"] = [
+        P("app_pages/06_👨‍🏫_Visão_Professor.py", "Visao Professor", "👨‍🏫"),
+        P("app_pages/11_🖨️_Material_Professor.py", "Material Professor", "🖨️"),
         P("peex_pages/08_meus_professores.py", "Meus Professores", "👥"),
         P("peex_pages/12_espelho_coordenador.py", "Meu Espelho", "🪞"),
         P("app_pages/25_💬_Devolutivas.py", "Devolutivas", "💬"),
@@ -252,11 +253,8 @@ else:
         P("app_pages/24_🔗_Cruzamento_SIGA_SAE.py", "Cruzamento SIGA SAE", "🔗"),
     ]
     sections["Reunioes PEEX"] = [
-        P("peex_pages/preparador_reuniao.py", "Preparador de Reuniao", "🎤"),
-        P("peex_pages/10_peex_adaptativo.py", "PEEX Adaptativo", "📋"),
         P("peex_pages/15_gerador_peex_unidade.py", "Pauta Reuniao", "📃"),
         P("peex_pages/07_plano_acao.py", "Plano de Acao", "📝"),
-        P("peex_pages/calendario_peex.py", "Calendario PEEX", "📅"),
     ]
     sections["Relatorios"] = [
         P("app_pages/15_📄_Resumo_Semanal.py", "Resumo Semanal", "📄"),

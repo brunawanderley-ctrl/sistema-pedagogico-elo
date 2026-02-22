@@ -108,7 +108,20 @@ cores_status = {
 }
 
 if not compromissos:
-    st.info("Nenhum compromisso registrado ainda.")
+    st.info("Nenhum compromisso registrado ainda. Veja exemplos abaixo do que registrar.")
+    st.markdown("""
+<div style="background:#F5F5F5; padding:16px 20px; border-radius:8px; margin:8px 0;">
+<strong>Exemplos de compromissos de reuniao:</strong>
+<ul style="margin:8px 0;">
+<li>Ligar para os 5 alunos com 3+ faltas consecutivas do 9A — <em>Pietro (secretaria JG) — sexta-feira</em></li>
+<li>Conversar individualmente com os 3 professores abaixo de 30% de conformidade — <em>Diretor BV — quarta-feira</em></li>
+<li>Entregar mapa de calor de ocorrencias CDR para a coordenacao — <em>Coordenador CDR — terca-feira</em></li>
+<li>Agendar reuniao com pais dos alunos em risco do 7A — <em>Lecinane (JG) — proxima segunda</em></li>
+<li>Verificar se os 8 professores sem nenhum registro no SIGA ainda estao ativos — <em>Gilberto (BV) — quinta-feira</em></li>
+<li>Apresentar plano de recuperacao de frequencia da unidade — <em>Diretor JG — proxima reuniao PEEX</em></li>
+</ul>
+</div>
+""", unsafe_allow_html=True)
 else:
     alterado = False
     for i, c in enumerate(compromissos):

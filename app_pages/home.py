@@ -12,7 +12,7 @@ from datetime import datetime
 from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from auth import get_user_unit
+from auth import get_user_unit, get_user_role, ROLE_CEO, ROLE_DIRETOR, ROLE_COORDENADOR
 from utils import (
     DATA_DIR, is_cloud, ultima_atualizacao,
     carregar_fato_aulas, carregar_horario_esperado, carregar_calendario, carregar_progressao_sae,
@@ -137,6 +137,93 @@ st.markdown("""
     com a estrutura curricular do <strong>SAE Digital</strong> para acompanhamento em tempo real.</p>
 </div>
 """, unsafe_allow_html=True)
+
+# ========== MISSAO DA SEMANA (DIRETORES E CEO) ==========
+
+_role = get_user_role()
+_user_unit = get_user_unit()
+
+if _role in (ROLE_CEO, ROLE_DIRETOR, ROLE_COORDENADOR):
+    _semana_home = calcular_semana_letiva()
+    _resumo_path = DATA_DIR / "resumo_Executivo.csv"
+
+    if _resumo_path.exists():
+        try:
+            _resumo_df = pd.read_csv(_resumo_path)
+
+            # Filtrar por unidade do diretor, ou rede inteira para CEO
+            if _role == ROLE_DIRETOR and _user_unit:
+                _un_data = _resumo_df[_resumo_df['unidade'] == _user_unit]
+                _un_nome = UNIDADES_NOMES.get(_user_unit, _user_unit)
+            else:
+                _un_data = _resumo_df[_resumo_df['unidade'] == 'TOTAL']
+                _un_nome = 'Rede ELO'
+
+            if not _un_data.empty:
+                _r = _un_data.iloc[0]
+                _conf = _r['pct_conformidade_media']
+                _freq = _r['frequencia_media']
+                _crit = int(_r['professores_criticos'])
+                _graves = int(_r['ocorr_graves'])
+                _risco = _r['pct_alunos_risco']
+
+                # Gerar prioridades da semana
+                _prioridades = []
+                if _conf < 55:
+                    _prioridades.append(
+                        f'Conformidade em {_conf:.0f}% — contatar os {_crit} '
+                        f'professores criticos esta semana'
+                    )
+                if _freq < 85:
+                    _prioridades.append(
+                        f'Frequencia em {_freq:.1f}% — ativar busca ativa '
+                        f'para alunos com 3+ faltas'
+                    )
+                if _graves > 5:
+                    _prioridades.append(
+                        f'{_graves} ocorrencias graves — identificar turmas-foco '
+                        f'e marcar presenca'
+                    )
+                if _risco > 20:
+                    _prioridades.append(
+                        f'{_risco:.0f}% alunos em risco — plano individual '
+                        f'para os mais criticos'
+                    )
+                if not _prioridades:
+                    _prioridades.append('Manter ritmo. Acompanhar indicadores.')
+
+                # Reuniao da semana
+                from peex_utils import info_semana as _info_semana
+                _info = _info_semana(_semana_home)
+                _prox = _info.get('proxima_reuniao', {})
+                _reuniao_txt = ''
+                if _prox:
+                    _reuniao_txt = (
+                        f"<div style='margin-top:10px; padding-top:8px; "
+                        f"border-top:1px solid rgba(255,255,255,0.3);'>"
+                        f"<strong>Proxima reuniao:</strong> "
+                        f"{_prox.get('cod', '')} — {_prox.get('titulo', '')}<br>"
+                        f"<small>Foco: {_prox.get('foco', '')}</small></div>"
+                    )
+
+                _cor_fundo = '#c62828' if _conf < 50 else '#e65100' if _conf < 70 else '#2e7d32'
+
+                _prios_html = ''.join(
+                    f'<div style="margin:4px 0;">• {p}</div>' for p in _prioridades
+                )
+
+                st.markdown(f"""
+                <div style="background:linear-gradient(135deg, {_cor_fundo}, {_cor_fundo}dd);
+                            color:white; padding:20px 24px; border-radius:12px; margin:16px 0;">
+                    <h3 style="color:white; border:none; margin:0 0 10px 0;">
+                        Missao da Semana {_semana_home} — {_un_nome}
+                    </h3>
+                    {_prios_html}
+                    {_reuniao_txt}
+                </div>
+                """, unsafe_allow_html=True)
+        except Exception:
+            pass
 
 st.markdown("---")
 
