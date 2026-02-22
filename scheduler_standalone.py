@@ -93,7 +93,7 @@ def read_health() -> dict:
 # ---------------------------------------------------------------------------
 
 def executar_atualizacao() -> None:
-    """Executa run_update() e grava health check."""
+    """Executa run_update() e grava health check. Roda Vigilia apos sucesso."""
     logger.info("Iniciando atualizacao do SIGA...")
     try:
         from atualizar_siga import run_update
@@ -104,11 +104,147 @@ def executar_atualizacao() -> None:
                 f"Atualizacao concluida: {result.get('total', 0)} aulas "
                 f"em {result.get('duracao', 0):.0f}s"
             )
+            # Rodar Vigilia apos extracao com sucesso
+            _executar_vigilia()
         else:
             logger.error(f"Atualizacao falhou: {result.get('erro', '?')}")
     except Exception as e:
         logger.error(f"Erro fatal na atualizacao: {e}", exc_info=True)
         write_health({"ok": False, "erro": str(e)})
+
+
+def _executar_vigilia() -> None:
+    """Executa engine.executar_vigilia() para pre-gerar missoes."""
+    try:
+        from engine import executar_vigilia
+        result = executar_vigilia()
+        if result.get("ok"):
+            logger.info(
+                f"Vigilia concluida: {result.get('total_missoes', 0)} missoes "
+                f"em {result.get('duracao', 0):.1f}s"
+            )
+        else:
+            logger.warning(f"Vigilia falhou: {result.get('erro', '?')}")
+    except Exception as e:
+        logger.warning(f"Vigilia nao executada: {e}")
+
+
+def _executar_estrategista() -> None:
+    """Executa engine.executar_estrategista() semanal."""
+    logger.info("Estrategista: iniciando execucao semanal...")
+    try:
+        from engine import executar_estrategista
+        result = executar_estrategista()
+        if result.get("ok"):
+            logger.info(
+                f"Estrategista concluido: semana {result.get('semana')}, "
+                f"{result.get('n_missoes_rede', 0)} missoes, "
+                f"{result.get('n_decisoes', 0)} decisoes em {result.get('duracao', 0):.1f}s"
+            )
+        else:
+            logger.error(f"Estrategista falhou: {result.get('erro', '?')}")
+    except Exception as e:
+        logger.error(f"Estrategista nao executado: {e}", exc_info=True)
+
+
+def _executar_comparador() -> None:
+    """Executa engine.executar_comparador() semanal (segunda 5h30)."""
+    logger.info("Comparador: iniciando calculo de rankings...")
+    try:
+        from engine import executar_comparador
+        result = executar_comparador()
+        if result.get("ok"):
+            logger.info(f"Comparador concluido: semana {result.get('semana')} em {result.get('duracao', 0):.1f}s")
+        else:
+            logger.error(f"Comparador falhou: {result.get('erro', '?')}")
+    except Exception as e:
+        logger.error(f"Comparador nao executado: {e}", exc_info=True)
+
+
+def _executar_preditor() -> None:
+    """Executa engine.executar_preditor() semanal (sexta 20h)."""
+    logger.info("Preditor: iniciando projecoes...")
+    try:
+        from engine import executar_preditor
+        result = executar_preditor()
+        if result.get("ok"):
+            logger.info(
+                f"Preditor concluido: semana {result.get('semana')}, "
+                f"{result.get('n_alertas', 0)} alerta(s) em {result.get('duracao', 0):.1f}s"
+            )
+        else:
+            logger.error(f"Preditor falhou: {result.get('erro', '?')}")
+    except Exception as e:
+        logger.error(f"Preditor nao executado: {e}", exc_info=True)
+
+
+def _executar_retroalimentador() -> None:
+    """Executa engine.executar_retroalimentador() a cada 6h."""
+    logger.info("Retroalimentador: verificando execucao de acoes...")
+    try:
+        from engine import executar_retroalimentador
+        result = executar_retroalimentador()
+        if result.get("ok"):
+            logger.info(
+                f"Retroalimentador concluido: {result.get('n_escalacoes', 0)} escalacao(es) "
+                f"em {result.get('duracao', 0):.1f}s"
+            )
+        else:
+            logger.error(f"Retroalimentador falhou: {result.get('erro', '?')}")
+    except Exception as e:
+        logger.error(f"Retroalimentador nao executado: {e}", exc_info=True)
+
+
+def _executar_analista() -> None:
+    """Executa llm_engine.executar_analista() semanal (domingo 23h)."""
+    logger.info("Analista: iniciando analise integrada LLM...")
+    try:
+        from llm_engine import executar_analista
+        result = executar_analista()
+        if result.get("ok"):
+            logger.info(
+                f"Analista concluido: semana {result.get('semana')}, "
+                f"fonte={result.get('fonte', '?')} em {result.get('duracao', 0):.1f}s"
+            )
+        else:
+            logger.error(f"Analista falhou: {result.get('erro', '?')}")
+    except Exception as e:
+        logger.error(f"Analista nao executado: {e}", exc_info=True)
+
+
+def _executar_conselheiro() -> None:
+    """Executa engine.executar_conselheiro() semanal (segunda 5h)."""
+    logger.info("Conselheiro: iniciando geracao de pauta PEEX...")
+    try:
+        from engine import executar_conselheiro
+        result = executar_conselheiro()
+        if result.get("ok"):
+            logger.info(
+                f"Conselheiro concluido: semana {result.get('semana')}, "
+                f"unidades={result.get('unidades')} em {result.get('duracao', 0):.1f}s"
+            )
+        else:
+            logger.error(f"Conselheiro falhou: {result.get('erro', '?')}")
+    except Exception as e:
+        logger.error(f"Conselheiro nao executado: {e}", exc_info=True)
+
+
+def _executar_preparador() -> None:
+    """Executa engine.executar_preparador() semanal (segunda 5h45).
+    Consolida inteligencia de todos os robos para roteiro de reuniao."""
+    logger.info("Preparador: iniciando geracao de roteiro de reuniao...")
+    try:
+        from engine import executar_preparador
+        result = executar_preparador()
+        if result.get("ok"):
+            logger.info(
+                f"Preparador concluido: semana {result.get('semana')}, "
+                f"reuniao='{result.get('reuniao', '?')}' em {result.get('duracao', 0):.1f}s"
+            )
+        else:
+            logger.error(f"Preparador falhou: {result.get('erro', '?')}")
+    except Exception as e:
+        logger.error(f"Preparador nao executado: {e}", exc_info=True)
 
 
 # ---------------------------------------------------------------------------
@@ -130,6 +266,69 @@ def run_daemon() -> None:
         replace_existing=True,
     )
 
+    # Estrategista semanal (domingo 22h)
+    scheduler.add_job(
+        _executar_estrategista,
+        CronTrigger(day_of_week="sun", hour=22, minute=0, timezone="America/Recife"),
+        id="estrategista_semanal",
+        name="Estrategista Semanal PEEX",
+        replace_existing=True,
+    )
+
+    # Analista semanal (domingo 23h — apos Estrategista)
+    scheduler.add_job(
+        _executar_analista,
+        CronTrigger(day_of_week="sun", hour=23, minute=0, timezone="America/Recife"),
+        id="analista_semanal",
+        name="Analista LLM PEEX",
+        replace_existing=True,
+    )
+
+    # Conselheiro semanal (segunda 5h)
+    scheduler.add_job(
+        _executar_conselheiro,
+        CronTrigger(day_of_week="mon", hour=5, minute=0, timezone="America/Recife"),
+        id="conselheiro_semanal",
+        name="Conselheiro PEEX",
+        replace_existing=True,
+    )
+
+    # Comparador semanal (segunda 5h30)
+    scheduler.add_job(
+        _executar_comparador,
+        CronTrigger(day_of_week="mon", hour=5, minute=30, timezone="America/Recife"),
+        id="comparador_semanal",
+        name="Comparador PEEX",
+        replace_existing=True,
+    )
+
+    # Preparador semanal (segunda 5h45 — apos Conselheiro e Comparador)
+    scheduler.add_job(
+        _executar_preparador,
+        CronTrigger(day_of_week="mon", hour=5, minute=45, timezone="America/Recife"),
+        id="preparador_semanal",
+        name="Preparador Reuniao PEEX",
+        replace_existing=True,
+    )
+
+    # Preditor semanal (sexta 20h)
+    scheduler.add_job(
+        _executar_preditor,
+        CronTrigger(day_of_week="fri", hour=20, minute=0, timezone="America/Recife"),
+        id="preditor_semanal",
+        name="Preditor PEEX",
+        replace_existing=True,
+    )
+
+    # Retroalimentador a cada 6h (8h, 14h, 20h, 2h)
+    scheduler.add_job(
+        _executar_retroalimentador,
+        CronTrigger(hour="2,8,14,20", minute=30, timezone="America/Recife"),
+        id="retroalimentador_continuo",
+        name="Retroalimentador PEEX",
+        replace_existing=True,
+    )
+
     # Shutdown gracioso
     def _shutdown(signum, frame):
         sig_name = signal.Signals(signum).name
@@ -141,7 +340,7 @@ def run_daemon() -> None:
 
     logger.info("=" * 60)
     logger.info("SCHEDULER STANDALONE INICIADO")
-    logger.info("Horarios: 8h, 12h, 18h, 20h (America/Recife)")
+    logger.info("Horarios: 8h, 12h, 18h, 20h (America/Recife) + Estrategista dom 22h + Analista dom 23h + Conselheiro seg 5h + Comparador seg 5h30 + Preparador seg 5h45 + Preditor sex 20h + Retro 6h")
     logger.info(f"Health check: {HEALTH_FILE}")
     logger.info(f"Log: {LOG_FILE}")
     logger.info(f"PID: {os.getpid()}")

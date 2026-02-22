@@ -338,7 +338,7 @@ def carregar_frequencia_alunos():
         justificadas=('presenca', lambda x: (x == 'J').sum()),
     ).reset_index()
 
-    agg['pct_frequencia'] = (agg['presencas'] / agg['total_aulas'].clip(lower=1) * 100).round(1)
+    agg['pct_frequencia'] = ((agg['presencas'] + agg['justificadas']) / agg['total_aulas'].clip(lower=1) * 100).round(1)
     agg['fonte'] = '2026_chamada'
     return agg
 
@@ -355,6 +355,9 @@ def carregar_frequencia_historico():
     if not all(c in df.columns for c in required):
         return pd.DataFrame()
     df = df[df['faltas'].notna() & df['carga_horaria'].notna() & (df['carga_horaria'] > 0)]
+    # Apenas dados de 2026
+    if 'ano' in df.columns:
+        df = df[df['ano'] == 2026]
     # Filtrar outlier de carga_horaria (ex: 240200)
     df = df[df['carga_horaria'] <= 1000]
     if df.empty:

@@ -1,51 +1,60 @@
 {
   "coordenadores": [
     {
-      "nome": "Bruna Vitória",
+      "nome": "Bruna Vitoria",
       "unidade": "BV",
+      "segmento": "Finais",
       "series": ["6º Ano", "7º Ano", "8º Ano", "9º Ano"]
     },
     {
-      "nome": "Gilberto Santos",
+      "nome": "Gilberto",
       "unidade": "BV",
+      "segmento": "Medio",
       "series": ["1ª Série", "2ª Série", "3ª Série"]
     },
     {
-      "nome": "Alline",
-      "unidade": "CD",
-      "series": ["9º Ano", "1ª Série", "2ª Série", "3ª Série"]
-    },
-    {
-      "nome": "Elisângela Luiz",
-      "unidade": "CD",
-      "series": ["6º Ano"]
-    },
-    {
       "nome": "Vanessa",
       "unidade": "CD",
-      "series": ["7º Ano", "8º Ano"]
+      "segmento": "Finais",
+      "series": ["6º Ano", "7º Ano", "8º Ano", "9º Ano"]
     },
     {
-      "nome": "Ana Cláudia",
+      "nome": "Alinne",
+      "unidade": "CD",
+      "segmento": "Medio",
+      "series": ["1ª Série", "2ª Série", "3ª Série"]
+    },
+    {
+      "nome": "Ana Claudia",
       "unidade": "CDR",
-      "series": ["9º Ano", "1ª Série", "2ª Série", "3ª Série"]
+      "segmento": "Finais",
+      "series": ["6º Ano", "7º Ano", "8º Ano", "9º Ano"]
     },
     {
-      "nome": "Vanessa",
+      "nome": "Vanessa Porciuncula",
       "unidade": "CDR",
-      "series": ["6º Ano", "7º Ano", "8º Ano"]
+      "segmento": "Medio",
+      "series": ["1ª Série", "2ª Série", "3ª Série"]
     },
     {
-      "nome": "Lecinane",
+      "nome": "Leiciane",
       "unidade": "JG",
-      "series": ["6º Ano", "7º Ano", "8º Ano"]
+      "segmento": "Finais",
+      "series": ["6º Ano", "7º Ano", "8º Ano", "9º Ano"]
     },
     {
       "nome": "Pietro",
       "unidade": "JG",
-      "series": ["9º Ano", "1ª Série", "2ª Série", "3ª Série"]
+      "segmento": "Medio",
+      "series": ["1ª Série", "2ª Série", "3ª Série"]
     }
   ],
+  "diretores": {
+    "BV": "Betinha",
+    "CD": "Ricardo",
+    "CDR": "Emiliana",
+    "JG": null
+  },
   "periodos_feedback": [
     {
       "bimestre": 1,
@@ -76,5 +85,5 @@
       "deadline_feedback": "2026-12-10"
     }
   ],
-  "atualizado_em": "2026-02-05"
+  "atualizado_em": "2026-02-21"
 }

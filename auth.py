@@ -73,7 +73,60 @@ _FALLBACK_USERS = {
         "unit": "CDR",
         "role": "coordenador",
     },
+    "dir_bv": {
+        "password_hash": _hash_password("Betinha"),
+        "password": "Betinha",
+        "name": "Betinha — Direcao Boa Viagem",
+        "unit": "BV",
+        "role": "diretor",
+    },
+    "dir_cd": {
+        "password_hash": _hash_password("Ricardo"),
+        "password": "Ricardo",
+        "name": "Ricardo — Direcao Candeias",
+        "unit": "CD",
+        "role": "diretor",
+    },
+    "dir_jg": {
+        "password_hash": _hash_password("123"),
+        "password": "123",
+        "name": "Direcao Janga",
+        "unit": "JG",
+        "role": "diretor",
+    },
+    "dir_cdr": {
+        "password_hash": _hash_password("Emiliana"),
+        "password": "Emiliana",
+        "name": "Emiliana — Direcao Cordeiro",
+        "unit": "CDR",
+        "role": "diretor",
+    },
+    "direcao": {
+        "password_hash": _hash_password("redeelo"),
+        "password": "redeelo",
+        "name": "Direcao Rede ELO",
+        "unit": None,
+        "role": "diretor",
+    },
+    "prof_demo": {
+        "password_hash": _hash_password("EloProf2026"),
+        "password": "EloProf2026",
+        "name": "Professor Demo",
+        "unit": "BV",
+        "role": "professor",
+        "professor_nome": "PROFESSOR DEMONSTRACAO",
+    },
 }
+
+# ---------------------------------------------------------------------------
+# Roles e aliases
+# ---------------------------------------------------------------------------
+ROLE_CEO = 'ceo'
+ROLE_DIRETOR = 'diretor'
+ROLE_COORDENADOR = 'coordenador'
+ROLE_PROFESSOR = 'professor'
+
+_ROLE_ALIASES = {'admin': 'ceo'}
 
 # Cache de senhas alteradas em runtime (persiste apenas na sessao do processo)
 _RUNTIME_PASSWORD_OVERRIDES: dict[str, str] = {}  # usuario -> password_hash
@@ -90,7 +143,7 @@ def _get_users():
         return _FALLBACK_USERS
 
 
-def _resolve_password_hash(username: str) -> tuple[str | None, str]:
+def _resolve_password_hash(username: str) -> "tuple":
     """
     Resolve o hash da senha para um usuario, com prioridade:
       1. Override em runtime (via alterar_senha)
@@ -248,14 +301,59 @@ def get_user_unit():
 
 
 def get_user_role():
-    """Retorna o perfil do usuario logado (admin, coordenador, diretor)."""
+    """Retorna o perfil do usuario logado (ceo, diretor, coordenador).
+    Aplica alias: admin -> ceo."""
     username = st.session_state.get("username")
     if not username:
         return 'viewer'
     users = _get_users()
     if username in users:
-        return users[username].get("role", "viewer")
+        role = users[username].get("role", "viewer")
+        return _ROLE_ALIASES.get(role, role)
     return 'viewer'
+
+
+def is_ceo():
+    """Verifica se o usuario logado tem perfil CEO."""
+    return get_user_role() == ROLE_CEO
+
+
+def is_diretor():
+    """Verifica se o usuario logado tem perfil Diretor."""
+    return get_user_role() == ROLE_DIRETOR
+
+
+def is_coordenador():
+    """Verifica se o usuario logado tem perfil Coordenador."""
+    return get_user_role() == ROLE_COORDENADOR
+
+
+def is_professor():
+    """Verifica se o usuario logado tem perfil Professor."""
+    return get_user_role() == ROLE_PROFESSOR
+
+
+def get_professor_name():
+    """Retorna o nome do professor no SIGA (para filtrar dados).
+    Cada professor so ve seus proprios dados."""
+    username = st.session_state.get("username")
+    if not username:
+        return None
+    users = _get_users()
+    if username in users:
+        return users[username].get("professor_nome")
+    return None
+
+
+def get_visible_units():
+    """Retorna lista de unidades visiveis para o usuario logado.
+    CEO: todas | Diretor/Coordenador: apenas sua unidade."""
+    from normalizacao import UNIDADES
+    role = get_user_role()
+    if role == ROLE_CEO:
+        return list(UNIDADES)
+    unit = get_user_unit()
+    return [unit] if unit else list(UNIDADES)
 
 
 def logout_button():

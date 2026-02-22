@@ -92,7 +92,7 @@ UNIDADES_CANONICAL: Dict[str, Unidade] = {
         cidade='Recife',
         codigo_vagas='01-BV',
         nome_vagas='Boa Viagem',
-        meta_2026=1250,
+        meta_2026=1230,
         periodo_api_siga=80,
         seletor_login_siga=1,
     ),
@@ -324,14 +324,14 @@ SERIES_UNIVERSAL: Dict[str, SerieUniversal] = {
 # ============================================================
 
 METAS_2026: Dict[str, int] = {
-    'BV': 1250,
+    'BV': 1230,
     'CD': 1200,
     'JG': 850,
     'CDR': 800,
 }
 """Metas de matriculas 2026 indexadas pelo codigo canonico da unidade."""
 
-META_TOTAL_2026: int = 4100
+META_TOTAL_2026: int = 4080
 """Meta total de matriculas 2026 (soma de todas as unidades)."""
 
 # Metas indexadas pelo nome do sistema Vagas (para uso direto em joins)

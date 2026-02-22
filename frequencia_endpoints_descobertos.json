@@ -1,0 +1,595 @@
+{
+  "metadata": {
+    "modo": "dry_run",
+    "data": "2026-02-20T04:07:22.336810",
+    "agente": "THETA"
+  },
+  "total_endpoints": 117,
+  "endpoints": [
+    {
+      "grupo": "01_frequencia_diario",
+      "nome": "diario/{id}/chamada/lista/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/chamada/lista/"
+    },
+    {
+      "grupo": "01_frequencia_diario",
+      "nome": "diario/{id}/frequencia/lista/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/frequencia/lista/"
+    },
+    {
+      "grupo": "01_frequencia_diario",
+      "nome": "diario/{id}/presencas/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/presencas/"
+    },
+    {
+      "grupo": "01_frequencia_diario",
+      "nome": "diario/{id}/faltas/lista/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/faltas/lista/"
+    },
+    {
+      "grupo": "01_frequencia_diario",
+      "nome": "diario/{id}/chamadas/lista/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/chamadas/lista/"
+    },
+    {
+      "grupo": "01_frequencia_diario",
+      "nome": "diario/{id}/presencas/lista/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/presencas/lista/"
+    },
+    {
+      "grupo": "01_frequencia_diario",
+      "nome": "diario/{id}/frequencia_aluno/lista/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/frequencia_aluno/lista/"
+    },
+    {
+      "grupo": "01_frequencia_diario",
+      "nome": "diario/{id}/registro_chamada/lista/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/registro_chamada/lista/"
+    },
+    {
+      "grupo": "02_chamada_online",
+      "nome": "diario/chamada_online/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/chamada_online/?diario=99999"
+    },
+    {
+      "grupo": "02_chamada_online",
+      "nome": "diario/chamada_online/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/chamada_online/lista/?diario=99999"
+    },
+    {
+      "grupo": "02_chamada_online",
+      "nome": "chamada_online/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/chamada_online/?diario=99999"
+    },
+    {
+      "grupo": "02_chamada_online",
+      "nome": "chamada/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/chamada/?diario=99999"
+    },
+    {
+      "grupo": "02_chamada_online",
+      "nome": "chamada_online/chamada_online/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/chamada_online/chamada_online/lista/?diario=99999"
+    },
+    {
+      "grupo": "03_frequencia_aula",
+      "nome": "diario/diario_aula/{aula}/alunos/lista/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_aula/99999/alunos/lista/"
+    },
+    {
+      "grupo": "03_frequencia_aula",
+      "nome": "diario/diario_aula/{aula}/chamada/lista/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_aula/99999/chamada/lista/"
+    },
+    {
+      "grupo": "03_frequencia_aula",
+      "nome": "diario/diario_aula/{aula}/presenca/lista/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_aula/99999/presenca/lista/"
+    },
+    {
+      "grupo": "03_frequencia_aula",
+      "nome": "diario/diario_aula/{aula}/frequencia/lista/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_aula/99999/frequencia/lista/"
+    },
+    {
+      "grupo": "03_frequencia_aula",
+      "nome": "diario/diario_aula_aluno/?diario_aula=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_aula_aluno/?diario_aula=99999"
+    },
+    {
+      "grupo": "03_frequencia_aula",
+      "nome": "diario/diario_aula_aluno/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_aula_aluno/?diario=99999"
+    },
+    {
+      "grupo": "03_frequencia_aula",
+      "nome": "diario_aula_aluno/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario_aula_aluno/?diario=99999"
+    },
+    {
+      "grupo": "03_frequencia_aula",
+      "nome": "diario_aula_aluno/?diario_aula=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario_aula_aluno/?diario_aula=99999"
+    },
+    {
+      "grupo": "03_frequencia_aula",
+      "nome": "diario/diario_aula_aluno/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_aula_aluno/lista/?diario=99999"
+    },
+    {
+      "grupo": "03_frequencia_aula",
+      "nome": "diario/diario_aula_aluno/lista/?diario_aula=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_aula_aluno/lista/?diario_aula=99999"
+    },
+    {
+      "grupo": "03_frequencia_aula",
+      "nome": "diario_aula_aluno/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario_aula_aluno/lista/?diario=99999"
+    },
+    {
+      "grupo": "03_frequencia_aula",
+      "nome": "diario/diario_aula/{aula}/alunos/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_aula/99999/alunos/"
+    },
+    {
+      "grupo": "04_frequencia_aluno",
+      "nome": "frequencia_aluno/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/frequencia_aluno/?diario=99999"
+    },
+    {
+      "grupo": "04_frequencia_aluno",
+      "nome": "frequencia_aluno/?periodo=80",
+      "url": "https://siga02.activesoft.com.br/api/v1/frequencia_aluno/?periodo=80"
+    },
+    {
+      "grupo": "04_frequencia_aluno",
+      "nome": "frequencia_aluno/?aluno=",
+      "url": "https://siga02.activesoft.com.br/api/v1/frequencia_aluno/?aluno=99999"
+    },
+    {
+      "grupo": "04_frequencia_aluno",
+      "nome": "frequencia_aluno/?turma=",
+      "url": "https://siga02.activesoft.com.br/api/v1/frequencia_aluno/?turma=99999"
+    },
+    {
+      "grupo": "04_frequencia_aluno",
+      "nome": "falta_aluno/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/falta_aluno/?diario=99999"
+    },
+    {
+      "grupo": "04_frequencia_aluno",
+      "nome": "falta_aluno/?periodo=80",
+      "url": "https://siga02.activesoft.com.br/api/v1/falta_aluno/?periodo=80"
+    },
+    {
+      "grupo": "04_frequencia_aluno",
+      "nome": "presenca_aluno/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/presenca_aluno/?diario=99999"
+    },
+    {
+      "grupo": "04_frequencia_aluno",
+      "nome": "frequencia_aluno/frequencia_aluno/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/frequencia_aluno/frequencia_aluno/lista/?diario=99999"
+    },
+    {
+      "grupo": "04_frequencia_aluno",
+      "nome": "falta_aluno/falta_aluno/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/falta_aluno/falta_aluno/lista/?diario=99999"
+    },
+    {
+      "grupo": "05_apuracao_registro",
+      "nome": "apuracao_frequencia/?periodo=80",
+      "url": "https://siga02.activesoft.com.br/api/v1/apuracao_frequencia/?periodo=80"
+    },
+    {
+      "grupo": "05_apuracao_registro",
+      "nome": "apuracao_frequencia/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/apuracao_frequencia/?diario=99999"
+    },
+    {
+      "grupo": "05_apuracao_registro",
+      "nome": "registro_frequencia/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/registro_frequencia/?diario=99999"
+    },
+    {
+      "grupo": "05_apuracao_registro",
+      "nome": "diario/registro_frequencia/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/registro_frequencia/?diario=99999"
+    },
+    {
+      "grupo": "05_apuracao_registro",
+      "nome": "diario/diario_frequencia/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_frequencia/?diario=99999"
+    },
+    {
+      "grupo": "05_apuracao_registro",
+      "nome": "diario/diario_frequencia/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_frequencia/lista/?diario=99999"
+    },
+    {
+      "grupo": "05_apuracao_registro",
+      "nome": "apuracao_frequencia/apuracao_frequencia/lista/?periodo=",
+      "url": "https://siga02.activesoft.com.br/api/v1/apuracao_frequencia/apuracao_frequencia/lista/?periodo=80"
+    },
+    {
+      "grupo": "05_apuracao_registro",
+      "nome": "registro_frequencia/registro_frequencia/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/registro_frequencia/registro_frequencia/lista/?diario=99999"
+    },
+    {
+      "grupo": "06_frequencia_lote",
+      "nome": "diario/frequencia_em_lote/lista/?periodo=80",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/frequencia_em_lote/lista/?periodo=80"
+    },
+    {
+      "grupo": "06_frequencia_lote",
+      "nome": "frequencia_em_lote/?periodo=80",
+      "url": "https://siga02.activesoft.com.br/api/v1/frequencia_em_lote/?periodo=80"
+    },
+    {
+      "grupo": "06_frequencia_lote",
+      "nome": "frequencia_em_lote/resumo/?periodo=80",
+      "url": "https://siga02.activesoft.com.br/api/v1/frequencia_em_lote/resumo/?periodo=80"
+    },
+    {
+      "grupo": "06_frequencia_lote",
+      "nome": "frequencia_em_lote/frequencia_em_lote/lista/?periodo=80",
+      "url": "https://siga02.activesoft.com.br/api/v1/frequencia_em_lote/frequencia_em_lote/lista/?periodo=80"
+    },
+    {
+      "grupo": "06_frequencia_lote",
+      "nome": "diario/frequencia_em_lote/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/frequencia_em_lote/?diario=99999"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/frequencia/",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/frequencia/"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/chamada/",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/chamada/"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/diario_aula/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/diario_aula/?diario=99999"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/diario_frequencia/",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/diario_frequencia/"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/apuracao_frequencia/",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/apuracao_frequencia/"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/falta/",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/falta/"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/presenca/",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/presenca/"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/frequencia_aluno/",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/frequencia_aluno/"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/diario_aula_aluno/",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/diario_aula_aluno/"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/chamada_online/",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/chamada_online/"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/registro_frequencia/",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/registro_frequencia/"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/falta_aluno/",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/falta_aluno/"
+    },
+    {
+      "grupo": "07_fields_select",
+      "nome": "fields/select/presenca_aluno/",
+      "url": "https://siga02.activesoft.com.br/api/v1/fields/select/presenca_aluno/"
+    },
+    {
+      "grupo": "08_relatorios",
+      "nome": "relatorio/frequencia/?periodo=80",
+      "url": "https://siga02.activesoft.com.br/api/v1/relatorio/frequencia/?periodo=80"
+    },
+    {
+      "grupo": "08_relatorios",
+      "nome": "relatorio/faltas/?periodo=80",
+      "url": "https://siga02.activesoft.com.br/api/v1/relatorio/faltas/?periodo=80"
+    },
+    {
+      "grupo": "08_relatorios",
+      "nome": "relatorio/diario_classe/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/relatorio/diario_classe/?diario=99999"
+    },
+    {
+      "grupo": "08_relatorios",
+      "nome": "relatorio/boletim/?aluno=",
+      "url": "https://siga02.activesoft.com.br/api/v1/relatorio/boletim/?aluno=99999"
+    },
+    {
+      "grupo": "08_relatorios",
+      "nome": "exportar/frequencia/?periodo=80",
+      "url": "https://siga02.activesoft.com.br/api/v1/exportar/frequencia/?periodo=80"
+    },
+    {
+      "grupo": "08_relatorios",
+      "nome": "relatorio/relatorio/lista/?periodo=80",
+      "url": "https://siga02.activesoft.com.br/api/v1/relatorio/relatorio/lista/?periodo=80"
+    },
+    {
+      "grupo": "08_relatorios",
+      "nome": "relatorio/frequencia_aluno/?aluno=",
+      "url": "https://siga02.activesoft.com.br/api/v1/relatorio/frequencia_aluno/?aluno=99999"
+    },
+    {
+      "grupo": "08_relatorios",
+      "nome": "exportar/diario/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/exportar/diario/?diario=99999"
+    },
+    {
+      "grupo": "09_chamada_modelo_drf",
+      "nome": "chamada/chamada/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/chamada/chamada/lista/?diario=99999"
+    },
+    {
+      "grupo": "09_chamada_modelo_drf",
+      "nome": "chamada/chamada/crud/{aula}/",
+      "url": "https://siga02.activesoft.com.br/api/v1/chamada/chamada/crud/99999/"
+    },
+    {
+      "grupo": "09_chamada_modelo_drf",
+      "nome": "presenca/presenca/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/presenca/presenca/lista/?diario=99999"
+    },
+    {
+      "grupo": "09_chamada_modelo_drf",
+      "nome": "falta/falta/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/falta/falta/lista/?diario=99999"
+    },
+    {
+      "grupo": "09_chamada_modelo_drf",
+      "nome": "chamada/chamada/lista/?diario_aula=",
+      "url": "https://siga02.activesoft.com.br/api/v1/chamada/chamada/lista/?diario_aula=99999"
+    },
+    {
+      "grupo": "09_chamada_modelo_drf",
+      "nome": "presenca/presenca/lista/?diario_aula=",
+      "url": "https://siga02.activesoft.com.br/api/v1/presenca/presenca/lista/?diario_aula=99999"
+    },
+    {
+      "grupo": "10_portal_professor",
+      "nome": "portal_professor/frequencia/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/portal_professor/frequencia/?diario=99999"
+    },
+    {
+      "grupo": "10_portal_professor",
+      "nome": "portal_professor/chamada/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/portal_professor/chamada/?diario=99999"
+    },
+    {
+      "grupo": "10_portal_professor",
+      "nome": "portal_professor/diario/{id}/chamada/",
+      "url": "https://siga02.activesoft.com.br/api/v1/portal_professor/diario/99999/chamada/"
+    },
+    {
+      "grupo": "10_portal_professor",
+      "nome": "portal_professor/diario/{id}/frequencia/",
+      "url": "https://siga02.activesoft.com.br/api/v1/portal_professor/diario/99999/frequencia/"
+    },
+    {
+      "grupo": "10_portal_professor",
+      "nome": "portal_professor/diario/{id}/alunos/",
+      "url": "https://siga02.activesoft.com.br/api/v1/portal_professor/diario/99999/alunos/"
+    },
+    {
+      "grupo": "10_portal_professor",
+      "nome": "portal_professor/portal_professor/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/portal_professor/portal_professor/lista/?diario=99999"
+    },
+    {
+      "grupo": "11_headers_especiais",
+      "nome": "diario/{id}/chamada/ [Accept:json]",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/chamada/"
+    },
+    {
+      "grupo": "11_headers_especiais",
+      "nome": "diario/{id}/frequencia/ [Accept:json]",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/frequencia/"
+    },
+    {
+      "grupo": "11_headers_especiais",
+      "nome": "diario/{id}/notas_faltas/ [Accept:json]",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/notas_faltas/"
+    },
+    {
+      "grupo": "11_headers_especiais",
+      "nome": "planilha_notas_faltas/?diario= [Accept:json]",
+      "url": "https://siga02.activesoft.com.br/api/v1/planilha_notas_faltas/?diario=99999"
+    },
+    {
+      "grupo": "11_headers_especiais",
+      "nome": "diario/{id}/notas/ [Accept:json]",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/notas/"
+    },
+    {
+      "grupo": "11_headers_especiais",
+      "nome": "diario/{id}/chamada/ [format=json]",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/chamada/?format=json"
+    },
+    {
+      "grupo": "11_headers_especiais",
+      "nome": "diario/{id}/frequencia/ [format=json]",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/frequencia/?format=json"
+    },
+    {
+      "grupo": "11_headers_especiais",
+      "nome": "diario/{id}/chamada/ [format=api]",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/99999/chamada/?format=api"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "/docs/",
+      "url": "https://siga02.activesoft.com.br/docs/"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "/swagger/",
+      "url": "https://siga02.activesoft.com.br/swagger/"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "/api/docs/",
+      "url": "https://siga02.activesoft.com.br/api/docs/"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "/api/swagger.json",
+      "url": "https://siga02.activesoft.com.br/api/swagger.json"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "/api/v1/swagger.json",
+      "url": "https://siga02.activesoft.com.br/api/v1/swagger.json"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "/api/v1/?format=openapi",
+      "url": "https://siga02.activesoft.com.br/api/v1/?format=openapi"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "/api/v1/?format=api",
+      "url": "https://siga02.activesoft.com.br/api/v1/?format=api"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "/api/schema/",
+      "url": "https://siga02.activesoft.com.br/api/schema/"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "/openapi.json",
+      "url": "https://siga02.activesoft.com.br/openapi.json"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "/api/v1/schema/",
+      "url": "https://siga02.activesoft.com.br/api/v1/schema/"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "siga.activesoft/docs/ [dominio siga]",
+      "url": "https://siga.activesoft.com.br/docs/"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "siga.activesoft/swagger/ [dominio siga]",
+      "url": "https://siga.activesoft.com.br/swagger/"
+    },
+    {
+      "grupo": "12_swagger_docs",
+      "nome": "siga.activesoft/api/docs/ [dominio siga]",
+      "url": "https://siga.activesoft.com.br/api/docs/"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "diario/diario/{id}/chamada/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario/99999/chamada/"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "diario/diario/{id}/frequencia/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario/99999/frequencia/"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "diario/diario/{id}/alunos/frequencia/",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario/99999/alunos/frequencia/"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "diario/diario/crud/{id}/ (detalhes diario)",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario/crud/99999/"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "diario/diario_aula/crud/{aula}/ (detalhes aula)",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_aula/crud/99999/"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "aula_frequencia/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/aula_frequencia/?diario=99999"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "aula_frequencia/?diario_aula=",
+      "url": "https://siga02.activesoft.com.br/api/v1/aula_frequencia/?diario_aula=99999"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "aula_frequencia/aula_frequencia/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/aula_frequencia/aula_frequencia/lista/?diario=99999"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "diario/aula_frequencia/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/aula_frequencia/?diario=99999"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "diario/aula_frequencia/lista/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/aula_frequencia/lista/?diario=99999"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "historico_notas/?aluno= (ref: faltas)",
+      "url": "https://siga02.activesoft.com.br/api/v1/historico_notas/?aluno=99999"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "fase_nota_aluno_avaliacao/?periodo=80 (ref: notas atuais)",
+      "url": "https://siga02.activesoft.com.br/api/v1/fase_nota_aluno_avaliacao/?periodo=80"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "diario/diario_aula/?diario=&limit=5 (ref: campo frequencia)",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario/diario_aula/?diario=99999&limit=5&situacao_aula=TODAS"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "diario-aula-aluno/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/diario-aula-aluno/?diario=99999"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "frequencia-aluno/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/frequencia-aluno/?diario=99999"
+    },
+    {
+      "grupo": "13_criativos",
+      "nome": "chamada-online/?diario=",
+      "url": "https://siga02.activesoft.com.br/api/v1/chamada-online/?diario=99999"
+    }
+  ]
+}
