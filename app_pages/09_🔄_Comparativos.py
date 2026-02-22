@@ -142,6 +142,10 @@ def main():
             disciplinas = sorted(df_seg['disciplina'].dropna().unique())
             disc_sel = st.selectbox("Selecione a disciplina:", disciplinas)
 
+        # Visão: por professor (agregado) ou por turma (detalhado)
+        visao = st.radio("Visão:", ['Por Professor', 'Por Turma do Professor'],
+                        horizontal=True, key='visao_disc')
+
         # Filtra
         df_disc = df_seg[df_seg['disciplina'] == disc_sel]
         df_hor_disc = df_hor_seg[df_hor_seg['disciplina'] == disc_sel]
@@ -150,60 +154,106 @@ def main():
             # Pre-calcula slots do horário por (unidade, serie, disciplina) com contagem
             hor_slots = df_hor_seg.groupby(['unidade', 'serie', 'disciplina']).size()
 
-            # Agrupa por professor
-            profs_comp = []
-            for prof in df_disc['professor'].unique():
-                df_prof = df_disc[df_disc['professor'] == prof]
+            if visao == 'Por Professor':
+                # === VISÃO AGREGADA POR PROFESSOR ===
+                profs_comp = []
+                for prof in df_disc['professor'].unique():
+                    df_prof = df_disc[df_disc['professor'] == prof]
 
-                unidades = ', '.join(df_prof['unidade'].unique())
-                turmas = df_prof['turma'].nunique()
-                aulas = len(df_prof)
+                    unidades = ', '.join(df_prof['unidade'].unique())
+                    turmas = df_prof['turma'].nunique()
+                    aulas = len(df_prof)
 
-                # Aulas esperadas: slots únicos (unidade, serie, disciplina) do professor
-                prof_slots = set(df_prof.groupby(['unidade', 'serie', 'disciplina']).size().index)
-                aulas_sem_prof = sum(
-                    hor_slots.get(slot, 0) for slot in prof_slots
-                )
-                esperado = aulas_sem_prof * semana
+                    prof_slots = set(df_prof.groupby(['unidade', 'serie', 'disciplina']).size().index)
+                    aulas_sem_prof = sum(
+                        hor_slots.get(slot, 0) for slot in prof_slots
+                    )
+                    esperado = aulas_sem_prof * semana
 
-                # Conteúdos únicos
-                conteudos = df_prof['conteudo'].dropna().unique()
-                ultimo_conteudo = conteudos[-1] if len(conteudos) > 0 else '-'
+                    conteudos = df_prof['conteudo'].dropna().unique()
+                    ultimo_conteudo = conteudos[-1] if len(conteudos) > 0 else '-'
 
-                conf = (aulas / esperado * 100) if esperado > 0 else 0
+                    conf = (aulas / esperado * 100) if esperado > 0 else 0
 
-                profs_comp.append({
-                    'Professor': prof,
-                    'Unidades': unidades,
-                    'Turmas': turmas,
-                    'Aulas Registradas': aulas,
-                    'Esperadas': esperado,
-                    'Conformidade': f'{conf:.0f}%',
-                    'Último Conteúdo': ultimo_conteudo[:50] + '...' if len(str(ultimo_conteudo)) > 50 else ultimo_conteudo
-                })
+                    profs_comp.append({
+                        'Professor': prof,
+                        'Unidades': unidades,
+                        'Turmas': turmas,
+                        'Aulas Registradas': aulas,
+                        'Esperadas': esperado,
+                        'Conformidade': f'{conf:.0f}%',
+                        'Último Conteúdo': ultimo_conteudo[:50] + '...' if len(str(ultimo_conteudo)) > 50 else ultimo_conteudo
+                    })
 
-            df_profs = pd.DataFrame(profs_comp)
-            st.dataframe(df_profs, use_container_width=True, hide_index=True)
+                df_profs = pd.DataFrame(profs_comp)
+                st.dataframe(df_profs, use_container_width=True, hide_index=True)
 
-            # Gráfico
-            fig = px.bar(df_profs, x='Professor', y='Aulas Registradas',
-                        title=f'Aulas Registradas - {disc_sel}',
-                        color='Unidades',
-                        color_discrete_map=CORES_UNIDADES)
-            st.plotly_chart(fig, use_container_width=True)
+                fig = px.bar(df_profs, x='Professor', y='Aulas Registradas',
+                            title=f'Aulas Registradas - {disc_sel}',
+                            color='Unidades',
+                            color_discrete_map=CORES_UNIDADES)
+                st.plotly_chart(fig, use_container_width=True)
 
-            # Alerta de discrepância
-            if len(df_profs) > 1:
-                max_aulas = df_profs['Aulas Registradas'].max()
-                min_aulas = df_profs['Aulas Registradas'].min()
-                diff_pct = (max_aulas - min_aulas) / max_aulas * 100 if max_aulas > 0 else 0
+                if len(df_profs) > 1:
+                    max_aulas = df_profs['Aulas Registradas'].max()
+                    min_aulas = df_profs['Aulas Registradas'].min()
+                    diff_pct = (max_aulas - min_aulas) / max_aulas * 100 if max_aulas > 0 else 0
 
-                if diff_pct > 30:
-                    st.warning(f"""
-                    ⚠️ **Discrepância detectada:** Diferença de {diff_pct:.0f}% entre professores.
-                    - Mais aulas: {df_profs.loc[df_profs['Aulas Registradas'].idxmax(), 'Professor']} ({max_aulas})
-                    - Menos aulas: {df_profs.loc[df_profs['Aulas Registradas'].idxmin(), 'Professor']} ({min_aulas})
-                    """)
+                    if diff_pct > 30:
+                        st.warning(f"""
+                        ⚠️ **Discrepância detectada:** Diferença de {diff_pct:.0f}% entre professores.
+                        - Mais aulas: {df_profs.loc[df_profs['Aulas Registradas'].idxmax(), 'Professor']} ({max_aulas})
+                        - Menos aulas: {df_profs.loc[df_profs['Aulas Registradas'].idxmin(), 'Professor']} ({min_aulas})
+                        """)
+
+            else:
+                # === VISÃO POR TURMA DO PROFESSOR ===
+                turma_comp = []
+                for _, row in df_disc.groupby(['professor', 'turma', 'unidade', 'serie']).agg(
+                    aulas=('data', 'count'),
+                    conteudos=('conteudo', lambda x: list(x.dropna().unique())),
+                    ultima_data=('data', 'max'),
+                ).reset_index().iterrows():
+                    slot_key = (row['unidade'], row['serie'], disc_sel)
+                    esperado_turma = hor_slots.get(slot_key, 0) * semana
+                    conf = (row['aulas'] / esperado_turma * 100) if esperado_turma > 0 else 0
+                    conteudos_list = row['conteudos']
+                    ultimo = conteudos_list[-1] if conteudos_list else '-'
+
+                    turma_comp.append({
+                        'Professor': row['professor'],
+                        'Turma': row['turma'],
+                        'Série': row['serie'],
+                        'Unidade': row['unidade'],
+                        'Aulas': row['aulas'],
+                        'Esperadas': esperado_turma,
+                        'Conformidade': f'{conf:.0f}%',
+                        'Conteúdos Únicos': len(conteudos_list),
+                        'Último Conteúdo': ultimo[:60] + '...' if len(str(ultimo)) > 60 else ultimo,
+                    })
+
+                df_turmas = pd.DataFrame(turma_comp)
+                if not df_turmas.empty:
+                    df_turmas = df_turmas.sort_values(['Professor', 'Série', 'Turma'])
+                    st.dataframe(df_turmas, use_container_width=True, hide_index=True)
+
+                    # Gráfico por turma
+                    fig = px.bar(df_turmas, x='Turma', y='Aulas',
+                                color='Professor',
+                                title=f'{disc_sel} — Aulas por Turma',
+                                barmode='group')
+                    st.plotly_chart(fig, use_container_width=True)
+
+                    # Comparativo de conteúdo entre turmas da mesma série
+                    st.subheader("📋 Conteúdo por Turma")
+                    for serie in sorted(df_turmas['Série'].unique()):
+                        df_serie_t = df_turmas[df_turmas['Série'] == serie]
+                        if len(df_serie_t) > 1:
+                            st.markdown(f"**{serie}** — {len(df_serie_t)} turmas")
+                            for _, r in df_serie_t.iterrows():
+                                st.markdown(f"- {r['Turma']} ({r['Professor']}): {r['Aulas']} aulas, {r['Conteúdos Únicos']} conteúdos — _{r['Último Conteúdo']}_")
+                else:
+                    st.info("Nenhum registro encontrado.")
         else:
             st.info("Nenhum registro encontrado para esta disciplina.")
 
