@@ -395,10 +395,52 @@ def get_visible_units():
 
 
 def logout_button():
-    """Mostra botao de logout na sidebar."""
+    """Mostra saudacao com nome e frase motivacional no topo da sidebar."""
     if st.session_state.get("authenticated"):
-        nome = st.session_state.get("display_name", "Usuário")
-        st.sidebar.markdown(f"👤 **{nome}**")
+        from datetime import date, datetime
+
+        nome_completo = st.session_state.get("display_name", "Usuário")
+        primeiro_nome = nome_completo.split("—")[0].split("-")[0].strip().split()[0]
+
+        # Saudacao por horario
+        hora = datetime.now().hour
+        if hora < 12:
+            saudacao = "Bom dia"
+        elif hora < 18:
+            saudacao = "Boa tarde"
+        else:
+            saudacao = "Boa noite"
+
+        # Frases motivacionais rotativas (uma por dia)
+        _FRASES = [
+            "Cada aula registrada e um passo a mais na jornada dos nossos alunos.",
+            "Acompanhar de perto faz toda a diferenca.",
+            "Dados nos guiam, mas e o olhar humano que transforma.",
+            "Hoje e um bom dia para fazer a diferenca na vida de um aluno.",
+            "Pequenas acoes diarias constroem grandes resultados.",
+            "A constancia no acompanhamento e o que gera mudanca real.",
+            "Voce esta construindo o futuro de cada aluno que acompanha.",
+            "Cada dado aqui representa uma historia — e voce faz parte dela.",
+            "A excelencia pedagogica comeca com presenca e atencao.",
+            "Confie no processo. Os resultados virao.",
+            "Seu olhar atento transforma numeros em acoes.",
+            "Educar e um ato de coragem e de amor.",
+            "O melhor momento para agir e agora.",
+            "Juntos, somos mais fortes do que qualquer desafio.",
+        ]
+        frase = _FRASES[date.today().toordinal() % len(_FRASES)]
+
+        st.sidebar.markdown(f"""
+<div style="padding:12px 8px 8px 8px; margin-bottom:8px; border-bottom:1px solid #e0e0e0;">
+    <div style="font-size:1.1em; font-weight:bold; color:#1a237e;">
+        {saudacao}, {primeiro_nome}!
+    </div>
+    <div style="font-size:0.8em; color:#666; font-style:italic; margin-top:4px; line-height:1.3;">
+        {frase}
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
         if st.sidebar.button("Sair"):
             st.session_state.clear()
             st.rerun()
