@@ -120,8 +120,8 @@ def main():
         para identificar discrepâncias e melhores práticas.
         """)
 
-        # Filtro de segmento
-        col_s1, col_s2 = st.columns(2)
+        # Filtros: segmento, disciplina, turma
+        col_s1, col_s2, col_s3 = st.columns(3)
 
         with col_s1:
             segmento = st.radio("Segmento:", ['Todos', 'Anos Finais (6º-9º)', 'Ensino Médio (1ª-3ª)'],
@@ -138,17 +138,24 @@ def main():
         df_hor_seg = aplicar_filtro_segmento(df_horario.copy(), _seg_norm)
 
         with col_s2:
-            # Seletor de disciplina (filtrado pelo segmento)
             disciplinas = sorted(df_seg['disciplina'].dropna().unique())
             disc_sel = st.selectbox("Selecione a disciplina:", disciplinas)
+
+        # Filtra por disciplina
+        df_disc = df_seg[df_seg['disciplina'] == disc_sel]
+        df_hor_disc = df_hor_seg[df_hor_seg['disciplina'] == disc_sel]
+
+        with col_s3:
+            turmas_disponiveis = sorted(df_disc['turma'].dropna().unique())
+            turma_sel = st.selectbox("Turma:", ['Todas'] + turmas_disponiveis, key='turma_disc')
+
+        # Aplica filtro de turma
+        if turma_sel != 'Todas':
+            df_disc = df_disc[df_disc['turma'] == turma_sel]
 
         # Visão: por professor (agregado) ou por turma (detalhado)
         visao = st.radio("Visão:", ['Por Professor', 'Por Turma do Professor'],
                         horizontal=True, key='visao_disc')
-
-        # Filtra
-        df_disc = df_seg[df_seg['disciplina'] == disc_sel]
-        df_hor_disc = df_hor_seg[df_hor_seg['disciplina'] == disc_sel]
 
         if len(df_disc) > 0:
             # Pre-calcula slots do horário por (unidade, serie, disciplina) com contagem
