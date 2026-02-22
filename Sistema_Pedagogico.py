@@ -161,40 +161,31 @@ if role == 'ceo':
     ]
 
 elif role == 'diretor':
-    sections["Painel"] = [
+    sections["Autogerencia"] = [
         P("app_pages/home.py", "Home", "🏠"),
-        P("app_pages/onboarding.py", "Onboarding", "🎓"),
-        P("app_pages/glossario.py", "Glossario", "📖"),
+        P("peex_pages/15_gerador_peex_unidade.py", "Minha Semana", "🎯"),
+        P("peex_pages/07_plano_acao.py", "Plano de Acao", "📝"),
+    ]
+    sections["Alunos"] = [
+        P("app_pages/23_🚨_Alerta_Precoce_ABC.py", "Alerta Precoce ABC", "🚨"),
+        P("peex_pages/09_meus_alunos.py", "Meus Alunos", "🎒"),
+        P("app_pages/22_📋_Ocorrências.py", "Ocorrencias", "📋"),
+        P("app_pages/19_🎓_Painel_Aluno.py", "Painel Aluno", "🎓"),
+        P("app_pages/20_📊_Frequência_Escolar.py", "Frequencia Escolar", "📊"),
     ]
     sections["Acompanhamento"] = [
-        P("app_pages/01_📊_Quadro_Gestão.py", "Quadro Gestao", "📊"),
-        P("app_pages/02_🎯_Prioridades_da_Semana.py", "Prioridades SIGA", "🎯"),
         P("app_pages/13_🚦_Semáforo_Professor.py", "Semaforo Professor", "🚦"),
+        P("app_pages/01_📊_Quadro_Gestão.py", "Quadro Gestao", "📊"),
         P("app_pages/08_⚠️_Alertas_Conformidade.py", "Alertas Conformidade", "⚠️"),
+        P("app_pages/02_🎯_Prioridades_da_Semana.py", "Prioridades SIGA", "🎯"),
         P("app_pages/14_🧠_Alertas_Inteligentes.py", "Alertas Inteligentes", "🧠"),
     ]
     sections["Professores"] = [
-        P("app_pages/06_👨‍🏫_Visão_Professor.py", "Visao Professor", "👨‍🏫"),
-        P("app_pages/11_🖨️_Material_Professor.py", "Material Professor", "🖨️"),
         P("peex_pages/08_meus_professores.py", "Meus Professores", "👥"),
-        P("peex_pages/12_espelho_coordenador.py", "Espelho Coordenador", "🪞"),
         P("app_pages/25_💬_Devolutivas.py", "Devolutivas", "💬"),
-    ]
-    sections["Alunos"] = [
-        P("app_pages/19_🎓_Painel_Aluno.py", "Painel Aluno", "🎓"),
-        P("app_pages/20_📊_Frequência_Escolar.py", "Frequencia Escolar", "📊"),
-        P("app_pages/23_🚨_Alerta_Precoce_ABC.py", "Alerta Precoce ABC", "🚨"),
-        P("app_pages/22_📋_Ocorrências.py", "Ocorrencias", "📋"),
-        P("peex_pages/09_meus_alunos.py", "Meus Alunos", "🎒"),
-    ]
-    sections["Curriculo e SAE"] = [
-        P("app_pages/03_📚_Estrutura_Curricular.py", "Estrutura Curricular", "📚"),
-        P("app_pages/05_📈_Progressão_SAE.py", "Progressao SAE", "📈"),
-        P("app_pages/24_🔗_Cruzamento_SIGA_SAE.py", "Cruzamento SIGA SAE", "🔗"),
-    ]
-    sections["Autogerencia"] = [
-        P("peex_pages/15_gerador_peex_unidade.py", "Minha Semana", "🎯"),
-        P("peex_pages/07_plano_acao.py", "Plano de Acao", "📝"),
+        P("app_pages/06_👨‍🏫_Visão_Professor.py", "Visao Professor", "👨‍🏫"),
+        P("peex_pages/12_espelho_coordenador.py", "Espelho Coordenador", "🪞"),
+        P("app_pages/11_🖨️_Material_Professor.py", "Material Professor", "🖨️"),
     ]
     sections["Estrategia"] = [
         P("peex_pages/03_scorecard_diretores.py", "Scorecard", "📊"),
@@ -203,11 +194,21 @@ elif role == 'diretor':
         P("peex_pages/22_compromissos.py", "Compromissos", "🤝"),
         P("peex_pages/05_memoria.py", "Memoria", "💉"),
     ]
+    sections["Curriculo e SAE"] = [
+        P("app_pages/03_📚_Estrutura_Curricular.py", "Estrutura Curricular", "📚"),
+        P("app_pages/05_📈_Progressão_SAE.py", "Progressao SAE", "📈"),
+        P("app_pages/24_🔗_Cruzamento_SIGA_SAE.py", "Cruzamento SIGA SAE", "🔗"),
+    ]
     sections["Relatorios"] = [
         P("app_pages/15_📄_Resumo_Semanal.py", "Resumo Semanal", "📄"),
         P("peex_pages/16_briefing_pdf.py", "Briefing PDF", "📄"),
+        P("peex_pages/13_polinizacao.py", "Polinizacao", "🌸"),
         P("peex_pages/04_ranking_rede.py", "Rankings", "🏆"),
         P("app_pages/26_📊_Painel_Unificado.py", "Painel Unificado", "📊"),
+    ]
+    sections["Apoio"] = [
+        P("app_pages/onboarding.py", "Onboarding", "🎓"),
+        P("app_pages/glossario.py", "Glossario", "📖"),
     ]
 
 elif role == 'professor':
@@ -221,46 +222,47 @@ elif role == 'professor':
 
 else:
     # Coordenador / Viewer
-    sections["Painel"] = [
+    sections["Autogerencia"] = [
         P("app_pages/home.py", "Home", "🏠"),
-        P("app_pages/onboarding.py", "Onboarding", "🎓"),
-        P("app_pages/glossario.py", "Glossario", "📖"),
+        P("peex_pages/15_gerador_peex_unidade.py", "Minha Semana", "🎯"),
+        P("peex_pages/07_plano_acao.py", "Plano de Acao", "📝"),
+        P("peex_pages/22_compromissos.py", "Compromissos", "🤝"),
+    ]
+    sections["Alunos"] = [
+        P("app_pages/23_🚨_Alerta_Precoce_ABC.py", "Alerta Precoce ABC", "🚨"),
+        P("peex_pages/09_meus_alunos.py", "Meus Alunos", "🎒"),
+        P("app_pages/22_📋_Ocorrências.py", "Ocorrencias", "📋"),
+        P("app_pages/19_🎓_Painel_Aluno.py", "Painel Aluno", "🎓"),
+        P("app_pages/20_📊_Frequência_Escolar.py", "Frequencia Escolar", "📊"),
     ]
     sections["Acompanhamento"] = [
-        P("app_pages/01_📊_Quadro_Gestão.py", "Quadro Gestao", "📊"),
-        P("app_pages/02_🎯_Prioridades_da_Semana.py", "Prioridades SIGA", "🎯"),
         P("app_pages/13_🚦_Semáforo_Professor.py", "Semaforo Professor", "🚦"),
+        P("app_pages/01_📊_Quadro_Gestão.py", "Quadro Gestao", "📊"),
         P("app_pages/08_⚠️_Alertas_Conformidade.py", "Alertas Conformidade", "⚠️"),
+        P("app_pages/02_🎯_Prioridades_da_Semana.py", "Prioridades SIGA", "🎯"),
         P("app_pages/14_🧠_Alertas_Inteligentes.py", "Alertas Inteligentes", "🧠"),
     ]
     sections["Professores"] = [
-        P("app_pages/06_👨‍🏫_Visão_Professor.py", "Visao Professor", "👨‍🏫"),
-        P("app_pages/11_🖨️_Material_Professor.py", "Material Professor", "🖨️"),
         P("peex_pages/08_meus_professores.py", "Meus Professores", "👥"),
-        P("peex_pages/12_espelho_coordenador.py", "Meu Espelho", "🪞"),
         P("app_pages/25_💬_Devolutivas.py", "Devolutivas", "💬"),
-    ]
-    sections["Alunos"] = [
-        P("app_pages/19_🎓_Painel_Aluno.py", "Painel Aluno", "🎓"),
-        P("app_pages/20_📊_Frequência_Escolar.py", "Frequencia Escolar", "📊"),
-        P("app_pages/23_🚨_Alerta_Precoce_ABC.py", "Alerta Precoce ABC", "🚨"),
-        P("app_pages/22_📋_Ocorrências.py", "Ocorrencias", "📋"),
-        P("peex_pages/09_meus_alunos.py", "Meus Alunos", "🎒"),
+        P("app_pages/06_👨‍🏫_Visão_Professor.py", "Visao Professor", "👨‍🏫"),
+        P("peex_pages/12_espelho_coordenador.py", "Meu Espelho", "🪞"),
+        P("app_pages/11_🖨️_Material_Professor.py", "Material Professor", "🖨️"),
     ]
     sections["Curriculo e SAE"] = [
         P("app_pages/03_📚_Estrutura_Curricular.py", "Estrutura Curricular", "📚"),
         P("app_pages/05_📈_Progressão_SAE.py", "Progressao SAE", "📈"),
         P("app_pages/24_🔗_Cruzamento_SIGA_SAE.py", "Cruzamento SIGA SAE", "🔗"),
     ]
-    sections["Autogerencia"] = [
-        P("peex_pages/15_gerador_peex_unidade.py", "Minha Semana", "🎯"),
-        P("peex_pages/07_plano_acao.py", "Plano de Acao", "📝"),
-    ]
     sections["Relatorios"] = [
         P("app_pages/15_📄_Resumo_Semanal.py", "Resumo Semanal", "📄"),
         P("peex_pages/16_briefing_pdf.py", "Briefing PDF", "📄"),
         P("peex_pages/13_polinizacao.py", "Polinizacao", "🌸"),
         P("peex_pages/04_ranking_rede.py", "Rankings", "🏆"),
+    ]
+    sections["Apoio"] = [
+        P("app_pages/onboarding.py", "Onboarding", "🎓"),
+        P("app_pages/glossario.py", "Glossario", "📖"),
     ]
 
 pg = st.navigation(sections)
