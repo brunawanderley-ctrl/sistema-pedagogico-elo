@@ -46,8 +46,8 @@ _FALLBACK_USERS = {
         "role": "admin",
     },
     "bruna_vitoria": {
-        "password_hash": _hash_password("BrunaVitoria"),
-        "password": "BrunaVitoria",
+        "password_hash": _hash_password("Bruna"),
+        "password": "Bruna",
         "name": "Bruna Vitória — Coord. BV",
         "unit": "BV",
         "role": "coordenador",
@@ -73,17 +73,17 @@ _FALLBACK_USERS = {
         "unit": "CD",
         "role": "coordenador",
     },
-    "alline": {
-        "password_hash": _hash_password("Alline"),
-        "password": "Alline",
-        "name": "Alline — Coord. CD",
+    "alinne": {
+        "password_hash": _hash_password("Alinne"),
+        "password": "Alinne",
+        "name": "Alinne — Coord. CD",
         "unit": "CD",
         "role": "coordenador",
     },
-    "lecinane": {
-        "password_hash": _hash_password("Lecinane"),
-        "password": "Lecinane",
-        "name": "Lecinane — Coord. JG",
+    "leiciane": {
+        "password_hash": _hash_password("Leiciane"),
+        "password": "Leiciane",
+        "name": "Leiciane — Coord. JG",
         "unit": "JG",
         "role": "coordenador",
     },
