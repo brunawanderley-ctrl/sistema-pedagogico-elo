@@ -301,13 +301,18 @@ else:
             P("peex_pages/12_espelho_coordenador.py", "Meu Espelho", "🪞"),
             P("app_pages/11_🖨️_Material_Professor.py", "Material Professor", "🖨️"),
         ]
+        sections["Currículo e SAE (sob demanda)"] = [
+            P("app_pages/03_📚_Estrutura_Curricular.py", "Estrutura Curricular", "📚"),
+            P("app_pages/05_📈_Progressão_SAE.py", "Progressao SAE", "📈"),
+            P("app_pages/24_🔗_Cruzamento_SIGA_SAE.py", "Cruzamento SIGA SAE", "🔗"),
+        ]
         sections["Apoio (pontual)"] = [
             P("app_pages/onboarding.py", "Onboarding", "🎓"),
             P("app_pages/glossario.py", "Glossario", "📖"),
         ]
 
     else:
-        # === FASE 1 — CONHECER (semana 5: 23/02) — 10 páginas ===
+        # === FASE 1 — CONHECER (semana 5: 23/02) — 13 páginas ===
         sections["Autogerência (diário)"] = [
             P("app_pages/home.py", "Home", "🏠"),
             P("peex_pages/15_gerador_peex_unidade.py", "Minha Semana", "🎯"),
@@ -321,6 +326,11 @@ else:
             P("app_pages/13_🚦_Semáforo_Professor.py", "Semaforo Professor", "🚦"),
             P("app_pages/01_📊_Quadro_Gestão.py", "Quadro Gestao", "📊"),
             P("app_pages/08_⚠️_Alertas_Conformidade.py", "Alertas Conformidade", "⚠️"),
+        ]
+        sections["Currículo e SAE (sob demanda)"] = [
+            P("app_pages/03_📚_Estrutura_Curricular.py", "Estrutura Curricular", "📚"),
+            P("app_pages/05_📈_Progressão_SAE.py", "Progressao SAE", "📈"),
+            P("app_pages/24_🔗_Cruzamento_SIGA_SAE.py", "Cruzamento SIGA SAE", "🔗"),
         ]
         sections["Apoio (pontual)"] = [
             P("app_pages/onboarding.py", "Onboarding", "🎓"),
