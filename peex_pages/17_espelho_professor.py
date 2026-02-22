@@ -74,7 +74,6 @@ st.markdown("""
 
 role = get_user_role()
 if role != ROLE_PROFESSOR:
-    st.warning("Acesso restrito a professores.")
     st.stop()
 
 

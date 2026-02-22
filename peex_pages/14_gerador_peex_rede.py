@@ -21,7 +21,6 @@ from engine import carregar_missoes_pregeradas, carregar_comparador, carregar_pr
 
 role = get_user_role()
 if role != ROLE_CEO:
-    st.warning("Acesso restrito a CEO.")
     st.stop()
 
 

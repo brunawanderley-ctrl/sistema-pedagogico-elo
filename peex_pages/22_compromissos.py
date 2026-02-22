@@ -11,7 +11,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from auth import get_user_unit, get_user_role, ROLE_DIRETOR, ROLE_CEO
+from auth import get_user_unit, get_user_role, ROLE_DIRETOR, ROLE_CEO, ROLE_COORDENADOR
 from utils import calcular_semana_letiva, UNIDADES_NOMES, WRITABLE_DIR
 from components import cabecalho_pagina
 
@@ -36,8 +36,7 @@ st.markdown("""
 # ========== GATE ==========
 
 role = get_user_role()
-if role not in (ROLE_CEO, ROLE_DIRETOR):
-    st.warning("Acesso restrito a CEO e Diretores.")
+if role not in (ROLE_CEO, ROLE_DIRETOR, ROLE_COORDENADOR):
     st.stop()
 
 

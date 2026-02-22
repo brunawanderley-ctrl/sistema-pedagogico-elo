@@ -52,7 +52,6 @@ except ImportError:
 
 role = get_user_role()
 if role != ROLE_CEO:
-    st.warning("Acesso restrito ao Centro de Inteligencia PEEX. Perfil CEO necessario.")
     st.stop()
 
 

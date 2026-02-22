@@ -45,7 +45,6 @@ st.markdown("""
 
 role = get_user_role()
 if role not in (ROLE_CEO, ROLE_DIRETOR, 'coordenador'):
-    st.warning("Acesso restrito.")
     st.stop()
 
 

@@ -38,7 +38,6 @@ from peex_utils import (
 
 role = get_user_role()
 if role != ROLE_CEO:
-    st.warning("Acesso restrito a CEO.")
     st.stop()
 
 
