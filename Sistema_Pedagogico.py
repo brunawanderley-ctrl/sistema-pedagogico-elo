@@ -129,8 +129,8 @@ if role == 'ceo':
         P("peex_pages/genealogia.py", "Genealogia da Proposta", "🌳"),
         P("peex_pages/calendario_peex.py", "Calendario PEEX", "📅"),
     ]
-    sections["Reunioes PEEX"] = [
-        P("peex_pages/15_gerador_peex_unidade.py", "Pauta Reuniao", "📃"),
+    sections["Autogerencia"] = [
+        P("peex_pages/15_gerador_peex_unidade.py", "Minha Semana", "🎯"),
         P("peex_pages/07_plano_acao.py", "Plano de Acao", "📝"),
     ]
     sections["Estrategia"] = [
@@ -192,9 +192,9 @@ elif role == 'diretor':
         P("app_pages/05_📈_Progressão_SAE.py", "Progressao SAE", "📈"),
         P("app_pages/24_🔗_Cruzamento_SIGA_SAE.py", "Cruzamento SIGA SAE", "🔗"),
     ]
-    sections["Reunioes"] = [
+    sections["Autogerencia"] = [
+        P("peex_pages/15_gerador_peex_unidade.py", "Minha Semana", "🎯"),
         P("peex_pages/07_plano_acao.py", "Plano de Acao", "📝"),
-        P("peex_pages/15_gerador_peex_unidade.py", "Pauta Unidade", "📃"),
     ]
     sections["Estrategia"] = [
         P("peex_pages/03_scorecard_diretores.py", "Scorecard", "📊"),
@@ -252,8 +252,8 @@ else:
         P("app_pages/05_📈_Progressão_SAE.py", "Progressao SAE", "📈"),
         P("app_pages/24_🔗_Cruzamento_SIGA_SAE.py", "Cruzamento SIGA SAE", "🔗"),
     ]
-    sections["Reunioes PEEX"] = [
-        P("peex_pages/15_gerador_peex_unidade.py", "Pauta Reuniao", "📃"),
+    sections["Autogerencia"] = [
+        P("peex_pages/15_gerador_peex_unidade.py", "Minha Semana", "🎯"),
         P("peex_pages/07_plano_acao.py", "Plano de Acao", "📝"),
     ]
     sections["Relatorios"] = [

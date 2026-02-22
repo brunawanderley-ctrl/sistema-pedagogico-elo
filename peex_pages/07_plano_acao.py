@@ -306,7 +306,7 @@ _NUDGES_SEMANAIS = [
 
 # ========== MAIN ==========
 
-cabecalho_pagina("Plano de Acao Semanal", "Acoes concretas para esta semana")
+cabecalho_pagina("Meu Plano de Acao", "O que eu decidi fazer esta semana")
 
 semana = calcular_semana_letiva()
 user_unit = get_user_unit() or 'BV'

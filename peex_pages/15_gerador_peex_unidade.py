@@ -107,184 +107,275 @@ def _carregar_dados_unidade(unidade, semana):
     return dados
 
 
+import random
+from datetime import date
+
+# Banco de frases por etapa — rotaciona a cada dia/acesso
+_FRASES = {
+    'como_estamos': [
+        "O dia começa com a decisão de fazer diferença.",
+        "Sua presença muda o ambiente. Sua atencao muda os resultados.",
+        "Grandes líderes começam o dia perguntando: como posso ajudar?",
+        "A energia que você traz para a reunião define o tom da semana.",
+        "Estar presente de verdade já é metade do caminho.",
+        "Comece pelo que é possível. O extraordinário nasce do simples.",
+        "Cada semana é uma página em branco. Você decide o que escrever.",
+        "Liderar é cuidar. E cuidar começa por perguntar.",
+    ],
+    'raio_x': [
+        "Dados são aliados, não julgamentos. Eles mostram onde agir.",
+        "Quem conhece seus números toma decisões melhores.",
+        "Os números contam uma história. Qual história a sua unidade está contando?",
+        "Medir é o primeiro passo para transformar.",
+        "Não existe gestão sem informação. Você já está à frente.",
+        "Cada indicador é uma oportunidade disfarçada.",
+        "Olhar os dados com coragem é o que separa gestão de rotina.",
+        "A realidade não é obstáculo. É ponto de partida.",
+    ],
+    'quem_precisa': [
+        "As melhores soluções nascem de quem está mais perto do problema.",
+        "Pedir ajuda é sinal de inteligência, não de fraqueza.",
+        "Uma equipe forte se constrói quando todos sabem que podem contar uns com os outros.",
+        "Compartilhar uma boa prática multiplica o impacto de todo mundo.",
+        "Quem já passou por isso pode encurtar o caminho de quem está passando agora.",
+        "Colaboração não é dividir tarefas. É multiplicar capacidades.",
+        "A resposta que você procura pode estar na sala ao lado.",
+        "Conectar pessoas é o superpoder de um bom líder.",
+    ],
+    'o_que_vamos_fazer': [
+        "Um bom plano executado hoje vale mais que um plano perfeito adiado.",
+        "Compromisso com nome, ação e prazo. Sem isso, é só intenção.",
+        "Foco: escolha 3 coisas e faça bem feito. Melhor que 10 pela metade.",
+        "A diferença entre querer e fazer é uma decisão tomada agora.",
+        "Cada ação concreta desta semana constrói o resultado do trimestre.",
+        "Menos promessas, mais entregas. Comece pelo mais urgente.",
+        "Não tente resolver tudo. Resolva o que mais importa.",
+        "Ação imperfeita supera planejamento infinito.",
+    ],
+    'conquistas': [
+        "Celebrar o progresso é o que nos mantém em movimento.",
+        "Reconhecer o esforço da equipe não custa nada e vale tudo.",
+        "Cada pequena vitória é prova de que estamos no caminho certo.",
+        "Terminar com energia positiva é garantir que a próxima semana comece bem.",
+        "O que você celebra hoje vira cultura amanhã.",
+        "Gratidão transforma o clima de qualquer equipe.",
+        "Antes de pensar no que falta, olhe para o que já conquistamos.",
+        "O mérito é de quem faz acontecer no dia a dia.",
+    ],
+}
+
+
+def _frase_do_dia(categoria):
+    """Retorna frase rotativa baseada na data atual."""
+    hoje = date.today()
+    seed = hoje.toordinal() + hash(categoria) % 1000
+    rng = random.Random(seed)
+    return rng.choice(_FRASES[categoria])
+
+
 def _gerar_pauta_real(dados, semana, unidade, nome_un, info):
-    """Gera os 5 atos com dados reais da unidade."""
+    """Gera pauta de autogerencia com dados reais da unidade."""
     fase = info['fase']
-    prox = info.get('proxima_reuniao', {})
-    fmt = info.get('formato_reuniao', {})
 
-    # Determinar tom baseado na saude
+    etapas = []
+
+    # ===== 1. COMO ESTAMOS? =====
     if dados['conf'] >= 70 and dados['freq'] >= 85:
-        tom = 'positivo'
-        abertura = f"Boa semana, equipe! {nome_un} esta no caminho certo."
+        frase_abertura = (
+            f"Semana {semana}, {nome_un}. Os indicadores estao positivos — "
+            f"vamos manter o ritmo e celebrar o que conquistamos."
+        )
     elif dados['conf'] < 50 or dados['freq'] < 80:
-        tom = 'urgente'
-        abertura = f"Equipe, precisamos conversar. Os numeros desta semana pedem atencao."
+        frase_abertura = (
+            f"Semana {semana}, {nome_un}. Alguns indicadores pedem atencao "
+            f"imediata — mas lembre: reconhecer o problema e o primeiro passo "
+            f"para resolve-lo."
+        )
     else:
-        tom = 'atencao'
-        abertura = f"Semana de ajustes. Temos pontos bons e pontos que precisam de foco."
+        frase_abertura = (
+            f"Semana {semana}, {nome_un}. Estamos evoluindo, mas ainda temos "
+            f"espaco para crescer. Cada ajuste conta."
+        )
 
-    atos = []
-
-    # ===== ATO 1: RAIZES =====
-    atos.append({
-        'nome': 'Raizes',
-        'duracao': '5 min',
-        'cor': '#795548',
-        'abertura': abertura,
+    etapas.append({
+        'nome': 'Como Estamos?',
+        'cor': '#5C6BC0',
+        'icone': '🤝',
+        'frase': _frase_do_dia('como_estamos'),
         'itens': [
-            "Roda rapida: cada um diz em 1 palavra como esta chegando hoje.",
-            f"Estamos na Semana {semana} — Fase {fase['nome']}.",
+            "Roda rapida: em uma palavra, como voce esta chegando hoje?",
+            frase_abertura,
         ],
     })
 
-    # ===== ATO 2: SOLO (DADOS) =====
-    itens_solo = []
-    itens_solo.append(f"**Conformidade:** {dados['conf']:.0f}% (meta: 70%)")
-    itens_solo.append(f"**Frequencia:** {dados['freq']:.1f}% (meta: 88%)")
+    # ===== 2. RAIO-X DA SEMANA =====
+    itens_raio = []
+    itens_raio.append(f"**Conformidade:** {dados['conf']:.0f}% (meta: 70%)")
+    itens_raio.append(f"**Frequencia:** {dados['freq']:.1f}% (meta: 88%)")
 
     if dados['graves'] > 0:
-        itens_solo.append(f"**Ocorrencias graves:** {dados['graves']}")
+        itens_raio.append(f"**Ocorrencias graves:** {dados['graves']}")
     if dados['alunos_risco_pct'] > 15:
-        itens_solo.append(
-            f"**Alunos em risco:** {dados['alunos_risco_pct']:.0f}% "
-            f"({int(dados['total_alunos'] * dados['alunos_risco_pct'] / 100)} alunos)"
-        )
+        n_risco = int(dados['total_alunos'] * dados['alunos_risco_pct'] / 100)
+        itens_raio.append(f"**Alunos em risco:** {dados['alunos_risco_pct']:.0f}% ({n_risco} alunos)")
 
-    # Professores criticos com nomes
     if dados['profs_criticos']:
         nomes = ', '.join(f"{p} ({c:.0f}%)" for p, c in dados['profs_criticos'][:3])
-        itens_solo.append(f"**Professores criticos:** {nomes}")
+        itens_raio.append(f"**Professores que precisam de apoio:** {nomes}")
     elif dados.get('profs_criticos_n', 0) > 0:
-        itens_solo.append(f"**Professores criticos:** {dados['profs_criticos_n']}")
+        itens_raio.append(f"**Professores que precisam de apoio:** {dados['profs_criticos_n']}")
 
-    # Turmas com ocorrencias graves
     if dados['turmas_graves']:
         turmas_txt = ', '.join(f"{t} ({n})" for t, n in dados['turmas_graves'])
-        itens_solo.append(f"**Turmas com mais graves:** {turmas_txt}")
+        itens_raio.append(f"**Turmas que pedem atencao:** {turmas_txt}")
 
-    atos.append({
-        'nome': 'Solo',
-        'duracao': '10 min',
-        'cor': '#8D6E63',
-        'abertura': "Vamos olhar os numeros desta semana:",
-        'itens': itens_solo,
+    # Frases positivas inline
+    if dados['conf'] >= 70:
+        itens_raio.append("✅ Parabens! Conformidade acima da meta. O trabalho esta aparecendo.")
+    if dados['freq'] >= 88:
+        itens_raio.append("✅ Frequencia acima da meta! Os alunos estao presentes.")
+    if dados.get('profs_excelentes_n', len(dados.get('profs_excelentes', []))) > 0:
+        if dados['profs_excelentes']:
+            nomes_ex = ', '.join(p for p, _ in dados['profs_excelentes'])
+            itens_raio.append(f"✅ Destaque: {nomes_ex} — acima de 85%. Reconheca!")
+        else:
+            itens_raio.append(f"✅ {dados.get('profs_excelentes_n', 0)} professores acima de 85%!")
+
+    etapas.append({
+        'nome': 'Raio-X da Semana',
+        'cor': '#FF7043',
+        'icone': '📊',
+        'frase': _frase_do_dia('raio_x'),
+        'itens': itens_raio,
     })
 
-    # ===== ATO 3: MICELIO (CONEXOES) =====
-    itens_micelio = []
+    # ===== 3. QUEM PRECISA DE QUEM? =====
+    itens_rede = []
 
     if dados['profs_criticos']:
-        itens_micelio.append(
-            f"Quem pode ajudar os {len(dados['profs_criticos'])} professores "
-            f"com baixa conformidade? Algum colega da mesma disciplina?"
+        itens_rede.append(
+            f"Quem pode apoiar os {len(dados['profs_criticos'])} professores "
+            f"com dificuldade? Um colega da mesma area pode fazer a diferenca."
         )
     if dados['turmas_graves']:
         turma_pior = dados['turmas_graves'][0][0]
-        itens_micelio.append(
-            f"O que esta acontecendo no {turma_pior}? "
-            f"Quem tem turno com essa turma e pode observar?"
+        itens_rede.append(
+            f"Turma {turma_pior}: o que esta acontecendo? "
+            f"Quem conhece melhor essa turma?"
         )
     if dados['freq'] < 85:
-        itens_micelio.append(
-            "Quais alunos estao faltando? Alguem ja ligou para as familias?"
+        itens_rede.append(
+            "Quais alunos estao se afastando? "
+            "Quem na equipe pode ser a ponte com a familia?"
         )
 
-    if not itens_micelio:
-        itens_micelio = [
-            "Quem precisa de ajuda esta semana?",
-            "Quem pode compartilhar uma boa pratica?",
+    if not itens_rede:
+        itens_rede = [
+            "Alguem da equipe precisa de suporte esta semana?",
+            "Quem tem uma boa pratica para compartilhar com os colegas?",
         ]
 
-    itens_micelio.append(
-        "Algum professor pediu suporte que ainda nao foi atendido?"
-    )
+    itens_rede.append("Tem algum pedido de ajuda que ainda nao foi atendido?")
 
-    atos.append({
-        'nome': 'Micelio',
-        'duracao': '10 min',
-        'cor': '#43A047',
-        'abertura': "Hora das conexoes — ninguem resolve sozinho:",
-        'itens': itens_micelio,
+    etapas.append({
+        'nome': 'Quem Precisa de Quem?',
+        'cor': '#26A69A',
+        'icone': '🤲',
+        'frase': _frase_do_dia('quem_precisa'),
+        'itens': itens_rede,
     })
 
-    # ===== ATO 4: SEMENTES (COMPROMISSOS) =====
+    # ===== 4. O QUE VAMOS FAZER? =====
     compromissos = []
 
     if dados['profs_criticos']:
         n = len(dados['profs_criticos'])
         compromissos.append(
-            f"Conversar individualmente com os {n} professores criticos "
-            f"ate quarta-feira"
+            f"Conversar individualmente com os {n} professores que "
+            f"precisam de apoio — ate quarta-feira"
         )
     if dados['freq'] < 85:
         compromissos.append(
-            "Fazer busca ativa: ligar para familias dos alunos "
-            "com 3+ faltas esta semana"
+            "Busca ativa: ligar para as familias dos alunos "
+            "com 3 ou mais faltas nesta semana"
         )
     if dados['turmas_graves']:
         turma_pior = dados['turmas_graves'][0][0]
         compromissos.append(
-            f"Presenca na turma {turma_pior} por 2 dias consecutivos "
-            f"para observacao"
+            f"Estar presente na turma {turma_pior} por 2 dias "
+            f"consecutivos — observar e escutar antes de agir"
         )
     if dados.get('aulas_sem_conteudo', 0) > 5:
         compromissos.append(
-            f"Cobrar preenchimento de conteudo dos {dados['aulas_sem_conteudo']} "
-            f"registros vazios desta semana"
+            f"Apoiar os professores com {dados['aulas_sem_conteudo']} "
+            f"registros sem conteudo — perguntar: precisa de ajuda?"
         )
     if dados['conf'] < 50:
         compromissos.append(
-            "Reuniao rapida (15 min) com cada professor que nao registrou "
-            "nenhuma aula esta semana"
+            "Conversa de 15 min com cada professor que nao registrou "
+            "esta semana — ouvir primeiro, orientar depois"
         )
 
     if not compromissos:
         compromissos = [
-            "Manter o ritmo positivo — reconhecer 2 professores destaque",
-            "Revisar plano de acao da semana anterior",
-            "Identificar 1 melhoria para a proxima semana",
+            "Reconhecer publicamente 2 professores destaque da semana",
+            "Revisar o plano de acao anterior — o que funcionou?",
+            "Escolher 1 melhoria para testar na proxima semana",
         ]
 
-    atos.append({
-        'nome': 'Sementes',
-        'duracao': '10 min',
-        'cor': '#66BB6A',
-        'abertura': "Compromissos concretos — saimos daqui com nome, acao e prazo:",
+    etapas.append({
+        'nome': 'O Que Vamos Fazer?',
+        'cor': '#FFA726',
+        'icone': '🎯',
+        'frase': _frase_do_dia('o_que_vamos_fazer'),
         'itens': compromissos[:5],
     })
 
-    # ===== ATO 5: CHUVA (CELEBRACAO) =====
-    itens_chuva = []
+    # ===== 5. NOSSAS CONQUISTAS =====
+    itens_conquistas = []
 
     if dados['profs_excelentes']:
         nomes_ex = ', '.join(p for p, _ in dados['profs_excelentes'])
-        itens_chuva.append(f"Destaque da semana: {nomes_ex} (acima de 85%)")
-    if dados['conf'] > 60:
-        itens_chuva.append(
-            f"Conformidade em {dados['conf']:.0f}% — estamos evoluindo!"
+        itens_conquistas.append(
+            f"Parabens, {nomes_ex}! Voces sao referencia esta semana. "
+            f"O esforco de voces faz diferenca na vida dos alunos."
+        )
+    if dados['conf'] >= 60:
+        itens_conquistas.append(
+            f"Conformidade em {dados['conf']:.0f}% — cada ponto percentual "
+            f"representa um professor que esta fazendo acontecer."
         )
     if dados['freq'] >= 88:
-        itens_chuva.append(
-            f"Frequencia em {dados['freq']:.1f}% — acima da meta!"
+        itens_conquistas.append(
+            f"Frequencia em {dados['freq']:.1f}% — acima da meta! "
+            f"Alunos presentes sao alunos aprendendo."
+        )
+    if dados['graves'] == 0:
+        itens_conquistas.append(
+            "Zero ocorrencias graves esta semana. "
+            "Isso e resultado de um ambiente bem cuidado."
         )
 
-    if not itens_chuva:
-        itens_chuva.append(
-            "Qual foi a melhor coisa que aconteceu na unidade esta semana?"
+    if not itens_conquistas:
+        itens_conquistas.append(
+            "Qual foi a melhor coisa que aconteceu na nossa unidade esta semana? "
+            "Vamos reconhecer antes de encerrar."
         )
 
-    itens_chuva.append("NUNCA terminar com problema. Sair com energia positiva.")
+    itens_conquistas.append(
+        "Encerrar com energia positiva. "
+        "O que voce vai levar de bom desta reuniao?"
+    )
 
-    atos.append({
-        'nome': 'Chuva',
-        'duracao': '5 min',
-        'cor': '#29B6F6',
-        'abertura': "Encerrando com o que temos de bom:",
-        'itens': itens_chuva,
+    etapas.append({
+        'nome': 'Nossas Conquistas',
+        'cor': '#AB47BC',
+        'icone': '🏆',
+        'frase': _frase_do_dia('conquistas'),
+        'itens': itens_conquistas,
     })
 
-    return atos
+    return etapas
 
 
 # ========== CSS ==========
@@ -299,13 +390,9 @@ st.markdown("""
         background: #fafafa;
     }
     .ato-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         margin-bottom: 8px;
     }
     .ato-titulo { font-weight: bold; font-size: 1.1em; }
-    .ato-duracao { font-size: 0.85em; color: #888; }
     .ato-abertura {
         font-style: italic;
         color: #555;
@@ -326,7 +413,7 @@ st.markdown("""
 
 # ========== MAIN ==========
 
-cabecalho_pagina("Pauta da Reuniao", "Roteiro para reuniao semanal da unidade")
+cabecalho_pagina("Minha Semana", "Autogerencia: seu roteiro para liderar a semana")
 
 semana = calcular_semana_letiva()
 trimestre = calcular_trimestre(semana)
@@ -381,7 +468,7 @@ else:
     st.caption("Pauta gerada com dados reais da unidade")
 
 st.markdown("---")
-st.markdown("### Ritual de Floresta — 5 Atos")
+st.markdown("### Roteiro da Semana")
 
 if usar_robos:
     # ===== PATH ROBOS =====
@@ -443,47 +530,55 @@ if usar_robos:
 else:
     # ===== PATH DADOS REAIS =====
     if dados['tem_dados']:
-        atos = _gerar_pauta_real(dados, semana, user_unit, nome_un, info)
+        etapas = _gerar_pauta_real(dados, semana, user_unit, nome_un, info)
     else:
         # Fallback minimo
-        atos = [
-            {'nome': 'Raizes', 'duracao': '5 min', 'cor': '#795548',
-             'abertura': 'Check-in: como esta a energia da equipe?',
-             'itens': ['Roda rapida de uma palavra.']},
-            {'nome': 'Solo', 'duracao': '10 min', 'cor': '#8D6E63',
-             'abertura': 'Dados da semana:',
+        etapas = [
+            {'nome': 'Como Estamos?', 'cor': '#5C6BC0',
+             'icone': '🤝', 'frase': _frase_do_dia('como_estamos'),
+             'itens': ['Roda rapida: em uma palavra, como voce esta chegando hoje?']},
+            {'nome': 'Raio-X da Semana', 'cor': '#FF7043',
+             'icone': '📊', 'frase': _frase_do_dia('raio_x'),
              'itens': ['Sem dados carregados. Verifique se a extracao do SIGA foi executada.']},
-            {'nome': 'Micelio', 'duracao': '10 min', 'cor': '#43A047',
-             'abertura': 'Conexoes:',
+            {'nome': 'Quem Precisa de Quem?', 'cor': '#26A69A',
+             'icone': '🤲', 'frase': _frase_do_dia('quem_precisa'),
              'itens': ['Quem precisa de ajuda?', 'Quem pode compartilhar uma boa pratica?']},
-            {'nome': 'Sementes', 'duracao': '10 min', 'cor': '#66BB6A',
-             'abertura': 'Compromissos:',
+            {'nome': 'O Que Vamos Fazer?', 'cor': '#FFA726',
+             'icone': '🎯', 'frase': _frase_do_dia('o_que_vamos_fazer'),
              'itens': ['1. ___', '2. ___', '3. ___']},
-            {'nome': 'Chuva', 'duracao': '5 min', 'cor': '#29B6F6',
-             'abertura': 'Celebracao:',
-             'itens': ['Qual a melhor coisa da semana? NUNCA terminar com problema.']},
+            {'nome': 'Nossas Conquistas', 'cor': '#AB47BC',
+             'icone': '🏆', 'frase': _frase_do_dia('conquistas'),
+             'itens': ['Qual a melhor coisa da semana?']},
         ]
 
     pauta_texto_items = []
-    for i, ato in enumerate(atos, 1):
-        itens_html = f'<div class="ato-abertura">{ato["abertura"]}</div>'
-        for item in ato['itens']:
+    for i, etapa in enumerate(etapas, 1):
+        icone = etapa.get('icone', '')
+        frase = etapa.get('frase', '')
+
+        itens_html = ''
+        if frase:
+            itens_html += (
+                f'<div style="font-style:italic; color:#5C6BC0; '
+                f'margin-bottom:8px; font-size:0.92em;">"{frase}"</div>'
+            )
+        for item in etapa['itens']:
             itens_html += f'<div class="ato-item">• {item}</div>'
 
         st.markdown(f"""
-        <div class="ato-card" style="border-left-color:{ato['cor']};">
+        <div class="ato-card" style="border-left-color:{etapa['cor']};">
             <div class="ato-header">
-                <span class="ato-titulo">Ato {i}: {ato['nome']}</span>
-                <span class="ato-duracao">{ato['duracao']}</span>
+                <span class="ato-titulo">{icone} {etapa['nome']}</span>
             </div>
             {itens_html}
         </div>
         """, unsafe_allow_html=True)
 
         # Para exportacao
-        pauta_texto_items.append(f"ATO {i} — {ato['nome']} ({ato['duracao']})")
-        pauta_texto_items.append(f"  {ato['abertura']}")
-        for item in ato['itens']:
+        pauta_texto_items.append(f"{icone} {etapa['nome']}")
+        if frase:
+            pauta_texto_items.append(f'  "{frase}"')
+        for item in etapa['itens']:
             pauta_texto_items.append(f"  - {item}")
         pauta_texto_items.append("")
 
@@ -500,12 +595,12 @@ if topicos:
 # ========== NOTAS ==========
 
 st.markdown("---")
-st.markdown("### Notas da Reuniao")
+st.markdown("### Minhas Reflexoes")
 notas = st.text_area(
-    "Notas da reuniao",
+    "Minhas reflexoes",
     height=100,
     key="notas_peex_un",
-    placeholder="Anote aqui o que foi discutido, decisoes tomadas, observacoes...",
+    placeholder="O que aprendi esta semana? O que faria diferente? O que quero levar para a proxima...",
     label_visibility="collapsed",
 )
 
