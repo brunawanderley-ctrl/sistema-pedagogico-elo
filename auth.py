@@ -45,65 +45,65 @@ _FALLBACK_USERS = {
         "unit": None,
         "role": "admin",
     },
-    "bruna_vitoria": {
-        "password_hash": _hash_password("Bruna"),
-        "password": "Bruna",
+    "Bruna_Vitoria": {
+        "password_hash": _hash_password("bruna"),
+        "password": "bruna",
         "name": "Bruna Vitória — Coord. BV",
         "unit": "BV",
         "role": "coordenador",
     },
-    "gilberto": {
-        "password_hash": _hash_password("Gilberto"),
-        "password": "Gilberto",
+    "Gilberto": {
+        "password_hash": _hash_password("gilberto"),
+        "password": "gilberto",
         "name": "Gilberto Santos — Coord. BV",
         "unit": "BV",
         "role": "coordenador",
     },
-    "elisangela": {
-        "password_hash": _hash_password("Elisangela"),
-        "password": "Elisangela",
+    "Elisangela": {
+        "password_hash": _hash_password("elisangela"),
+        "password": "elisangela",
         "name": "Elisângela Luiz — Coord. CD",
         "unit": "CD",
         "role": "coordenador",
     },
-    "vanessa": {
-        "password_hash": _hash_password("Vanessa"),
-        "password": "Vanessa",
+    "Vanessa": {
+        "password_hash": _hash_password("vanessa"),
+        "password": "vanessa",
         "name": "Vanessa — Coord. CD",
         "unit": "CD",
         "role": "coordenador",
     },
-    "alinne": {
-        "password_hash": _hash_password("Alinne"),
-        "password": "Alinne",
+    "Alinne": {
+        "password_hash": _hash_password("alinne"),
+        "password": "alinne",
         "name": "Alinne — Coord. CD",
         "unit": "CD",
         "role": "coordenador",
     },
-    "leiciane": {
-        "password_hash": _hash_password("Leiciane"),
-        "password": "Leiciane",
+    "Leiciane": {
+        "password_hash": _hash_password("leiciane"),
+        "password": "leiciane",
         "name": "Leiciane — Coord. JG",
         "unit": "JG",
         "role": "coordenador",
     },
-    "pietro": {
-        "password_hash": _hash_password("Pietro"),
-        "password": "Pietro",
+    "Pietro": {
+        "password_hash": _hash_password("pietro"),
+        "password": "pietro",
         "name": "Pietro — Coord. JG",
         "unit": "JG",
         "role": "coordenador",
     },
-    "vanessa_cdr": {
-        "password_hash": _hash_password("Vanessa"),
-        "password": "Vanessa",
+    "VanessaP": {
+        "password_hash": _hash_password("vanessa"),
+        "password": "vanessa",
         "name": "Vanessa Porciúncula — Coord. CDR",
         "unit": "CDR",
         "role": "coordenador",
     },
-    "ana_claudia": {
-        "password_hash": _hash_password("Ana"),
-        "password": "Ana",
+    "Ana_Claudia": {
+        "password_hash": _hash_password("ana"),
+        "password": "ana",
         "name": "Ana Cláudia — Coord. CDR",
         "unit": "CDR",
         "role": "coordenador",
@@ -171,11 +171,13 @@ _RUNTIME_PASSWORD_OVERRIDES: dict[str, str] = {}  # usuario -> password_hash
 # ---------------------------------------------------------------------------
 
 def _get_users():
-    """Retorna dict de usuarios. Tenta st.secrets, fallback para hardcoded."""
+    """Retorna dict de usuarios com chaves normalizadas para lowercase.
+    Tenta st.secrets, fallback para hardcoded."""
     try:
-        return st.secrets["credentials"]["usernames"]
+        raw = st.secrets["credentials"]["usernames"]
     except (KeyError, FileNotFoundError, Exception):
-        return _FALLBACK_USERS
+        raw = _FALLBACK_USERS
+    return {k.lower(): v for k, v in raw.items()}
 
 
 def _resolve_password_hash(username: str) -> "tuple":
@@ -305,6 +307,7 @@ def check_password():
         submitted = st.form_submit_button("Entrar")
 
     if submitted:
+        username = username.strip().lower()
         if _validate_credentials(username, password):
             st.session_state["authenticated"] = True
             st.session_state["username"] = username
